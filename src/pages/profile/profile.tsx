@@ -13,14 +13,20 @@ import {
   f7,
 } from "framework7-react";
 import Layout from "@/layout/layout";
+import LanguageSwitcher from "@/components/LanguageSwitcher/LanguageSwitcher";
 
 const ProfilePage = () => {
-  const { logout } = useAuth();
-  const navigate = (path: string) => f7.tab.show(path);
+  const { logout, setActiveTabId } = useAuth();
+
+  const f7nav = ( path: string, id: string) => {
+    f7.views.main.router.navigate(path, { animate: false })
+    f7.tab.show(`#${id}`)
+  }
 
   const handleLogout = () => {
     f7.popup.close("#logoutConfirm");
-    navigate("#view-home");
+    f7nav('/', 'view-home')
+    setActiveTabId('view-home')
     logout();
   };
 
@@ -51,9 +57,17 @@ const ProfilePage = () => {
             placeholder="Bio"
             resizable
           />
+          <Block className="my-6">
+            <BlockTitle>Language Preferences</BlockTitle>
+            <div className="text-left">
+              <LanguageSwitcher />
+            </div>
+          </Block>
         </List>
 
-        <Button onClick={() => f7.popup.open("#logoutConfirm", false)}>Log out</Button>
+        <Button onClick={() => f7.popup.open("#logoutConfirm", false)}>
+          Log out
+        </Button>
 
         <CustomModal id="logoutConfirm">
           <p>Are you sure you want to log out?</p>

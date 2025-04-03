@@ -7,15 +7,16 @@ import Lottery, { GamePage } from "@/pages/games/lottery/Lottery";
 import ProfilePage from "@/pages/profile/profile";
 import Sports from "@/pages/games/sports/sports";
 import VideoPage from "@/pages/games/video/video";
-import { ComponentType } from "react";
 import GamesPage from "@/pages/games";
+import { Component } from "framework7";
 
 interface PageType {
   id: string;
   name: string;
   path: string;
-  component: ComponentType<any>;
+  component: Component
   category?: "games" | "default";
+  requiresAuth?: boolean
 }
 
 export const PageData: PageType[] = [

@@ -3,9 +3,9 @@ import {
   List,
   ListButton,
   ListInput,
+  LoginScreen,
   LoginScreenTitle,
   Page,
-  Popup,
   View,
 } from "framework7-react";
 import { useState } from "react";
@@ -14,15 +14,17 @@ import { useAuth } from "../AuthContext";
 export const LoginModal = () => {
   const [username, setUsername] = useState<string>("");
   const [password, setPassword] = useState<string>("");
-  const { login } = useAuth();
+  const { login, setActiveTabId } = useAuth();
 
   const handleLogin = () => {
     login();
-    f7.popup.close("#loginHere", false);
-    f7.tab.show("#view-home")
+    f7.loginScreen.close("#loginHere", false);
+    f7.views.main.router.navigate("/", { animate: false })
+    setActiveTabId("view-home")
   };
+
   return (
-    <Popup id="loginHere">
+    <LoginScreen id="loginHere">
       <View>
         <Page loginScreen>
           <LoginScreenTitle>Login</LoginScreenTitle>
@@ -44,9 +46,15 @@ export const LoginModal = () => {
           </List>
           <List>
             <ListButton title="Sign In" onClick={handleLogin} />
+            <ListButton title="Go Back" onClick={() => {
+              f7.loginScreen.close("#loginHere", false)
+              f7.views.main.router.navigate("/", { animate: false })
+              setActiveTabId("view-home")
+            }}
+            />
           </List>
         </Page>
       </View>
-    </Popup>
+    </LoginScreen>
   );
 };
