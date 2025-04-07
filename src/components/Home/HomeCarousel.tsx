@@ -32,7 +32,7 @@ const HomeCarousel = () => {
             <img
               src={`./assets/image/${img}`}
               alt={`Promotional Banner ${i + 1}`}
-              className="h-[25vh] w-full sm:h-full"
+              className="h-auto w-full sm:h-full"
             />
           </SwiperSlide>
         ))}
