@@ -1,10 +1,10 @@
-import Chess from "@/pages/desktop/chess/Chess";
-import Electronic from "@/pages/desktop/electronic/Electronic";
-import Fishing from "@/pages/desktop/fishing/fishing";
-import Lottery from "@/pages/desktop/lottery/Lottery";
-import Sports from "@/pages/desktop/sports/sports";
-import VideoPage from "@/pages/desktop/video/video";
-import HomePage from "@/pages/mobile/home";
+import Chess from "@/pages/games/chess/Chess";
+import Electronic from "@/pages/games/electronic/Electronic";
+import Fishing from "@/pages/games/fishing/fishing";
+import Lottery from "@/pages/games/lottery/Lottery";
+import Sports from "@/pages/games/sports/sports";
+import VideoPage from "@/pages/games/video/video";
+import HomePage from "@/pages/home";
 
 export const webRoutes = [
   {

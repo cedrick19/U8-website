@@ -1,11 +1,11 @@
 import type React from "react";
-import { App, Page, Tab, Tabs, View,} from "framework7-react";
+import { App, Page, Tab, Tabs, View } from "framework7-react";
 import NavBar from "./components/nav-bar/Navigation";
 import appRoutes from "./ts/appRoutes";
 import { getDevice } from "framework7";
 import { ToolMobile } from "./components/nav-bar";
-import HomePage from "./pages/mobile/home";
-import GamesIndexPage from "./pages/mobile/games";
+import HomePage from "./pages/home";
+import GamesIndexPage from "./pages/games";
 import NotFoundPage from "./pages/not-found/404";
 
 const appConfig = {
@@ -24,7 +24,7 @@ const MyApp: React.FC = () => {
         <View main tab url="/" browserHistory browserHistorySeparator="" />
       </>
     );
-  }
+  };
 
   const renderMobile = () => {
     return (
@@ -45,8 +45,8 @@ const MyApp: React.FC = () => {
           </Tab>
         </Tabs>
       </>
-    )
-  }
+    );
+  };
 
   return (
     <App {...appConfig}>
@@ -54,7 +54,7 @@ const MyApp: React.FC = () => {
         {!isMobile ? renderWeb() : renderMobile()}
       </Page>
     </App>
-  )
+  );
 };
 
 export default MyApp;

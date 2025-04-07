@@ -1,7 +1,5 @@
-import { CustomModal } from "@/components/CustomModal";
 import {
   Page,
-  Navbar,
   List,
   ListInput,
   ListItem,
@@ -11,38 +9,28 @@ import {
   Range,
   Block,
   f7,
+  Popup,
 } from "framework7-react";
 import Layout from "@/layout/layout";
+import LanguageSwitcher from "@/components/LanguageSwitcher/LanguageSwitcher";
 
-const ActivityPage = () => {
-  const navigate = (path: string) => f7.tab.show(path);
+const ProfilePage = () => {
+
+  const f7nav = ( path: string, id: string) => {
+    f7.views.main.router.navigate(path, { animate: false })
+    f7.tab.show(`#${id}`)
+  }
 
   const handleLogout = () => {
     f7.popup.close("#logoutConfirm");
-    navigate("#view-home");
+    f7nav('/', 'view-home')
   };
 
   return (
     <Page name="settings">
       <Layout>
-        <Navbar title="Settings" />
         <BlockTitle>Form Example</BlockTitle>
         <List strongIos outlineIos dividersIos>
-          <ListInput label="Name" type="text" placeholder="Your name" />
-
-          <ListInput label="E-mail" type="email" placeholder="E-mail" />
-
-          <ListInput label="URL" type="url" placeholder="URL" />
-
-          <ListInput label="Password" type="password" placeholder="Password" />
-
-          <ListInput label="Phone" type="tel" placeholder="Phone" />
-
-          <ListInput label="Gender" type="select">
-            <option>Male</option>
-            <option>Female</option>
-          </ListInput>
-
           <ListInput
             label="Birth date"
             type="date"
@@ -65,11 +53,19 @@ const ActivityPage = () => {
             placeholder="Bio"
             resizable
           />
+          <Block className="my-6">
+            <BlockTitle>Language Preferences</BlockTitle>
+            <div className="text-left">
+              <LanguageSwitcher />
+            </div>
+          </Block>
         </List>
 
-        <Button onClick={() => f7.popup.open("#logoutConfirm")}>Log out</Button>
+        <Button onClick={() => f7.popup.open("#logoutConfirm", false)}>
+          Log out
+        </Button>
 
-        <CustomModal id="logoutConfirm">
+        <Popup id="logoutConfirm">
           <p>Are you sure you want to log out?</p>
           <Block className="grid-gap grid grid-cols-2">
             <Button popupClose="#logoutConfirm">Cancel</Button>
@@ -77,10 +73,10 @@ const ActivityPage = () => {
               Log out
             </Button>
           </Block>
-        </CustomModal>
+        </Popup>
       </Layout>
     </Page>
   );
 };
 
-export default ActivityPage;
+export default ProfilePage;
