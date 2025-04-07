@@ -1,7 +1,9 @@
 import { webRoutes } from "@/ts/routes";
 import { Block, Button, Icon, Link } from "framework7-react";
+import { useState } from "react";
 
 export const NavBar = () => {
+  const [activeTab, setActiveTab] = useState<number>(0)
   return (
     <Block
       className={`container mx-auto flex h-8 w-full items-center justify-between`}
@@ -26,8 +28,8 @@ export const NavBar = () => {
       <Block className="flex w-3/5 justify-center">
         <Block className="flex space-x-6 text-xs">
           {webRoutes.map((route, ids) => (
-            <Link key={ids} href={route.path} rippleColor="none">
-              <span className="bg-primary-gradient bg-clip-text font-bold text-transparent">
+            <Link key={ids} href={route.path} rippleColor="none" onClick={() => setActiveTab(ids)}>
+              <span className={`${activeTab === ids ? "bg-primary-gradient bg-clip-text font-black text-transparent" : "text-inactive"}`}>
                 {route.name.toUpperCase()}
               </span>
             </Link>
