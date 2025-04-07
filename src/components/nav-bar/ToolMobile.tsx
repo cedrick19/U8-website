@@ -66,7 +66,7 @@ export const ToolMobile = () => {
                     />
                 </svg>
                 <Link
-                    className="bg-primary-gradient rounded-full w-14 h-14 sm:w-28 sm:h-28 shadow-secondary/30 absolute left-1/2 -translate-x-1/2 bottom-8"
+                    className="bg-primary-gradient rounded-full w-14 h-14 sm:w-28 sm:h-28 shadow-[#613EEA]/50 shadow-xl absolute left-1/2 -translate-x-1/2 bottom-8 md:bottom-16"
                     tabLink="#home"
                     onClick={() => setActiveTab(null)}
                 >
@@ -78,10 +78,10 @@ export const ToolMobile = () => {
                         tabLink={`#${item.tabLink}`}
                         rippleColor="none"
                         onClick={() => setActiveTab(ids)}
-                        className={cn("flex flex-col py-1", ids % 2 === 0 ? "pl-6" : "pr-6")}
+                        className={cn("flex flex-col", ids % 2 === 0 ? "pl-6" : "pr-6")}
                     >
-                        <img src={activeTab === ids ? item.icons.iconOn : item.icons.iconOff} className="h-8 sm:h-10" />
-                        <span className={cn("text-xs sm:text-2xl", 
+                        <img src={activeTab === ids ? item.icons.iconOn : item.icons.iconOff} className="h-6 sm:h-8 md:h-10" />
+                        <span className={cn("text-xs sm:text-2xl mt-2", 
                             activeTab === ids
                             ? "text-gradient" 
                             : "text-inactive")}
