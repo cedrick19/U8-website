@@ -119,3 +119,9 @@ html,
 body {
   @apply font-sans;
 }
+
+@layer utilities {
+  .text-gradient {
+    @apply bg-primary-gradient text-transparent bg-clip-text
+  }
+}

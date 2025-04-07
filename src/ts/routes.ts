@@ -1,3 +1,4 @@
+import ActivityPage from "@/pages/activity/Activity";
 import Chess from "@/pages/games/chess/Chess";
 import Electronic from "@/pages/games/electronic/Electronic";
 import Fishing from "@/pages/games/fishing/fishing";
@@ -42,4 +43,9 @@ export const webRoutes = [
     name: "Fishing",
     component: Fishing,
   },
+  {
+    path: "/promotions/",
+    name: "Preferential Activities",
+    component: ActivityPage,
+  }
 ];
