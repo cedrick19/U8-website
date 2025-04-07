@@ -53,7 +53,7 @@ export const ToolMobile = () => {
         <>
             <Block className="w-full flex flex-row justify-between absolute z-10 -bottom-10 h-20 sm:h-40">
                 <svg
-                    className="absolute bottom-0 left-0 z-0 w-full h-full shadow-secondary/30"
+                    className="absolute left-0 z-0 w-full h-full shadow-secondary/30"
                     viewBox="0 0 440 85"
                     preserveAspectRatio="xMidYMid slice"
                 >
@@ -66,7 +66,7 @@ export const ToolMobile = () => {
                     />
                 </svg>
                 <Link
-                    className="bg-primary-gradient rounded-full w-12 h-12 sm:w-24 sm:h-24 shadow-secondary/30 absolute left-1/2 -translate-x-1/2"
+                    className="bg-primary-gradient rounded-full w-14 h-14 sm:w-28 sm:h-28 shadow-secondary/30 absolute left-1/2 -translate-x-1/2 bottom-8"
                     tabLink="#home"
                     onClick={() => setActiveTab(null)}
                 >
@@ -78,7 +78,7 @@ export const ToolMobile = () => {
                         tabLink={`#${item.tabLink}`}
                         rippleColor="none"
                         onClick={() => setActiveTab(ids)}
-                        className={cn("flex flex-col py-3", ids % 2 === 0 ? "pl-6" : "pr-6")}
+                        className={cn("flex flex-col py-1", ids % 2 === 0 ? "pl-6" : "pr-6")}
                     >
                         <img src={activeTab === ids ? item.icons.iconOn : item.icons.iconOff} className="h-8 sm:h-10" />
                         <span className={cn("text-xs sm:text-2xl", 
