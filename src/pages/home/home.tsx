@@ -63,7 +63,7 @@ const HomePage = () => {
         <Navbar innerClassName="bg-gradient-to-r from-secondary/0 to-secondary/20">
           <NavLeft>
             <Link tabLink="#view-home">
-              <img src="/assets/image/logo.svg" className="w-30 h-7" />
+              <img src="/assets/image/logo.png" className="w-30 h-7" />
             </Link>
             <Link href="#">
               <img
