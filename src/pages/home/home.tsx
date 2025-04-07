@@ -20,7 +20,7 @@ import "swiper/css/navigation";
 import Layout from "@/layout/layout";
 import { getDevice } from "framework7";
 import { useState, useEffect } from "react";
-import TextCarousel from "./TextCarousel";
+import TextCarousel from "../../components/TextCarousel/TextCarousel";
 
 const HomePage = () => {
   const { t } = useTranslation();
