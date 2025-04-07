@@ -6,7 +6,8 @@ import { getDevice } from "framework7";
 import { ToolMobile } from "./components/nav-bar";
 import HomePage from "./pages/home";
 import GamesIndexPage from "./pages/games";
-import NotFoundPage from "./pages/not-found/404";
+import ActivityPage from "./pages/activity/Activity";
+import ProfilePage from "./pages/profile/profile";
 
 const appConfig = {
   name: "u8",
@@ -38,10 +39,10 @@ const MyApp: React.FC = () => {
             <GamesIndexPage />
           </Tab>
           <Tab id="activity">
-            <NotFoundPage />
+            <ActivityPage />
           </Tab>
           <Tab id="profile">
-            <NotFoundPage />
+            <ProfilePage />
           </Tab>
         </Tabs>
       </>
