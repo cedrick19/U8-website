@@ -8,8 +8,8 @@ import {
   NavRight,
 } from "framework7-react";
 import { useTranslation } from "react-i18next";
-
-import { LoginModal } from "@/components/LoginModal";
+import { useEffect, useMemo, useState, useCallback } from "react";
+import { getDevice } from "framework7";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Autoplay, Navigation } from "swiper/modules";
@@ -18,48 +18,47 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 
 import Layout from "@/layout/layout";
-import { getDevice } from "framework7";
-import { useState, useEffect } from "react";
-import TextCarousel from "../../components/TextCarousel/TextCarousel";
+import { LoginModal } from "@/components/LoginModal";
+import TextCarousel from "@/components/TextCarousel/TextCarousel";
 
 const HomePage = () => {
   const { t } = useTranslation();
+
   const [isHovered, setIsHovered] = useState(false);
   const [isEyeOn, setIsEyeOn] = useState(true);
   const [isSpinning, setIsSpinning] = useState(false);
-
-  const isMobile = getDevice().ios || getDevice().android;
-
   const [isTablet, setIsTablet] = useState(false);
 
+  const isMobile = useMemo(() => {
+    const device = getDevice();
+    return device.ios || device.android;
+  }, []);
+
+  const isSmallDevice = isMobile || isTablet;
+
   useEffect(() => {
-    const checkTablet = () => {
+    const handleResize = () => {
       const width = window.innerWidth;
       setIsTablet(width >= 600 && width <= 1024);
     };
 
-    checkTablet();
-
-    window.addEventListener("resize", checkTablet);
-    return () => {
-      window.removeEventListener("resize", checkTablet);
-    };
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  const toggleEye = () => {
-    setIsEyeOn(!isEyeOn);
-  };
+  const toggleEye = useCallback(() => {
+    setIsEyeOn((prev) => !prev);
+  }, []);
 
-  const handleRefreshClick = () => {
+  const handleRefreshClick = useCallback(() => {
     setIsSpinning(true);
-    setTimeout(() => {
-      setIsSpinning(false);
-    }, 400);
-  };
+    setTimeout(() => setIsSpinning(false), 400);
+  }, []);
 
   return (
     <Page>
-      {(isMobile || isTablet) && (
+      {isSmallDevice && (
         <Navbar innerClassName="bg-gradient-to-r from-secondary/0 to-secondary/20">
           <NavLeft>
             <Link tabLink="#view-home">
@@ -78,14 +77,13 @@ const HomePage = () => {
             <Link href="#">
               <img
                 src="./assets/image/bell.svg"
-                alt="Promotional Banner 1"
+                alt="Notifications"
                 className="text-xl text-white"
               />
             </Link>
           </NavRight>
         </Navbar>
       )}
-
       <div
         className="relative w-full"
         onMouseEnter={() => setIsHovered(true)}
@@ -102,35 +100,32 @@ const HomePage = () => {
           modules={[Navigation, Pagination, Autoplay]}
           className="w-full sm:h-10 md:h-auto"
         >
-          <SwiperSlide>
-            <img
-              src="./assets/image/carousel1.jpg"
-              alt="Promotional Banner 1"
-              className="h-[25vh] w-full sm:h-full"
-            />
-          </SwiperSlide>
-          <SwiperSlide>
-            <img
-              src="./assets/image/carousel2.jpg"
-              alt="Promotional Banner 2"
-              className="h-[25vh] w-full sm:h-full"
-            />
-          </SwiperSlide>
+          {["carousel1.jpg", "carousel2.jpg"].map((img, i) => (
+            <SwiperSlide key={i}>
+              <img
+                src={`./assets/image/${img}`}
+                alt={`Promotional Banner ${i + 1}`}
+                className="h-[25vh] w-full sm:h-full"
+              />
+            </SwiperSlide>
+          ))}
         </Swiper>
 
         <div className="hidden md:block">
-          <Button
-            className={`swiper-button-prev absolute left-4 top-1/2 hidden bg-opacity-60 p-4 text-white transition-opacity duration-300 md:flex ${isHovered ? "opacity-100" : "opacity-0"}`}
-          />
-
-          <Button
-            className={`swiper-button-next absolute right-4 top-1/2 hidden bg-opacity-60 p-4 text-white transition-opacity duration-300 md:flex ${isHovered ? "opacity-100" : "opacity-0"}`}
-          />
+          {["prev", "next"].map((dir) => (
+            <Button
+              key={dir}
+              className={`swiper-button-${dir} absolute ${
+                dir === "prev" ? "left-4" : "right-4"
+              } top-1/2 hidden bg-opacity-60 p-4 text-white transition-opacity duration-300 md:flex ${
+                isHovered ? "opacity-100" : "opacity-0"
+              }`}
+            />
+          ))}
         </div>
       </div>
-
-      {(isMobile || isTablet) && (
-        <div className="space-y-5 rounded-b-[2rem] border-violet-800 pt-3 shadow-[0_4px_10px_rgba(138,43,226,0.5),0_2px_5px_rgba(138,43,226,0.3)]">
+      {isSmallDevice && (
+        <div className="space-y-5 rounded-b-[2rem] border-violet-800 p-2 pt-3 shadow-[0_4px_10px_rgba(138,43,226,0.5),0_2px_5px_rgba(138,43,226,0.3)]">
           <TextCarousel />
           <div className="flex w-full items-center justify-between p-3">
             <div className="flex items-center">
@@ -145,8 +140,8 @@ const HomePage = () => {
                   <img src="./assets/image/VIP.svg" alt="VIP" />
                   <img
                     src={`./assets/image/${isEyeOn ? "eye-on" : "eye-off"}.svg`}
-                    className="ml-2 h-5 w-5 cursor-pointer text-gray-500"
-                    alt="eye"
+                    className="ml-2 h-5 w-5 cursor-pointer"
+                    alt="eye toggle"
                     onClick={toggleEye}
                   />
                 </div>
@@ -155,24 +150,28 @@ const HomePage = () => {
                   <div className="flex h-6 w-6 items-center justify-center rounded-full bg-purple-900">
                     <img
                       src="./assets/image/refresh.svg"
-                      className={`h-3 w-3 cursor-pointer transition-transform duration-1000 ${isSpinning ? "rotate-[1080deg]" : ""}`}
                       alt="refresh"
                       onClick={handleRefreshClick}
+                      className={`h-3 w-3 cursor-pointer transition-transform duration-1000 ${
+                        isSpinning ? "rotate-[1080deg]" : ""
+                      }`}
                     />
                   </div>
                 </div>
               </div>
             </div>
             <div className="flex">
-              <Button className="mr-2 flex h-12 w-12 items-center justify-center rounded-full bg-purple-900">
-                <img src="./assets/image/chat.svg" className="h-5 w-5" />
-              </Button>
-              <Button className="flex h-12 w-12 items-center justify-center rounded-full bg-purple-900">
-                <img
-                  src="./assets/image/customer-service.svg"
-                  className="h-5 w-5"
-                />
-              </Button>
+              {["chat.svg", "customer-service.svg"].map((icon, i) => (
+                <Button
+                  key={i}
+                  className="mr-1 flex h-12 w-12 items-center justify-center rounded-full bg-purple-900 last:mr-0"
+                >
+                  <img
+                    src={`./assets/image/${icon}`}
+                    className="h-full w-full"
+                  />
+                </Button>
+              ))}
             </div>
           </div>
         </div>
