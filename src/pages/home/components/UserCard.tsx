@@ -55,7 +55,7 @@ const UserCard = () => {
           {["chat.svg", "customer-service.svg"].map((icon, i) => (
             <Button
               key={i}
-              className="mr-1 flex h-10 w-10 items-center justify-center rounded-full bg-purple-900 last:mr-0"
+              className="mr-1 flex h-12 w-12 items-center justify-center rounded-full bg-purple-900 last:mr-0"
             >
               <img src={`./assets/image/${icon}`} className="h-full w-full" />
             </Button>
