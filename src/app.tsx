@@ -1,43 +1,59 @@
 import type React from "react";
-
-import { App, f7, View } from "framework7-react";
-import { useEffect } from "react";
-import routes from "./ts/routes";
+import { App, Page, Tab, Tabs, View } from "framework7-react";
 import NavBar from "./components/nav-bar/Navigation";
-import { AuthProvider } from "./components/AuthContext";
-import { CustomModal } from "./components/CustomModal";
+import appRoutes from "./ts/appRoutes";
+import { getDevice } from "framework7";
+import { ToolMobile } from "./components/nav-bar";
+import HomePage from "./pages/home";
+import GamesIndexPage from "./pages/games";
+import NotFoundPage from "./pages/not-found/404";
 
 const appConfig = {
-  name: "gamingwebsite",
+  name: "u8",
   theme: "auto",
-  routes,
+  routes: appRoutes,
 };
 
 const MyApp: React.FC = () => {
-  useEffect(() => {
-    f7.popup.open("#welcome", false)
+  const isMobile = getDevice().android || getDevice().ios;
 
-    if (window.location.pathname !== "/") {
-      window.history.replaceState({}, "", "/");
-    }
-  }, []);
-
-  return (
-    <AuthProvider>
-      <App {...appConfig}>
+  const renderWeb = () => {
+    return (
+      <>
         <NavBar />
         <View main tab url="/" browserHistory browserHistorySeparator="" />
+      </>
+    );
+  };
 
-        <CustomModal
-          title="Welcome!"
-          id="welcome"
-          onClose={() => f7.popup.close("#welcome", false)}
-          isNavbar={true}
-        >
-          Welcome!
-        </CustomModal>
-      </App>
-    </AuthProvider>
+  const renderMobile = () => {
+    return (
+      <>
+        <ToolMobile />
+        <Tabs>
+          <Tab id="home" tabActive>
+            <HomePage />
+          </Tab>
+          <Tab id="games">
+            <GamesIndexPage />
+          </Tab>
+          <Tab id="activity">
+            <NotFoundPage />
+          </Tab>
+          <Tab id="profile">
+            <NotFoundPage />
+          </Tab>
+        </Tabs>
+      </>
+    );
+  };
+
+  return (
+    <App {...appConfig}>
+      <Page pageContent={false}>
+        {!isMobile ? renderWeb() : renderMobile()}
+      </Page>
+    </App>
   );
 };
 

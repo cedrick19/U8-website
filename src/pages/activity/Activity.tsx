@@ -1,5 +1,3 @@
-import { CustomModal } from "@/components/CustomModal";
-import { useAuth } from "@/components/AuthContext";
 import {
   Page,
   Navbar,
@@ -12,17 +10,16 @@ import {
   Range,
   Block,
   f7,
+  Popup,
 } from "framework7-react";
 import Layout from "@/layout/layout";
 
 const ActivityPage = () => {
-  const { logout } = useAuth();
   const navigate = (path: string) => f7.tab.show(path);
 
   const handleLogout = () => {
     f7.popup.close("#logoutConfirm");
     navigate("#view-home");
-    logout();
   };
 
   return (
@@ -72,7 +69,7 @@ const ActivityPage = () => {
 
         <Button onClick={() => f7.popup.open("#logoutConfirm")}>Log out</Button>
 
-        <CustomModal id="logoutConfirm">
+        <Popup id="logoutConfirm">
           <p>Are you sure you want to log out?</p>
           <Block className="grid-gap grid grid-cols-2">
             <Button popupClose="#logoutConfirm">Cancel</Button>
@@ -80,7 +77,7 @@ const ActivityPage = () => {
               Log out
             </Button>
           </Block>
-        </CustomModal>
+        </Popup>
       </Layout>
     </Page>
   );

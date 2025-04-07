@@ -1,11 +1,45 @@
-import NotFoundPage from "@/pages/not-found/404";
-import { Router } from "framework7/types";
-import { DynamicPageData, PageData } from "./PageData";
+import Chess from "@/pages/games/chess/Chess";
+import Electronic from "@/pages/games/electronic/Electronic";
+import Fishing from "@/pages/games/fishing/fishing";
+import Lottery from "@/pages/games/lottery/Lottery";
+import Sports from "@/pages/games/sports/sports";
+import VideoPage from "@/pages/games/video/video";
+import HomePage from "@/pages/home";
 
-const routes: Router.RouteParameters[] = [
-  ...PageData.map(({ path, component }) => ({ path, component })),
-  ...DynamicPageData.map(({ path, component }) => ({ path, component })),
-  { path: "(.*)", component: NotFoundPage },
+export const webRoutes = [
+  {
+    path: "/",
+    name: "Home",
+    component: HomePage,
+  },
+  {
+    path: "/games/lottery/",
+    name: "Lottery",
+    component: Lottery,
+  },
+  {
+    path: "/games/sports/",
+    name: "Sports",
+    component: Sports,
+  },
+  {
+    path: "/games/video/",
+    name: "Video",
+    component: VideoPage,
+  },
+  {
+    path: "/games/electronic/",
+    name: "Electronic",
+    component: Electronic,
+  },
+  {
+    path: "/games/chess/",
+    name: "Chess",
+    component: Chess,
+  },
+  {
+    path: "/games/fishing/",
+    name: "Fishing",
+    component: Fishing,
+  },
 ];
-
-export default routes;
