@@ -6,8 +6,8 @@ import { getDevice } from "framework7";
 import Layout from "@/layout/layout";
 import { LoginModal } from "@/components/LoginModal";
 import HomeNavbar from "@/components/Home/HomeNavbar";
-import HomeCarousel from "@/components/Home/HomeCarousel";
-import UserCard from "@/components/Home/UserCard";
+import HomeCarousel from "./components/HomeCarousel";
+import UserCard from "./components/UserCard";
 
 const HomePage = () => {
   const { t } = useTranslation();
