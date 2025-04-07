@@ -1,5 +1,4 @@
 import { CustomModal } from "@/components/CustomModal";
-import { useAuth } from "@/hooks/useAuth";
 import {
   Page,
   Navbar,
@@ -16,13 +15,11 @@ import {
 import Layout from "@/layout/layout";
 
 const ActivityPage = () => {
-  const { logout } = useAuth();
   const navigate = (path: string) => f7.tab.show(path);
 
   const handleLogout = () => {
     f7.popup.close("#logoutConfirm");
     navigate("#view-home");
-    logout();
   };
 
   return (

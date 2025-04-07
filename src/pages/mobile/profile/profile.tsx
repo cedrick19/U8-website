@@ -1,5 +1,4 @@
 import { CustomModal } from "@/components/CustomModal";
-import { useAuth } from "@/hooks/useAuth";
 import {
   Page,
   List,
@@ -16,7 +15,6 @@ import Layout from "@/layout/layout";
 import LanguageSwitcher from "@/components/LanguageSwitcher/LanguageSwitcher";
 
 const ProfilePage = () => {
-  const { logout, setActiveTabId } = useAuth();
 
   const f7nav = ( path: string, id: string) => {
     f7.views.main.router.navigate(path, { animate: false })
@@ -26,8 +24,6 @@ const ProfilePage = () => {
   const handleLogout = () => {
     f7.popup.close("#logoutConfirm");
     f7nav('/', 'view-home')
-    setActiveTabId('view-home')
-    logout();
   };
 
   return (
