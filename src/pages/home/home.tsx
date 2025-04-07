@@ -1,6 +1,5 @@
 import {
   Block,
-  Icon,
   Link,
   Page,
   Navbar,
@@ -19,6 +18,8 @@ import "swiper/css/navigation";
 import Layout from "@/layout/layout";
 import { getDevice } from "framework7";
 import { useState } from "react";
+import Telegram from "@/assets/image/icons/telegram_logo.png"
+import { cn } from "@/globals/utils";
 
 const HomePage = () => {
   const { t } = useTranslation();
@@ -32,7 +33,7 @@ const HomePage = () => {
         <Navbar innerClassName="p-5 bg-gradient-to-r from-secondary/0 to-secondary/20">
           <NavLeft>
             <Link tabLink="#view-home" className="flex flex-col">
-              <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-xl font-bold text-transparent">
+              <span className="text-gradient text-xl font-bold">
                 U8.COM
               </span>
               <span
@@ -42,7 +43,7 @@ const HomePage = () => {
               </span>
             </Link>
             <Link href="#">
-              <Icon f7="logo_telegram" className="text-blue-500" />
+              <img src={Telegram} className="h-8"/>
               <span className="ml-1 text-xs">@t.u2support</span>
             </Link>
           </NavLeft>
@@ -84,15 +85,15 @@ const HomePage = () => {
 
         <div className="hidden md:block">
           <Button
-            className={`swiper-button-prev absolute left-4 top-1/2 hidden bg-opacity-60 p-4 text-white transition-opacity duration-300 md:flex ${
-              isHovered ? "opacity-100" : "opacity-0"
-            }`}
+            className={cn("swiper-button-prev absolute left-4 top-1/2 hidden bg-opacity-60 p-4 text-white transition-opacity duration-300 md:flex",
+              isHovered ? "opacity-100" : "opacity-0")
+            }
           />
 
           <Button
-            className={`swiper-button-next absolute right-4 top-1/2 hidden bg-opacity-60 p-4 text-white transition-opacity duration-300 md:flex ${
-              isHovered ? "opacity-100" : "opacity-0"
-            }`}
+            className={cn("swiper-button-next absolute right-4 top-1/2 hidden bg-opacity-60 p-4 text-white transition-opacity duration-300 md:flex",
+              isHovered ? "opacity-100" : "opacity-0")
+            }
           />
         </div>
       </div>
