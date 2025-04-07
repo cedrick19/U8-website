@@ -48,7 +48,7 @@ const MobileNavItems = [
 ]
 
 export const ToolMobile = () => {
-    const [activeTab, setActiveTab] = useState<number | null>(0)
+    const [activeTab, setActiveTab] = useState<number>(0)
     return (
         <>
             <Block className="w-full flex flex-row justify-between absolute z-10 -bottom-10 h-20 sm:h-40">
@@ -68,9 +68,9 @@ export const ToolMobile = () => {
                 <Link
                     className="bg-primary-gradient rounded-full w-14 h-14 sm:w-28 sm:h-28 shadow-[#613EEA]/50 shadow-xl absolute left-1/2 -translate-x-1/2 bottom-8 md:bottom-16"
                     tabLink="#home"
-                    onClick={() => setActiveTab(null)}
+                    onClick={() => setActiveTab(5)}
                 >
-                    <img src={activeTab === null ? CoinActive : CoinInactive} className="h-16 sm:h-20"/>
+                    <img src={activeTab === 5 ? CoinActive : CoinInactive} className="h-16 sm:h-20"/>
                 </Link>
                 {MobileNavItems.map((item, ids) => (
                     <Link
