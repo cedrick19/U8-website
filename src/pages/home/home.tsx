@@ -2,9 +2,8 @@ import { Page, Block } from "framework7-react";
 import { useTranslation } from "react-i18next";
 import { useEffect, useMemo, useState } from "react";
 import { getDevice } from "framework7";
-
-import Layout from "@/layout/layout";
 import { LoginModal } from "@/components/LoginModal";
+import Layout from "@/layout/layout";
 import HomeNavbar from "@/components/Home/HomeNavbar";
 import HomeCarousel from "./components/HomeCarousel";
 import UserCard from "./components/UserCard";
