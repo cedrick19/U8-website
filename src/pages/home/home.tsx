@@ -1,11 +1,11 @@
 import {
   Block,
-  Icon,
   Link,
   Page,
   Navbar,
   NavLeft,
   Button,
+  NavRight,
 } from "framework7-react";
 import { useTranslation } from "react-i18next";
 
@@ -16,36 +16,73 @@ import { Pagination, Autoplay, Navigation } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
+
 import Layout from "@/layout/layout";
 import { getDevice } from "framework7";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import TextCarousel from "../../components/TextCarousel/TextCarousel";
 
 const HomePage = () => {
   const { t } = useTranslation();
   const [isHovered, setIsHovered] = useState(false);
-  const isMobile = getDevice().ios || getDevice().android || window.matchMedia("(max-width: 1024px)").matches;;
+  const [isEyeOn, setIsEyeOn] = useState(true);
+  const [isSpinning, setIsSpinning] = useState(false);
+
+  const isMobile = getDevice().ios || getDevice().android;
+
+  const [isTablet, setIsTablet] = useState(false);
+
+  useEffect(() => {
+    const checkTablet = () => {
+      const width = window.innerWidth;
+      setIsTablet(width >= 600 && width <= 1024);
+    };
+
+    checkTablet();
+
+    window.addEventListener("resize", checkTablet);
+    return () => {
+      window.removeEventListener("resize", checkTablet);
+    };
+  }, []);
+
+  const toggleEye = () => {
+    setIsEyeOn(!isEyeOn);
+  };
+
+  const handleRefreshClick = () => {
+    setIsSpinning(true);
+    setTimeout(() => {
+      setIsSpinning(false);
+    }, 400);
+  };
 
   return (
     <Page>
-      {/* Mobile Banner Layout */}
-      {isMobile && (
-        <Navbar innerClassName="p-5 bg-gradient-to-r from-secondary/0 to-secondary/20">
+      {(isMobile || isTablet) && (
+        <Navbar innerClassName="bg-gradient-to-r from-secondary/0 to-secondary/20">
           <NavLeft>
-            <Link tabLink="#view-home" className="flex flex-col">
-              <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-xl font-bold text-transparent">
-                U8.COM
-              </span>
-              <span
-                className={`text-xs font-light ${getDevice().ios && "text-black"}`}
-              >
-                Chinese Gaming
-              </span>
+            <Link tabLink="#view-home">
+              <img src="/assets/image/logo.svg" className="w-30 h-7" />
             </Link>
             <Link href="#">
-              <Icon f7="logo_telegram" className="text-blue-500" />
-              <span className="ml-1 text-xs">@t.u2support</span>
+              <img
+                src="/assets/image/Telegram.png"
+                alt="Telegram Logo"
+                className="h-full w-full"
+              />
             </Link>
           </NavLeft>
+
+          <NavRight className="flex items-end justify-end">
+            <Link href="#">
+              <img
+                src="./assets/image/bell.svg"
+                alt="Promotional Banner 1"
+                className="text-xl text-white"
+              />
+            </Link>
+          </NavRight>
         </Navbar>
       )}
 
@@ -54,7 +91,6 @@ const HomePage = () => {
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
       >
-        {/* Swiper Component */}
         <Swiper
           slidesPerView={1}
           pagination={{ clickable: true }}
@@ -64,38 +100,83 @@ const HomePage = () => {
             prevEl: ".swiper-button-prev",
           }}
           modules={[Navigation, Pagination, Autoplay]}
-          className="h-52 w-full sm:h-10 md:h-auto"
+          className="w-full sm:h-10 md:h-auto"
         >
           <SwiperSlide>
             <img
               src="./assets/image/carousel1.jpg"
               alt="Promotional Banner 1"
-              className="h-full w-full"
+              className="h-[25vh] w-full sm:h-full"
             />
           </SwiperSlide>
           <SwiperSlide>
             <img
               src="./assets/image/carousel2.jpg"
               alt="Promotional Banner 2"
-              className="h-full w-full"
+              className="h-[25vh] w-full sm:h-full"
             />
           </SwiperSlide>
         </Swiper>
 
         <div className="hidden md:block">
           <Button
-            className={`swiper-button-prev absolute left-4 top-1/2 hidden bg-opacity-60 p-4 text-white transition-opacity duration-300 md:flex ${
-              isHovered ? "opacity-100" : "opacity-0"
-            }`}
+            className={`swiper-button-prev absolute left-4 top-1/2 hidden bg-opacity-60 p-4 text-white transition-opacity duration-300 md:flex ${isHovered ? "opacity-100" : "opacity-0"}`}
           />
 
           <Button
-            className={`swiper-button-next absolute right-4 top-1/2 hidden bg-opacity-60 p-4 text-white transition-opacity duration-300 md:flex ${
-              isHovered ? "opacity-100" : "opacity-0"
-            }`}
+            className={`swiper-button-next absolute right-4 top-1/2 hidden bg-opacity-60 p-4 text-white transition-opacity duration-300 md:flex ${isHovered ? "opacity-100" : "opacity-0"}`}
           />
         </div>
       </div>
+
+      {(isMobile || isTablet) && (
+        <div className="space-y-5 rounded-b-[2rem] border-violet-800 pt-3 shadow-[0_4px_10px_rgba(138,43,226,0.5),0_2px_5px_rgba(138,43,226,0.3)]">
+          <TextCarousel />
+          <div className="flex w-full items-center justify-between p-3">
+            <div className="flex items-center">
+              <img
+                src="./assets/image/playeraccount.jpg"
+                alt="Profile"
+                className="h-12 w-12 rounded-full border-2 border-gray-200"
+              />
+              <div className="ml-3">
+                <div className="flex items-center">
+                  <span className="mr-2 text-gray-800">username</span>
+                  <img src="./assets/image/VIP.svg" alt="VIP" />
+                  <img
+                    src={`./assets/image/${isEyeOn ? "eye-on" : "eye-off"}.svg`}
+                    className="ml-2 h-5 w-5 cursor-pointer text-gray-500"
+                    alt="eye"
+                    onClick={toggleEye}
+                  />
+                </div>
+                <div className="flex items-center gap-2">
+                  <span className="text-2xl font-bold">0.00</span>
+                  <div className="flex h-6 w-6 items-center justify-center rounded-full bg-purple-900">
+                    <img
+                      src="./assets/image/refresh.svg"
+                      className={`h-3 w-3 cursor-pointer transition-transform duration-1000 ${isSpinning ? "rotate-[1080deg]" : ""}`}
+                      alt="refresh"
+                      onClick={handleRefreshClick}
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="flex">
+              <Button className="mr-2 flex h-12 w-12 items-center justify-center rounded-full bg-purple-900">
+                <img src="./assets/image/chat.svg" className="h-5 w-5" />
+              </Button>
+              <Button className="flex h-12 w-12 items-center justify-center rounded-full bg-purple-900">
+                <img
+                  src="./assets/image/customer-service.svg"
+                  className="h-5 w-5"
+                />
+              </Button>
+            </div>
+          </div>
+        </div>
+      )}
 
       <Layout>
         this is home
@@ -104,6 +185,7 @@ const HomePage = () => {
           <p className="text-gray-600">{t("description")}</p>
         </Block>
       </Layout>
+
       <LoginModal />
     </Page>
   );
