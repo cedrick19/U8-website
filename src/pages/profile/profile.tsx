@@ -1,5 +1,3 @@
-import { CustomModal } from "@/components/CustomModal";
-import { useAuth } from "@/components/AuthContext";
 import {
   Page,
   List,
@@ -11,12 +9,12 @@ import {
   Range,
   Block,
   f7,
+  Popup,
 } from "framework7-react";
 import Layout from "@/layout/layout";
 import LanguageSwitcher from "@/components/LanguageSwitcher/LanguageSwitcher";
 
 const ProfilePage = () => {
-  const { logout, setActiveTabId } = useAuth();
 
   const f7nav = ( path: string, id: string) => {
     f7.views.main.router.navigate(path, { animate: false })
@@ -26,8 +24,6 @@ const ProfilePage = () => {
   const handleLogout = () => {
     f7.popup.close("#logoutConfirm");
     f7nav('/', 'view-home')
-    setActiveTabId('view-home')
-    logout();
   };
 
   return (
@@ -69,7 +65,7 @@ const ProfilePage = () => {
           Log out
         </Button>
 
-        <CustomModal id="logoutConfirm">
+        <Popup id="logoutConfirm">
           <p>Are you sure you want to log out?</p>
           <Block className="grid-gap grid grid-cols-2">
             <Button popupClose="#logoutConfirm">Cancel</Button>
@@ -77,7 +73,7 @@ const ProfilePage = () => {
               Log out
             </Button>
           </Block>
-        </CustomModal>
+        </Popup>
       </Layout>
     </Page>
   );

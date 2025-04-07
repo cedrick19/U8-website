@@ -9,18 +9,14 @@ import {
   View,
 } from "framework7-react";
 import { useState } from "react";
-import { useAuth } from "../AuthContext";
 
 export const LoginModal = () => {
   const [username, setUsername] = useState<string>("");
   const [password, setPassword] = useState<string>("");
-  const { login, setActiveTabId } = useAuth();
 
   const handleLogin = () => {
-    login();
     f7.loginScreen.close("#loginHere", false);
     f7.views.main.router.navigate("/", { animate: false })
-    setActiveTabId("view-home")
   };
 
   return (
@@ -49,7 +45,6 @@ export const LoginModal = () => {
             <ListButton title="Go Back" onClick={() => {
               f7.loginScreen.close("#loginHere", false)
               f7.views.main.router.navigate("/", { animate: false })
-              setActiveTabId("view-home")
             }}
             />
           </List>
