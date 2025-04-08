@@ -1,4 +1,4 @@
-import HomeNavbar from "@/components/Home/HomeNavbar";
+import HomeNavbar from "@/components/MobileNavbar/HomeNavbar";
 import Layout from "@/layout/layout";
 import { getDevice } from "framework7";
 import { Page, Block } from "framework7-react";

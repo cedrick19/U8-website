@@ -4,7 +4,7 @@ import { useEffect, useMemo, useState } from "react";
 import { getDevice } from "framework7";
 import { LoginModal } from "@/components/LoginModal";
 import Layout from "@/layout/layout";
-import HomeNavbar from "@/components/Home/HomeNavbar";
+import HomeNavbar from "@/components/MobileNavbar/HomeNavbar";
 import HomeCarousel from "./components/HomeCarousel";
 import UserCard from "./components/UserCard";
 

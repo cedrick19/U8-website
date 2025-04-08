@@ -13,7 +13,7 @@ import {
 } from "framework7-react";
 import Layout from "@/layout/layout";
 import LanguageSwitcher from "@/components/LanguageSwitcher/LanguageSwitcher";
-import HomeNavbar from "@/components/Home/HomeNavbar";
+import HomeNavbar from "@/components/MobileNavbar/HomeNavbar";
 import { getDevice } from "framework7";
 import { useState, useMemo, useEffect } from "react";
 
