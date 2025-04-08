@@ -18,11 +18,7 @@ const HomeNavbar = () => {
 
       <NavRight className="flex items-end justify-end">
         <Link href="#">
-          <img
-            src="./assets/image/bell.svg"
-            alt="Notifications"
-            className="text-xl text-white"
-          />
+          <img src="./assets/image/bell.svg" alt="Notifications" />
         </Link>
       </NavRight>
     </Navbar>

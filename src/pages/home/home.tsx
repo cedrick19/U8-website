@@ -7,6 +7,7 @@ import Layout from "@/layout/layout";
 import HomeNavbar from "@/components/MobileNavbar/HomeNavbar";
 import HomeCarousel from "./components/HomeCarousel";
 import UserCard from "./components/UserCard";
+import TextCarousel from "./components/TextCarousel";
 
 const HomePage = () => {
   const { t } = useTranslation();
@@ -35,6 +36,7 @@ const HomePage = () => {
     <Page>
       {isSmallDevice && <HomeNavbar />}
       <HomeCarousel />
+      <TextCarousel />
       {isSmallDevice && <UserCard />}
       <Layout>
         <Block>
