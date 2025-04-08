@@ -12,7 +12,7 @@ const HomeCarousel = () => {
 
   return (
     <div
-      className="relative w-full"
+      className="relative w-full pb-3"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
