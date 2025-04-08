@@ -1,5 +1,5 @@
 import type React from "react";
-import { App, Page, Tab, Tabs, View } from "framework7-react";
+import { App, Page, View, Views } from "framework7-react";
 import NavBar from "./components/nav-bar/Navigation";
 import appRoutes from "./ts/appRoutes";
 import { getDevice } from "framework7";
@@ -14,6 +14,29 @@ const appConfig = {
   theme: "auto",
   routes: appRoutes,
 };
+
+const TabRoutes = [
+  {
+    path: "/home/",
+    id: "home",
+    content: HomePage,
+  },
+  {
+    path: "/games/",
+    id: "games",
+    content: GamesIndexPage,
+  },
+  {
+    path: "/activity/",
+    id: "activity",
+    content: ActivityPage,
+  },
+  {
+    path: "/profile/",
+    id: "profile",
+    content: ProfilePage,
+  },
+]
 
 const MyApp: React.FC = () => {
   const isMobile = getDevice().android || getDevice().ios;
@@ -30,21 +53,19 @@ const MyApp: React.FC = () => {
   const renderMobile = () => {
     return (
       <>
-        <ToolMobile />
-        <Tabs>
-          <Tab id="home" tabActive>
-            <HomePage />
-          </Tab>
-          <Tab id="games">
-            <GamesIndexPage />
-          </Tab>
-          <Tab id="activity">
-            <ActivityPage />
-          </Tab>
-          <Tab id="profile">
-            <ProfilePage />
-          </Tab>
-        </Tabs>
+        <Views tabs>
+          <ToolMobile />
+          {TabRoutes.map((tabRoute, ids) => (
+            <View
+              key={ids}
+              tab
+              main={tabRoute.path === "Home"}
+              url={tabRoute.path}
+              tabActive={tabRoute.path === "home"}
+              name={tabRoute.id}
+            />
+          ))}
+        </Views>
       </>
     );
   };

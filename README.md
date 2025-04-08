@@ -1,4 +1,5 @@
-# gU8.COM
+# U8.COM
+
 This is an attempt to set a project up to replicate and improve upon u8.com.
 
 ## Framework7 CLI Options
@@ -29,6 +30,7 @@ This application is a Framework7 app created with following options:
 ## Install Dependencies
 
 For the installation of dependencies listed in `package.json`, just run:
+
 ```
 npm install
 ```
@@ -62,9 +64,10 @@ framework7 assets --ui
 ```
 
 ## Coding Principles
-- Consistency: Stick to the conventions laid out in this document. 
+
+- Consistency: Stick to the conventions laid out in this document.
 - Readability: Write your code as if the next person to maintain it is a member of the Italian Mafia and knows your address. It should be legible and easy to follow.
 - Comments: Comment your code whenever necessary, but please. Avoid obvious comments.
 - Naming conventions: Use camel case for naming variables, and upper case for constants. Make the file names so clear it's almost obvious.
-- Commits and pull requests: As much as possible, make commits descriptive. For pull requests, including changelogs are encouraged for ease of review.
+- Commits and pull requests: As much as possible, make commits descriptive. For pull requests, including changelogs are encouraged for ease of review. NO COMMITS SHALL BE MADE DIRECTLY INTO THE "dev" BRANCH UNLESS IT'S A HIGH PRIORITY CHANGE.
 - Responsibility: Anyone who breaks the repository will spend the night fixing it "ALL BY THEMSELVES".

@@ -28,7 +28,7 @@ export const NavBar = () => {
 
       <Block className="flex w-3/5 justify-center">
         <Block className="flex space-x-6 text-xs">
-          {webRoutes.map((route, ids) => (
+          {webRoutes.filter((page) => page.name !== "Games").map((route, ids) => (
             <Link key={ids} href={route.path} rippleColor="none" onClick={() => setActiveTab(ids)} animate={false}>
               <span className={activeTab === ids ? "text-gradient font-black" : "text-inactive font-semibold"}>
                 {route.name.toUpperCase()}
