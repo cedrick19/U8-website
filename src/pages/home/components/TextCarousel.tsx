@@ -1,13 +1,41 @@
 import { useEffect, useRef, useState } from "react";
 
+type Notification = {
+  message: string;
+  game: string;
+  price: string;
+};
+
 export default function MarqueeNotification() {
   const containerRef = useRef<HTMLDivElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
   const [position, setPosition] = useState(0);
 
-  const notificationData = [
-    { message: "Congratulations to the player c**** in Canada 4.2-4.6 W" },
-    { message: "Congratulations to the player c**** in Canada 4.2-4.6 W" },
+  const notificationData: Notification[] = [
+    {
+      message:
+        "Congratulations to the player c**** in Canada win {price} of game {game}",
+      game: "Mahjong",
+      price: "40000Yuan",
+    },
+    {
+      message:
+        "Congratulations to the player B**** in Philippines win {price} of game {game}",
+      game: "Lottery",
+      price: "40000Yuan",
+    },
+    {
+      message:
+        "Congratulations to the player B**** in india win {price} of game {game}",
+      game: "Bingo",
+      price: "40000Yen",
+    },
+    {
+      message:
+        "Congratulations to the player h**** in malaysia win {price} of game {game}",
+      game: "fishing",
+      price: "4000Yen",
+    },
   ];
 
   useEffect(() => {
@@ -36,6 +64,28 @@ export default function MarqueeNotification() {
     };
   }, []);
 
+  const renderMessage = (template: string, price: string, game: string) => {
+    const parts = template.split(/({price}|{game})/g);
+
+    return parts.map((part, index) => {
+      if (part === "{price}") {
+        return (
+          <span key={`price-${index}`} className="font-semibold text-green-600">
+            {price}
+          </span>
+        );
+      }
+      if (part === "{game}") {
+        return (
+          <span key={`game-${index}`} className="font-semibold text-red-600">
+            {game}
+          </span>
+        );
+      }
+      return <span key={index}>{part}</span>;
+    });
+  };
+
   return (
     <div className="mx-5 overflow-hidden rounded-full border-[4px] border-purple-900 bg-white shadow-md md:container md:mx-auto">
       <div
@@ -59,17 +109,11 @@ export default function MarqueeNotification() {
           }}
         >
           <div className="flex items-center">
-            {notificationData.map((item, index) => (
+            {[...notificationData, ...notificationData].map((item, index) => (
               <span key={index} className="mr-8 flex items-center px-2">
-                <span className="font-medium">{item.message}</span>
-              </span>
-            ))}
-            {notificationData.map((item, index) => (
-              <span
-                key={`duplicate-${index}`}
-                className="mr-8 flex items-center px-2"
-              >
-                <span className="font-medium">{item.message}</span>
+                <span className="font-medium">
+                  {renderMessage(item.message, item.price, item.game)}
+                </span>
               </span>
             ))}
           </div>

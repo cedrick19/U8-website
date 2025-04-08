@@ -38,7 +38,7 @@ const HomePage = () => {
           navRight={
             <>
               <img
-                src="/assets/image/bell.svg" // Path to your image
+                src="/assets/image/bell.svg"
                 alt="Profile Logo"
                 className="h-15 w-15"
               />
