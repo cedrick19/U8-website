@@ -15,7 +15,7 @@ const UserCard = () => {
   }, []);
 
   const userImages = {
-    profile: "./assets/image/playeraccount.jpg",
+    profile: "./assets/image/playerAccount.jpg",
     vip: "./assets/image/VIP.svg",
     eye: `./assets/image/${isEyeOn ? "eye-on" : "eye-off"}.svg`,
     refresh: "./assets/image/refresh.svg",
