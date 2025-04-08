@@ -7,7 +7,7 @@ import { ToolMobile } from "./components/nav-bar";
 import HomePage from "./pages/home";
 import GamesIndexPage from "./pages/games";
 import ActivityPage from "./pages/activity/Activity";
-import ProfilePage from "./pages/profile/profile";
+import ProfilePage from "./pages/profile/ProfilePage";
 
 const appConfig = {
   name: "u8",
