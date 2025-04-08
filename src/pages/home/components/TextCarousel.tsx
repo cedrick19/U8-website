@@ -37,7 +37,7 @@ export default function MarqueeNotification() {
   }, []);
 
   return (
-    <div className="mx-5 overflow-hidden rounded-full border-[4px] border-purple-900 bg-white shadow-md">
+    <div className="mx-5 overflow-hidden rounded-full border-[4px] border-purple-900 bg-white shadow-md md:container md:mx-auto">
       <div
         ref={containerRef}
         className="relative flex h-[34px] w-full overflow-hidden rounded-full"
