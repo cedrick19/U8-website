@@ -7,7 +7,7 @@ import Lottery from "@/pages/games/lottery/Lottery";
 import Sports from "@/pages/games/sports/sports";
 import VideoPage from "@/pages/games/video/video";
 import HomePage from "@/pages/home";
-import ProfilePage from "@/pages/profile/profile";
+import ProfilePage from "@/pages/profile/ProfilePage";
 
 const gameRoutes = [
   {
