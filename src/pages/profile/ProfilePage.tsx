@@ -67,7 +67,7 @@ const ProfilePage = () => {
             className="w-25 h-10"
           />
         </NavLeft>
-        <NavRight className="gap-2">
+        <NavRight className="gap-2 pr-3">
           <Icon material="notifications" size={30} className="text-[#4A226E]" />
           <Icon material="settings" size={30} className="text-[#4A226E]" />
         </NavRight>
