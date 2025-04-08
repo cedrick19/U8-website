@@ -1,13 +1,9 @@
 import type React from "react";
-import { App, Page, Tab, Tabs, View } from "framework7-react";
+import { App, Page, View } from "framework7-react";
 import NavBar from "./components/nav-bar/Navigation";
 import appRoutes from "./ts/appRoutes";
 import { getDevice } from "framework7";
 import { ToolMobile } from "./components/nav-bar";
-import HomePage from "./pages/home";
-import GamesIndexPage from "./pages/games";
-import ActivityPage from "./pages/activity/Activity";
-import ProfilePage from "./pages/profile/profile";
 
 const appConfig = {
   name: "u8",
@@ -30,21 +26,9 @@ const MyApp: React.FC = () => {
   const renderMobile = () => {
     return (
       <>
-        <ToolMobile />
-        <Tabs>
-          <Tab id="home" tabActive>
-            <HomePage />
-          </Tab>
-          <Tab id="games">
-            <GamesIndexPage />
-          </Tab>
-          <Tab id="activity">
-            <ActivityPage />
-          </Tab>
-          <Tab id="profile">
-            <ProfilePage />
-          </Tab>
-        </Tabs>
+        <View tab main url="/" browserHistory browserHistorySeparator="">
+          <ToolMobile />
+        </View>
       </>
     );
   };

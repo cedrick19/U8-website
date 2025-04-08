@@ -1,51 +1,9 @@
 import { Block, Link } from "framework7-react"
-import HomeOn from "@/assets/image/icons/home-on.svg"
-import HomeOff from "@/assets/image/icons/home-off.svg"
-import GamesOn from "@/assets/image/icons/games-on.svg"
-import GamesOff from "@/assets/image/icons/games-off.svg"
-import ActivityOn from "@/assets/image/icons/activity-on.svg"
-import ActivityOff from "@/assets/image/icons/activity-off.svg"
-import ProfileOn from "@/assets/image/icons/profile-on.svg"
-import ProfileOff from "@/assets/image/icons/profile-off.svg"
 import { useState } from "react"
 import { cn } from "@/globals/utils"
 import CoinActive from "@/assets/image/icons/coin-on.svg"
 import CoinInactive from "@/assets/image/icons/coin-off.svg"
-
-const MobileNavItems = [
-    {
-        tabLink: "home",
-        text: "Home",
-        icons: {
-            iconOn: HomeOn,
-            iconOff: HomeOff,
-        },
-    },
-    {
-        tabLink: "games",
-        text: "Games",
-        icons: {
-            iconOn: GamesOn,
-            iconOff: GamesOff,
-        },
-    },
-    {
-        tabLink: "activity",
-        text: "Activity",
-        icons: {
-            iconOn: ActivityOn,
-            iconOff: ActivityOff,
-        },
-    },
-    {
-        tabLink: "profile",
-        text: "Profile",
-        icons: {
-            iconOn: ProfileOn,
-            iconOff: ProfileOff,
-        },
-    },
-]
+import { MobileNavItems } from "./utils"
 
 export const ToolMobile = () => {
     const [activeTab, setActiveTab] = useState<number>(0)
@@ -67,7 +25,6 @@ export const ToolMobile = () => {
                 </svg>
                 <Link
                     className="bg-primary-gradient rounded-full w-14 h-14 sm:w-28 sm:h-28 shadow-[#613EEA]/50 shadow-xl absolute left-1/2 -translate-x-1/2 bottom-8 md:bottom-16"
-                    tabLink="#home"
                     onClick={() => setActiveTab(5)}
                 >
                     <img src={activeTab === 5 ? CoinActive : CoinInactive} className="h-16 sm:h-20"/>
@@ -75,7 +32,7 @@ export const ToolMobile = () => {
                 {MobileNavItems.map((item, ids) => (
                     <Link
                         key={ids}
-                        tabLink={`#${item.tabLink}`}
+                        href={item.tabLink === "home" ? "/" : `/${item.tabLink}/`}
                         rippleColor="none"
                         onClick={() => setActiveTab(ids)}
                         className={cn("flex flex-col", ids % 2 === 0 ? "pl-6" : "pr-6")}
