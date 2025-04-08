@@ -1,4 +1,5 @@
 import ActivityPage from "@/pages/activity/Activity";
+import GamesIndexPage from "@/pages/games";
 import Chess from "@/pages/games/chess/Chess";
 import Electronic from "@/pages/games/electronic/Electronic";
 import Fishing from "@/pages/games/fishing/fishing";
@@ -6,12 +7,13 @@ import Lottery from "@/pages/games/lottery/Lottery";
 import Sports from "@/pages/games/sports/sports";
 import VideoPage from "@/pages/games/video/video";
 import HomePage from "@/pages/home";
+import ProfilePage from "@/pages/profile/ProfilePage";
 
-export const webRoutes = [
+const gameRoutes = [
   {
-    path: "/",
-    name: "Home",
-    component: HomePage,
+    path: "/games/",
+    name: "Games",
+    component: GamesIndexPage,
   },
   {
     path: "/games/lottery/",
@@ -43,9 +45,23 @@ export const webRoutes = [
     name: "Fishing",
     component: Fishing,
   },
+]
+
+export const webRoutes = [
   {
-    path: "/promotions/",
-    name: "Preferential Activities",
-    component: ActivityPage,
-  }
+    path: "/",
+    name: "Home",
+    component: HomePage,
+  },
+  {
+    path: "/activity/",
+    name: "Activity",
+    component: ActivityPage
+  },
+  {
+    path: "/profile/",
+    name: "Profile",
+    component: ProfilePage,
+  },
+  ...gameRoutes
 ];
