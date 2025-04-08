@@ -6,6 +6,8 @@ import {
   Card,
   CardContent,
   f7,
+  NavRight,
+  Icon,
 } from "framework7-react";
 import ProfileCard from "./component/ProfileCard";
 import GamesManagement from "@/assets/image/icons/game_management.svg";
@@ -65,6 +67,15 @@ const ProfilePage = () => {
             className="w-25 h-10"
           />
         </NavLeft>
+        <NavRight className="gap-2">
+          {/* <img
+            src={Bell}
+            className="h-10 w-10"
+            onClick={() => handleNavigate("tab", "home")}
+          /> */}
+          <Icon material="notifications" size={30} className="text-[#4A226E]" />
+          <Icon material="settings" size={30} className="text-[#4A226E]" />
+        </NavRight>
       </Navbar>
       <Block className="flex h-16 items-center">
         <img
