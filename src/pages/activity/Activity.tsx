@@ -13,6 +13,9 @@ import {
   Popup,
 } from "framework7-react";
 import Layout from "@/layout/layout";
+import HomeNavbar from "@/components/MobileNavbar/HomeNavbar";
+import { getDevice } from "framework7";
+import { useState, useMemo, useEffect } from "react";
 
 const ActivityPage = () => {
   const navigate = (path: string) => f7.tab.show(path);
@@ -21,9 +24,29 @@ const ActivityPage = () => {
     f7.popup.close("#logoutConfirm");
     navigate("#view-home");
   };
+  const [isTablet, setIsTablet] = useState(false);
+
+  const isMobile = useMemo(() => {
+    const device = getDevice();
+    return device.ios || device.android;
+  }, []);
+
+  const isSmallDevice = isMobile || isTablet;
+
+  useEffect(() => {
+    const handleResize = () => {
+      const width = window.innerWidth;
+      setIsTablet(width >= 600 && width <= 1024);
+    };
+
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   return (
     <Page name="settings">
+      {isSmallDevice && <HomeNavbar />}
       <Layout>
         <Navbar title="Settings" />
         <BlockTitle>Form Example</BlockTitle>

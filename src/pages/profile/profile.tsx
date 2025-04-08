@@ -13,21 +13,43 @@ import {
 } from "framework7-react";
 import Layout from "@/layout/layout";
 import LanguageSwitcher from "@/components/LanguageSwitcher/LanguageSwitcher";
+import HomeNavbar from "@/components/MobileNavbar/HomeNavbar";
+import { getDevice } from "framework7";
+import { useState, useMemo, useEffect } from "react";
 
 const ProfilePage = () => {
-
-  const f7nav = ( path: string, id: string) => {
-    f7.views.main.router.navigate(path, { animate: false })
-    f7.tab.show(`#${id}`)
-  }
+  const f7nav = (path: string, id: string) => {
+    f7.views.main.router.navigate(path, { animate: false });
+    f7.tab.show(`#${id}`);
+  };
 
   const handleLogout = () => {
     f7.popup.close("#logoutConfirm");
-    f7nav('/', 'view-home')
+    f7nav("/", "view-home");
   };
+  const [isTablet, setIsTablet] = useState(false);
+
+  const isMobile = useMemo(() => {
+    const device = getDevice();
+    return device.ios || device.android;
+  }, []);
+
+  const isSmallDevice = isMobile || isTablet;
+
+  useEffect(() => {
+    const handleResize = () => {
+      const width = window.innerWidth;
+      setIsTablet(width >= 600 && width <= 1024);
+    };
+
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   return (
     <Page name="settings">
+      {isSmallDevice && <HomeNavbar />}
       <Layout>
         <BlockTitle>Form Example</BlockTitle>
         <List strongIos outlineIos dividersIos>

@@ -1,6 +1,6 @@
 import { useState, useCallback } from "react";
 import { Button } from "framework7-react";
-import TextCarousel from "@/components/Home/TextCarousel";
+import TextCarousel from "./TextCarousel";
 
 const UserCard = () => {
   const [isEyeOn, setIsEyeOn] = useState(true);
