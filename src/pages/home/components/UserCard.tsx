@@ -16,7 +16,7 @@ const UserCard = () => {
   }, []);
 
   return (
-    <div className="space-y-5 rounded-b-[2rem] border-violet-800 p-5 pt-3 shadow-[0_4px_10px_rgba(138,43,226,0.5),0_2px_5px_rgba(138,43,226,0.3)]">
+    <div className="space-y-5 rounded-b-[2rem] border-violet-800 p-2 pt-3 shadow-[0_4px_10px_rgba(138,43,226,0.5),0_2px_5px_rgba(138,43,226,0.3)]">
       <TextCarousel />
       <div className="flex w-full items-center justify-between p-3">
         <div className="flex items-center">
