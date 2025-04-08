@@ -26,7 +26,7 @@ const ProfileCard = (props: ProfileCardProps) => {
   }, []);
   return (
     <Card
-      className={`${className} relative min-h-[105px] border-2 border-white bg-[#ECE8F5] py-5 shadow-md shadow-[#d4caf9]`}
+      className={`${className} relative min-h-[105px] border-2 border-[] bg-[#ECE8F5] py-5 shadow-md shadow-[#d4caf9]`}
       raised
       {...pCardStyle}
     >
@@ -34,15 +34,15 @@ const ProfileCard = (props: ProfileCardProps) => {
         <div className="relative h-full w-full">
           <div
             className="absolute left-0 top-0 h-full w-full rounded-tl-lg bg-[#D5CEF3]"
-            style={{ clipPath: "circle(37% at 0 0)" }}
+            style={{ clipPath: "circle(34% at 5% 0)" }}
           />
           <div
             className="absolute left-0 top-0 h-full w-full rounded-tl-lg bg-[#B8ADE9]"
-            style={{ clipPath: "circle(25% at 0 0)" }}
+            style={{ clipPath: "circle(24% at 5% 0)" }}
           />
           <div
             className="absolute left-0 top-0 h-full w-full rounded-tl-lg bg-[#A598E2]"
-            style={{ clipPath: "circle(17% at 0 0)" }}
+            style={{ clipPath: "circle(16% at 5% 0)" }}
           />
         </div>
       </div>
