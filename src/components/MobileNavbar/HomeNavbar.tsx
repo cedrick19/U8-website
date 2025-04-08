@@ -10,7 +10,7 @@ const HomeNavbar = ({ navRight }: HomeNavbarProps) => {
   return (
     <Navbar innerClassName="bg-gradient-to-tr from-secondary/0 via-secondary/0 to-secondary/20">
       <NavLeft className="pl-3">
-        <img src={Logo} className="h-5 w-20" />
+        <img src={Logo} alt="logo" className="h-5 w-20" />
         <img src={Telegram} alt="Telegram Logo" className="w-25 h-10" />
       </NavLeft>
       <NavRight className="gap-2 pr-2">{navRight}</NavRight>
