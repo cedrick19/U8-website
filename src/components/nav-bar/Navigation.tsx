@@ -1,13 +1,13 @@
-import { webRoutes } from "@/ts/routes";
-import { Block, Button, f7, Icon, Link } from "framework7-react";
-import { useState } from "react";
-import Telegram from "@/assets/image/icons/telegram_logo.png";
+import { webRoutes } from '@/ts/routes';
+import { Block, Button, f7, Icon, Link } from 'framework7-react';
+import { useState } from 'react';
+import Telegram from '@/assets/image/icons/telegram_logo.png';
 
 export const NavBar = () => {
   const [activeTab, setActiveTab] = useState<number>(0);
 
   const filteredRoutes = webRoutes.filter(
-    (path) => path.path !== "/activity/" && path.path !== "/games/",
+    (path) => path.path !== '/activity/' && path.path !== '/games/' && path.path !== '/profile/',
   );
 
   return (
@@ -17,11 +17,7 @@ export const NavBar = () => {
           <span className="text-gradient text-xl font-bold">U8.COM</span>
           <span className="text-xs font-light text-black">Chinese Gaming</span>
         </Link>
-        <Link
-          href="#"
-          className="flex items-center text-blue-500 no-underline"
-          rippleColor="none"
-        >
+        <Link href="#" className="flex items-center text-blue-500 no-underline" rippleColor="none">
           <img src={Telegram} className="h-8" />
           <span className="ml-1 text-xs">@t.u2support</span>
         </Link>
@@ -39,9 +35,7 @@ export const NavBar = () => {
             >
               <span
                 className={
-                  activeTab === ids
-                    ? "text-gradient font-black"
-                    : "font-semibold text-inactive"
+                  activeTab === ids ? 'text-gradient font-black' : 'font-semibold text-inactive'
                 }
               >
                 {route.name.toUpperCase()}
@@ -51,21 +45,13 @@ export const NavBar = () => {
         </Block>
       </Block>
 
-      <Link
-        href="#"
-        className="flex flex-col items-center no-underline"
-        rippleColor="none"
-      >
-        <Icon f7={"arrow_down_circle"} className="text-gradient text-xl" />
+      <Link href="#" className="flex flex-col items-center no-underline" rippleColor="none">
+        <Icon f7={'arrow_down_circle'} className="text-gradient text-xl" />
         <span className="text-xs text-gray-600">Download</span>
       </Link>
 
-      <Link
-        href="#"
-        className="flex flex-col items-center no-underline"
-        rippleColor="none"
-      >
-        <Icon f7={"bell"} className="text-gradient text-xl" />
+      <Link href="#" className="flex flex-col items-center no-underline" rippleColor="none">
+        <Icon f7={'bell'} className="text-gradient text-xl" />
         <span className="text-xs text-gray-600">News</span>
       </Link>
 
