@@ -41,3 +41,38 @@ export const MobileNavItems = [
         },
     },
 ]
+
+export const DesktopNavItems = [
+    {
+      path: '/',
+      name: 'Home',
+    },
+    {
+      path: '/games/lottery/',
+      name: 'Lottery',
+    },
+    {
+      path: '/games/sports/',
+      name: 'Sports',
+    },
+    {
+      path: '/games/video/',
+      name: 'Video',
+    },
+    {
+      path: '/games/electronic/',
+      name: 'Electronic',
+    },
+    {
+      path: '/games/chess/',
+      name: 'Chess',
+    },
+    {
+      path: '/games/fishing/',
+      name: 'Fishing',
+    },
+    {
+      path: '/activity/',
+      name: 'Preferential Activities',
+    },
+]
