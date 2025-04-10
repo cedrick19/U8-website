@@ -1,12 +1,12 @@
 import { Page, Block, Icon } from 'framework7-react';
 import Layout from '@/layout/layout';
 import HomeNavbar from '@/components/MobileNavbar/HomeNavbar';
-import activitiesIcon from '@/assets/image/icons/activities.png';
-import ballIcon from '@/assets/image/icons/ball.png';
-import videoIcon from '@/assets/image/icons/video.png';
-import fishIcon from '@/assets/image/icons/fish.png';
-import gameIcon from '@/assets/image/icons/game.png';
-import newspaperIcon from '@/assets/image/icons/Newspaper.png';
+import activitiesIcon from '@/assets/image/icons/activities.svg';
+import ballIcon from '@/assets/image/icons/ball.svg';
+import videoIcon from '@/assets/image/icons/video.svg';
+import fishIcon from '@/assets/image/icons/fish.svg';
+import gameIcon from '@/assets/image/icons/electronic.svg';
+import newspaperIcon from '@/assets/image/icons/Newspaper.svg';
 
 const activities = [
   { id: 1, title: 'All Activities', icon: activitiesIcon },
@@ -30,7 +30,7 @@ const ActivityPage = () => {
       />
       <Layout>
         <Block className="p-1">
-          <div className="grid grid-cols-2 gap-4 md:grid-cols-3">
+          <div className="grid grid-cols-2 gap-4">
             {activities.map((activity) => (
               <div key={activity.id} className="w-full">
                 <div className="relative h-[151px] w-full overflow-hidden rounded-lg bg-[#F5F3FC] shadow-sm">
@@ -72,8 +72,16 @@ const ActivityPage = () => {
                     </div>
                   </div>
                   <div className="absolute flex h-full w-full flex-col items-center justify-center">
-                    <div className="flex h-12 w-12 items-center justify-center">
-                      <img src={activity.icon} alt={activity.title} className="h-[36px] w-[36px]" />
+                    <div
+                      className="flex h-12 w-12 items-center justify-center"
+                      shape-rendering="geometricPrecision"
+                    >
+                      <img
+                        src={activity.icon}
+                        alt={activity.title}
+                        className="h-[36px] max-h-full w-[36px] max-w-full"
+                        style={{ imageRendering: 'crisp-edges' }}
+                      />
                     </div>
                     <div className="mt-2 text-center text-lg font-bold text-[#5D3B94]">
                       {activity.title}
