@@ -72,7 +72,7 @@ export const NavBar = () => {
       <Button
         rippleColor="none"
         className="text-gradient"
-        onClick={() => f7.loginScreen.open("#loginHere", false)}
+        onClick={() => f7.loginScreen.open('#loginHere', false)}
       >
         Login
       </Button>
