@@ -72,15 +72,11 @@ const ActivityPage = () => {
                     </div>
                   </div>
                   <div className="absolute flex h-full w-full flex-col items-center justify-center">
-                    <div
-                      className="flex h-12 w-12 items-center justify-center"
-                      shape-rendering="geometricPrecision"
-                    >
+                    <div className="flex h-12 w-12 items-center justify-center">
                       <img
                         src={activity.icon}
                         alt={activity.title}
                         className="h-[36px] max-h-full w-[36px] max-w-full"
-                        style={{ imageRendering: 'crisp-edges' }}
                       />
                     </div>
                     <div className="mt-2 text-center text-lg font-bold text-[#5D3B94]">
