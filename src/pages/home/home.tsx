@@ -44,7 +44,7 @@ const HomePage = () => {
         />
       )}
       <HomeCarousel />
-      <div className="space-y-5 rounded-b-[2rem] border-b-2 border-t-0 border-violet-300 p-2 pt-3 shadow-[0_10px_10px_0_rgba(139,92,246,0.3)]">
+      <div className="space-y-5 rounded-b-[2rem] border-b-2 border-t-0 border-violet-300 p-2 pt-3 shadow-[0_10px_10px_0_rgba(139,92,246,0.3)] lg:border-0 lg:shadow-none">
         <TextCarousel />
         {isSmallDevice && <UserCard />}
       </div>
