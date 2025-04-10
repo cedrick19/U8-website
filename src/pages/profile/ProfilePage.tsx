@@ -1,11 +1,14 @@
-import { Page, Block, Card, CardContent, Icon } from "framework7-react";
-import ProfileCard from "./component/ProfileCard";
-import GamesManagement from "@/assets/image/icons/game_management.svg";
-import FundManagement from "@/assets/image/icons/fund_management.svg";
-import RechargeTutorial from "@/assets/image/icons/recharge_tutorial.svg";
-import Share from "@/assets/image/icons/share.svg";
-import ComingSoon from "@/assets/image/icons/coming_soon.svg";
-import HomeNavbar from "@/components/MobileNavbar/HomeNavbar";
+import { Page, Block, Card, CardContent, Icon } from 'framework7-react';
+import ProfileCard from './component/ProfileCard';
+import GamesManagement from '@/assets/image/icons/game_management.svg';
+import FundManagement from '@/assets/image/icons/fund_management.svg';
+import RechargeTutorial from '@/assets/image/icons/recharge_tutorial.svg';
+import Share from '@/assets/image/icons/share.svg';
+import ComingSoon from '@/assets/image/icons/coming_soon.svg';
+import HomeNavbar from '@/components/MobileNavbar/HomeNavbar';
+import Media from '@/assets/image/avatarIcon.png';
+import Refresh from '@/assets/image/refresh.svg';
+import CoinOff from '@/assets/image/icons/coin-off.svg';
 
 interface Services {
   icon: string;
@@ -15,23 +18,23 @@ interface Services {
 const services: Services[] = [
   {
     icon: GamesManagement,
-    label: "Game Management",
+    label: 'Game Management',
   },
   {
     icon: FundManagement,
-    label: "Fund Management",
+    label: 'Fund Management',
   },
   {
     icon: RechargeTutorial,
-    label: "Recharge Tutorial",
+    label: 'Recharge Tutorial',
   },
   {
     icon: Share,
-    label: "Share",
+    label: 'Share',
   },
   {
     icon: ComingSoon,
-    label: "Coming Soon",
+    label: 'Coming Soon',
   },
 ];
 
@@ -41,21 +44,13 @@ const ProfilePage = () => {
       <HomeNavbar
         navRight={
           <>
-            <Icon
-              material="notifications"
-              size={30}
-              className="text-[#4A226E]"
-            />
+            <Icon material="notifications" size={30} className="text-[#4A226E]" />
             <Icon material="settings" size={30} className="text-[#4A226E]" />
           </>
         }
       />
       <Block className="flex h-16 items-center">
-        <img
-          slot="media"
-          src="/assets/image/avatarIcon.png"
-          className="h-16 w-16 rounded-full bg-blue-500"
-        />
+        <img slot="media" src={Media} className="h-16 w-16 rounded-full bg-blue-500" />
         <Block className="flex-col gap-1">
           <p className="text-lg">beluga.cat</p>
           <p className="text-xs">Member Account: beluga.cat07</p>
@@ -78,7 +73,7 @@ const ProfilePage = () => {
         <div className="flex items-center justify-center gap-5">
           <Block className="flex gap-2 font-bold">
             <img
-              src="./assets/image/icons/coin-off.svg"
+              src={CoinOff}
               alt="recharge"
               className="h-5 w-5 cursor-pointer rounded-full bg-primary-gradient p-[2.4px]"
             />
@@ -87,7 +82,7 @@ const ProfilePage = () => {
           <div className="h-8 border-[1px] border-slate-300" />
           <Block className="flex gap-2 font-bold">
             <img
-              src="./assets/image/refresh.svg"
+              src={Refresh}
               alt="recharge"
               className="h-5 w-5 cursor-pointer rounded-full bg-primary-gradient p-1"
             />
@@ -104,36 +99,21 @@ const ProfilePage = () => {
           </p>
         }
       >
-        <Card
-          className="z-10 border-2 border-white bg-[#ECE8F5] shadow-md shadow-[#d4caf9]"
-          raised
-        >
+        <Card className="z-10 border-2 border-white bg-[#ECE8F5] shadow-md shadow-[#d4caf9]" raised>
           <CardContent className="flex items-center justify-center gap-5 py-10">
             <Block className="">
-              <p className="text-center text-2xl font-bold text-[#4A4A4A]">
-                0 &gt;
-              </p>
-              <p className="text-md text-center text-[#3B1E7A]">
-                Nubmer of Statements
-              </p>
+              <p className="text-center text-2xl font-bold text-[#4A4A4A]">0 &gt;</p>
+              <p className="text-md text-center text-[#3B1E7A]">Nubmer of Statements</p>
             </Block>
             <div className="h-16 border-[1px] border-slate-300" />
             <Block className="">
-              <p className="text-center text-xl font-bold text-[#4A4A4A]">
-                0.00 &gt;
-              </p>
-              <p className="text-md text-center text-[#3B1E7A]">
-                Total profit and loss
-              </p>
+              <p className="text-center text-xl font-bold text-[#4A4A4A]">0.00 &gt;</p>
+              <p className="text-md text-center text-[#3B1E7A]">Total profit and loss</p>
             </Block>
             <div className="h-16 border-[1px] border-slate-300" />
             <Block className="">
-              <p className="text-center text-xl font-bold text-[#4A4A4A]">
-                0.00 &gt;
-              </p>
-              <p className="text-md text-center text-[#3B1E7A]">
-                Real-time water return
-              </p>
+              <p className="text-center text-xl font-bold text-[#4A4A4A]">0.00 &gt;</p>
+              <p className="text-md text-center text-[#3B1E7A]">Real-time water return</p>
             </Block>
           </CardContent>
         </Card>
