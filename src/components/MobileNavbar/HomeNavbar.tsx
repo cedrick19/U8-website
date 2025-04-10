@@ -1,26 +1,19 @@
-import { Navbar, NavLeft, NavRight, Link } from "framework7-react";
+import { Navbar, NavLeft, NavRight } from "framework7-react";
+import Logo from "@/assets/image/logo.png";
+import Telegram from "@/assets/image/Telegram.png";
 
-const HomeNavbar = () => {
+type HomeNavbarProps = {
+  navRight?: React.ReactNode;
+};
+
+const HomeNavbar = ({ navRight }: HomeNavbarProps) => {
   return (
-    <Navbar innerClassName="bg-gradient-to-r from-secondary/0 to-secondary/20">
-      <NavLeft>
-        <Link tabLink="#view-home">
-          <img src="/assets/image/logo.png" className="w-30 h-7" />
-        </Link>
-        <Link href="#">
-          <img
-            src="/assets/image/Telegram.png"
-            alt="Telegram Logo"
-            className="h-full w-full"
-          />
-        </Link>
+    <Navbar innerClassName="bg-gradient-to-tr from-secondary/0 via-secondary/0 to-secondary/20">
+      <NavLeft className="pl-3">
+        <img src={Logo} alt="logo" className="h-5 w-20" />
+        <img src={Telegram} alt="Telegram Logo" className="w-25 h-10" />
       </NavLeft>
-
-      <NavRight className="flex items-end justify-end">
-        <Link href="#">
-          <img src="./assets/image/bell.svg" alt="Notifications" />
-        </Link>
-      </NavRight>
+      <NavRight className="gap-2 pr-2">{navRight}</NavRight>
     </Navbar>
   );
 };
