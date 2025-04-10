@@ -12,7 +12,7 @@ export const TileMenu = ({ title, image, onNavigate }: ITileMenu) => {
     <Card raised>
       <CardContent
         padding={false}
-        className="h-36 rounded-xl border-b-4 border-t-4 border-b-white border-t-white bg-[#522DC680]"
+        className="h-36 rounded-xl border-b-4 border-t-4 border-b-white border-t-white bg-[#4C2CCA4D]/10"
       >
         <div
           onClick={onNavigate}
