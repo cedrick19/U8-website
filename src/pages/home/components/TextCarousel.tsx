@@ -3,9 +3,14 @@ import React from 'react';
 export default function MarqueeNotification() {
   const notificationData = [
     {
-      message: 'Congratulations to the player c**** in Canada win {price} of {game}',
+      message: 'Congratulations to the player c**** in Canada win {price} of game ',
       game: 'Mahjong',
       price: '40000Yuan',
+    },
+    {
+      message: 'Congratulations to the player B**** in Philippines win {price} of game ',
+      game: 'Lottery',
+      price: '50000Pesos',
     },
   ];
 
@@ -16,16 +21,16 @@ export default function MarqueeNotification() {
       </div>
       <div className="flex w-full items-center overflow-hidden whitespace-nowrap rounded-r-full bg-white">
         <p className="animate-marquee inline-block">
-          {notificationData.map(({ message, game, price }) => (
-            <span key={message}>
-              {message.split('{price}').map((part, index) => (
-                <React.Fragment key={index}>
+          {notificationData.map(({ message, game, price }, index) => (
+            <span key={index}>
+              {message.split('{price}').map((part, partIndex) => (
+                <React.Fragment key={partIndex}>
                   {part}
-                  {index === 0 ? (
+                  {partIndex === 0 ? (
                     <span className="text-green-500">{price}</span>
-                  ) : (
+                  ) : partIndex === 1 ? (
                     <span className="text-blue-500">{game}</span>
-                  )}
+                  ) : null}
                 </React.Fragment>
               ))}
             </span>
