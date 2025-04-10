@@ -34,7 +34,7 @@ const ActivityPage = () => {
       />
       <Layout>
         <Block className="p-1">
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-2 gap-4 md:grid-cols-3">
             {activities.map((activity) => (
               <div key={activity.id} className="w-full">
                 <div className="relative h-[160px] w-full overflow-hidden rounded-lg bg-[#F5F3FC] shadow-sm">
