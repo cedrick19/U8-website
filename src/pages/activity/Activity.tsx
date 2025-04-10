@@ -80,7 +80,6 @@ const ActivityPage = () => {
                         src={activity.icon}
                         alt={activity.title}
                         className="h-[36px] max-h-full w-[36px] max-w-full"
-                        style={{ imageRendering: 'crisp-edges' }}
                       />
                     </div>
                     <div className="mt-2 text-center text-lg font-bold text-[#5D3B94]">
