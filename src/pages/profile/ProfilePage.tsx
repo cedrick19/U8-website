@@ -1,20 +1,11 @@
-import {
-  Page,
-  Block,
-  Navbar,
-  NavLeft,
-  Card,
-  CardContent,
-  f7,
-  NavRight,
-  Icon,
-} from "framework7-react";
+import { Page, Block, Card, CardContent, Icon } from "framework7-react";
 import ProfileCard from "./component/ProfileCard";
 import GamesManagement from "@/assets/image/icons/game_management.svg";
 import FundManagement from "@/assets/image/icons/fund_management.svg";
 import RechargeTutorial from "@/assets/image/icons/recharge_tutorial.svg";
 import Share from "@/assets/image/icons/share.svg";
 import ComingSoon from "@/assets/image/icons/coming_soon.svg";
+import HomeNavbar from "@/components/MobileNavbar/HomeNavbar";
 
 interface Services {
   icon: string;
@@ -44,34 +35,21 @@ const services: Services[] = [
   },
 ];
 
-const handleNavigate = (viewType: "tab" | "view", url: string) => {
-  if (viewType === "tab") {
-    f7.tab.show(`#${url}`);
-  } else {
-    f7.views.main.router.navigate("/games/lottery/");
-  }
-};
 const ProfilePage = () => {
   return (
     <Page name="profile">
-      <Navbar innerClassName="bg-gradient-to-tr from-secondary/0 via-secondary/0 to-secondary/20">
-        <NavLeft className="pl-3">
-          <img
-            src="/assets/image/logo.png"
-            className="h-5 w-20"
-            onClick={() => handleNavigate("tab", "home")}
-          />
-          <img
-            src="/assets/image/Telegram.png"
-            alt="Telegram Logo"
-            className="w-25 h-10"
-          />
-        </NavLeft>
-        <NavRight className="gap-2 pr-3">
-          <Icon material="notifications" size={30} className="text-[#4A226E]" />
-          <Icon material="settings" size={30} className="text-[#4A226E]" />
-        </NavRight>
-      </Navbar>
+      <HomeNavbar
+        navRight={
+          <>
+            <Icon
+              material="notifications"
+              size={30}
+              className="text-[#4A226E]"
+            />
+            <Icon material="settings" size={30} className="text-[#4A226E]" />
+          </>
+        }
+      />
       <Block className="flex h-16 items-center">
         <img
           slot="media"

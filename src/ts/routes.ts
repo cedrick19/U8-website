@@ -45,7 +45,7 @@ const gameRoutes = [
     name: "Fishing",
     component: Fishing,
   },
-]
+];
 
 export const webRoutes = [
   {
@@ -56,12 +56,12 @@ export const webRoutes = [
   {
     path: "/activity/",
     name: "Activity",
-    component: ActivityPage
+    component: ActivityPage,
   },
   {
     path: "/profile/",
     name: "Profile",
     component: ProfilePage,
   },
-  ...gameRoutes
+  ...gameRoutes,
 ];
