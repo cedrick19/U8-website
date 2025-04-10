@@ -1,0 +1,10 @@
+valid_types="feature|fix|adjust|style|refactor|wip|test|add|remove|update"
+
+commit_message=$(cat "$1")
+
+if ! echo "$commit_message" | grep -Eq "$valid_types"; then
+  echo "Commit message must contain one of the following keywords: feature, fix, adjust, style, refactor, wip, test, add, remove."
+  exit 1
+fi
+
+exit 0
