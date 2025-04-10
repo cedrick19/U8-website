@@ -1,1 +1,0 @@
-# Types: feature, fix, adjust, style, refactor, wip, test, add
