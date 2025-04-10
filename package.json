@@ -11,7 +11,17 @@
     "dev": "cross-env NODE_ENV=development vite",
     "build": "cross-env NODE_ENV=production vite build && npx workbox generateSW workbox-config.js",
     "lint": "eslint .",
-    "lint:fix": "eslint \"src/**/*.{ts,tsx}\" --fix"
+    "lint:fix": "eslint \"src/**/*.{ts,tsx}\" --fix",
+    "prepare": "husky"
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx}": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "*{json,css,md}": [
+      "prettier --write"
+    ]
   },
   "browserslist": [
     "IOS >= 15",
@@ -39,6 +49,8 @@
     "tailwind-merge": "^3.2.0"
   },
   "devDependencies": {
+    "@commitlint/cli": "^19.8.0",
+    "@commitlint/config-conventional": "^19.8.0",
     "@eslint/js": "^9.23.0",
     "@types/node": "^22.13.11",
     "@types/react": "^19.0.12",
@@ -51,6 +63,8 @@
     "eslint-plugin-react-hooks": "^5.2.0",
     "eslint-plugin-react-refresh": "^0.4.19",
     "globals": "^16.0.0",
+    "husky": "^9.1.7",
+    "lint-staged": "^15.5.0",
     "postcss": "^8.5.3",
     "postcss-preset-env": "^10.1.5",
     "prettier": "^3.5.3",
