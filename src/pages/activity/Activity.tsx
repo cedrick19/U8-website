@@ -38,7 +38,6 @@ const ActivityPage = () => {
             {activities.map((activity) => (
               <div key={activity.id} className="w-full">
                 <div className="relative h-[160px] w-full overflow-hidden rounded-lg bg-[#F5F3FC] shadow-sm">
-                  {/* Top slanted lines */}
                   <div className="absolute left-0 top-0 h-[50px] w-full">
                     <div
                       className="absolute left-0 top-0 h-full w-full bg-[#D5CEF3]"
@@ -49,7 +48,7 @@ const ActivityPage = () => {
                     <div
                       className="absolute left-0 top-0 h-full w-full bg-[#C7BCEB]"
                       style={{
-                        clipPath: "polygon(0 0, 100% 0, 100% 20%, 0 60%)",
+                        clipPath: "polygon(0 0, 100% 0, 100% 20%, 0 70%)",
                       }}
                     />
                     <div
@@ -64,15 +63,15 @@ const ActivityPage = () => {
                     <div className="relative h-full w-full">
                       <div
                         className="absolute bottom-0 h-full w-full rounded-b-lg bg-[#D5CEF3]"
-                        style={{ clipPath: "circle(34% at 50% 100%)" }}
+                        style={{ clipPath: "circle(44% at 50% 110%)" }}
                       />
                       <div
                         className="absolute bottom-0 h-full w-full rounded-b-lg bg-[#B8ADE9]"
-                        style={{ clipPath: "circle(24% at 50% 100%)" }}
+                        style={{ clipPath: "circle(30% at 50% 110%)" }}
                       />
                       <div
                         className="absolute bottom-0 h-full w-full rounded-b-lg bg-[#A598E2]"
-                        style={{ clipPath: "circle(10% at 50% 100%)" }}
+                        style={{ clipPath: "circle(15% at 50% 110%)" }}
                       />
                     </div>
                   </div>
@@ -86,7 +85,7 @@ const ActivityPage = () => {
                         className="h-8 w-8"
                       />
                     </div>
-                    <div className="mt-2 text-center text-xl font-bold text-[#5D3B94]">
+                    <div className="mt-2 text-center text-lg font-bold text-[#5D3B94]">
                       {activity.title}
                     </div>
                   </div>
