@@ -1,13 +1,14 @@
-import { Page, Block } from "framework7-react";
-import { useTranslation } from "react-i18next";
-import { useEffect, useMemo, useState } from "react";
-import { getDevice } from "framework7";
-import { LoginModal } from "@/components/LoginModal";
-import Layout from "@/layout/layout";
-import HomeNavbar from "@/components/MobileNavbar/HomeNavbar";
-import HomeCarousel from "./components/HomeCarousel";
-import UserCard from "./components/UserCard";
-import TextCarousel from "./components/TextCarousel";
+import { Page, Block } from 'framework7-react';
+import { useTranslation } from 'react-i18next';
+import { useEffect, useMemo, useState } from 'react';
+import { getDevice } from 'framework7';
+import { LoginModal } from '@/components/LoginModal';
+import Layout from '@/layout/layout';
+import HomeNavbar from '@/components/MobileNavbar/HomeNavbar';
+import HomeCarousel from './components/HomeCarousel';
+import UserCard from './components/UserCard';
+import TextCarousel from './components/TextCarousel';
+import Bell from '@/assets/image/bell.svg';
 
 const HomePage = () => {
   const { t } = useTranslation();
@@ -28,8 +29,8 @@ const HomePage = () => {
     };
 
     handleResize();
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
   }, []);
   return (
     <Page>
@@ -37,11 +38,7 @@ const HomePage = () => {
         <HomeNavbar
           navRight={
             <>
-              <img
-                src="/assets/image/bell.svg"
-                alt="Profile Logo"
-                className="h-15 w-15"
-              />
+              <img src={Bell} alt="Profile Logo" className="h-15 w-15" />
             </>
           }
         />
@@ -51,8 +48,8 @@ const HomePage = () => {
       {isSmallDevice && <UserCard />}
       <Layout>
         <Block>
-          <h1 className="text-3xl font-bold">{t("title")}</h1>
-          <p className="text-gray-600">{t("description")}</p>
+          <h1 className="text-3xl font-bold">{t('title')}</h1>
+          <p className="text-gray-600">{t('description')}</p>
         </Block>
       </Layout>
       <LoginModal />
