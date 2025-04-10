@@ -1,31 +1,26 @@
-import HomeNavbar from "@/components/MobileNavbar/HomeNavbar";
-import Layout from "@/layout/layout";
-import { Icon } from "framework7-react";
+import { Block, f7, Page } from 'framework7-react';
 
-import { Page, Block } from "framework7-react";
+import HomeNavbar from '@/components/MobileNavbar/HomeNavbar';
 
-const GamesIndexPage = () => {
+import { gameInfo } from './utils';
+import { TileMenu } from './components';
+
+const Games = () => {
   return (
-    <Page name="game-index">
-      <HomeNavbar
-        navRight={
-          <>
-            <Icon
-              material="notifications"
-              size={30}
-              className="text-[#4A226E]"
-            />
-          </>
-        }
-      />
-      <Layout>
-        <Block>
-          This is a test for games page for mobile! Feel free to access these
-          sites:
-        </Block>
-      </Layout>
+    <Page name="games">
+      <HomeNavbar />
+      <Block className="pb-8">
+        {gameInfo.map((game) => (
+          <TileMenu
+            key={game.title}
+            title={game.title}
+            image={game.image}
+            onNavigate={() => f7.view.main.router.navigate(game.route)}
+          />
+        ))}
+      </Block>
     </Page>
   );
 };
 
-export default GamesIndexPage;
+export default Games;
