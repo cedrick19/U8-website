@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from 'react';
 
 type Notification = {
   message: string;
@@ -13,28 +13,24 @@ export default function MarqueeNotification() {
 
   const notificationData: Notification[] = [
     {
-      message:
-        "Congratulations to the player c**** in Canada win {price} of game {game}",
-      game: "Mahjong",
-      price: "40000Yuan",
+      message: 'Congratulations to the player c**** in Canada win {price} of game {game}',
+      game: 'Mahjong',
+      price: '40000Yuan',
     },
     {
-      message:
-        "Congratulations to the player B**** in Philippines win {price} of game {game}",
-      game: "Lottery",
-      price: "40000Yuan",
+      message: 'Congratulations to the player B**** in Philippines win {price} of game {game}',
+      game: 'Lottery',
+      price: '40000Yuan',
     },
     {
-      message:
-        "Congratulations to the player B**** in india win {price} of game {game}",
-      game: "Bingo",
-      price: "40000Yen",
+      message: 'Congratulations to the player B**** in india win {price} of game {game}',
+      game: 'Bingo',
+      price: '40000Yen',
     },
     {
-      message:
-        "Congratulations to the player h**** in malaysia win {price} of game {game}",
-      game: "fishing",
-      price: "4000Yen",
+      message: 'Congratulations to the player h**** in malaysia win {price} of game {game}',
+      game: 'fishing',
+      price: '4000Yen',
     },
   ];
 
@@ -68,14 +64,14 @@ export default function MarqueeNotification() {
     const parts = template.split(/({price}|{game})/g);
 
     return parts.map((part, index) => {
-      if (part === "{price}") {
+      if (part === '{price}') {
         return (
           <span key={`price-${index}`} className="font-semibold text-green-600">
             {price}
           </span>
         );
       }
-      if (part === "{game}") {
+      if (part === '{game}') {
         return (
           <span key={`game-${index}`} className="font-semibold text-red-600">
             {game}
@@ -93,11 +89,7 @@ export default function MarqueeNotification() {
         className="relative flex h-[34px] w-full overflow-hidden rounded-full"
       >
         <div className="absolute left-0 top-0 z-10 flex h-full items-center rounded-l-full bg-purple-900 px-3">
-          <img
-            src="./assets/image/announcement.svg"
-            className="h-6 w-6"
-            alt="announcement"
-          />
+          <img src="/assets/image/announcement.svg" className="h-6 w-6" alt="announcement" />
         </div>
 
         <div
@@ -105,7 +97,7 @@ export default function MarqueeNotification() {
           className="text-black-600 absolute flex h-full items-center whitespace-nowrap pl-12"
           style={{
             transform: `translateX(${position}px)`,
-            whiteSpace: "nowrap",
+            whiteSpace: 'nowrap',
           }}
         >
           <div className="flex items-center">

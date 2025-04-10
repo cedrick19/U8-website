@@ -1,11 +1,11 @@
-import { useState, useCallback } from "react";
-import { Button } from "framework7-react";
+import { useState, useCallback } from 'react';
+import { Button } from 'framework7-react';
 
-import profileImage from "@/assets/image/playeraccount.jpg";
-import vipImage from "@/assets/image/VIP.svg";
-import refreshImage from "@/assets/image/refresh.svg";
-import chatIcon from "@/assets/image/chat.svg";
-import customerServiceIcon from "@/assets/image/customer-service.svg";
+import profileImage from '@/assets/image/playeraccount.jpg';
+import vipImage from '@/assets/image/VIP.svg';
+import refreshImage from '@/assets/image/refresh.svg';
+import chatIcon from '@/assets/image/chat.svg';
+import customerServiceIcon from '@/assets/image/customer-service.svg';
 
 const UserCard = () => {
   const [isEyeOn, setIsEyeOn] = useState(true);
@@ -34,7 +34,7 @@ const UserCard = () => {
               <span className="mr-2 text-gray-800">username</span>
               <img src={vipImage} alt="VIP" />
               <img
-                src={`./assets/image/${isEyeOn ? "eye-on" : "eye-off"}.svg`}
+                src={`/assets/image/${isEyeOn ? 'eye-on' : 'eye-off'}.svg`}
                 className="ml-2 h-5 w-5 cursor-pointer"
                 alt="eye toggle"
                 onClick={toggleEye}
@@ -47,7 +47,7 @@ const UserCard = () => {
                   src={refreshImage}
                   alt="refresh"
                   onClick={handleRefreshClick}
-                  className={`h-3 w-3 cursor-pointer transition-transform duration-1000 ${isSpinning ? "rotate-[1080deg]" : ""}`}
+                  className={`h-3 w-3 cursor-pointer transition-transform duration-1000 ${isSpinning ? 'rotate-[1080deg]' : ''}`}
                 />
               </div>
             </div>
