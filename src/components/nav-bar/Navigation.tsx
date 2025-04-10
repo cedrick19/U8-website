@@ -1,7 +1,7 @@
-import { webRoutes } from "@/ts/routes";
 import { Block, Button, f7, Icon, Link } from "framework7-react";
 import { useState } from "react";
 import Telegram from "@/assets/image/icons/telegram_logo.png"
+import { DesktopNavItems } from "./utils";
 
 export const NavBar = () => {
   const [activeTab, setActiveTab] = useState<number>(0)
@@ -28,7 +28,7 @@ export const NavBar = () => {
 
       <Block className="flex w-3/5 justify-center">
         <Block className="flex space-x-6 text-xs">
-          {webRoutes.map((route, ids) => (
+          {DesktopNavItems.map((route, ids) => (
             <Link key={ids} href={route.path} rippleColor="none" onClick={() => setActiveTab(ids)} animate={false}>
               <span className={activeTab === ids ? "text-gradient font-black" : "text-inactive font-semibold"}>
                 {route.name.toUpperCase()}
