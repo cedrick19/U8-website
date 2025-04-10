@@ -15,7 +15,7 @@ const UserCard = () => {
   }, []);
 
   return (
-    <div className="space-y-5 rounded-b-[2rem] border-b-4 border-t-0 border-violet-800 p-2 pt-3">
+    <div className="space-y-5 rounded-b-[2rem] border-b-2 border-t-0 border-violet-300 p-2 pt-3 shadow-[0_10px_10px_0_rgba(139,92,246,0.3)]">
       <div className="flex w-full items-center justify-between p-3">
         <div className="flex items-center">
           <img
