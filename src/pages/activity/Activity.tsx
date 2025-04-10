@@ -23,7 +23,7 @@ const ActivityPage = () => {
       <HomeNavbar
         navRight={
           <>
-            <div className="text-2xl font-bold">0.00</div>
+            <p className="text-2xl font-bold">0.00</p>
             <Icon
               material="notifications"
               size={30}
@@ -75,8 +75,6 @@ const ActivityPage = () => {
                       />
                     </div>
                   </div>
-
-                  {/* Content */}
                   <div className="absolute flex h-full w-full flex-col items-center justify-center">
                     <div className="flex h-12 w-12 items-center justify-center">
                       <img
