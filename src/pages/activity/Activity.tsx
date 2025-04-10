@@ -80,7 +80,7 @@ const ActivityPage = () => {
                       <img
                         src={activity.icon}
                         alt={activity.title}
-                        className="h-8 w-8"
+                        className="h-[36px] w-[36px]"
                       />
                     </div>
                     <div className="mt-2 text-center text-lg font-bold text-[#5D3B94]">
