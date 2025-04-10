@@ -72,10 +72,7 @@ const ActivityPage = () => {
                     </div>
                   </div>
                   <div className="absolute flex h-full w-full flex-col items-center justify-center">
-                    <div
-                      className="flex h-12 w-12 items-center justify-center"
-                      shape-rendering="geometricPrecision"
-                    >
+                    <div className="flex h-12 w-12 items-center justify-center">
                       <img
                         src={activity.icon}
                         alt={activity.title}
