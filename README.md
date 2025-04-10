@@ -66,5 +66,5 @@ framework7 assets --ui
 - Readability: Write your code as if the next person to maintain it is a member of the Italian Mafia and knows your address. It should be legible and easy to follow.
 - Comments: Comment your code whenever necessary, but please. Avoid obvious comments.
 - Naming conventions: Use camel case for naming variables, and upper case for constants. Make the file names so clear it's almost obvious.
-- Commits and pull requests: As much as possible, make commits descriptive. For pull requests, including changelogs are encouraged for ease of review.
+- Commits and pull requests: As much as possible, make commits descriptive. For pull requests, including changelogs are encouraged for ease of review. NO COMMITS SHALL BE MADE DIRECTLY INTO THE "dev" BRANCH UNLESS IT'S A HIGH PRIORITY CHANGE.
 - Responsibility: Anyone who breaks the repository will spend the night fixing it "ALL BY THEMSELVES".
