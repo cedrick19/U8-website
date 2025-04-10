@@ -15,8 +15,13 @@ import FundManagement from "@/assets/image/icons/fund_management.svg";
 import RechargeTutorial from "@/assets/image/icons/recharge_tutorial.svg";
 import Share from "@/assets/image/icons/share.svg";
 import ComingSoon from "@/assets/image/icons/coming_soon.svg";
+import AvatarIcon from "@/assets/image/avatarIcon.png";
+import CoinOff from "@/assets/image/icons/coin-off.svg";
+import Refresh from "@/assets/image/refresh.svg";
+import Logo from "@/assets/image/logo.png";
+import Telegram from "@/assets/image/Telegram.png";
 
-interface Services {
+export interface Services {
   icon: string;
   label: string;
 }
@@ -57,25 +62,25 @@ const ProfilePage = () => {
       <Navbar innerClassName="bg-gradient-to-tr from-secondary/0 via-secondary/0 to-secondary/20">
         <NavLeft className="pl-3">
           <img
-            src="/assets/image/logo.png"
+            src={Logo}
             className="h-5 w-20"
             onClick={() => handleNavigate("tab", "home")}
           />
-          <img
-            src="/assets/image/Telegram.png"
-            alt="Telegram Logo"
-            className="w-25 h-10"
-          />
+          <img src={Telegram} alt="Telegram Logo" className="w-25 h-10" />
         </NavLeft>
         <NavRight className="gap-2 pr-3">
           <Icon material="notifications" size={30} className="text-[#4A226E]" />
-          <Icon material="settings" size={30} className="text-[#4A226E]" />
+          <div
+            onClick={() => f7.view.main.router.navigate("/profile/settings/")}
+          >
+            <Icon material="settings" size={30} className="text-[#4A226E]" />
+          </div>
         </NavRight>
       </Navbar>
       <Block className="flex h-16 items-center">
         <img
           slot="media"
-          src="/assets/image/avatarIcon.png"
+          src={AvatarIcon}
           className="h-16 w-16 rounded-full bg-blue-500"
         />
         <Block className="flex-col gap-1">
@@ -100,7 +105,7 @@ const ProfilePage = () => {
         <div className="flex items-center justify-center gap-5">
           <Block className="flex gap-2 font-bold">
             <img
-              src="./assets/image/icons/coin-off.svg"
+              src={CoinOff}
               alt="recharge"
               className="h-5 w-5 cursor-pointer rounded-full bg-primary-gradient p-[2.4px]"
             />
@@ -109,7 +114,7 @@ const ProfilePage = () => {
           <div className="h-8 border-[1px] border-slate-300" />
           <Block className="flex gap-2 font-bold">
             <img
-              src="./assets/image/refresh.svg"
+              src={Refresh}
               alt="recharge"
               className="h-5 w-5 cursor-pointer rounded-full bg-primary-gradient p-1"
             />

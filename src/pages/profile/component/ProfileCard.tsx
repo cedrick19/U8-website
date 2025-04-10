@@ -1,6 +1,7 @@
 import { Block, Card } from "framework7-react";
 import { CardProps } from "framework7-react/components/card.js";
 import { ReactNode, useCallback, useState } from "react";
+import Refresh from "@/assets/image/refresh.svg";
 
 interface ProfileCardProps {
   className?: string;
@@ -51,7 +52,7 @@ const ProfileCard = (props: ProfileCardProps) => {
         {refresh && (
           <div className="flex items-center gap-2">
             <img
-              src="./assets/image/refresh.svg"
+              src={Refresh}
               alt="refresh"
               onClick={handleRefreshClick}
               className={`h-5 w-5 cursor-pointer rounded-full bg-primary-gradient p-1 transition-transform duration-1000 ${

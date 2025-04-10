@@ -1,1 +1,2 @@
-export { default } from "./ProfileCard";
+export * from "./ProfileCard";
+export * from "./SettingItem";

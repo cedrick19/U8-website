@@ -3,6 +3,12 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer utilities {
+  .text-primary-gradient {
+    @apply bg-primary-gradient bg-clip-text text-transparent
+  }
+}
+
 @font-face {
   font-family: "Nunito";
   src: url("@/assets/fonts/Nunito-Black.ttf") format("truetype");
