@@ -8,7 +8,7 @@ export default {
     'type-enum': [
       2,
       'always',
-      ['feature', 'fix', 'adjust', 'style', 'refactor', 'wip', 'test', 'add'],
+      ['feature', 'fix', 'adjust', 'style', 'refactor', 'wip', 'test', 'add', 'remove'],
     ],
 
     'header-max-length': [2, 'always', 72],
