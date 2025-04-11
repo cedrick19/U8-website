@@ -1,1 +1,1 @@
-export * from "./Electronic";
+export { default } from './Electronic';

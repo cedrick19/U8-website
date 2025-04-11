@@ -1,1 +1,1 @@
-export * from "./sports";
+export { default } from './sports';
