@@ -49,7 +49,7 @@ const Lottery = () => {
   const isMobile = getDevice().android || getDevice().ios;
   return (
     <Page name="lottery" className={cn(isMobile && 'bg-[#ECE8F5]')}>
-      {isMobile && <NavBar />}
+      <NavBar title="Lottery" />
 
       <Block
         className={cn(
