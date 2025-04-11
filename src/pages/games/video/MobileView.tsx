@@ -49,7 +49,7 @@ const CardVideo = ({ title, description, image }: IVideo) => {
 
 const MobileView = ({ videos }: VideoProps) => {
   return (
-    <Block>
+    <Block className="m-0">
       {videos.map((video) => (
         <CardVideo
           key={video.title}

@@ -9,7 +9,7 @@ const VideoPage = () => {
   const isMobile = getDevice().android || getDevice().ios;
 
   return (
-    <Page name="video">
+    <Page name="video" className="bg-[#ECE8F5]">
       <NavBar title="Video" />
 
       {isMobile && <MobileView videos={videoData} />}
