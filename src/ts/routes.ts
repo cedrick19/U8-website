@@ -8,6 +8,7 @@ import Sports from '@/pages/games/sports/sports';
 import VideoPage from '@/pages/games/video/video';
 import HomePage from '@/pages/home';
 import ProfilePage from '@/pages/profile/ProfilePage';
+import Settings from '@/pages/profile/settings/Settings';
 
 const gameRoutes = [
   {
@@ -47,6 +48,22 @@ const gameRoutes = [
   },
 ];
 
+const profileRoutes = [
+  {
+    path: '/profile/',
+    name: 'Profile',
+    component: ProfilePage,
+  },
+  {
+    path: '/profile/settings/',
+    name: 'Settings',
+    component: Settings,
+    options: {
+      transition: 'f7-parallax',
+    },
+  },
+];
+
 export const webRoutes = [
   {
     path: '/',
@@ -58,10 +75,6 @@ export const webRoutes = [
     name: 'Activity',
     component: ActivityPage,
   },
-  {
-    path: '/profile/',
-    name: 'Profile',
-    component: ProfilePage,
-  },
+  ...profileRoutes,
   ...gameRoutes,
 ];
