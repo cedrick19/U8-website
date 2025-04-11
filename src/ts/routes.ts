@@ -1,14 +1,14 @@
-import ActivityPage from "@/pages/activity/Activity";
-import GamesIndexPage from "@/pages/games";
-import Chess from "@/pages/games/chess/Chess";
-import Electronic from "@/pages/games/electronic/Electronic";
-import Fishing from "@/pages/games/fishing/fishing";
-import Lottery from "@/pages/games/lottery/Lottery";
-import Sports from "@/pages/games/sports/sports";
-import VideoPage from "@/pages/games/video/video";
-import HomePage from "@/pages/home";
-import ProfilePage from "@/pages/profile/ProfilePage";
-import Settings from "@/pages/profile/settings/Settings";
+import ActivityPage from '@/pages/activity/Activity';
+import GamesIndexPage from '@/pages/games';
+import Chess from '@/pages/games/chess/Chess';
+import Electronic from '@/pages/games/electronic/Electronic';
+import Fishing from '@/pages/games/fishing/fishing';
+import Lottery from '@/pages/games/lottery/Lottery';
+import Sports from '@/pages/games/sports/sports';
+import VideoPage from '@/pages/games/video/video';
+import HomePage from '@/pages/home';
+import ProfilePage from '@/pages/profile/ProfilePage';
+import Settings from '@/pages/profile/settings/Settings';
 
 const gameRoutes = [
   {
@@ -50,16 +50,16 @@ const gameRoutes = [
 
 const profileRoutes = [
   {
-    path: "/profile/",
-    name: "Profile",
+    path: '/profile/',
+    name: 'Profile',
     component: ProfilePage,
   },
   {
-    path: "/profile/settings/",
-    name: "Settings",
+    path: '/profile/settings/',
+    name: 'Settings',
     component: Settings,
     options: {
-      transition: "f7-parallax",
+      transition: 'f7-parallax',
     },
   },
 ];
@@ -71,8 +71,8 @@ export const webRoutes = [
     component: HomePage,
   },
   {
-    path: "/activity/",
-    name: "Activity",
+    path: '/activity/',
+    name: 'Activity',
     component: ActivityPage,
   },
   ...profileRoutes,
