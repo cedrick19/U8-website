@@ -1,15 +1,15 @@
-import { Block, Link } from "framework7-react";
-import { useState } from "react";
-import { cn } from "@/globals/utils";
-import CoinActive from "@/assets/image/icons/coin-on.svg";
-import CoinInactive from "@/assets/image/icons/coin-off.svg";
-import { MobileNavItems } from "./utils";
+import { Block, Link } from 'framework7-react';
+import { useState } from 'react';
+import { cn } from '@/globals/utils';
+import CoinActive from '@/assets/image/icons/coin-on.svg';
+import CoinInactive from '@/assets/image/icons/coin-off.svg';
+import { MobileNavItems } from './utils';
 
 export const ToolMobile = () => {
   const [activeTab, setActiveTab] = useState<number>(0);
   return (
     <>
-      <Block className="absolute -bottom-10 z-10 flex h-20 w-full flex-row justify-between sm:h-40">
+      <Block className="absolute -bottom-9 z-10 flex h-24 w-full flex-row justify-between sm:h-40">
         <svg
           className="absolute left-0 z-0 h-full w-full shadow-secondary/30"
           viewBox="0 0 440 85"
@@ -24,21 +24,18 @@ export const ToolMobile = () => {
           />
         </svg>
         <Link
-          className="absolute bottom-8 left-1/2 h-14 w-14 -translate-x-1/2 rounded-full bg-primary-gradient shadow-xl shadow-[#613EEA]/50 sm:h-28 sm:w-28 md:bottom-16"
+          className="absolute bottom-10 left-1/2 h-14 w-14 -translate-x-1/2 rounded-full bg-primary-gradient shadow-xl shadow-[#613EEA]/50 sm:h-28 sm:w-28 md:bottom-16"
           onClick={() => setActiveTab(5)}
         >
-          <img
-            src={activeTab === 5 ? CoinActive : CoinInactive}
-            className="h-16 sm:h-20"
-          />
+          <img src={activeTab === 5 ? CoinActive : CoinInactive} className="h-10 sm:h-20" />
         </Link>
         {MobileNavItems.map((item, ids) => (
           <Link
             key={ids}
-            href={item.tabLink === "home" ? "/" : `/${item.tabLink}/`}
+            href={item.tabLink === 'home' ? '/' : `/${item.tabLink}/`}
             rippleColor="none"
             onClick={() => setActiveTab(ids)}
-            className={cn("flex flex-col", ids % 2 === 0 ? "pl-6" : "pr-6")}
+            className={cn('flex flex-col pt-2', ids % 2 === 0 ? 'pl-6' : 'pr-6')}
           >
             <img
               src={activeTab === ids ? item.icons.iconOn : item.icons.iconOff}
@@ -46,8 +43,8 @@ export const ToolMobile = () => {
             />
             <span
               className={cn(
-                "mt-2 text-xs sm:text-2xl",
-                activeTab === ids ? "text-gradient" : "text-inactive",
+                'text-sm sm:text-2xl',
+                activeTab === ids ? 'text-gradient' : 'text-inactive',
               )}
             >
               {item.text}
