@@ -35,7 +35,7 @@ export const ToolMobile = () => {
             href={item.tabLink === 'home' ? '/' : `/${item.tabLink}/`}
             rippleColor="none"
             onClick={() => setActiveTab(ids)}
-            className={cn('flex flex-col pb-2', ids % 2 === 0 ? 'pl-6' : 'pr-6')}
+            className={cn('flex flex-col pt-2', ids % 2 === 0 ? 'pl-10' : 'pr-10')}
           >
             <img
               src={activeTab === ids ? item.icons.iconOn : item.icons.iconOff}
@@ -43,7 +43,7 @@ export const ToolMobile = () => {
             />
             <span
               className={cn(
-                'mt-2 text-xs sm:text-2xl',
+                'text-sm sm:text-2xl',
                 activeTab === ids ? 'text-gradient' : 'text-inactive',
               )}
             >
