@@ -14,8 +14,8 @@ const Electronic = () => {
           <Searchbar />
 
           <div className="grid h-full grid-cols-2">
-            {[...Array(14)].map(() => (
-              <Card>
+            {[...Array(14)].map((_, ids) => (
+              <Card key={ids}>
                 <CardContent padding={false}>
                   <img
                     src="https://kk-hongkong-new.dbq9.com/game/pg/516.jpg"

@@ -4,7 +4,7 @@ import Chess from '@/pages/games/chess/Chess';
 import Electronic from '@/pages/games/electronic/Electronic';
 import Fishing from '@/pages/games/fishing/fishing';
 import Lottery from '@/pages/games/lottery/Lottery';
-import Sports from '@/pages/games/sports/sports';
+import Sports from '@/pages/games/sports';
 import VideoPage from '@/pages/games/video';
 
 import HomePage from '@/pages/home';
