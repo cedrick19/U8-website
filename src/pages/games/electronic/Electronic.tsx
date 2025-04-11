@@ -1,5 +1,5 @@
-import { Block, Card, CardContent, Page, Searchbar } from 'framework7-react';
-import { NavBar } from '../components';
+import { Block, Page, Searchbar } from 'framework7-react';
+import { NavBar, TileImage } from '../components';
 import { getDevice } from 'framework7';
 
 const Electronic = () => {
@@ -15,15 +15,7 @@ const Electronic = () => {
 
           <div className="grid h-full grid-cols-2">
             {[...Array(14)].map((_, ids) => (
-              <Card key={ids}>
-                <CardContent padding={false}>
-                  <img
-                    src="https://kk-hongkong-new.dbq9.com/game/pg/516.jpg"
-                    alt="laro"
-                    className="rounded-xl"
-                  />
-                </CardContent>
-              </Card>
+              <TileImage key={ids} image="https://kk-hongkong-new.dbq9.com/game/pg/516.jpg" />
             ))}
           </div>
         </Block>
