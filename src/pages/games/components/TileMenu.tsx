@@ -1,5 +1,5 @@
-import { Card, CardContent } from "framework7-react";
-import { cn } from "@/globals/utils";
+import { Card, CardContent } from 'framework7-react';
+import { cn } from '@/globals/utils';
 
 interface ITileMenu {
   title: string;
@@ -16,9 +16,7 @@ export const TileMenu = ({ title, image, onNavigate }: ITileMenu) => {
       >
         <div
           onClick={onNavigate}
-          className={cn(
-            "h-full w-full bg-contain bg-left-bottom bg-no-repeat p-5",
-          )}
+          className={cn('h-full w-full bg-contain bg-left-bottom bg-no-repeat p-5')}
           style={{ backgroundImage: `url(${image})` }}
         >
           <h2

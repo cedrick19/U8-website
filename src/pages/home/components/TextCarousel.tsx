@@ -20,7 +20,7 @@ export default function MarqueeNotification() {
         <img src="/assets/image/announcement.svg" className="h-6 w-6" alt="announcement" />
       </div>
       <div className="flex w-full items-center overflow-hidden whitespace-nowrap rounded-r-full bg-white">
-        <p className="animate-marquee inline-block">
+        <p className="inline-block animate-marquee">
           {notificationData.map(({ message, game, price }, index) => (
             <span key={index}>
               {message.split('{price}').map((part, partIndex) => (

@@ -1,1 +1,2 @@
-export * from "./TileMenu";
+export * from './TileMenu';
+export * from './NavBar';
