@@ -4,113 +4,113 @@
 @tailwind utilities;
 
 @font-face {
-  font-family: "Nunito";
-  src: url("@/assets/fonts/Nunito-Black.ttf") format("truetype");
+  font-family: 'Nunito';
+  src: url('@/assets/fonts/Nunito-Black.ttf') format('truetype');
   font-weight: 900;
   font-style: normal;
 }
 
 @font-face {
-  font-family: "Nunito";
-  src: url("@/assets/fonts/Nunito-BlackItalic.ttf") format("truetype");
+  font-family: 'Nunito';
+  src: url('@/assets/fonts/Nunito-BlackItalic.ttf') format('truetype');
   font-weight: 900;
   font-style: italic;
 }
 
 @font-face {
-  font-family: "Nunito";
-  src: url("@/assets/fonts/Nunito-Bold.ttf") format("truetype");
+  font-family: 'Nunito';
+  src: url('@/assets/fonts/Nunito-Bold.ttf') format('truetype');
   font-weight: 700;
   font-style: normal;
 }
 
 @font-face {
-  font-family: "Nunito";
-  src: url("@/assets/fonts/Nunito-BoldItalic.ttf") format("truetype");
+  font-family: 'Nunito';
+  src: url('@/assets/fonts/Nunito-BoldItalic.ttf') format('truetype');
   font-weight: 700;
   font-style: italic;
 }
 
 @font-face {
-  font-family: "Nunito";
-  src: url("@/assets/fonts/Nunito-ExtraBold.ttf") format("truetype");
+  font-family: 'Nunito';
+  src: url('@/assets/fonts/Nunito-ExtraBold.ttf') format('truetype');
   font-weight: 800;
   font-style: normal;
 }
 
 @font-face {
-  font-family: "Nunito";
-  src: url("@/assets/fonts/Nunito-ExtraBoldItalic.ttf") format("truetype");
+  font-family: 'Nunito';
+  src: url('@/assets/fonts/Nunito-ExtraBoldItalic.ttf') format('truetype');
   font-weight: 800;
   font-style: italic;
 }
 
 @font-face {
-  font-family: "Nunito";
-  src: url("@/assets/fonts/Nunito-ExtraLight.ttf") format("truetype");
+  font-family: 'Nunito';
+  src: url('@/assets/fonts/Nunito-ExtraLight.ttf') format('truetype');
   font-weight: 200;
   font-style: italic;
 }
 
 @font-face {
-  font-family: "Nunito";
-  src: url("@/assets/fonts/Nunito-ExtraLightItalic.ttf") format("truetype");
+  font-family: 'Nunito';
+  src: url('@/assets/fonts/Nunito-ExtraLightItalic.ttf') format('truetype');
   font-weight: 200;
   font-style: italic;
 }
 
 @font-face {
-  font-family: "Nunito";
-  src: url("@/assets/fonts/Nunito-Italic.ttf") format("truetype");
+  font-family: 'Nunito';
+  src: url('@/assets/fonts/Nunito-Italic.ttf') format('truetype');
   font-weight: 400;
   font-style: italic;
 }
 
 @font-face {
-  font-family: "Nunito";
-  src: url("@/assets/fonts/Nunito-Light.ttf") format("truetype");
+  font-family: 'Nunito';
+  src: url('@/assets/fonts/Nunito-Light.ttf') format('truetype');
   font-weight: 300;
   font-style: normal;
 }
 
 @font-face {
-  font-family: "Nunito";
-  src: url("@/assets/fonts/Nunito-LightItalic.ttf") format("truetype");
+  font-family: 'Nunito';
+  src: url('@/assets/fonts/Nunito-LightItalic.ttf') format('truetype');
   font-weight: 300;
   font-style: italic;
 }
 
 @font-face {
-  font-family: "Nunito";
-  src: url("@/assets/fonts/Nunito-Medium.ttf") format("truetype");
+  font-family: 'Nunito';
+  src: url('@/assets/fonts/Nunito-Medium.ttf') format('truetype');
   font-weight: 500;
   font-style: normal;
 }
 
 @font-face {
-  font-family: "Nunito";
-  src: url("@/assets/fonts/Nunito-MediumItalic.ttf");
+  font-family: 'Nunito';
+  src: url('@/assets/fonts/Nunito-MediumItalic.ttf');
   font-weight: 500;
   font-style: italic;
 }
 
 @font-face {
-  font-family: "Nunito";
-  src: url("@/assets/fonts/Nunito-Regular.ttf") format("truetype");
+  font-family: 'Nunito';
+  src: url('@/assets/fonts/Nunito-Regular.ttf') format('truetype');
   font-weight: 400;
   font-style: normal;
 }
 
 @font-face {
-  font-family: "Nunito";
-  src: url("@/assets/fonts/Nunito-SemiBold.ttf") format("truetype");
+  font-family: 'Nunito';
+  src: url('@/assets/fonts/Nunito-SemiBold.ttf') format('truetype');
   font-weight: 600;
   font-style: normal;
 }
 
 @font-face {
-  font-family: "Nunito";
-  src: url("@/assets/fonts/Nunito-SemiBoldItalic.ttf") format("truetype");
+  font-family: 'Nunito';
+  src: url('@/assets/fonts/Nunito-SemiBoldItalic.ttf') format('truetype');
   font-weight: 600;
   font-style: italic;
 }
@@ -136,6 +136,28 @@ body {
   top: 100%;
   right: 0;
   width: 90%;
+  transform: scaleY(-1);
+  opacity: 1;
+  filter: blur(0.5px);
+  color: #a03d8c;
+
+  background: linear-gradient(to right, #a03d8c, #4c2cca);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  mask-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.6), transparent);
+}
+
+.reflect-text2 {
+  position: relative;
+}
+
+.reflect-text2::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 70%;
+  left: 0;
+  width: 100%;
   transform: scaleY(-1);
   opacity: 1;
   filter: blur(0.5px);
