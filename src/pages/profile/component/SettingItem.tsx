@@ -24,8 +24,12 @@ const SettingItem = (props: SettingItemProps) => {
     ...rest
   } = props;
   return (
-    <>
-      <Button className={`${className} flex w-full items-center justify-between`} large {...rest}>
+    <div>
+      <Button
+        className={`${className} flex w-full items-center justify-between`}
+        large
+        {...rest}
+      >
         <div className="flex items-center gap-3">
           <Icon material={iconLeft} className="text-gradient" />
           <p className="text-black">{label}</p>
@@ -42,7 +46,7 @@ const SettingItem = (props: SettingItemProps) => {
         </div>
       </Button>
       {divider && <div className="ml-4 mr-5 h-0 border-b-2 border-slate-100" />}
-    </>
+    </div>
   );
 };
 

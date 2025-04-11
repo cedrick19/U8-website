@@ -8,6 +8,7 @@ import Sports from '@/pages/games/sports';
 import VideoPage from '@/pages/games/video';
 
 import HomePage from '@/pages/home';
+import AccountSecurity from '@/pages/profile/account-security';
 import ProfilePage from '@/pages/profile/ProfilePage';
 import Settings from '@/pages/profile/settings/Settings';
 
@@ -59,6 +60,14 @@ const profileRoutes = [
     path: '/profile/settings/',
     name: 'Settings',
     component: Settings,
+    options: {
+      transition: 'f7-parallax',
+    },
+  },
+  {
+    path: '/profile/settings/account-security/',
+    name: 'Account Security',
+    component: AccountSecurity,
     options: {
       transition: 'f7-parallax',
     },
