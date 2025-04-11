@@ -1,106 +1,93 @@
-import {
-  Page,
-  Navbar,
-  List,
-  ListInput,
-  ListItem,
-  Toggle,
-  BlockTitle,
-  Button,
-  Range,
-  Block,
-  f7,
-  Popup,
-} from "framework7-react";
-import Layout from "@/layout/layout";
-import HomeNavbar from "@/components/MobileNavbar/HomeNavbar";
-import { getDevice } from "framework7";
-import { useState, useMemo, useEffect } from "react";
+import { Page, Block, Icon } from 'framework7-react';
+import Layout from '@/layout/layout';
+import HomeNavbar from '@/components/MobileNavbar/HomeNavbar';
+import activitiesIcon from '@/assets/image/icons/activities.svg';
+import ballIcon from '@/assets/image/icons/ball.svg';
+import videoIcon from '@/assets/image/icons/video.svg';
+import fishIcon from '@/assets/image/icons/fish.svg';
+import gameIcon from '@/assets/image/icons/electronic.svg';
+import newspaperIcon from '@/assets/image/icons/Newspaper.svg';
+
+const activities = [
+  { id: 1, title: 'All Activities', icon: activitiesIcon },
+  { id: 2, title: 'Newcomer Activities', icon: newspaperIcon },
+  { id: 3, title: 'Electronic Activities', icon: gameIcon },
+  { id: 4, title: 'Fishing Activities', icon: fishIcon },
+  { id: 5, title: 'Video Activities', icon: videoIcon },
+  { id: 6, title: 'Sports Activities', icon: ballIcon },
+];
 
 const ActivityPage = () => {
-  const navigate = (path: string) => f7.tab.show(path);
-
-  const handleLogout = () => {
-    f7.popup.close("#logoutConfirm");
-    navigate("#view-home");
-  };
-  const [isTablet, setIsTablet] = useState(false);
-
-  const isMobile = useMemo(() => {
-    const device = getDevice();
-    return device.ios || device.android;
-  }, []);
-
-  const isSmallDevice = isMobile || isTablet;
-
-  useEffect(() => {
-    const handleResize = () => {
-      const width = window.innerWidth;
-      setIsTablet(width >= 600 && width <= 1024);
-    };
-
-    handleResize();
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
-
   return (
     <Page name="settings">
-      {isSmallDevice && <HomeNavbar />}
+      <HomeNavbar
+        navRight={
+          <>
+            <p className="text-2xl font-bold">0.00</p>
+            <Icon material="notifications" size={30} className="text-[#4A226E]" />
+          </>
+        }
+      />
       <Layout>
-        <Navbar title="Settings" />
-        <BlockTitle>Form Example</BlockTitle>
-        <List strongIos outlineIos dividersIos>
-          <ListInput label="Name" type="text" placeholder="Your name" />
+        <Block className="p-1">
+          <div className="grid grid-cols-2 gap-4">
+            {activities.map((activity) => (
+              <div key={activity.id} className="w-full">
+                <div className="relative h-[151px] w-full overflow-hidden rounded-lg bg-[#F5F3FC] shadow-sm">
+                  <div className="absolute left-0 top-0 h-[50px] w-full">
+                    <div
+                      className="absolute left-0 top-0 h-full w-full bg-[#D5CEF3]"
+                      style={{
+                        clipPath: 'polygon(0 0, 100% 0, 100% 40%, 0 100%)',
+                      }}
+                    />
+                    <div
+                      className="absolute left-0 top-0 h-full w-full bg-[#C7BCEB]"
+                      style={{
+                        clipPath: 'polygon(0 0, 100% 0, 100% 20%, 0 70%)',
+                      }}
+                    />
+                    <div
+                      className="absolute left-0 top-0 h-full w-full bg-[#B3A7E3]"
+                      style={{
+                        clipPath: 'polygon(0 0, 100% 0, 100% 0%, 0 40%)',
+                      }}
+                    />
+                  </div>
 
-          <ListInput label="E-mail" type="email" placeholder="E-mail" />
-
-          <ListInput label="URL" type="url" placeholder="URL" />
-
-          <ListInput label="Password" type="password" placeholder="Password" />
-
-          <ListInput label="Phone" type="tel" placeholder="Phone" />
-
-          <ListInput label="Gender" type="select">
-            <option>Male</option>
-            <option>Female</option>
-          </ListInput>
-
-          <ListInput
-            label="Birth date"
-            type="date"
-            placeholder="Birth day"
-            defaultValue="2014-04-30"
-          />
-
-          <ListItem title="Toggle">
-            <Toggle slot="after" />
-          </ListItem>
-
-          <ListInput label="Range" input={false}>
-            <Range slot="input" value={50} min={0} max={100} step={1} />
-          </ListInput>
-
-          <ListInput type="textarea" label="Textarea" placeholder="Bio" />
-          <ListInput
-            type="textarea"
-            label="Resizable"
-            placeholder="Bio"
-            resizable
-          />
-        </List>
-
-        <Button onClick={() => f7.popup.open("#logoutConfirm")}>Log out</Button>
-
-        <Popup id="logoutConfirm">
-          <p>Are you sure you want to log out?</p>
-          <Block className="grid-gap grid grid-cols-2">
-            <Button popupClose="#logoutConfirm">Cancel</Button>
-            <Button fill onClick={handleLogout}>
-              Log out
-            </Button>
-          </Block>
-        </Popup>
+                  <div className="absolute bottom-0 h-[110px] w-full rounded-b-lg">
+                    <div className="relative h-full w-full">
+                      <div
+                        className="absolute bottom-0 h-full w-full rounded-b-lg bg-[#D5CEF3]"
+                        style={{ clipPath: 'circle(44% at 50% 110%)' }}
+                      />
+                      <div
+                        className="absolute bottom-0 h-full w-full rounded-b-lg bg-[#B8ADE9]"
+                        style={{ clipPath: 'circle(30% at 50% 110%)' }}
+                      />
+                      <div
+                        className="absolute bottom-0 h-full w-full rounded-b-lg bg-[#A598E2]"
+                        style={{ clipPath: 'circle(15% at 50% 110%)' }}
+                      />
+                    </div>
+                  </div>
+                  <div className="absolute flex h-full w-full flex-col items-center justify-center">
+                    <div className="flex h-12 w-12 items-center justify-center">
+                      <img
+                        src={activity.icon}
+                        alt={activity.title}
+                        className="h-[36px] max-h-full w-[36px] max-w-full"
+                      />
+                    </div>
+                    <div className="mt-2 text-center text-lg font-bold text-[#5D3B94]">
+                      {activity.title}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </Block>
       </Layout>
     </Page>
   );
