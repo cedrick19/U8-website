@@ -1,4 +1,4 @@
-import { Block, Card, CardContent, CardFooter, Page } from 'framework7-react';
+import { Block, Button, Card, CardContent, CardFooter, Page } from 'framework7-react';
 import { NavBar } from '../components';
 import { lotteryGames } from '../utils';
 import { getDevice } from 'framework7';
@@ -11,38 +11,26 @@ interface ILottery {
 interface LotteryGameData {
   games: ILottery[];
 }
-const RenderMobileView = ({ games }: LotteryGameData) => {
-  return games.map((game) => (
-    <Card raised key={game.title} className="m-0">
+
+const CardTile = ({ title }: ILottery) => {
+  return (
+    <Card raised key={title} className="m-0">
       <CardContent padding={false}>
         <img
           className="w-full rounded-t-xl"
           src="https://kk-hongkong-new.dbq9.com/master/h5/icon/加拿大2.8.jpg"
-          alt={game.title}
+          alt={title}
         />
       </CardContent>
       <CardFooter>
-        <p className="w-full text-wrap text-center">{game.title}</p>
+        <p className="w-full text-wrap text-center">{title}</p>
       </CardFooter>
     </Card>
-  ));
+  );
 };
 
-const RenderDesktopView = ({ games }: LotteryGameData) => {
-  return games.map((game) => (
-    <Card outline key={game.title}>
-      <CardContent padding={false} className="h-52">
-        <img
-          className="h-full w-full rounded-t-xl"
-          src="https://kk-hongkong-new.dbq9.com/master/h5/icon/加拿大2.8.jpg"
-          alt={game.title}
-        />
-      </CardContent>
-      <CardFooter>
-        <p className="w-full text-wrap text-center">{game.title}</p>
-      </CardFooter>
-    </Card>
-  ));
+const RenderLotteryGames = ({ games }: LotteryGameData) => {
+  return games.map((game) => <CardTile key={game.title} title={game.title} />);
 };
 
 const Lottery = () => {
@@ -53,21 +41,25 @@ const Lottery = () => {
 
       <Block
         className={cn(
-          'p-8" m-0 h-full w-full',
+          'm-0 h-full w-full p-8',
           !isMobile &&
             'bg-[url(https://paosgi.com/_nuxt/lottery-bg.ySCWSaKo.webp)] bg-contain bg-no-repeat',
         )}
       >
         {isMobile ? (
           <div className={cn('grid-gap grid grid-cols-2')}>
-            <RenderMobileView games={lotteryGames} />
+            <RenderLotteryGames games={lotteryGames} />
           </div>
         ) : (
           <div className="flex h-full items-center justify-center">
-            <Card raised bgColor="white">
-              <CardContent>
-                <div className={cn('grid-gap container mx-auto grid grid-cols-5')}>
-                  <RenderDesktopView games={lotteryGames} />
+            <Card raised bgColor="white" className="container mx-auto">
+              <CardContent className="flex flex-col gap-5 p-16">
+                <Button raised round className="w-fit bg-primary-gradient text-white">
+                  All
+                </Button>
+
+                <div className={cn('grid grid-cols-5 gap-5')}>
+                  <RenderLotteryGames games={lotteryGames} />
                 </div>
               </CardContent>
             </Card>
