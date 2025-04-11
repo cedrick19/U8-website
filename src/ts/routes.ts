@@ -12,38 +12,38 @@ import Settings from "@/pages/profile/settings/Settings";
 
 const gameRoutes = [
   {
-    path: "/games/",
-    name: "Games",
+    path: '/games/',
+    name: 'Games',
     component: GamesIndexPage,
   },
   {
-    path: "/games/lottery/",
-    name: "Lottery",
+    path: '/games/lottery/',
+    name: 'Lottery',
     component: Lottery,
   },
   {
-    path: "/games/sports/",
-    name: "Sports",
+    path: '/games/sports/',
+    name: 'Sports',
     component: Sports,
   },
   {
-    path: "/games/video/",
-    name: "Video",
+    path: '/games/video/',
+    name: 'Video',
     component: VideoPage,
   },
   {
-    path: "/games/electronic/",
-    name: "Electronic",
+    path: '/games/electronic/',
+    name: 'Electronic',
     component: Electronic,
   },
   {
-    path: "/games/chess/",
-    name: "Chess",
+    path: '/games/chess/',
+    name: 'Chess',
     component: Chess,
   },
   {
-    path: "/games/fishing/",
-    name: "Fishing",
+    path: '/games/fishing/',
+    name: 'Fishing',
     component: Fishing,
   },
 ];
@@ -66,8 +66,8 @@ const profileRoutes = [
 
 export const webRoutes = [
   {
-    path: "/",
-    name: "Home",
+    path: '/',
+    name: 'Home',
     component: HomePage,
   },
   {

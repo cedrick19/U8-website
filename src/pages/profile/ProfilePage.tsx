@@ -1,25 +1,14 @@
-import {
-  Page,
-  Block,
-  Navbar,
-  NavLeft,
-  Card,
-  CardContent,
-  f7,
-  NavRight,
-  Icon,
-} from "framework7-react";
-import ProfileCard from "./component/ProfileCard";
-import GamesManagement from "@/assets/image/icons/game_management.svg";
-import FundManagement from "@/assets/image/icons/fund_management.svg";
-import RechargeTutorial from "@/assets/image/icons/recharge_tutorial.svg";
-import Share from "@/assets/image/icons/share.svg";
-import ComingSoon from "@/assets/image/icons/coming_soon.svg";
-import AvatarIcon from "@/assets/image/avatarIcon.png";
-import CoinOff from "@/assets/image/icons/coin-off.svg";
-import Refresh from "@/assets/image/refresh.svg";
-import Logo from "@/assets/image/logo.png";
-import Telegram from "@/assets/image/Telegram.png";
+import { Page, Block, Card, CardContent, f7, Icon } from 'framework7-react';
+import ProfileCard from './component/ProfileCard';
+import GamesManagement from '@/assets/image/icons/game_management.svg';
+import FundManagement from '@/assets/image/icons/fund_management.svg';
+import RechargeTutorial from '@/assets/image/icons/recharge_tutorial.svg';
+import Share from '@/assets/image/icons/share.svg';
+import ComingSoon from '@/assets/image/icons/coming_soon.svg';
+import AvatarIcon from '@/assets/image/avatarIcon.png';
+import CoinOff from '@/assets/image/icons/coin-off.svg';
+import Refresh from '@/assets/image/refresh.svg';
+import HomeNavbar from '@/components/MobileNavbar/HomeNavbar';
 
 export interface Services {
   icon: string;
@@ -29,60 +18,41 @@ export interface Services {
 const services: Services[] = [
   {
     icon: GamesManagement,
-    label: "Game Management",
+    label: 'Game Management',
   },
   {
     icon: FundManagement,
-    label: "Fund Management",
+    label: 'Fund Management',
   },
   {
     icon: RechargeTutorial,
-    label: "Recharge Tutorial",
+    label: 'Recharge Tutorial',
   },
   {
     icon: Share,
-    label: "Share",
+    label: 'Share',
   },
   {
     icon: ComingSoon,
-    label: "Coming Soon",
+    label: 'Coming Soon',
   },
 ];
 
-const handleNavigate = (viewType: "tab" | "view", url: string) => {
-  if (viewType === "tab") {
-    f7.tab.show(`#${url}`);
-  } else {
-    f7.views.main.router.navigate("/games/lottery/");
-  }
-};
 const ProfilePage = () => {
   return (
     <Page name="profile">
-      <Navbar innerClassName="bg-gradient-to-tr from-secondary/0 via-secondary/0 to-secondary/20">
-        <NavLeft className="pl-3">
-          <img
-            src={Logo}
-            className="h-5 w-20"
-            onClick={() => handleNavigate("tab", "home")}
-          />
-          <img src={Telegram} alt="Telegram Logo" className="w-25 h-10" />
-        </NavLeft>
-        <NavRight className="gap-2 pr-3">
-          <Icon material="notifications" size={30} className="text-[#4A226E]" />
-          <div
-            onClick={() => f7.view.main.router.navigate("/profile/settings/")}
-          >
-            <Icon material="settings" size={30} className="text-[#4A226E]" />
-          </div>
-        </NavRight>
-      </Navbar>
+      <HomeNavbar
+        navRight={
+          <>
+            <Icon material="notifications" size={30} className="text-[#4A226E]" />
+            <div onClick={() => f7.view.main.router.navigate('/profile/settings/')}>
+              <Icon material="settings" size={30} className="text-[#4A226E]" />
+            </div>
+          </>
+        }
+      />
       <Block className="flex h-16 items-center">
-        <img
-          slot="media"
-          src={AvatarIcon}
-          className="h-16 w-16 rounded-full bg-blue-500"
-        />
+        <img slot="media" src={AvatarIcon} className="h-16 w-16 rounded-full bg-blue-500" />
         <Block className="flex-col gap-1">
           <p className="text-lg">beluga.cat</p>
           <p className="text-xs">Member Account: beluga.cat07</p>
@@ -131,36 +101,21 @@ const ProfilePage = () => {
           </p>
         }
       >
-        <Card
-          className="z-10 border-2 border-white bg-[#ECE8F5] shadow-md shadow-[#d4caf9]"
-          raised
-        >
+        <Card className="z-10 border-2 border-white bg-[#ECE8F5] shadow-md shadow-[#d4caf9]" raised>
           <CardContent className="flex items-center justify-center gap-5 py-10">
             <Block className="">
-              <p className="text-center text-2xl font-bold text-[#4A4A4A]">
-                0 &gt;
-              </p>
-              <p className="text-md text-center text-[#3B1E7A]">
-                Nubmer of Statements
-              </p>
+              <p className="text-center text-2xl font-bold text-[#4A4A4A]">0 &gt;</p>
+              <p className="text-md text-center text-[#3B1E7A]">Nubmer of Statements</p>
             </Block>
             <div className="h-16 border-[1px] border-slate-300" />
             <Block className="">
-              <p className="text-center text-xl font-bold text-[#4A4A4A]">
-                0.00 &gt;
-              </p>
-              <p className="text-md text-center text-[#3B1E7A]">
-                Total profit and loss
-              </p>
+              <p className="text-center text-xl font-bold text-[#4A4A4A]">0.00 &gt;</p>
+              <p className="text-md text-center text-[#3B1E7A]">Total profit and loss</p>
             </Block>
             <div className="h-16 border-[1px] border-slate-300" />
             <Block className="">
-              <p className="text-center text-xl font-bold text-[#4A4A4A]">
-                0.00 &gt;
-              </p>
-              <p className="text-md text-center text-[#3B1E7A]">
-                Real-time water return
-              </p>
+              <p className="text-center text-xl font-bold text-[#4A4A4A]">0.00 &gt;</p>
+              <p className="text-md text-center text-[#3B1E7A]">Real-time water return</p>
             </Block>
           </CardContent>
         </Card>

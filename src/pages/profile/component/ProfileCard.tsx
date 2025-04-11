@@ -1,7 +1,7 @@
-import { Block, Card } from "framework7-react";
-import { CardProps } from "framework7-react/components/card.js";
-import { ReactNode, useCallback, useState } from "react";
-import Refresh from "@/assets/image/refresh.svg";
+import { Block, Card } from 'framework7-react';
+import { CardProps } from 'framework7-react/components/card.js';
+import { ReactNode, useCallback, useState } from 'react';
+import Refresh from '@/assets/image/refresh.svg';
 
 interface ProfileCardProps {
   className?: string;
@@ -12,13 +12,7 @@ interface ProfileCardProps {
 }
 
 const ProfileCard = (props: ProfileCardProps) => {
-  const {
-    className,
-    children,
-    pCardStyle,
-    pCardTitle,
-    refresh = false,
-  } = props;
+  const { className, children, pCardStyle, pCardTitle, refresh = false } = props;
 
   const [isSpinning, setIsSpinning] = useState(false);
   const handleRefreshClick = useCallback(() => {
@@ -35,15 +29,15 @@ const ProfileCard = (props: ProfileCardProps) => {
         <div className="relative h-full w-full">
           <div
             className="absolute left-0 top-0 h-full w-full rounded-tl-lg bg-[#D5CEF3]"
-            style={{ clipPath: "circle(34% at 5% 0)" }}
+            style={{ clipPath: 'circle(34% at 5% 0)' }}
           />
           <div
             className="absolute left-0 top-0 h-full w-full rounded-tl-lg bg-[#B8ADE9]"
-            style={{ clipPath: "circle(24% at 5% 0)" }}
+            style={{ clipPath: 'circle(24% at 5% 0)' }}
           />
           <div
             className="absolute left-0 top-0 h-full w-full rounded-tl-lg bg-[#A598E2]"
-            style={{ clipPath: "circle(16% at 5% 0)" }}
+            style={{ clipPath: 'circle(16% at 5% 0)' }}
           />
         </div>
       </div>
@@ -56,7 +50,7 @@ const ProfileCard = (props: ProfileCardProps) => {
               alt="refresh"
               onClick={handleRefreshClick}
               className={`h-5 w-5 cursor-pointer rounded-full bg-primary-gradient p-1 transition-transform duration-1000 ${
-                isSpinning ? "rotate-[1080deg]" : ""
+                isSpinning ? 'rotate-[1080deg]' : ''
               }`}
             />
             <p className="font-extrabold">Refresh</p>
