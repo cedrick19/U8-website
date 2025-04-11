@@ -9,10 +9,10 @@ const ProfileNav = ({ title }: ProfileNavigation) => {
     <Navbar innerClassName="bg-white relative">
       <NavLeft>
         <Link onClick={() => f7.views.main.router.back()}>
-          <Icon material="chevron_left" size={35} className="text-primary-gradient" />
+          <Icon material="chevron_left" size={35} className="text-gradient" />
         </Link>
       </NavLeft>
-      <p className="text-primary-gradient absolute w-full text-center text-xl font-bold">{title}</p>
+      <p className="text-gradient absolute w-full text-center text-xl font-bold">{title}</p>
     </Navbar>
   );
 };

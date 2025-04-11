@@ -27,7 +27,7 @@ const SettingItem = (props: SettingItemProps) => {
     <>
       <Button className={`${className} flex w-full items-center justify-between`} large {...rest}>
         <div className="flex items-center gap-3">
-          <Icon material={iconLeft} className="text-primary-gradient" />
+          <Icon material={iconLeft} className="text-gradient" />
           <p className="text-black">{label}</p>
         </div>
         <div className="flex items-center gap-3">

@@ -16,7 +16,7 @@ const Settings = () => {
           iconLeft="manage_accounts"
           label="Account Security"
           iconRight="chevron_right"
-          iconRightClassName="text-primary-gradient"
+          iconRightClassName="text-gradient"
           onClick={() => f7.views.main.router.navigate('/profile/settings/account-security/')}
         />
       </Block>
@@ -25,7 +25,7 @@ const Settings = () => {
           iconLeft="manage_accounts"
           label="Clear cache"
           iconRight="chevron_right"
-          iconRightClassName="text-primary-gradient"
+          iconRightClassName="text-gradient"
           className="rounded-b-none"
           onClick={() => setCacheOpen(true)}
         />
