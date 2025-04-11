@@ -38,7 +38,7 @@ const HomeBody = () => {
 
   return (
     <div className="flex flex-col pb-20">
-      <div className="mb-4 grid grid-cols-2 gap-3">
+      <div className="grid grid-cols-2 gap-3">
         <Card className="row-span-2 flex h-[290px] w-full flex-col overflow-hidden rounded-xl border-b-4 border-b-white border-t-white bg-[#4C2CCA4D]/10">
           <LineCardpolygon />
           <div className="relative h-full w-full overflow-hidden">
@@ -59,7 +59,9 @@ const HomeBody = () => {
           <Card className="relative mb-0 flex h-[142px] items-start overflow-hidden rounded-xl border-y border-white bg-purple-800/5 px-4 py-2">
             <LineCardpolygon />
             <CardContent className="z-10 flex flex-col justify-center gap-2 p-0">
-              <h2 className="text-lg font-extrabold text-purple-800">LOTTERY TICKET</h2>
+              <h2 className="text-gradient text-xl font-extrabold text-purple-800">
+                LOTTERY TICKET
+              </h2>
             </CardContent>
 
             <img
@@ -72,7 +74,9 @@ const HomeBody = () => {
           <Card className="relative flex h-[118px] items-start overflow-hidden rounded-xl border-b-white border-t-white bg-[#4C2CCA4D]/10 px-2 pt-2">
             <LineCardpolygon />
             <CardContent className="z-10 flex flex-1 flex-col justify-center space-y-1 p-0">
-              <h2 className="text-lg font-extrabold text-purple-800">ELECTRONIC GAMES</h2>
+              <h2 className="text-gradient text-xl font-extrabold text-purple-800">
+                ELECTRONIC GAMES
+              </h2>
             </CardContent>
 
             <img
@@ -101,7 +105,7 @@ const HomeBody = () => {
               </div>
               <div className="w-full p-1 pb-4">
                 <Button
-                  className={`${category.color} w-full rounded-md px-2 font-medium text-white`}
+                  className={`${category.color} w-full rounded-xl px-2 font-medium text-white`}
                 >
                   {category.name}
                 </Button>

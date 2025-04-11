@@ -48,8 +48,7 @@ const HomePage = () => {
         {isSmallDevice && <UserCard />}
       </div>
 
-      <HomeContent />
-
+      {isSmallDevice && <HomeContent />}
       {isSmallDevice && <LoginModal />}
     </Page>
   );
