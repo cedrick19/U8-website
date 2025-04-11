@@ -3,7 +3,7 @@ import { ReactNode } from 'react';
 
 interface PopupProps {
   title: string;
-  label: ReactNode;
+  children?: ReactNode;
   opText: string;
   clText: string;
   opAction?: () => void;
@@ -12,7 +12,7 @@ interface PopupProps {
 }
 
 const CustomPopUp = (props: PopupProps) => {
-  const { title, label, opText, opAction, clAction, clText, open } = props;
+  const { title, opText, opAction, clAction, clText, open, children } = props;
 
   return (
     <Popup
@@ -23,7 +23,7 @@ const CustomPopUp = (props: PopupProps) => {
     >
       <Block className="space-y-5 text-center">
         <p className="text-2xl font-bold">{title}</p>
-        {label}
+        {children}
       </Block>
       <div className="m-0 flex items-end justify-center border-t-[1.5px] border-black">
         <Button
