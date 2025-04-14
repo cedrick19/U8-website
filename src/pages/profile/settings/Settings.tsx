@@ -20,7 +20,7 @@ const Settings = () => {
           iconRightClassName="text-gradient"
           onClick={() => {
             document.getElementById('settings-redirect')?.blur();
-            f7.view.main.router.navigate('/profile/settings/account-security/');
+            f7.view.main.router.navigate('account-security/');
           }}
         />
       </Block>
