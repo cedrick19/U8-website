@@ -13,42 +13,45 @@ import ProfilePage from '@/pages/profile/ProfilePage';
 import Settings from '@/pages/profile/settings/Settings';
 import AddVirtualWallet from '@/pages/profile/virtual-address/component/AddVirtualWallet';
 import VirtualAddManagement from '@/pages/profile/virtual-address/VirtualAddManagement';
+import { Router } from 'framework7/types';
 
 const gameRoutes = [
   {
     path: '/games/',
     name: 'Games',
     component: GamesIndexPage,
-  },
-  {
-    path: '/games/lottery/',
-    name: 'Lottery',
-    component: Lottery,
-  },
-  {
-    path: '/games/sports/',
-    name: 'Sports',
-    component: Sports,
-  },
-  {
-    path: '/games/video/',
-    name: 'Video',
-    component: VideoPage,
-  },
-  {
-    path: '/games/electronic/',
-    name: 'Electronic',
-    component: Electronic,
-  },
-  {
-    path: '/games/chess/',
-    name: 'Chess',
-    component: Chess,
-  },
-  {
-    path: '/games/fishing/',
-    name: 'Fishing',
-    component: Fishing,
+    routes: [
+      {
+        path: '/lottery/',
+        name: 'Lottery',
+        component: Lottery,
+      },
+      {
+        path: '/sports/',
+        name: 'Sports',
+        component: Sports,
+      },
+      {
+        path: '/video/',
+        name: 'Video',
+        component: VideoPage,
+      },
+      {
+        path: '/electronic/',
+        name: 'Electronic',
+        component: Electronic,
+      },
+      {
+        path: '/chess/',
+        name: 'Chess',
+        component: Chess,
+      },
+      {
+        path: '/fishing/',
+        name: 'Fishing',
+        component: Fishing,
+      },
+    ],
   },
 ];
 
@@ -94,7 +97,7 @@ const profileRoutes = [
   },
 ];
 
-export const webRoutes = [
+export const webRoutes: Router.RouteParameters[] = [
   {
     path: '/',
     name: 'Home',
