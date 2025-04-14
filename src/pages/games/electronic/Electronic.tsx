@@ -10,7 +10,7 @@ const Electronic = () => {
       <NavBar title="Electronic" />
 
       {isMobile && (
-        <Block className="m-0">
+        <Block className="m-0 pb-10">
           <Searchbar />
 
           <div className="grid h-full grid-cols-2">
