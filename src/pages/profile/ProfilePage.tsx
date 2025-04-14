@@ -1,16 +1,16 @@
-import { Page, Block, Card, CardContent, Icon } from 'framework7-react';
+import { Page, Block, Card, CardContent, f7, Icon } from 'framework7-react';
 import ProfileCard from './component/ProfileCard';
 import GamesManagement from '@/assets/image/icons/game_management.svg';
 import FundManagement from '@/assets/image/icons/fund_management.svg';
 import RechargeTutorial from '@/assets/image/icons/recharge_tutorial.svg';
 import Share from '@/assets/image/icons/share.svg';
 import ComingSoon from '@/assets/image/icons/coming_soon.svg';
-import HomeNavbar from '@/components/MobileNavbar/HomeNavbar';
-import Media from '@/assets/image/avatarIcon.png';
-import Refresh from '@/assets/image/refresh.svg';
+import AvatarIcon from '@/assets/image/avatarIcon.png';
 import CoinOff from '@/assets/image/icons/coin-off.svg';
+import Refresh from '@/assets/image/refresh.svg';
+import HomeNavbar from '@/components/MobileNavbar/HomeNavbar';
 
-interface Services {
+export interface Services {
   icon: string;
   label: string;
 }
@@ -45,12 +45,14 @@ const ProfilePage = () => {
         navRight={
           <>
             <Icon material="notifications" size={30} className="text-[#4A226E]" />
-            <Icon material="settings" size={30} className="text-[#4A226E]" />
+            <div onClick={() => f7.view.main.router.navigate('/profile/settings/')}>
+              <Icon material="settings" size={30} className="text-[#4A226E]" />
+            </div>
           </>
         }
       />
       <Block className="flex h-16 items-center">
-        <img slot="media" src={Media} className="h-16 w-16 rounded-full bg-blue-500" />
+        <img slot="media" src={AvatarIcon} className="h-16 w-16 rounded-full bg-blue-500" />
         <Block className="flex-col gap-1">
           <p className="text-lg">beluga.cat</p>
           <p className="text-xs">Member Account: beluga.cat07</p>

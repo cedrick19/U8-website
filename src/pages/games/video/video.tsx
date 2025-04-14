@@ -1,19 +1,24 @@
-import Layout from "@/layout/layout";
-import { Page, Navbar, Block, BlockTitle } from "framework7-react";
+import { Block, Page } from 'framework7-react';
+
+import { NavBar } from '../components';
+import { getDevice } from 'framework7';
+import MobileView from './MobileView';
+import { videoData } from './utils';
 
 const VideoPage = () => {
+  const isMobile = getDevice().android || getDevice().ios;
+
   return (
-    <Page name="video">
-      <Layout>
-        <Navbar title="Video Player" />
-        <BlockTitle>Watch Video</BlockTitle>
-        <Block className="text-center">
-          <video controls className="w-full rounded-lg shadow-lg">
-            <source src="/path-to-your-video.mp4" type="video/mp4" />
-            Your browser does not support the video tag.
-          </video>
+    <Page name="video" className="bg-[#ECE8F5]">
+      <NavBar title="Video" />
+
+      {isMobile && <MobileView videos={videoData} />}
+
+      {!isMobile && (
+        <Block>
+          <h1>Under Construction</h1>
         </Block>
-      </Layout>
+      )}
     </Page>
   );
 };

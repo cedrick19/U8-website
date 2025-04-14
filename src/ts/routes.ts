@@ -2,12 +2,15 @@ import ActivityPage from '@/pages/activity/Activity';
 import GamesIndexPage from '@/pages/games';
 import Chess from '@/pages/games/chess/Chess';
 import Electronic from '@/pages/games/electronic/Electronic';
-import Fishing from '@/pages/games/fishing/fishing';
+import Fishing from '@/pages/games/fishing';
 import Lottery from '@/pages/games/lottery/Lottery';
-import Sports from '@/pages/games/sports/sports';
-import VideoPage from '@/pages/games/video/video';
+import Sports from '@/pages/games/sports';
+import VideoPage from '@/pages/games/video';
+
 import HomePage from '@/pages/home';
+import AccountSecurity from '@/pages/profile/account-security';
 import ProfilePage from '@/pages/profile/ProfilePage';
+import Settings from '@/pages/profile/settings/Settings';
 
 const gameRoutes = [
   {
@@ -47,21 +50,43 @@ const gameRoutes = [
   },
 ];
 
-export const webRoutes = [
-  {
-    path: '/',
-    name: 'Home',
-    component: HomePage,
-  },
-  {
-    path: '/activity/',
-    name: 'Activity',
-    component: ActivityPage,
-  },
+const profileRoutes = [
   {
     path: '/profile/',
     name: 'Profile',
     component: ProfilePage,
   },
-  ...gameRoutes,
+  {
+    path: '/profile/settings/',
+    name: 'Settings',
+    component: Settings,
+    options: {
+      transition: 'f7-parallax',
+    },
+  },
+  {
+    path: '/profile/settings/account-security/',
+    name: 'Account Security',
+    component: AccountSecurity,
+    options: {
+      transition: 'f7-parallax',
+    },
+  },
+];
+
+export const webRoutes = [
+  {
+    path: '/',
+    name: 'Home',
+    component: HomePage,
+    routes: [
+      {
+        path: '/activity/',
+        name: 'Activity',
+        component: ActivityPage,
+      },
+      ...profileRoutes,
+      ...gameRoutes,
+    ],
+  },
 ];
