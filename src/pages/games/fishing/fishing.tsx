@@ -10,10 +10,16 @@ const Fishing = () => {
       <NavBar title="Fishing" />
 
       {isMobile && (
-        <Block className="m-0">
-          <Searchbar />
+        <Block className="m-0 pt-5">
+          <Searchbar inline className="mb-5" />
           <Block className="m-0">
-            <Button fill round raised className="w-full bg-primary-gradient font-extrabold">
+            <Button
+              fill
+              round
+              raised
+              className="w-full bg-primary-gradient font-extrabold"
+              largeIos
+            >
               CQ9
             </Button>
           </Block>

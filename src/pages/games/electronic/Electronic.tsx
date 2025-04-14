@@ -10,8 +10,8 @@ const Electronic = () => {
       <NavBar title="Electronic" />
 
       {isMobile && (
-        <Block className="m-0 pb-10">
-          <Searchbar />
+        <Block className="m-0 pb-10 pt-5">
+          <Searchbar inline textColor="red" />
 
           <div className="grid h-full grid-cols-2">
             {[...Array(14)].map((_, ids) => (
