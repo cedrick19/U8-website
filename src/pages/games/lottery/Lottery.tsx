@@ -39,33 +39,29 @@ const Lottery = () => {
     <Page name="lottery" className={cn(isMobile && 'bg-[#ECE8F5]')}>
       <NavBar title="Lottery" />
 
-      <Block
-        className={cn(
-          'm-0 h-full w-full p-8',
-          !isMobile &&
-            'bg-[url(https://paosgi.com/_nuxt/lottery-bg.ySCWSaKo.webp)] bg-contain bg-no-repeat',
-        )}
-      >
-        {isMobile ? (
-          <div className={cn('grid-gap grid grid-cols-2')}>
+      {isMobile && (
+        <Block className="m-0 h-full w-full p-8">
+          <div className={cn('grid grid-cols-2 gap-5 pb-28')}>
             <RenderLotteryGames games={lotteryGames} />
           </div>
-        ) : (
-          <div className="flex h-full items-center justify-center">
-            <Card raised bgColor="white" className="container mx-auto">
-              <CardContent className="flex flex-col gap-5 p-16">
-                <Button raised round className="w-fit bg-primary-gradient text-white">
-                  All
-                </Button>
+        </Block>
+      )}
 
-                <div className={cn('grid grid-cols-5 gap-5')}>
-                  <RenderLotteryGames games={lotteryGames} />
-                </div>
-              </CardContent>
-            </Card>
-          </div>
-        )}
-      </Block>
+      {!isMobile && (
+        <div className="flex h-full items-center justify-center">
+          <Card raised bgColor="white" className="container mx-auto">
+            <CardContent className="flex flex-col gap-5 p-16">
+              <Button raised round className="w-fit bg-primary-gradient text-white">
+                All
+              </Button>
+
+              <div className={cn('grid grid-cols-5 gap-5')}>
+                <RenderLotteryGames games={lotteryGames} />
+              </div>
+            </CardContent>
+          </Card>
+        </div>
+      )}
     </Page>
   );
 };
