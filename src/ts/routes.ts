@@ -96,12 +96,14 @@ export const webRoutes = [
     path: '/',
     name: 'Home',
     component: HomePage,
+    routes: [
+      {
+        path: '/activity/',
+        name: 'Activity',
+        component: ActivityPage,
+      },
+      ...profileRoutes,
+      ...gameRoutes,
+    ],
   },
-  {
-    path: '/activity/',
-    name: 'Activity',
-    component: ActivityPage,
-  },
-  ...profileRoutes,
-  ...gameRoutes,
 ];
