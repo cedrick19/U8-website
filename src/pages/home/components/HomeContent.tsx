@@ -8,7 +8,7 @@ import Poker from '@/assets/image/homebody/poker.png';
 import Chain from '@/assets/image/homebody/chain.png';
 import LineCardpolygon from '@/components/LineCardPolygon/LineCardpolygon';
 
-const HomeBody = () => {
+const HomeContent = () => {
   const categories = [
     {
       id: 1,
@@ -110,4 +110,4 @@ const HomeBody = () => {
   );
 };
 
-export default HomeBody;
+export default HomeContent;
