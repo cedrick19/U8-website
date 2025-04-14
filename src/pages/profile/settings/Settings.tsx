@@ -13,11 +13,15 @@ const Settings = () => {
       <ProfileNav title="Settings" />
       <Block className="m-5 rounded-lg bg-white px-0 shadow-sm">
         <SettingItem
+          id={'settings-redirect'}
           iconLeft="manage_accounts"
           label="Account Security"
           iconRight="chevron_right"
           iconRightClassName="text-gradient"
-          onClick={() => f7.views.main.router.navigate('/profile/settings/account-security/')}
+          onClick={() => {
+            document.getElementById('settings-redirect')?.blur();
+            f7.view.main.router.navigate('/profile/settings/account-security/');
+          }}
         />
       </Block>
       <Block className="m-5 flex-col rounded-lg bg-white px-0 shadow-sm">
@@ -47,20 +51,22 @@ const Settings = () => {
 
       <CustomPopUp
         title="Log out"
-        label={<p className="m-auto w-36">Are you sure you want to logout?</p>}
         opText="Logout"
         clText="Cancel"
         clAction={() => setLoginOpen(false)}
         open={loginOpen}
-      />
+      >
+        <p className="m-auto w-36">Are you sure you want to logout?</p>
+      </CustomPopUp>
       <CustomPopUp
         title="Clear Cache"
-        label={<p className="m-auto w-36">Are you sure you want to clear cache?</p>}
         opText="Clear cache"
         clText="Cancel"
         clAction={() => setCacheOpen(false)}
         open={cacheOpen}
-      />
+      >
+        <p className="m-auto w-36">Are you sure you want to clear cache?</p>
+      </CustomPopUp>
     </Page>
   );
 };
