@@ -1,19 +1,15 @@
-import { webRoutes } from '@/ts/routes';
-import { Block, Button, f7, Icon, Link } from 'framework7-react';
 import { useState } from 'react';
+import { Block, Button, f7, Icon, Link } from 'framework7-react';
 import Telegram from '@/assets/image/icons/telegram_logo.png';
+import { routes } from './utils';
 
 export const NavBar = () => {
   const [activeTab, setActiveTab] = useState<number>(0);
 
-  const filteredRoutes = webRoutes.filter(
-    (path) => path.path !== '/activity/' && path.path !== '/games/' && path.path !== '/profile/',
-  );
-
   return (
     <Block className="container mx-auto flex h-8 w-full items-center justify-between">
       <Block className="mr-4 flex w-1/5 shrink-0 items-center">
-        <Link tabLink="#view-home" className="flex flex-col" rippleColor="none">
+        <Link href="/" className="flex flex-col" rippleColor="none">
           <span className="text-gradient text-xl font-bold">U8.COM</span>
           <span className="text-xs font-light text-black">Chinese Gaming</span>
         </Link>
@@ -25,7 +21,7 @@ export const NavBar = () => {
 
       <Block className="flex w-3/5 justify-center">
         <Block className="flex space-x-6 text-xs">
-          {filteredRoutes.map((route, ids) => (
+          {routes?.map((route, ids) => (
             <Link
               key={ids}
               href={route.path}
@@ -38,7 +34,7 @@ export const NavBar = () => {
                   activeTab === ids ? 'text-gradient font-black' : 'font-semibold text-inactive'
                 }
               >
-                {route.name.toUpperCase()}
+                {route?.name?.toUpperCase()}
               </span>
             </Link>
           ))}

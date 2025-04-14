@@ -19,7 +19,7 @@ const activities = [
 
 const ActivityPage = () => {
   return (
-    <Page name="settings">
+    <Page name="activity">
       <HomeNavbar
         navRight={
           <>

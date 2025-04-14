@@ -11,42 +11,48 @@ import HomePage from '@/pages/home';
 import AccountSecurity from '@/pages/profile/account-security';
 import ProfilePage from '@/pages/profile/ProfilePage';
 import Settings from '@/pages/profile/settings/Settings';
+import AddVirtualWallet from '@/pages/profile/virtual-address/component/AddVirtualWallet';
+import VirtualAddManagement from '@/pages/profile/virtual-address/VirtualAddManagement';
+import { Router } from 'framework7/types';
+import Recharge from '@/pages/recharge/Recharge';
 
 const gameRoutes = [
   {
     path: '/games/',
     name: 'Games',
     component: GamesIndexPage,
-  },
-  {
-    path: '/games/lottery/',
-    name: 'Lottery',
-    component: Lottery,
-  },
-  {
-    path: '/games/sports/',
-    name: 'Sports',
-    component: Sports,
-  },
-  {
-    path: '/games/video/',
-    name: 'Video',
-    component: VideoPage,
-  },
-  {
-    path: '/games/electronic/',
-    name: 'Electronic',
-    component: Electronic,
-  },
-  {
-    path: '/games/chess/',
-    name: 'Chess',
-    component: Chess,
-  },
-  {
-    path: '/games/fishing/',
-    name: 'Fishing',
-    component: Fishing,
+    routes: [
+      {
+        path: '/lottery/',
+        name: 'Lottery',
+        component: Lottery,
+      },
+      {
+        path: '/sports/',
+        name: 'Sports',
+        component: Sports,
+      },
+      {
+        path: '/video/',
+        name: 'Video',
+        component: VideoPage,
+      },
+      {
+        path: '/electronic/',
+        name: 'Electronic',
+        component: Electronic,
+      },
+      {
+        path: '/chess/',
+        name: 'Chess',
+        component: Chess,
+      },
+      {
+        path: '/fishing/',
+        name: 'Fishing',
+        component: Fishing,
+      },
+    ],
   },
 ];
 
@@ -55,26 +61,43 @@ const profileRoutes = [
     path: '/profile/',
     name: 'Profile',
     component: ProfilePage,
-  },
-  {
-    path: '/profile/settings/',
-    name: 'Settings',
-    component: Settings,
-    options: {
-      transition: 'f7-parallax',
-    },
-  },
-  {
-    path: '/profile/settings/account-security/',
-    name: 'Account Security',
-    component: AccountSecurity,
-    options: {
-      transition: 'f7-parallax',
-    },
+    routes: [
+      {
+        path: 'settings/',
+        name: 'Settings',
+        component: Settings,
+        routes: [
+          {
+            path: 'account-security/',
+            name: 'Account Security',
+            component: AccountSecurity,
+            routes: [
+              {
+                path: 'vam/',
+                name: 'Virtual Address Manager',
+                component: VirtualAddManagement,
+                routes: [
+                  {
+                    path: ':wallet',
+                    name: 'Virtual Address Manager',
+                    component: AddVirtualWallet,
+                  },
+                ],
+              },
+              {
+                path: 'asv/',
+                name: 'Advance Security Verification',
+                component: AccountSecurity,
+              },
+            ],
+          },
+        ],
+      },
+    ],
   },
 ];
 
-export const webRoutes = [
+export const webRoutes: Router.RouteParameters[] = [
   {
     path: '/',
     name: 'Home',
@@ -84,6 +107,11 @@ export const webRoutes = [
         path: '/activity/',
         name: 'Activity',
         component: ActivityPage,
+      },
+      {
+        path: '/recharge/',
+        name: 'Recharge',
+        component: Recharge,
       },
       ...profileRoutes,
       ...gameRoutes,

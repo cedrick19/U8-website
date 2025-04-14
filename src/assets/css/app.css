@@ -126,6 +126,10 @@ body {
   }
 }
 
+.segmented-strong .segmented-highlight {
+  @apply bg-primary-gradient !important;
+}
+
 .reflect-text {
   position: relative;
 }

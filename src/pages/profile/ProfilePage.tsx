@@ -1,4 +1,4 @@
-import { Page, Block, Card, CardContent, f7, Icon } from 'framework7-react';
+import { Page, Block, Card, CardContent, f7, Icon, Link } from 'framework7-react';
 import ProfileCard from './component/ProfileCard';
 import GamesManagement from '@/assets/image/icons/game_management.svg';
 import FundManagement from '@/assets/image/icons/fund_management.svg';
@@ -45,7 +45,7 @@ const ProfilePage = () => {
         navRight={
           <>
             <Icon material="notifications" size={30} className="text-[#4A226E]" />
-            <div onClick={() => f7.view.main.router.navigate('/profile/settings/')}>
+            <div onClick={() => f7.view.main.router.navigate('settings/')}>
               <Icon material="settings" size={30} className="text-[#4A226E]" />
             </div>
           </>
@@ -73,14 +73,14 @@ const ProfilePage = () => {
           </CardContent>
         </Card>
         <div className="flex items-center justify-center gap-5">
-          <Block className="flex gap-2 font-bold">
+          <Link className="flex gap-2 font-bold" href="/recharge/">
             <img
               src={CoinOff}
               alt="recharge"
               className="h-5 w-5 cursor-pointer rounded-full bg-primary-gradient p-[2.4px]"
             />
             <p>Recharge</p>
-          </Block>
+          </Link>
           <div className="h-8 border-[1px] border-slate-300" />
           <Block className="flex gap-2 font-bold">
             <img
