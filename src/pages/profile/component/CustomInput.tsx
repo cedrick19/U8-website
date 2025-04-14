@@ -6,16 +6,18 @@ type InputType = DetailedHTMLProps<InputHTMLAttributes<HTMLInputElement>, HTMLIn
 interface CustomInputProps extends InputType {
   className?: string;
   label?: string;
+  labelClassName?: string;
   name: string;
   value?: string;
-  rightDecoration: 'textLimit' | ReactNode;
+  rightDecoration?: 'textLimit' | ReactNode;
 }
 
 const CustomInput = (props: CustomInputProps) => {
-  const { name, value, label, className, rightDecoration, ...rest } = props;
+  const { name, value, label, labelClassName, className, rightDecoration, ...rest } =
+    props;
   return (
     <div className="flex-col space-y-2">
-      <label htmlFor={name} className="flex w-full">
+      <label htmlFor={name} className={cn('flex w-full', labelClassName)}>
         {label}
       </label>
       <div className={cn('flex items-center rounded-xl bg-white p-1 px-5', className)}>

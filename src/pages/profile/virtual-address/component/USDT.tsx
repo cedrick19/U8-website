@@ -1,4 +1,4 @@
-import { Block, Button, Icon } from 'framework7-react';
+import { Block, Button, f7, Icon } from 'framework7-react';
 
 const USDT = () => {
   return (
@@ -8,7 +8,16 @@ const USDT = () => {
       </p>
 
       <Block className="p-0">
-        <Button className="rounded-2xl bg-primary-gradient" large color="white">
+        <Button
+          id="usdt-button"
+          className="rounded-2xl bg-primary-gradient"
+          large
+          color="white"
+          onClick={() => {
+            document.getElementById('usdt-button')?.blur();
+            f7.view.main.router.navigate('usdt/');
+          }}
+        >
           <Icon material="add" />
           Add a new USDT wallet address
         </Button>

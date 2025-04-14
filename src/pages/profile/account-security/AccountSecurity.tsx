@@ -28,6 +28,7 @@ const AccountSecurity = () => {
         value={inputVal}
         onChange={(e) => setInputVal(e.target.value)}
         rightDecoration="textLimit"
+        autoComplete='laserbabe'
       />
     </CustomPopUp>
   );
@@ -42,7 +43,12 @@ const AccountSecurity = () => {
       <form>
         {modPassPop.map(({ rightDecoration, ...data }, index) => (
           <Block key={index} className="space-y-1">
-            <CustomInput {...data} rightDecoration={<Icon material={rightDecoration} />} />
+            <CustomInput
+              type="password"
+              autoComplete={`${index}1@aBc`}
+              {...data}
+              rightDecoration={<Icon material={rightDecoration} />}
+            />
           </Block>
         ))}
       </form>
@@ -59,7 +65,12 @@ const AccountSecurity = () => {
       <form>
         {payPass.map(({ rightDecoration, ...data }, index) => (
           <Block key={index} className="space-y-1">
-            <CustomInput {...data} rightDecoration={<Icon material={rightDecoration} />} />
+            <CustomInput
+              type="password"
+              autoComplete={`${index}1@aBc`}
+              {...data}
+              rightDecoration={<Icon material={rightDecoration} />}
+            />
           </Block>
         ))}
       </form>
@@ -96,7 +107,7 @@ const AccountSecurity = () => {
       divider: true,
       onClick: () => {
         document.getElementById('vam-redirect')?.blur();
-        f7.view.main.router.navigate('/profile/settings/account-security/vam/');
+        f7.view.main.router.navigate('vam/');
       },
     },
     {
@@ -107,7 +118,7 @@ const AccountSecurity = () => {
       className: 'rounded-t-none',
       onClick: () => {
         document.getElementById('asv-redirect')?.blur();
-        f7.view.main.router.navigate('/profile/settings/advance-security');
+        f7.view.main.router.navigate('asv/');
       },
     },
   ];

@@ -1,4 +1,4 @@
-import { Block, Button, Icon } from 'framework7-react';
+import { Block, Button, f7, Icon } from 'framework7-react';
 
 const DAM = () => {
   return (
@@ -8,7 +8,16 @@ const DAM = () => {
       </p>
 
       <Block className="p-0">
-        <Button className="rounded-2xl bg-primary-gradient" large color="white">
+        <Button
+          id="dam-button"
+          className="rounded-2xl bg-primary-gradient"
+          large
+          color="white"
+          onClick={() => {
+            document.getElementById('dam-button')?.blur();
+            f7.view.main.router.navigate('dam/');
+          }}
+        >
           <Icon material="add" />
           Add a new DAM wallet address
         </Button>
