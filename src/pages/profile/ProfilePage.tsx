@@ -45,7 +45,7 @@ const ProfilePage = () => {
         navRight={
           <>
             <Icon material="notifications" size={30} className="text-[#4A226E]" />
-            <div onClick={() => f7.view.main.router.navigate('/profile/settings/')}>
+            <div onClick={() => f7.view.main.router.navigate('settings/')}>
               <Icon material="settings" size={30} className="text-[#4A226E]" />
             </div>
           </>

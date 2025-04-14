@@ -11,6 +11,8 @@ import HomePage from '@/pages/home';
 import AccountSecurity from '@/pages/profile/account-security';
 import ProfilePage from '@/pages/profile/ProfilePage';
 import Settings from '@/pages/profile/settings/Settings';
+import AddVirtualWallet from '@/pages/profile/virtual-address/component/AddVirtualWallet';
+import VirtualAddManagement from '@/pages/profile/virtual-address/VirtualAddManagement';
 import { Router } from 'framework7/types';
 
 const gameRoutes = [
@@ -58,22 +60,39 @@ const profileRoutes = [
     path: '/profile/',
     name: 'Profile',
     component: ProfilePage,
-  },
-  {
-    path: '/profile/settings/',
-    name: 'Settings',
-    component: Settings,
-    options: {
-      transition: 'f7-parallax',
-    },
-  },
-  {
-    path: '/profile/settings/account-security/',
-    name: 'Account Security',
-    component: AccountSecurity,
-    options: {
-      transition: 'f7-parallax',
-    },
+    routes: [
+      {
+        path: 'settings/',
+        name: 'Settings',
+        component: Settings,
+        routes: [
+          {
+            path: 'account-security/',
+            name: 'Account Security',
+            component: AccountSecurity,
+            routes: [
+              {
+                path: 'vam/',
+                name: 'Virtual Address Manager',
+                component: VirtualAddManagement,
+                routes: [
+                  {
+                    path: ':wallet',
+                    name: 'Virtual Address Manager',
+                    component: AddVirtualWallet,
+                  },
+                ],
+              },
+              {
+                path: 'asv/',
+                name: 'Advance Security Verification',
+                component: AccountSecurity,
+              },
+            ],
+          },
+        ],
+      },
+    ],
   },
 ];
 
