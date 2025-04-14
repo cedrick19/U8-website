@@ -1,5 +1,4 @@
 import { Block, Button, Icon } from 'framework7-react';
-import React from 'react';
 
 const USDT = () => {
   return (
