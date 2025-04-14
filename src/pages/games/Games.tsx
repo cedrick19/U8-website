@@ -18,12 +18,13 @@ const Games = () => {
   return (
     <Page name="games">
       <HomeNavbar navRight={renderNavright()} />
-      <Block className="pb-8">
+      <Block className="pb-20">
         {gameInfo.map((game) => (
           <TileMenu
             key={game.title}
             title={game.title}
             image={game.image}
+            description={game.description}
             onNavigate={() => f7.view.main.router.navigate(game.route)}
           />
         ))}

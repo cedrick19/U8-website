@@ -1,30 +1,31 @@
 import { Card, CardContent } from 'framework7-react';
-import { cn } from '@/globals/utils';
 
 interface ITileMenu {
   title: string;
   image: string;
+  description: string;
   onNavigate: () => void;
 }
 
-export const TileMenu = ({ title, image, onNavigate }: ITileMenu) => {
+export const TileMenu = ({ title, image, description, onNavigate }: ITileMenu) => {
   return (
     <Card raised>
       <CardContent
         padding={false}
-        className="h-36 rounded-xl border-b-4 border-t-4 border-b-white border-t-white bg-[#4C2CCA4D]/10"
+        className="h-full rounded-xl border-b-4 border-t-4 border-b-white border-t-white bg-[#4C2CCA4D]/10"
       >
-        <div
-          onClick={onNavigate}
-          className={cn('h-full w-full bg-contain bg-left-bottom bg-no-repeat p-5')}
-          style={{ backgroundImage: `url(${image})` }}
-        >
-          <h2
-            className="reflect-text text-gradient text-right text-3xl font-extrabold"
-            data-text={title.toUpperCase()}
-          >
+        <div onClick={onNavigate} className="relative h-32 w-full overflow-hidden p-5">
+          <img
+            src={image}
+            alt={title}
+            className="absolute -left-3 bottom-0 h-full w-auto max-w-[50%] opacity-[0.4]"
+          />
+          <h2 className="text-gradient relative z-50 text-right text-3xl font-extrabold">
             {title.toUpperCase()}
           </h2>
+          <p className="text-gradient text-shadow-sm relative z-50 flex-wrap text-right text-sm font-extrabold">
+            {description}
+          </p>
         </div>
       </CardContent>
     </Card>
