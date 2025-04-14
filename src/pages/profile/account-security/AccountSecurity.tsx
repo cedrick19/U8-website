@@ -96,7 +96,7 @@ const AccountSecurity = () => {
       divider: true,
       onClick: () => {
         document.getElementById('vam-redirect')?.blur();
-        f7.view.main.router.navigate('/profile/settings/virtual-address');
+        f7.view.main.router.navigate('/profile/settings/account-security/vam/');
       },
     },
     {

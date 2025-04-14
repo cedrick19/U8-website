@@ -11,6 +11,7 @@ import HomePage from '@/pages/home';
 import AccountSecurity from '@/pages/profile/account-security';
 import ProfilePage from '@/pages/profile/ProfilePage';
 import Settings from '@/pages/profile/settings/Settings';
+import VirtualAddManagement from '@/pages/profile/virtual-address/VirtualAddManagement';
 
 const gameRoutes = [
   {
@@ -67,6 +68,22 @@ const profileRoutes = [
   {
     path: '/profile/settings/account-security/',
     name: 'Account Security',
+    component: AccountSecurity,
+    options: {
+      transition: 'f7-parallax',
+    },
+  },
+  {
+    path: '/profile/settings/account-security/vam/',
+    name: 'Virtual Address Manager',
+    component: VirtualAddManagement,
+    options: {
+      transition: 'f7-parallax',
+    },
+  },
+  {
+    path: '/profile/settings/account-security/asv/',
+    name: 'Advance Security Verification',
     component: AccountSecurity,
     options: {
       transition: 'f7-parallax',
