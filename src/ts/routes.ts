@@ -70,7 +70,6 @@ const profileRoutes = [
             path: 'account-security/',
             name: 'Account Security',
             component: AccountSecurity,
-            master: true,
             routes: [
               {
                 path: 'vam/',
