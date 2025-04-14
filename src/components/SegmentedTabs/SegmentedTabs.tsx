@@ -49,7 +49,7 @@ export const SegmentedTabs: React.FC<SegmentedTabsProps> = ({
       </Segmented>
       <Tabs>
         {tabArray.map((tab, ids) => (
-          <Tab key={ids} id={tab.tabLink} tabActive={activeTab === ids} className="pb-10">
+          <Tab key={ids} id={tab.tabLink} tabActive={activeTab === ids} className="pb-20">
             {tab.component}
           </Tab>
         ))}

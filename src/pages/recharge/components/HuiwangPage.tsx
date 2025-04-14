@@ -4,7 +4,19 @@ import { useState } from 'react';
 
 export const HuiwangPage = () => {
   const quickSelect = [100, 1000, 5000, 10000];
-  const [amount, setAmount] = useState<number>(100);
+  const [amount, setAmount] = useState<string>('');
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setAmount(e.target.value);
+  };
+
+  const handleQuickSelect = (value: number) => {
+    setAmount(value.toString());
+  };
+
+  const isQuickSelected = (value: number) => {
+    return amount === value.toString();
+  };
 
   return (
     <>
@@ -32,9 +44,11 @@ export const HuiwangPage = () => {
         <div className="flex h-16 w-full flex-row py-2">
           <Input
             type="number"
+            value={amount}
             className="flex w-full flex-row items-center justify-between overflow-hidden truncate whitespace-nowrap rounded-full border border-gray-500 bg-white px-3"
             placeholder="Please enter the amount"
             min={0}
+            onInput={handleInputChange}
           />
         </div>
 
@@ -46,11 +60,11 @@ export const HuiwangPage = () => {
                 key={ids}
                 className={cn(
                   'h-9 w-20 rounded-full border text-black',
-                  amount === amt
+                  isQuickSelected(amt)
                     ? 'border-transparent bg-primary-gradient text-white'
                     : 'border-gray-500',
                 )}
-                onClick={() => setAmount(amt)}
+                onClick={() => handleQuickSelect(amt)}
               >
                 <span>{amt}</span>
               </Button>
