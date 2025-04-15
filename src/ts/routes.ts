@@ -8,11 +8,12 @@ import Sports from '@/pages/games/sports';
 import VideoPage from '@/pages/games/video';
 
 import HomePage from '@/pages/home';
-import AccountSecurity from '@/pages/profile/account-security';
+import AccountSecurity from '@/pages/profile/settings/account-security';
+import AdvanceSecVerification from '@/pages/profile/settings/advance-security-verification/AdvanceSecVerification';
 import ProfilePage from '@/pages/profile/ProfilePage';
 import Settings from '@/pages/profile/settings/Settings';
-import AddVirtualWallet from '@/pages/profile/virtual-address/component/AddVirtualWallet';
-import VirtualAddManagement from '@/pages/profile/virtual-address/VirtualAddManagement';
+import AddVirtualWallet from '@/pages/profile/settings/virtual-address/component/AddVirtualWallet';
+import VirtualAddManagement from '@/pages/profile/settings/virtual-address/VirtualAddManagement';
 import { Router } from 'framework7/types';
 import Recharge from '@/pages/recharge/Recharge';
 
@@ -87,7 +88,7 @@ const profileRoutes = [
               {
                 path: 'asv/',
                 name: 'Advance Security Verification',
-                component: AccountSecurity,
+                component: AdvanceSecVerification,
               },
             ],
           },

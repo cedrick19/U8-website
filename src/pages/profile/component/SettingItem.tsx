@@ -1,3 +1,4 @@
+import { cn } from '@/globals/utils';
 import { Button, Icon } from 'framework7-react';
 import { ButtonProps } from 'framework7-react/components/button.js';
 
@@ -28,10 +29,12 @@ const SettingItem = (props: SettingItemProps) => {
       <Button className={`${className} flex w-full items-center justify-between`} large {...rest}>
         <div className="flex items-center gap-3">
           <Icon material={iconLeft} className="text-gradient" />
-          <p className="text-black">{label}</p>
+          <p className="normal-case text-black">{label}</p>
         </div>
         <div className="flex items-center gap-3">
-          {iconRightLabel && <p className={iconRightLabelClassName}>{iconRightLabel}</p>}
+          {iconRightLabel && (
+            <p className={cn(iconRightLabelClassName, 'normal-case')}>{iconRightLabel}</p>
+          )}
           {iconRight && (
             <Icon
               material={iconRight}

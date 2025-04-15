@@ -1,10 +1,10 @@
 import { Block, f7, Icon, Page } from 'framework7-react';
-import SettingItem from '../component/SettingItem';
+import SettingItem from '@/pages/profile/component/SettingItem';
 import { account, modPassPop, payPass } from './utils';
-import ProfileNav from '../component/ProfileNav';
+import ProfileNav from '@/pages/profile/component/ProfileNav';
 import { useState } from 'react';
-import CustomPopUp from '../component/CustomPopUp';
-import CustomInput from '../component/CustomInput';
+import CustomPopUp from '@/pages/profile/component/CustomPopUp';
+import CustomInput from '@/pages/profile/component/CustomInput';
 
 const AccountSecurity = () => {
   const [openPopUp, setOpenPopUp] = useState({
@@ -28,7 +28,7 @@ const AccountSecurity = () => {
         value={inputVal}
         onChange={(e) => setInputVal(e.target.value)}
         rightDecoration="textLimit"
-        autoComplete='laserbabe'
+        autoComplete="laserbabe"
       />
     </CustomPopUp>
   );

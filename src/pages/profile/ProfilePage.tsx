@@ -67,9 +67,16 @@ const ProfilePage = () => {
           className="z-10 border-2 border-white bg-primary-gradient shadow-md shadow-[#d4caf9]"
           raised
         >
-          <CardContent className="py-10">
-            <p className="text-md text-center text-white">Wallet Balance</p>
-            <p className="text-center text-2xl text-white">0.00</p>
+          <CardContent className="py-5">
+            <div className="flex w-full items-center justify-center gap-2">
+              <p className="text-md text-center text-white">Wallet Balance</p>
+              <Icon material="visibility_on" color="white" size={20} />
+            </div>
+
+            <div className="flex w-full items-center justify-center">
+              <p className="text-center text-2xl text-white">0.00</p>
+              <Icon material="chevron_right" color="white" size={30} />
+            </div>
           </CardContent>
         </Card>
         <div className="flex items-center justify-center gap-5">
