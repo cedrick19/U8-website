@@ -61,8 +61,8 @@ const CategoryCard = ({ name, image, color }: { name: string; image: string; col
         />
       </div>
       <div className="w-full pb-4">
-        <div className="h-8 rounded-xl border-4 border-[#3a1e7a]">
-          <Button className={`${color} h-5 w-full px-2 text-xs font-bold text-white`}>
+        <div className="h-7 rounded-3xl border-2 border-[#3a1e7a] pt-0">
+          <Button className={`${color} h-5 w-full rounded-3xl px-0 text-xs font-bold text-white`}>
             {name}
           </Button>
         </div>
