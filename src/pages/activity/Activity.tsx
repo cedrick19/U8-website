@@ -79,9 +79,9 @@ const ActivityPage = () => {
                         className="h-[36px] max-h-full w-[36px] max-w-full"
                       />
                     </div>
-                    <div className="mt-2 text-center text-lg font-bold text-[#5D3B94]">
+                    <p className="mt-2 text-center text-lg font-bold text-[#5D3B94]">
                       {activity.title}
-                    </div>
+                    </p>
                   </div>
                 </div>
               </div>
