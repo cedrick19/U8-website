@@ -4,8 +4,8 @@ import { ReactNode } from 'react';
 interface PopupProps {
   title: string;
   children?: ReactNode;
-  opText: string;
-  clText: string;
+  opText?: string;
+  clText?: string;
   opAction?: () => void;
   clAction?: () => void;
   open: boolean;
@@ -26,16 +26,20 @@ const CustomPopUp = (props: PopupProps) => {
         {children}
       </Block>
       <div className="m-0 flex items-end justify-center border-t-[1.5px] border-black">
-        <Button
-          onClick={opAction}
-          className="w-full rounded-none border-r-[1.5px] border-black py-10 text-xl text-red-700"
-          large
-        >
-          {opText}
-        </Button>
-        <Button onClick={clAction} className="w-full rounded-none py-10 text-xl text-black" large>
-          {clText}
-        </Button>
+        {opText && (
+          <Button
+            onClick={opAction}
+            className="w-full rounded-none border-r-[1.5px] border-black py-10 text-xl text-red-700"
+            large
+          >
+            {opText}
+          </Button>
+        )}
+        {clText && (
+          <Button onClick={clAction} className="w-full rounded-none py-10 text-xl text-black" large>
+            {clText}
+          </Button>
+        )}
       </div>
     </Popup>
   );

@@ -1,6 +1,6 @@
 export const account = [
   {
-    iconLeft: 'manage_accounts',
+    iconLeft: 'person',
     label: 'My Account',
     iconRightLabel: 'beluga.cat07',
     iconRight: 'edit_square',
@@ -8,7 +8,7 @@ export const account = [
     divider: true,
   },
   {
-    iconLeft: 'manage_accounts',
+    iconLeft: 'person',
     label: 'Nickname',
     iconRightLabel: 'beluga.cat',
     iconRight: 'edit_square',

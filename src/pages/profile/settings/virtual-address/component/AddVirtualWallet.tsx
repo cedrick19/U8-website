@@ -1,8 +1,8 @@
 import { Block, Button, Card, f7, Icon, Page } from 'framework7-react';
 import CoinOn from '@/assets/image/icons/coin-on.svg';
 import { cn } from '@/globals/utils';
-import ProfileNav from '../../component/ProfileNav';
-import CustomInput from '../../component/CustomInput';
+import ProfileNav from '@/pages/profile/component/ProfileNav';
+import CustomInput from '@/pages/profile/component/CustomInput';
 import { useEffect, useState } from 'react';
 
 const AddVirtualWallet = () => {

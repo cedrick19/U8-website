@@ -1,6 +1,6 @@
 import { Block, Button, Page, Tab, Tabs } from 'framework7-react';
 import CoinOn from '@/assets/image/icons/coin-on.svg';
-import ProfileNav from '../component/ProfileNav';
+import ProfileNav from '@/pages/profile/component/ProfileNav';
 import USDT from './component/USDT';
 import DAM from './component/DAM';
 import { useState } from 'react';
