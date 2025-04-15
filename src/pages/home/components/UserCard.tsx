@@ -33,7 +33,7 @@ const UserCard = () => {
             <span className="mr-2 text-gray-800">username</span>
 
             <div
-              className="flex h-5 w-[61px] items-center justify-center rounded-full text-center text-xs font-bold text-black"
+              className="flex h-5 w-[61px] items-center justify-center rounded-full text-center text-xs font-bold text-yellow-600"
               style={{
                 backgroundImage: 'linear-gradient(to right, #d9a901, #FFD700, #d9a901)',
               }}
