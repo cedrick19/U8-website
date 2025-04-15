@@ -1,5 +1,4 @@
-import { Page } from 'framework7-react';
-
+import { Page, Link } from 'framework7-react';
 import { useEffect, useMemo, useState } from 'react';
 import { getDevice } from 'framework7';
 import { LoginModal } from '@/components/LoginModal';
@@ -37,7 +36,15 @@ const HomePage = () => {
         <HomeNavbar
           navRight={
             <>
-              <img src={Bell} alt="Profile Logo" className="h-15 w-15" />
+              <Link
+                id="notifications"
+                href="/notifications/"
+                onClick={() => {
+                  document.getElementById('notifications')?.blur();
+                }}
+              >
+                <img src={Bell} alt="Profile Logo" className="h-15 w-15" />
+              </Link>
             </>
           }
         />
