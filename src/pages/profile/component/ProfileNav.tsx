@@ -10,7 +10,9 @@ const ProfileNav = ({ title }: ProfileNavigation) => {
       <Link onClick={() => f7.views.main.router.back()}>
         <Icon material="chevron_left" size={35} className="text-gradient" />
       </Link>
-      <p className="text-gradient absolute w-[95%] text-center text-xl font-bold">{title}</p>
+      <p className="text-gradient absolute left-1/2 -translate-x-1/2 text-center text-xl font-bold">
+        {title}
+      </p>
     </Navbar>
   );
 };
