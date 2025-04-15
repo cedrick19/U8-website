@@ -46,7 +46,8 @@ const categories = [
     color: 'bg-[#3a1e7a]',
   },
 ];
-const cardBaseClass = 'm-0 overflow-hidden rounded-xl border-2 border-white p-1 pt-2 shadow-md';
+const cardBaseClass =
+  'm-0 overflow-hidden rounded-xl border-2 border-white shadow-md bg-[#4C2CCA4D]/10';
 
 const CategoryCard = ({ name, image, color }: { name: string; image: string; color: string }) => (
   <Card className="m-0 h-24 overflow-hidden rounded-xl border-2 border-white p-1 pt-2 shadow-md">
