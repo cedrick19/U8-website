@@ -2,7 +2,7 @@ import { useState, useCallback } from 'react';
 import { Button } from 'framework7-react';
 
 import profileImage from '@/assets/image/playeraccount.jpg';
-import vipImage from '@/assets/image/VIP.svg';
+
 import refreshImage from '@/assets/image/refresh.svg';
 import chatIcon from '@/assets/image/chat.svg';
 import customerServiceIcon from '@/assets/image/customer-service.svg';
@@ -31,7 +31,16 @@ const UserCard = () => {
         <div className="ml-3">
           <div className="flex items-center">
             <span className="mr-2 text-gray-800">username</span>
-            <img src={vipImage} alt="VIP" />
+
+            <div
+              className="flex h-5 w-16 items-center justify-center rounded-full text-center text-xs font-bold text-black"
+              style={{
+                backgroundImage: 'linear-gradient(to right, #d9a901, #FFD700, #d9a901)',
+              }}
+            >
+              VIP 0
+            </div>
+
             <img
               src={`/assets/image/${isEyeOn ? 'eye-on' : 'eye-off'}.svg`}
               className="ml-2 h-5 w-5 cursor-pointer"

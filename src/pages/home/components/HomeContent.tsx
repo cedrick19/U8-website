@@ -46,7 +46,7 @@ const categories = [
     color: 'bg-[#3a1e7a]',
   },
 ];
-const cardBaseClass = 'm-0 overflow-hidden rounded-xl border-2 border-white bg-[#4C2CCA4D]/10';
+const cardBaseClass = 'm-0 overflow-hidden rounded-xl border-2 border-white p-1 pt-2 shadow-md';
 
 const CategoryCard = ({ name, image, color }: { name: string; image: string; color: string }) => (
   <Card className="m-0 h-24 overflow-hidden rounded-xl border-2 border-white p-1 pt-2 shadow-md">
@@ -61,9 +61,7 @@ const CategoryCard = ({ name, image, color }: { name: string; image: string; col
       </div>
       <div className="w-full pb-4">
         <div className="h-8 rounded-3xl border-2 border-[#3a1e7a] pt-0">
-          <Button
-            className={`${color} h-6 w-full rounded-3xl px-0 text-xs font-bold normal-case text-white`}
-          >
+          <Button className={`${color} h-6 w-full rounded-3xl px-0 text-xs font-bold text-white`}>
             {name}
           </Button>
         </div>
