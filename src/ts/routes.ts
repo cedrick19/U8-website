@@ -15,6 +15,7 @@ import Settings from '@/pages/profile/settings/Settings';
 import AddVirtualWallet from '@/pages/profile/settings/virtual-address/component/AddVirtualWallet';
 import VirtualAddManagement from '@/pages/profile/settings/virtual-address/VirtualAddManagement';
 import { Router } from 'framework7/types';
+import Recharge from '@/pages/recharge/Recharge';
 
 const gameRoutes = [
   {
@@ -107,6 +108,11 @@ export const webRoutes: Router.RouteParameters[] = [
         path: '/activity/',
         name: 'Activity',
         component: ActivityPage,
+      },
+      {
+        path: '/recharge/',
+        name: 'Recharge',
+        component: Recharge,
       },
       ...profileRoutes,
       ...gameRoutes,

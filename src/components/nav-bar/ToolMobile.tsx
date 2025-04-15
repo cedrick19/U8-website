@@ -25,6 +25,7 @@ export const ToolMobile = () => {
         </svg>
         <Link
           className="absolute bottom-10 left-1/2 h-14 w-14 -translate-x-1/2 rounded-full bg-primary-gradient shadow-xl shadow-[#613EEA]/50 sm:h-28 sm:w-28 md:bottom-16"
+          href="/recharge/"
           onClick={() => setActiveTab(5)}
         >
           <img src={activeTab === 5 ? CoinActive : CoinInactive} className="h-10 sm:h-20" />
