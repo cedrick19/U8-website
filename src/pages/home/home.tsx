@@ -1,4 +1,4 @@
-import { Page, Block } from 'framework7-react';
+import { Page, Block, Link } from 'framework7-react';
 import { useTranslation } from 'react-i18next';
 import { useEffect, useMemo, useState } from 'react';
 import { getDevice } from 'framework7';
@@ -38,7 +38,15 @@ const HomePage = () => {
         <HomeNavbar
           navRight={
             <>
-              <img src={Bell} alt="Profile Logo" className="h-15 w-15" />
+              <Link
+                id="notifications"
+                href="/notifications/"
+                onClick={() => {
+                  document.getElementById('notifications')?.blur();
+                }}
+              >
+                <img src={Bell} alt="Profile Logo" className="h-15 w-15" />
+              </Link>
             </>
           }
         />

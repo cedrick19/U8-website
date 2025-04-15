@@ -1,11 +1,12 @@
-import { Page, Navbar, Block } from "framework7-react";
+import { Page, Block, Link, f7 } from 'framework7-react';
 
 const NotFoundPage = () => (
-  <Page>
-    <Navbar title="Not found" backLink="Back" />
-    <Block strong inset>
-      <p>Sorry</p>
-      <p>Requested content not found.</p>
+  <Page name="not-found">
+    <Block className="flex flex-col justify-center">
+      <span className="text-xl font-black">Woops!</span>
+      <Link onClick={() => f7.views.main.router.back()}>
+        <p className="text-gradient">Go back.</p>
+      </Link>
     </Block>
   </Page>
 );

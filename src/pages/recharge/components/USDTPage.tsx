@@ -37,7 +37,7 @@ const OptionButton = <T extends string>({
         icon={cn(selected !== label && 'text-gradient')}
       />
     )}
-    <span>{label}</span>
+    <span className="normal-case">{label}</span>
   </Button>
 );
 

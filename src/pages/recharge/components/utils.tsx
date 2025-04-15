@@ -18,11 +18,6 @@ export const RechargeOptions = [
     tabName: 'Financial Direct Recharge',
     tabLink: 'fda',
     component: <FDRPage />,
-    warmTips: [
-      'Before changing the financial Telegram account, we will announce it in advance through the bullet window announcement \nthree days\n, Please pay attention to the announcement and recognize the official only financial account, beware of being deceived!',
-      'Please recognize the official only financial account on this page, carefully identify the fake robot account, and beware of being deceived!',
-      'The substitute value of the baht is based on the real-time exchange rate of the currency exchange',
-    ],
   },
   {
     tabName: 'Huiwang Payment',

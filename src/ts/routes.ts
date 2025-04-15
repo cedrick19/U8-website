@@ -16,6 +16,8 @@ import AddVirtualWallet from '@/pages/profile/settings/virtual-address/component
 import VirtualAddManagement from '@/pages/profile/settings/virtual-address/VirtualAddManagement';
 import { Router } from 'framework7/types';
 import Recharge from '@/pages/recharge/Recharge';
+import NotificationsPage from '@/pages/notifications';
+import { NotifDetail } from '@/pages/notifications/components';
 
 const gameRoutes = [
   {
@@ -113,6 +115,18 @@ export const webRoutes: Router.RouteParameters[] = [
         path: '/recharge/',
         name: 'Recharge',
         component: Recharge,
+      },
+      {
+        path: '/notifications/',
+        name: 'Notifications',
+        component: NotificationsPage,
+        routes: [
+          {
+            path: ':id',
+            name: 'NotificationDetail',
+            component: NotifDetail,
+          },
+        ],
       },
       ...profileRoutes,
       ...gameRoutes,
