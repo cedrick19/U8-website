@@ -5,13 +5,31 @@ import { fdrRechargeOptions, fdrWarmTips } from './utils';
 export const FDRPage = () => {
   const [copy, setCopy] = useState<boolean>(false);
 
+  const renderHighlightedText = (text: string) => {
+    const parts = text.split('\n');
+
+    return parts.map((part, idx) => {
+      if (idx % 2 === 1) {
+        return (
+          <span key={idx} className="text-red-500">
+            {part}
+          </span>
+        );
+      }
+      return <span key={idx}>{part}</span>;
+    });
+  };
+
   return (
     <>
       <Block className="flex flex-col items-start gap-6 rounded-3xl bg-white py-5">
         <p>Support the following recharge:</p>
         <div className="flex flex-row gap-5">
           {fdrRechargeOptions.map((option, ids) => (
-            <Button key={ids} className="flex h-20 w-28 flex-col rounded-3xl bg-primary-gradient">
+            <Button
+              key={ids}
+              className="flex h-20 w-28 flex-col rounded-3xl bg-primary-gradient normal-case"
+            >
               <img src={option.fdrImage} />
               <p className="text-white">{option.fdrText}</p>
             </Button>
@@ -41,7 +59,7 @@ export const FDRPage = () => {
             </>
           </div>
           <Button className="h-8 w-2/3 rounded-r-full bg-primary-gradient">
-            <span className="text-white">Financial Direct</span>
+            <span className="normal-case text-white">Financial Direct</span>
           </Button>
         </div>
       </Block>
@@ -53,7 +71,7 @@ export const FDRPage = () => {
         </div>
         <ul className="list-disc pl-4">
           {fdrWarmTips.map((tip, ids) => (
-            <li key={ids}>{tip}</li>
+            <li key={ids}>{renderHighlightedText(tip)}</li>
           ))}
         </ul>
       </Block>

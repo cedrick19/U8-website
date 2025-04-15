@@ -26,7 +26,7 @@ export const HuiwangPage = () => {
           <div className="flex flex-row gap-2">
             <Button className="h-9 rounded-full bg-primary-gradient text-white">
               <Icon f7="money_dollar_circle_fill" icon="text-white" />
-              <span>Huiwang Pay</span>
+              <span className="normal-case">Huiwang Pay</span>
             </Button>
           </div>
         </div>
