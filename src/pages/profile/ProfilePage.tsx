@@ -13,6 +13,7 @@ import HomeNavbar from '@/components/MobileNavbar/HomeNavbar';
 export interface Services {
   icon: string;
   label: string;
+  onClick?: () => void;
 }
 
 const services: Services[] = [
@@ -23,6 +24,7 @@ const services: Services[] = [
   {
     icon: FundManagement,
     label: 'Fund Management',
+    onClick: () => f7.view.main.router.navigate('/fund-management'),
   },
   {
     icon: RechargeTutorial,
@@ -131,10 +133,10 @@ const ProfilePage = () => {
       <ProfileCard pCardTitle="More Services" className="mb-24">
         <Block className="grid grid-cols-3 gap-5 px-10 py-5">
           {services.map((data, index) => (
-            <div key={index} className="flex-col justify-items-center">
+            <Link key={index} className="flex-col justify-items-center" onClick={data.onClick}>
               <img src={data.icon} className="h-10 w-10" />
               <p className="text-center">{data.label}</p>
-            </div>
+            </Link>
           ))}
         </Block>
       </ProfileCard>

@@ -13,7 +13,7 @@ const AddVirtualWallet = () => {
   }, [wallets]);
   return (
     <Page>
-      <ProfileNav title="Add Virtual Coin Wallet Address" />
+      <ProfileNav title="Add Wallet Address" />
       <div className="absolute h-[40%] w-full rounded-br-full bg-gradient-to-br from-[#381E7B]/20 via-transparent to-transparent backdrop:blur-3xl" />
       <Block className="flex gap-1">
         <Icon material="warning" color="red" size={25} />
@@ -81,7 +81,7 @@ const AddVirtualWallet = () => {
           </Block>
         </Block>
       </Card>
-      <Card raised className="space-y-5 bg-white p-5 shadow-md shadow-[#d4caf9]">
+      <Card raised className="mb-24 space-y-5 bg-white p-5 shadow-md shadow-[#d4caf9]">
         <CustomInput
           name="walletAddrAbbr"
           label="Wallet Address Abbreviation"

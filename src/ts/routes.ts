@@ -96,6 +96,11 @@ const profileRoutes = [
           },
         ],
       },
+      {
+        path: 'fund-management/',
+        name: 'Fund Management',
+        component: Settings,
+      },
     ],
   },
 ];
