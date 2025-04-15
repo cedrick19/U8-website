@@ -26,7 +26,7 @@ const Settings = () => {
       </Block>
       <Block className="m-5 flex-col rounded-lg bg-white px-0 shadow-sm">
         <SettingItem
-          iconLeft="manage_accounts"
+          iconLeft="inventory"
           label="Clear cache"
           iconRight="chevron_right"
           iconRightClassName="text-gradient"
