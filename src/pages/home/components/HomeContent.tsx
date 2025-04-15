@@ -46,11 +46,10 @@ const categories = [
     color: 'bg-[#3a1e7a]',
   },
 ];
-const cardBaseClass =
-  'm-0 overflow-hidden rounded-xl border-2 border-y-white border-x-purple-100 bg-[#4C2CCA4D]/10';
+const cardBaseClass = 'm-0 overflow-hidden rounded-xl border-2 border-white bg-[#4C2CCA4D]/10';
 
 const CategoryCard = ({ name, image, color }: { name: string; image: string; color: string }) => (
-  <Card className="m-0 h-24 overflow-hidden rounded-xl border-2 border-white bg-purple-100 p-1 pt-2 shadow-md">
+  <Card className="m-0 h-24 overflow-hidden rounded-xl border-2 border-white p-1 pt-2 shadow-md">
     <LineCardpolygon />
     <CardContent className="flex flex-col items-center justify-between p-0">
       <div className="h-15 flex w-12 items-center justify-center p-0">
@@ -61,8 +60,10 @@ const CategoryCard = ({ name, image, color }: { name: string; image: string; col
         />
       </div>
       <div className="w-full pb-4">
-        <div className="h-7 rounded-3xl border-2 border-[#3a1e7a] pt-0">
-          <Button className={`${color} h-5 w-full rounded-3xl px-0 text-xs font-bold text-white`}>
+        <div className="h-8 rounded-3xl border-2 border-[#3a1e7a] pt-0">
+          <Button
+            className={`${color} h-6 w-full rounded-3xl px-0 text-xs font-bold normal-case text-white`}
+          >
             {name}
           </Button>
         </div>
