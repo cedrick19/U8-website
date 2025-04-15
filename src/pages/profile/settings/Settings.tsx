@@ -1,8 +1,8 @@
 import { Block, Button, f7, Page } from 'framework7-react';
-import SettingItem from '../component/SettingItem';
+import SettingItem from '@/pages/profile/component/SettingItem';
 import { useState } from 'react';
-import ProfileNav from '../component/ProfileNav';
-import CustomPopUp from '../component/CustomPopUp';
+import ProfileNav from '@/pages/profile/component/ProfileNav';
+import CustomPopUp from '@/pages/profile/component/CustomPopUp';
 
 const Settings = () => {
   const [loginOpen, setLoginOpen] = useState(false);
