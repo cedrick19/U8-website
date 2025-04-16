@@ -9,11 +9,12 @@ import AvatarIcon from '@/assets/image/avatarIcon.png';
 import CoinOff from '@/assets/image/icons/coin-off.svg';
 import Refresh from '@/assets/image/refresh.svg';
 import HomeNavbar from '@/components/MobileNavbar/HomeNavbar';
+import { clickNavigate } from '@/globals/utils';
 
 export interface Services {
+  id?: string;
   icon: string;
   label: string;
-  onClick?: () => void;
 }
 
 const services: Services[] = [
@@ -22,6 +23,7 @@ const services: Services[] = [
     label: 'Game Management',
   },
   {
+    id: 'fund-management',
     icon: FundManagement,
     label: 'Fund Management',
   },
@@ -135,7 +137,11 @@ const ProfilePage = () => {
       <ProfileCard pCardTitle="More Services" className="mb-24">
         <Block className="grid grid-cols-3 gap-5 px-10 py-5">
           {services.map((data, index) => (
-            <Link key={index} className="flex-col justify-items-center" onClick={data.onClick}>
+            <Link
+              key={index}
+              className="flex-col justify-items-center"
+              {...clickNavigate(`${data.id}`, `${data.id}/`)}
+            >
               <img src={data.icon} className="h-10 w-10" />
               <p className="text-center">{data.label}</p>
             </Link>
