@@ -2,7 +2,7 @@ import { cn } from '@/globals/utils';
 import { Button, Segmented, Tab, Tabs } from 'framework7-react';
 import { useState } from 'react';
 
-interface SegmentButtons {
+export interface SegmentButtons {
   tabName: string;
   tabLink: string;
   component?: React.ReactNode;
