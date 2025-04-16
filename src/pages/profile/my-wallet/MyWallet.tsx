@@ -67,7 +67,7 @@ const MyWallet = () => {
         </div>
         <Block className="pt-5">
           <Button
-            className="rounded-2xl bg-primary-gradient text-white"
+            className="rounded-2xl bg-primary-gradient normal-case text-white"
             large
             {...clickNavigate('account-sec-redirect', '/profile/settings/account-security/')}
           >
@@ -78,14 +78,14 @@ const MyWallet = () => {
 
       <Block className="m-5 rounded-lg bg-white px-0 shadow-md">
         <SettingItem
-          className="rounded-b-none"
+          className="rounded-lg rounded-b-none"
           iconLeft="show_chart"
           iconClassName="text-white bg-primary-gradient"
           label="Funding Details"
           iconRight="chevron_right"
         />
         <SettingItem
-          className="rounded-t-none"
+          className="rounded-lg rounded-t-none"
           iconLeft="text_snippet"
           label="Transaction Record"
           iconRight="chevron_right"
