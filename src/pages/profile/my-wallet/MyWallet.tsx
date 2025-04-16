@@ -84,6 +84,7 @@ const MyWallet = () => {
           label="Funding Details"
           iconRight="chevron_right"
         />
+        <div className="ml-4 mr-5 h-0 border-b-2 border-slate-100" />
         <SettingItem
           className="rounded-lg rounded-t-none"
           iconLeft="text_snippet"
