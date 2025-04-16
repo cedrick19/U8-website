@@ -6,7 +6,6 @@ import Fishing from '@/pages/games/fishing';
 import Lottery from '@/pages/games/lottery/Lottery';
 import Sports from '@/pages/games/sports';
 import VideoPage from '@/pages/games/video';
-
 import HomePage from '@/pages/home';
 import AccountSecurity from '@/pages/profile/settings/account-security';
 import AdvanceSecVerification from '@/pages/profile/settings/advance-security-verification/AdvanceSecVerification';
@@ -18,6 +17,9 @@ import { Router } from 'framework7/types';
 import Recharge from '@/pages/recharge/Recharge';
 import NotificationsPage from '@/pages/notifications';
 import { NotifDetail } from '@/pages/notifications/components';
+import MyWallet from '@/pages/profile/my-wallet/MyWallet';
+import AKey from '@/pages/profile/my-wallet/a-key/AKey';
+import FundManagement from '@/pages/profile/more-services/fund-management';
 import Refresh from '@/pages/profile/refresh';
 
 const gameRoutes = [
@@ -106,7 +108,19 @@ const profileRoutes = [
       {
         path: 'fund-management/',
         name: 'Fund Management',
-        component: Settings,
+        component: FundManagement,
+      },
+      {
+        path: 'my-wallet/',
+        name: 'My Wallet',
+        component: MyWallet,
+        routes: [{ path: 'a-key/', name: 'A key', component: AKey }],
+      },
+      {
+        path: 'my-wallet/',
+        name: 'My Wallet',
+        component: MyWallet,
+        routes: [{ path: 'a-key/', name: 'A key', component: AKey }],
       },
     ],
   },

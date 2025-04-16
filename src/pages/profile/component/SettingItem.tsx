@@ -4,6 +4,7 @@ import { ButtonProps } from 'framework7-react/components/button.js';
 
 interface SettingItemProps extends ButtonProps {
   iconLeft: string;
+  iconClassName?: string;
   label: string;
   iconRightLabel?: string;
   iconRightLabelClassName?: string;
@@ -15,6 +16,7 @@ interface SettingItemProps extends ButtonProps {
 const SettingItem = (props: SettingItemProps) => {
   const {
     iconLeft,
+    iconClassName,
     label,
     iconRightLabel,
     iconRightLabelClassName,
@@ -26,9 +28,9 @@ const SettingItem = (props: SettingItemProps) => {
   } = props;
   return (
     <div>
-      <Button className={`${className} flex w-full items-center justify-between`} large {...rest}>
+      <Button className={cn('flex w-full items-center justify-between', className)} large {...rest}>
         <div className="flex items-center gap-3">
-          <Icon material={iconLeft} className="text-gradient" />
+          <Icon material={iconLeft} className={cn('text-gradient', iconClassName)} />
           <p className="normal-case text-black">{label}</p>
         </div>
         <div className="flex items-center gap-3">
@@ -39,7 +41,7 @@ const SettingItem = (props: SettingItemProps) => {
             <Icon
               material={iconRight}
               size={iconRight === 'chevron_right' ? 30 : 25}
-              className={`${iconRightClassName} -mr-1`}
+              className={cn('text-gradient -mr-1', iconRightClassName)}
             />
           )}
         </div>

@@ -7,8 +7,9 @@ import CcTrc from '@/assets/image/qr/cc-tr.png';
 import CcErc from '@/assets/image/qr/cc-er.png';
 import WeChat from '@/assets/image/icons/WeChat.svg';
 import AliPay from '@/assets/image/icons/AliPay.svg';
+import { SegmentButtons } from '@/components/SegmentedTabs';
 
-export const RechargeOptions = [
+export const RechargeOptions: SegmentButtons[] = [
   {
     tabName: 'USDT Deposit',
     tabLink: 'usdt',

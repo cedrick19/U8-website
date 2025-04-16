@@ -7,7 +7,7 @@ interface ProfileCardProps {
   className?: string;
   children?: ReactNode;
   pCardStyle?: CardProps;
-  pCardTitle: string | ReactNode;
+  pCardTitle?: string | ReactNode;
   refresh?: boolean;
 }
 
@@ -21,7 +21,7 @@ const ProfileCard = (props: ProfileCardProps) => {
   }, []);
   return (
     <Card
-      className={`${className} relative min-h-[105px] border-2 border-[] bg-[#ECE8F5] py-5 shadow-md shadow-[#d4caf9]`}
+      className={`${className} relative min-h-[105px] border-2 border-white bg-[#ECE8F5] py-5 shadow-md shadow-[#d4caf9]`}
       raised
       {...pCardStyle}
     >
@@ -42,7 +42,7 @@ const ProfileCard = (props: ProfileCardProps) => {
         </div>
       </div>
       <Block className="z-10 flex w-full justify-between">
-        <div className="font-extrabold">{pCardTitle}</div>
+        {pCardTitle && <div className="font-extrabold">{pCardTitle}</div>}
         {refresh && (
           <div className="flex items-center gap-2">
             <img

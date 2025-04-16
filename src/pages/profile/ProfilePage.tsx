@@ -9,11 +9,12 @@ import AvatarIcon from '@/assets/image/avatarIcon.png';
 import CoinOff from '@/assets/image/icons/coin-off.svg';
 import Refresh2 from '@/assets/image/icons/refresh_2.svg';
 import HomeNavbar from '@/components/MobileNavbar/HomeNavbar';
+import { clickNavigate } from '@/globals/utils';
 
 export interface Services {
+  id?: string;
   icon: string;
   label: string;
-  onClick?: () => void;
 }
 
 const services: Services[] = [
@@ -22,9 +23,9 @@ const services: Services[] = [
     label: 'Game Management',
   },
   {
+    id: 'fund-management',
     icon: FundManagement,
     label: 'Fund Management',
-    onClick: () => f7.view.main.router.navigate('/fund-management'),
   },
   {
     icon: RechargeTutorial,
@@ -75,7 +76,10 @@ const ProfilePage = () => {
               <Icon material="visibility_on" color="white" size={20} />
             </div>
 
-            <div className="flex w-full items-center justify-center">
+            <div
+              className="flex w-full items-center justify-center"
+              onClick={() => f7.view.main.router.navigate('my-wallet/')}
+            >
               <p className="text-center text-2xl text-white">0.00</p>
               <Icon material="chevron_right" color="white" size={30} />
             </div>
@@ -140,7 +144,11 @@ const ProfilePage = () => {
       <ProfileCard pCardTitle="More Services" className="mb-24">
         <Block className="grid grid-cols-3 gap-5 px-10 py-5">
           {services.map((data, index) => (
-            <Link key={index} className="flex-col justify-items-center" onClick={data.onClick}>
+            <Link
+              key={index}
+              className="flex-col justify-items-center"
+              {...clickNavigate(`${data.id}`, `${data.id}/`)}
+            >
               <img src={data.icon} className="h-10 w-10" />
               <p className="text-center">{data.label}</p>
             </Link>

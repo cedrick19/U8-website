@@ -1,3 +1,4 @@
+import { SegmentButtons } from '@/components/SegmentedTabs';
 import { NotifComponent } from './components';
 
 export interface NotificationDataType {
@@ -39,7 +40,7 @@ export const notifications: NotificationDataType[] = [
   },
 ];
 
-export const notifComponentArray = [
+export const notifComponentArray: SegmentButtons[] = [
   {
     tabName: 'All',
     tabLink: 'all',

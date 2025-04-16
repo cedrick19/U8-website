@@ -35,6 +35,7 @@ const AdvanceSecVerification = () => {
                 Send Code
               </Button>
             }
+            autoComplete="9999"
           />
         </Block>
       </CustomPopUp>
@@ -95,6 +96,7 @@ const AdvanceSecVerification = () => {
             value="Unbound"
             className="justify-between py-3 text-red-500 shadow-md"
             readOnly
+            autoCapitalize="email bind"
             rightDecoration={
               <Button
                 className="bg-primary-gradient px-8"
@@ -117,6 +119,7 @@ const AdvanceSecVerification = () => {
             value="Unactivated"
             className="justify-between py-3 text-red-500 shadow-md"
             readOnly
+            autoCapitalize="google bind"
             rightDecoration={
               <Button
                 className="bg-primary-gradient px-8"
