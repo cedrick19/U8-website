@@ -24,7 +24,6 @@ const services: Services[] = [
   {
     icon: FundManagement,
     label: 'Fund Management',
-    onClick: () => f7.view.main.router.navigate('/fund-management'),
   },
   {
     icon: RechargeTutorial,
@@ -75,7 +74,10 @@ const ProfilePage = () => {
               <Icon material="visibility_on" color="white" size={20} />
             </div>
 
-            <div className="flex w-full items-center justify-center">
+            <div
+              className="flex w-full items-center justify-center"
+              onClick={() => f7.view.main.router.navigate('my-wallet/')}
+            >
               <p className="text-center text-2xl text-white">0.00</p>
               <Icon material="chevron_right" color="white" size={30} />
             </div>

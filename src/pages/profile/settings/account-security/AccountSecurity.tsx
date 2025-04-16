@@ -1,10 +1,11 @@
-import { Block, f7, Icon, Page } from 'framework7-react';
+import { Block, Page } from 'framework7-react';
 import SettingItem from '@/pages/profile/component/SettingItem';
 import { account, modPassPop, payPass } from './utils';
 import ProfileNav from '@/pages/profile/component/ProfileNav';
 import { useState } from 'react';
 import CustomPopUp from '@/pages/profile/component/CustomPopUp';
 import CustomInput from '@/pages/profile/component/CustomInput';
+import { clickNavigate } from '@/globals/utils';
 
 const AccountSecurity = () => {
   const [openPopUp, setOpenPopUp] = useState({
@@ -41,13 +42,13 @@ const AccountSecurity = () => {
       clAction={() => setOpenPopUp({ ...openPopUp, modPass: false })}
     >
       <form>
-        {modPassPop.map(({ rightDecoration, ...data }, index) => (
+        {modPassPop.map((data, index) => (
           <Block key={index} className="space-y-1">
             <CustomInput
               type="password"
               autoComplete={`${index}1@aBc`}
               {...data}
-              rightDecoration={<Icon material={rightDecoration} />}
+              rightDecoration="visibility"
             />
           </Block>
         ))}
@@ -63,13 +64,13 @@ const AccountSecurity = () => {
       clAction={() => setOpenPopUp({ ...openPopUp, payPass: false })}
     >
       <form>
-        {payPass.map(({ rightDecoration, ...data }, index) => (
+        {payPass.map((data, index) => (
           <Block key={index} className="space-y-1">
             <CustomInput
               type="password"
               autoComplete={`${index}1@aBc`}
               {...data}
-              rightDecoration={<Icon material={rightDecoration} />}
+              rightDecoration="visibility"
             />
           </Block>
         ))}
@@ -105,10 +106,7 @@ const AccountSecurity = () => {
       iconRight: 'chevron_right',
       className: 'rounded-none',
       divider: true,
-      onClick: () => {
-        document.getElementById('vam-redirect')?.blur();
-        f7.view.main.router.navigate('vam/');
-      },
+      onClick: clickNavigate('vam-redirect', 'vam/').onClick,
     },
     {
       id: 'asv-redirect',
@@ -116,10 +114,7 @@ const AccountSecurity = () => {
       label: 'Advanced security verification',
       iconRight: 'chevron_right',
       className: 'rounded-t-none',
-      onClick: () => {
-        document.getElementById('asv-redirect')?.blur();
-        f7.view.main.router.navigate('asv/');
-      },
+      onClick: clickNavigate('asv-redirect', 'asv/').onClick,
     },
   ];
   return (

@@ -21,19 +21,16 @@ export const modPassPop = [
     name: 'currentPassword',
     label: 'Current Password',
     placeholder: 'Enter current password',
-    rightDecoration: 'visibility_off',
   },
   {
     name: 'newPassword',
     label: 'New Password',
     placeholder: 'Enter new password',
-    rightDecoration: 'visibility_off',
   },
   {
     name: 'confirmNewPassword',
     label: 'Confirm New Password',
     placeholder: 'Enter current password again',
-    rightDecoration: 'visibility_off',
   },
 ];
 
@@ -42,12 +39,10 @@ export const payPass = [
     name: 'currentPassword',
     label: 'Current Password',
     placeholder: 'Enter current password',
-    rightDecoration: 'visibility_off',
   },
   {
     name: 'newPassword',
     label: 'New Password',
     placeholder: 'Enter new password',
-    rightDecoration: 'visibility_off',
   },
 ];

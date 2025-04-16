@@ -7,6 +7,11 @@ export function cn(...inputs: ClassValue[]) {
 }
 
 export const clickNavigate = (id: string, url: string) => {
-  document.getElementById(id)?.blur();
-  f7.view.main.router.navigate(url);
+  return {
+    id: id,
+    onClick: () => {
+      document.getElementById(id)?.blur();
+      f7.view.main.router.navigate(url);
+    },
+  };
 };

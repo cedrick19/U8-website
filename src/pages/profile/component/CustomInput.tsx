@@ -1,20 +1,42 @@
 import { cn } from '@/globals/utils';
+import { Icon } from 'framework7-react';
 
-import { DetailedHTMLProps, InputHTMLAttributes, ReactNode } from 'react';
+import { DetailedHTMLProps, InputHTMLAttributes, ReactNode, useState } from 'react';
 
 type InputType = DetailedHTMLProps<InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>;
+type RightDecor = 'visibility' | 'textLimit' | ReactNode;
 interface CustomInputProps extends InputType {
   className?: string;
   label?: string;
   labelClassName?: string;
   name: string;
   value?: string;
-  rightDecoration?: 'textLimit' | ReactNode;
+  rightDecoration?: RightDecor;
 }
 
 const CustomInput = (props: CustomInputProps) => {
-  const { name, value, label, labelClassName, className, rightDecoration, ...rest } =
-    props;
+  const [isVisible, setIsVisible] = useState(false);
+  const { name, value, label, labelClassName, className, rightDecoration, type, ...rest } = props;
+
+  const renderRightDecoration = () => {
+    switch (rightDecoration) {
+      case 'textLimit':
+        return <p className="text-[#808080]">{value?.length}/12</p>;
+      case 'visibility':
+        return (
+          <div onClick={() => setIsVisible((prev) => !prev)}>
+            <Icon material={isVisible ? 'visibility_on' : 'visibility_off'} />
+          </div>
+        );
+      default:
+        return rightDecoration;
+    }
+  };
+  let inputType: string | undefined;
+  if (isVisible) {
+    inputType = 'text';
+  } else inputType = 'password';
+
   return (
     <div className="flex-col space-y-2">
       <label htmlFor={name} className={cn('flex w-full', labelClassName)}>
@@ -22,17 +44,14 @@ const CustomInput = (props: CustomInputProps) => {
       </label>
       <div className={cn('flex items-center rounded-xl bg-white p-1 px-5', className)}>
         <input
+          type={rightDecoration === 'visibility' ? inputType : type}
           className="h-10 w-full placeholder-[#808080]"
           name={name}
           maxLength={12}
           value={value}
           {...rest}
         />
-        {rightDecoration === 'textLimit' ? (
-          <p className="text-[#808080]">{value?.length}/12</p>
-        ) : (
-          rightDecoration
-        )}
+        {renderRightDecoration()}
       </div>
     </div>
   );
