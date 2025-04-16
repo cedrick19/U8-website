@@ -58,13 +58,13 @@ export const DAIPage = () => {
         <div className={cn('mb-4 rounded-lg bg-purple-50 p-3 text-sm text-black')}>
           {infoItems.map(({ label, value }) => (
             <div key={label} className={cn('mb-1 flex justify-between')}>
-              <span className={cn('flex items-center text-purple-900')}>
+              <span className={cn('flex items-center font-semibold text-purple-900')}>
                 {label}
                 {label === 'Frozen Amount' && (
                   <img src={Question} alt="info" className={cn('ml-1 h-4 w-4')} />
                 )}
               </span>
-              <span>{value}</span>
+              <span className="font-bold">{value}</span>
             </div>
           ))}
         </div>
