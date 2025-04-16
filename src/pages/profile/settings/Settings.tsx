@@ -1,8 +1,9 @@
-import { Block, Button, f7, Page } from 'framework7-react';
+import { Block, Button, Page } from 'framework7-react';
 import SettingItem from '@/pages/profile/component/SettingItem';
 import { useState } from 'react';
 import ProfileNav from '@/pages/profile/component/ProfileNav';
 import CustomPopUp from '@/pages/profile/component/CustomPopUp';
+import { clickNavigate } from '@/globals/utils';
 
 const Settings = () => {
   const [loginOpen, setLoginOpen] = useState(false);
@@ -13,15 +14,11 @@ const Settings = () => {
       <ProfileNav title="Settings" />
       <Block className="m-5 rounded-lg bg-white px-0 shadow-sm">
         <SettingItem
-          id={'settings-redirect'}
           iconLeft="manage_accounts"
           label="Account Security"
           iconRight="chevron_right"
           iconRightClassName="text-gradient"
-          onClick={() => {
-            document.getElementById('settings-redirect')?.blur();
-            f7.view.main.router.navigate('account-security/');
-          }}
+          {...clickNavigate('settings-redirect', 'account-security/')}
         />
       </Block>
       <Block className="m-5 flex-col rounded-lg bg-white px-0 shadow-sm">

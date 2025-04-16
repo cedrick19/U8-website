@@ -1,4 +1,5 @@
-import { Block, Button, f7, Icon } from 'framework7-react';
+import { clickNavigate } from '@/globals/utils';
+import { Block, Button, Icon } from 'framework7-react';
 
 const DAM = () => {
   return (
@@ -9,14 +10,10 @@ const DAM = () => {
 
       <Block className="p-0">
         <Button
-          id="dam-button"
-          className="rounded-2xl bg-primary-gradient"
+          className="rounded-2xl bg-primary-gradient normal-case"
           large
           color="white"
-          onClick={() => {
-            document.getElementById('dam-button')?.blur();
-            f7.view.main.router.navigate('dam/');
-          }}
+          {...clickNavigate('dam-button', 'dam/')}
         >
           <Icon material="add" />
           Add a new DAM wallet address

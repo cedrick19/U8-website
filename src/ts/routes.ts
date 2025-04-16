@@ -18,6 +18,8 @@ import { Router } from 'framework7/types';
 import Recharge from '@/pages/recharge/Recharge';
 import NotificationsPage from '@/pages/notifications';
 import { NotifDetail } from '@/pages/notifications/components';
+import MyWallet from '@/pages/profile/my-wallet/MyWallet';
+import AKey from '@/pages/profile/my-wallet/a-key/AKey';
 
 const gameRoutes = [
   {
@@ -100,6 +102,12 @@ const profileRoutes = [
         path: 'fund-management/',
         name: 'Fund Management',
         component: Settings,
+      },
+      {
+        path: 'my-wallet/',
+        name: 'My Wallet',
+        component: MyWallet,
+        routes: [{ path: 'a-key/', name: 'A key', component: AKey }],
       },
     ],
   },
