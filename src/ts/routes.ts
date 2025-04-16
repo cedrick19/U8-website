@@ -18,6 +18,7 @@ import { Router } from 'framework7/types';
 import Recharge from '@/pages/recharge/Recharge';
 import NotificationsPage from '@/pages/notifications';
 import { NotifDetail } from '@/pages/notifications/components';
+import Refresh from '@/pages/profile/refresh';
 
 const gameRoutes = [
   {
@@ -95,6 +96,12 @@ const profileRoutes = [
             ],
           },
         ],
+      },
+
+      {
+        path: 'refresh/',
+        name: 'Refresh',
+        component: Refresh,
       },
       {
         path: 'fund-management/',
