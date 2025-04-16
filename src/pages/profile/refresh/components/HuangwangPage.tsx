@@ -24,7 +24,7 @@ export const HuangWangPage = () => {
                 'flex items-center overflow-hidden rounded-full border border-gray-300 p-1 pl-3',
               )}
             >
-              <button className="m-3 flex h-7 w-7 items-center justify-center rounded-full">
+              <button className="m-3 flex h-4 w-4 items-center justify-center rounded-full">
                 +63
                 <Icon f7="chevron_down" className="text-xs text-black" />
               </button>
