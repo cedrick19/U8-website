@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { FundingPopUp } from './utils';
-import { DropBottom } from '../../../component';
+import { DropBottom } from './DropBottom';
 
 export const FundingDetails = () => {
   const [activeOption, setActiveOption] = useState<Record<string, string>>({

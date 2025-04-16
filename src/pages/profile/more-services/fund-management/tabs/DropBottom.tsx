@@ -1,6 +1,6 @@
 import { cn } from '@/globals/utils';
 import { Block, Button, Icon } from 'framework7-react';
-import { Bottomsheet } from '../../component/Bottomsheet';
+import { Bottomsheet } from '@/pages/profile/more-services/component';
 
 interface PopUpType {
   labelKey: string;

@@ -1,7 +1,7 @@
 import { Block, Page } from 'framework7-react';
 import { SegmentButtons, SegmentedTabs } from '@/components/SegmentedTabs';
 import { FundingDetails, TransactionRecord } from './tabs';
-import ProfileNav from '../../component/ProfileNav';
+import ProfileNav from '@/pages/profile/component/ProfileNav';
 
 const sampleArray: SegmentButtons[] = [
   {
