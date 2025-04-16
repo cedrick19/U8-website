@@ -7,7 +7,7 @@ import Share from '@/assets/image/icons/share.svg';
 import ComingSoon from '@/assets/image/icons/coming_soon.svg';
 import AvatarIcon from '@/assets/image/avatarIcon.png';
 import CoinOff from '@/assets/image/icons/coin-off.svg';
-import Refresh2 from '@/assets/image/refresh.svg';
+import Refresh2 from '@/assets/image/icons/refresh_2.svg';
 import HomeNavbar from '@/components/MobileNavbar/HomeNavbar';
 
 export interface Services {
@@ -100,11 +100,9 @@ const ProfilePage = () => {
                 f7.view.main.router.navigate('refresh/');
               }}
             >
-              <img
-                src={Refresh2}
-                alt="refresh"
-                className="h-5 w-5 cursor-pointer rounded-full bg-primary-gradient p-1"
-              />
+              <div className="h-5 w-5 cursor-pointer rounded-full bg-primary-gradient p-1">
+                <img src={Refresh2} alt="refresh" className="h-full w-full" />
+              </div>
               <p>Refresh</p>
             </Link>
           </Block>
