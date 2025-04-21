@@ -2,7 +2,7 @@ import { PageContent } from './utils';
 
 const WithdrawalCourse = () => {
   return (
-    <div>
+    <>
       {PageContent.map((page, index) => (
         <div key={index} className="mx-4 mb-3 mt-3">
           <img src={page.img} alt={`Step ${index + 1}`} className="mb-2 w-full" />
@@ -20,7 +20,7 @@ const WithdrawalCourse = () => {
           </p>
         </div>
       ))}
-    </div>
+    </>
   );
 };
 

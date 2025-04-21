@@ -2,7 +2,7 @@ import { PageContent } from './utils';
 
 const USTDRecharge = () => {
   return (
-    <div>
+    <>
       {PageContent.map((page, index) => (
         <div key={index}>
           <div className="mx-4 flex items-center">
@@ -37,7 +37,7 @@ const USTDRecharge = () => {
           ))}
         </div>
       ))}
-    </div>
+    </>
   );
 };
 
