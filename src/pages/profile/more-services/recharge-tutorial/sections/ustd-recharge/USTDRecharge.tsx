@@ -15,7 +15,7 @@ const USTDRecharge = () => {
             <div key={subIndex}>
               <div className="mx-4 mb-3 mt-3">
                 <img src={sub.img} alt={`Step ${subIndex + 1}`} className="mb-3 w-full" />
-                <p className="whitespace-pre-line">
+                <>
                   {sub.description.split('\n').map((line, i) => (
                     <span
                       key={i}
@@ -28,7 +28,7 @@ const USTDRecharge = () => {
                       {line}
                     </span>
                   ))}
-                </p>
+                </>
                 {sub.label === 'Page1' && (
                   <div className="mx-9 my-4 h-0.5 bg-gradient-to-r from-[#A03D8C] to-[#4C2CCA] opacity-50"></div>
                 )}

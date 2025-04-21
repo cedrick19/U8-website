@@ -12,7 +12,7 @@ const RechargeTutorial = () => {
     <Page name="recharge-tutorial">
       <ProfileNav title="Recharge Tutorial" />
       <div>
-        <div className="mx-4 mt-8">
+        <div className="mx-4 mb-3 mt-8">
           <span>
             There are two ways to recharge the U8 platform:
             <br />
