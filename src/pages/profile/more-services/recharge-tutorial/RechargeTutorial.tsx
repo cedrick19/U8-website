@@ -10,7 +10,7 @@ import FinancialDirect from './sections/financial-direct';
 const RechargeTutorial = () => {
   return (
     <Page name="recharge-tutorial">
-      <ProfileNav title="Recharde Tutorial" />
+      <ProfileNav title="Recharge Tutorial" />
       <div>
         <div>
           <div className="mx-4 mt-8">
