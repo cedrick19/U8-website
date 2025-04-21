@@ -1,4 +1,4 @@
-import { Block, Button, Card, CardContent } from 'framework7-react';
+import { Block, Button, Card, CardContent, Input } from 'framework7-react';
 import Question from '@/assets/image/icons/question.svg';
 import { cn } from '@/globals/utils';
 
@@ -44,7 +44,7 @@ export const DAIPage = () => {
           >
             <span className="text-lg font-semibold">$</span>
           </div>
-          <input
+          <Input
             type="text"
             placeholder="Enter amount"
             className={cn('flex-1 px-3 py-3 text-gray-700 outline-none')}

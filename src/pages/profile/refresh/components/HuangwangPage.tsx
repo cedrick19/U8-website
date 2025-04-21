@@ -1,4 +1,4 @@
-import { List, Icon, Button, Block } from 'framework7-react';
+import { List, Icon, Button, Block, Input } from 'framework7-react';
 import Question from '@/assets/image/icons/question.svg';
 import Warning from '@/assets/image/icons/warning.svg';
 import { cn } from '@/globals/utils';
@@ -24,7 +24,7 @@ export const HuangWangPage = () => {
                 'flex items-center overflow-hidden rounded-full border border-gray-300 p-1 pl-3',
               )}
             >
-              <button className="m-3 flex h-4 w-4 items-center justify-center rounded-full p-4">
+              <button className="m-3 flex h-4 w-4 items-center justify-center rounded-full">
                 +63
                 <Icon f7="chevron_down" className="text-xs text-black" />
               </button>
@@ -56,11 +56,7 @@ export const HuangWangPage = () => {
           <div className="m-2 flex h-7 w-7 items-center justify-center rounded-full bg-purple-900 text-white">
             <span className="text-lg font-semibold">$</span>
           </div>
-          <input
-            type="tel"
-            placeholder="Enter amount"
-            className="flex-1 px-3 py-3 text-gray-700 outline-none"
-          />
+          <Input type="tel" placeholder="Enter amount" className="flex-1 px-3 py-3 text-gray-700" />
           <Button
             className={cn('m-2 h-[35px] w-20 rounded-full bg-purple-900 px-4 py-2 text-white')}
           >
