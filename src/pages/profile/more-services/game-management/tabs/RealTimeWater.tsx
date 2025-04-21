@@ -1,5 +1,5 @@
 import { Block, Button, CardContent, Icon } from 'framework7-react';
-import { DropBottom } from '../../component/DropBottom';
+import { DropBottom } from '@/pages/profile/component';
 import { useState } from 'react';
 import CustomPopUp from '@/pages/profile/component/CustomPopUp';
 
