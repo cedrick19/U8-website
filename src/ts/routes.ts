@@ -21,6 +21,7 @@ import MyWallet from '@/pages/profile/my-wallet/MyWallet';
 import AKey from '@/pages/profile/my-wallet/a-key/AKey';
 import FundManagement from '@/pages/profile/more-services/fund-management';
 import Refresh from '@/pages/profile/refresh';
+import GameManage from '@/pages/profile/more-services/game-management';
 
 const gameRoutes = [
   {
@@ -109,6 +110,11 @@ const profileRoutes = [
         path: 'fund-management/',
         name: 'Fund Management',
         component: FundManagement,
+      },
+      {
+        path: 'game-management/',
+        name: 'Game Management',
+        component: GameManage,
       },
       {
         path: 'my-wallet/',

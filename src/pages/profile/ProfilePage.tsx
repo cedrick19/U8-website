@@ -19,6 +19,7 @@ export interface Services {
 
 const services: Services[] = [
   {
+    id: 'game-management',
     icon: GamesManagement,
     label: 'Game Management',
   },
