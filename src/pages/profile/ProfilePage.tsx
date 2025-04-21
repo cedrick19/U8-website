@@ -29,6 +29,7 @@ const services: Services[] = [
     label: 'Fund Management',
   },
   {
+    id: 'recharge-tutorial',
     icon: RechargeTutorial,
     label: 'Recharge Tutorial',
   },
