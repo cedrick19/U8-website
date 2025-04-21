@@ -21,6 +21,7 @@ import MyWallet from '@/pages/profile/my-wallet/MyWallet';
 import AKey from '@/pages/profile/my-wallet/a-key/AKey';
 import FundManagement from '@/pages/profile/more-services/fund-management';
 import Refresh from '@/pages/profile/refresh';
+import RechargeTutorial from '@/pages/profile/more-services/recharge-tutorial';
 
 const gameRoutes = [
   {
@@ -109,6 +110,11 @@ const profileRoutes = [
         path: 'fund-management/',
         name: 'Fund Management',
         component: FundManagement,
+      },
+      {
+        path: 'recharge-tutorial/',
+        name: 'Recharge Tutorial',
+        component: RechargeTutorial,
       },
       {
         path: 'my-wallet/',
