@@ -9,7 +9,7 @@ const infoItems = [
   { label: 'Frozen Amount', value: '0.00' },
 ];
 
-export const USDTPage = () => {
+export const WalletPage = () => {
   return (
     <>
       <Card className={cn('mx-auto my-3 max-w-md rounded-xl bg-white shadow-md')}>
@@ -55,6 +55,7 @@ export const USDTPage = () => {
             Max
           </Button>
         </div>
+
         <div className={cn('mb-4 rounded-lg bg-purple-50 p-3 text-sm text-black')}>
           {infoItems.map(({ label, value }) => (
             <div key={label} className={cn('mb-1 flex justify-between')}>
@@ -68,6 +69,7 @@ export const USDTPage = () => {
             </div>
           ))}
         </div>
+
         <p className={cn('text-xs text-gray-600')}>
           Contact for first presentation @U8hdkefu8 Official grid customer service and let the
           customer service retain your aircraft number. The customer service will be checked twice
@@ -86,4 +88,4 @@ export const USDTPage = () => {
   );
 };
 
-export default USDTPage;
+export default WalletPage;

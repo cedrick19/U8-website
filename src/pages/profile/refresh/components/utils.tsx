@@ -1,6 +1,4 @@
-import { USDTPage } from './USDTPage';
-import { DAIPage } from './DAIPage';
-
+import { WalletPage } from './WalletPage';
 import { HuangWangPage } from './HuangwangPage';
 
 export const RefreshOptions = [
@@ -12,11 +10,11 @@ export const RefreshOptions = [
   {
     tabName: 'USDT',
     tabLink: 'usdt',
-    component: <USDTPage />,
+    component: <WalletPage />,
   },
   {
     tabName: 'DAI',
     tabLink: 'dai',
-    component: <DAIPage />,
+    component: <WalletPage />,
   },
 ];
