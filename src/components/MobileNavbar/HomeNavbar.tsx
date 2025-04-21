@@ -13,7 +13,7 @@ const HomeNavbar = ({ navRight }: HomeNavbarProps) => {
         <img src={Logo} alt="logo" className="h-5 w-20" />
         <img src={Telegram} alt="Telegram Logo" className="w-25 h-10" />
       </NavLeft>
-      <NavRight className="gap-2 pr-2">{navRight}</NavRight>
+      {navRight && <NavRight className="gap-2 pr-2">{navRight}</NavRight>}
     </Navbar>
   );
 };

@@ -20,6 +20,7 @@ import { NotifDetail } from '@/pages/notifications/components';
 import MyWallet from '@/pages/profile/my-wallet/MyWallet';
 import AKey from '@/pages/profile/my-wallet/a-key/AKey';
 import FundManagement from '@/pages/profile/more-services/fund-management';
+import Refresh from '@/pages/profile/refresh';
 
 const gameRoutes = [
   {
@@ -97,6 +98,12 @@ const profileRoutes = [
             ],
           },
         ],
+      },
+
+      {
+        path: 'refresh/',
+        name: 'Refresh',
+        component: Refresh,
       },
       {
         path: 'fund-management/',

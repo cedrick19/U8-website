@@ -7,7 +7,7 @@ import Share from '@/assets/image/icons/share.svg';
 import ComingSoon from '@/assets/image/icons/coming_soon.svg';
 import AvatarIcon from '@/assets/image/avatarIcon.png';
 import CoinOff from '@/assets/image/icons/coin-off.svg';
-import Refresh from '@/assets/image/refresh.svg';
+import Refresh2 from '@/assets/image/icons/refresh_2.svg';
 import HomeNavbar from '@/components/MobileNavbar/HomeNavbar';
 import { clickNavigate } from '@/globals/utils';
 
@@ -95,13 +95,20 @@ const ProfilePage = () => {
             <p>Recharge</p>
           </Link>
           <div className="h-8 border-[1px] border-slate-300" />
-          <Block className="flex gap-2 font-bold">
-            <img
-              src={Refresh}
-              alt="recharge"
-              className="h-5 w-5 cursor-pointer rounded-full bg-primary-gradient p-1"
-            />
-            <p>Refresh</p>
+          <Block className="flex font-bold">
+            <Link
+              className="flex items-center gap-2"
+              id="refresh"
+              onClick={() => {
+                document.getElementById('refresh')?.blur();
+                f7.view.main.router.navigate('refresh/');
+              }}
+            >
+              <div className="h-5 w-5 cursor-pointer rounded-full bg-primary-gradient p-1">
+                <img src={Refresh2} alt="refresh" className="h-full w-full" />
+              </div>
+              <p>Refresh</p>
+            </Link>
           </Block>
         </div>
       </ProfileCard>
