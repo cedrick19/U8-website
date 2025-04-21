@@ -12,29 +12,34 @@ const RechargeTutorial = () => {
     <Page name="recharge-tutorial">
       <ProfileNav title="Recharde Tutorial" />
       <div>
-        {/* main */}
-        <div className="mx-4 mt-9">
-          <span>
-            There are two ways to recharge the U8 platform:<br></br>
-            1. From external exchanges or wallets with coins USDT to U8 platforms.<br></br>
-            2. Copy the financial account in the recharge interface and paste it on a small aircraft
-            for direct financial filling.
-          </span>
-        </div>
-        <div className="py-2">
-          <img src={LabelImgUSD} alt="Recharge Tutorial" className="mb-3 w-full" />
-          <USTDRecharge></USTDRecharge>
-        </div>
         <div>
-          <img src={LabelImgFD} alt="Recharge Tutorial" className="mb-3 w-full" />
-          <FinancialDirect></FinancialDirect>
+          <div className="mx-4 mt-8">
+            <span>
+              There are two ways to recharge the U8 platform:
+              <br />
+              1. From external exchanges or wallets with coins USDT to U8 platforms.
+              <br />
+              2. Copy the financial account in the recharge interface and paste it on a small
+              aircraft for direct financial filling.
+            </span>
+          </div>
+          <div className="py-2">
+            <img src={LabelImgUSD} alt="Recharge Tutorial" className="mb-3 w-full" />
+            <USTDRecharge />
+          </div>
+
+          <div>
+            <img src={LabelImgFD} alt="Recharge Tutorial" className="mb-3 w-full" />
+            <FinancialDirect />
+          </div>
+          <div>
+            <img src={LabelImgWC} alt="Recharge Tutorial" className="mb-3 w-full" />
+            <WithdrawalCourse />
+          </div>
         </div>
-        <div>
-          <img src={LabelImgWC} alt="Recharge Tutorial" className="mb-3 w-full" />
-          <WithdrawalCourse></WithdrawalCourse>
-        </div>
+
         <div className="text-center">
-          <p className="mb-12 mt-12">End</p>
+          <p className="mt-10 h-40 text-lg font-normal md:h-52 lg:h-72">End</p>
         </div>
       </div>
     </Page>
