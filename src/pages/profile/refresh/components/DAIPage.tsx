@@ -16,7 +16,7 @@ export const DAIPage = () => {
         <CardContent className={cn('flex items-center p-4')}>
           <div
             className={cn(
-              'mr-4 flex h-12 w-12 items-center justify-center rounded-lg bg-purple-900',
+              'mr-4 flex h-12 w-12 items-center justify-center rounded-lg bg-primary-gradient',
             )}
           >
             <i className={cn('material-icons text-[24px] text-white')}>add</i>
