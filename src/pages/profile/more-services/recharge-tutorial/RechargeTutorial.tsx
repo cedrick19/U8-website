@@ -12,35 +12,23 @@ const RechargeTutorial = () => {
     <Page name="recharge-tutorial">
       <ProfileNav title="Recharge Tutorial" />
       <div>
-        <div>
-          <div className="mx-4 mt-8">
-            <span>
-              There are two ways to recharge the U8 platform:
-              <br />
-              1. From external exchanges or wallets with coins USDT to U8 platforms.
-              <br />
-              2. Copy the financial account in the recharge interface and paste it on a small
-              aircraft for direct financial filling.
-            </span>
-          </div>
-          <div className="py-2">
-            <img src={LabelImgUSD} alt="Recharge Tutorial" className="mb-3 w-full" />
-            <USTDRecharge />
-          </div>
-
-          <div>
-            <img src={LabelImgFD} alt="Recharge Tutorial" className="mb-3 w-full" />
-            <FinancialDirect />
-          </div>
-          <div>
-            <img src={LabelImgWC} alt="Recharge Tutorial" className="mb-3 w-full" />
-            <WithdrawalCourse />
-          </div>
+        <div className="mx-4 mt-8">
+          <span>
+            There are two ways to recharge the U8 platform:
+            <br />
+            1. From external exchanges or wallets with coins USDT to U8 platforms.
+            <br />
+            2. Copy the financial account in the recharge interface and paste it on a small aircraft
+            for direct financial filling.
+          </span>
         </div>
-
-        <div className="text-center">
-          <p className="mt-10 h-40 text-lg font-normal md:h-52 lg:h-72">End</p>
-        </div>
+        <img src={LabelImgUSD} alt="Recharge Tutorial" className="mb-3 w-full" />
+        <USTDRecharge />
+        <img src={LabelImgFD} alt="Recharge Tutorial" className="mb-3 w-full" />
+        <FinancialDirect />
+        <img src={LabelImgWC} alt="Recharge Tutorial" className="mb-3 w-full" />
+        <WithdrawalCourse />
+        <p className="mt-10 h-40 text-center text-lg font-normal md:h-52 lg:h-72">End</p>
       </div>
     </Page>
   );
