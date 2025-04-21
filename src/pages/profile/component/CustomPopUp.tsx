@@ -1,3 +1,4 @@
+import { cn } from '@/globals/utils';
 import { Popup, Block, Button } from 'framework7-react';
 import { ReactNode } from 'react';
 
@@ -9,14 +10,15 @@ interface PopupProps {
   opAction?: () => void;
   clAction?: () => void;
   open: boolean;
+  className?: string;
 }
 
 const CustomPopUp = (props: PopupProps) => {
-  const { title, opText, opAction, clAction, clText, open, children } = props;
+  const { title, opText, opAction, clAction, clText, open, children, className } = props;
 
   return (
     <Popup
-      className="absolute inset-0 m-auto h-fit w-[90%] rounded-3xl bg-[#D1D1D1]"
+      className={cn('absolute inset-0 m-auto h-fit w-[90%] rounded-3xl bg-[#D1D1D1]', className)}
       opened={open}
       animate={false}
       onPopupClose={clAction}
@@ -25,8 +27,8 @@ const CustomPopUp = (props: PopupProps) => {
         <p className="text-2xl font-bold">{title}</p>
         {children}
       </Block>
-      <div className="m-0 flex items-end justify-center border-t-[1.5px] border-black">
-        {opText && (
+      {opText && clText && (
+        <div className="m-0 flex items-end justify-center border-t-[1.5px] border-black">
           <Button
             onClick={opAction}
             className="w-full rounded-none border-r-[1.5px] border-black py-10 text-xl text-red-700"
@@ -34,13 +36,11 @@ const CustomPopUp = (props: PopupProps) => {
           >
             {opText}
           </Button>
-        )}
-        {clText && (
           <Button onClick={clAction} className="w-full rounded-none py-10 text-xl text-black" large>
             {clText}
           </Button>
-        )}
-      </div>
+        </div>
+      )}
     </Popup>
   );
 };

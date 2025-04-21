@@ -151,3 +151,28 @@ body {
 
   mask-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.6), transparent);
 }
+
+:root {
+  --f7-calendar-selected-bg-color: transparent;
+}
+
+.calendar-day-selected .calendar-day-number {
+  @apply rounded-full bg-primary-gradient font-semibold text-white;
+}
+
+.calendar-week-header .calendar-week-day {
+  @apply uppercase;
+}
+
+.calendar-day .calendar-day-number {
+  @apply font-normal;
+}
+
+.calendar-day-prev,
+.calendar-day-next {
+  @apply pointer-events-none opacity-0;
+}
+
+.calendar {
+  @apply bg-white;
+}

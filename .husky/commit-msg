@@ -3,6 +3,6 @@ valid_types="feat|fix|adjust|refactor|wip|test|add|delete|edit|update|Merge"
 commit_message=$(cat "$1")
 
 if ! echo "$commit_message" | grep -Eq "$valid_types"; then
-  echo "Commit message must contain one of the following keywords: feat, fix, adjust, refactor, wip, test, add, delete, Merge."
+  echo "Commit message must contain one of the following keywords: feat, fix, adjust, refactor, wip, test, add, update, delete, Merge"
   exit 1
 fi
