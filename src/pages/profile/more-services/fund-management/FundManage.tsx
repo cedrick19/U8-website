@@ -3,7 +3,7 @@ import { SegmentButtons, SegmentedTabs } from '@/components/SegmentedTabs';
 import { FundingDetails, TransactionRecord } from './tabs';
 import ProfileNav from '@/pages/profile/component/ProfileNav';
 
-const sampleArray: SegmentButtons[] = [
+const FundManageArray: SegmentButtons[] = [
   {
     tabName: 'Funding Details',
     tabLink: 'funding-details',
@@ -21,7 +21,7 @@ const FundManagement = () => {
     <Page name="Fund Management">
       <ProfileNav title="Fund Management" />
       <Block>
-        <SegmentedTabs tabArray={sampleArray} />
+        <SegmentedTabs tabArray={FundManageArray} />
       </Block>
     </Page>
   );
