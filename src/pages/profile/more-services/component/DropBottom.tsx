@@ -64,7 +64,7 @@ export const DropBottom = ({
   spanTwo = [],
 }: DropBottomProps) => {
   return (
-    <div className="flex flex-row flex-wrap gap-2 px-2 pt-5">
+    <div className="flex flex-row gap-2">
       {popUpConfig.map((popUpButton, ids) => (
         <DropdownButton
           key={ids}
