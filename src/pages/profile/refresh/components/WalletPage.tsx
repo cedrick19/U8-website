@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Block, Button, Card, CardContent, Input } from 'framework7-react';
 import { cn } from '@/globals/utils';
-import CustomPopUp from '../../component/CustomPopUp'; // Adjust path as needed
+import CustomPopUp from '../../component/CustomPopUp';
 
 const infoItems = [
   { label: 'Wallet Balance', value: '0.00' },
