@@ -18,7 +18,7 @@ export const LoginModal = () => {
   return (
     <LoginScreen id="loginHere">
       <Page>
-        <img src={Logo} className="justify-self-center pb-20" width={192} />
+        <img src={Logo} className="justify-self-center" width={192} />
         <Block>
           <LoginSegment tabArray={LoginArray} />
         </Block>

@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { LoginFieldProps } from './type';
 
 export const LoginField = ({
+  labelKey,
   inputHeader,
   f7icon,
   inputType,
@@ -18,12 +19,13 @@ export const LoginField = ({
   };
 
   return (
-    <div className="gap-2">
-      <span className="text-gradient">{inputHeader}</span>
+    <div>
+      <span className="text-gradient text-sm">{inputHeader}</span>
       <div className="flex h-12 w-full flex-row items-center gap-2 overflow-hidden truncate whitespace-nowrap rounded-xl border border-gray-500 bg-white px-3">
         <Icon f7={f7icon} size={22} className="text-gradient" />
         <Input
           type={inputType === 'password' && togglePass ? 'text' : inputType}
+          id={labelKey}
           placeholder={placeholder}
           value={value}
           className="w-full"
