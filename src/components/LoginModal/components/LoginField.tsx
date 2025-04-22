@@ -25,6 +25,7 @@ export const LoginField = ({
         <Icon f7={f7icon} size={22} className="text-gradient" />
         <Input
           type={inputType === 'password' && togglePass ? 'text' : inputType}
+          autocomplete={`${labelKey}diveu`}
           id={labelKey}
           placeholder={placeholder}
           value={value}
