@@ -9,7 +9,7 @@
   "scripts": {
     "start": "npm run dev && npm run prepare",
     "dev": "cross-env NODE_ENV=development vite",
-    "build": "cross-env NODE_ENV=production vite build && npx workbox generateSW workbox-config.js",
+    "build": "cross-env NODE_ENV=production vite build && npx workbox generateSW workbox-config.cjs",
     "lint": "eslint .",
     "lint:fix": "eslint \"src/**/*.{ts,tsx}\" --fix",
     "prepare": "husky"
