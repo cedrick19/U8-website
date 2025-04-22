@@ -12,17 +12,14 @@ import { SegmentButtons } from '@/components/SegmentedTabs';
 export const RechargeOptions: SegmentButtons[] = [
   {
     tabName: 'USDT Deposit',
-    tabLink: 'usdt',
     component: <USDTPage />,
   },
   {
     tabName: 'Financial Direct Recharge',
-    tabLink: 'fda',
     component: <FDRPage />,
   },
   {
     tabName: 'Huiwang Payment',
-    tabLink: 'huiwang',
     component: <HuiwangPage />,
   },
 ];

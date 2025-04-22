@@ -39,7 +39,7 @@ export const LoginSegment: React.FC<SegmentedTabsProps> = ({
       </Segmented>
       <Tabs>
         {tabArray.map((tab, ids) => (
-          <Tab key={ids} id={tab.tabLink} tabActive={activeTab === ids}>
+          <Tab key={ids} id={tab.tabName} tabActive={activeTab === ids}>
             {tab.component}
           </Tab>
         ))}
