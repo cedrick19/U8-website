@@ -2,13 +2,16 @@ import { DropBottom } from '@/pages/profile/component';
 import ProfileNav from '@/pages/profile/component/ProfileNav';
 import { Card, Page } from 'framework7-react';
 import {
+  gridHeader,
   lotteryContent,
+  lotteryHeader,
   lotteryTicketCategory,
   returnRatioCategory,
   returnRatioContent,
 } from './utils';
 import { useState } from 'react';
 import RatioTable from './component/RatioTable';
+import { GridBody } from './type';
 
 const ReturnRatioDetails = () => {
   const [activeOption, setActiveOption] = useState<Record<string, string>>({
@@ -35,19 +38,21 @@ const ReturnRatioDetails = () => {
           />
         )}
         {activeOption.ratioOption === 'Lottery ticket' &&
-          lotteryContent.map(({ category, content: { gridBody, gridHeader } }, index) => {
+          lotteryContent.map(({ category, content }, index) => {
             return (
               activeLotteryOption.lotteryOption === category && (
-                <RatioTable key={index} gridBody={gridBody} gridHeader={gridHeader} />
+                <RatioTable
+                  key={index}
+                  gridBody={content as GridBody[]}
+                  gridHeader={lotteryHeader}
+                />
               )
             );
           })}
-        {returnRatioContent.map(({ category, content: { gridBody, gridHeader } }, index) => {
-          const newCat = category != 'Lottery ticket' ? category : '';
+        {returnRatioContent.map(({ category, content }, index) => {
           return (
-            activeOption.ratioOption === newCat && (
-              <RatioTable key={index} gridBody={gridBody} gridHeader={gridHeader} />
-            )
+            activeOption.ratioOption === category &&
+            content && <RatioTable key={index} gridBody={content} gridHeader={gridHeader} />
           );
         })}
       </Card>

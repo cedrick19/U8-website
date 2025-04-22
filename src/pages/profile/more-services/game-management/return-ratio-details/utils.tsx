@@ -125,109 +125,63 @@ export const lotteryBody: GridBody[] = [
 export const lotteryContent: RatioTableContent[] = [
   {
     category: 'Canada 5.0',
-    content: {
-      gridHeader: lotteryHeader,
-      gridBody: lotteryBody,
-    },
+    content: lotteryBody,
   },
   {
     category: 'Canada Baccarat',
-    content: {
-      gridHeader: lotteryHeader,
-      gridBody: videoBody,
-    },
+    content: videoBody,
   },
   {
     category: 'Hongkong Mark Six Lottery',
-    content: {
-      gridHeader: lotteryHeader,
-      gridBody: pokerBody,
-    },
+    content: pokerBody,
   },
   {
     category: 'Canadian Beef',
-    content: {
-      gridHeader: lotteryHeader,
-      gridBody: electronicBody,
-    },
+    content: electronicBody,
   },
   {
     category: 'Canada 4.2-4.6',
-    content: {
-      gridHeader: lotteryHeader,
-      gridBody: sportsBody,
-    },
+    content: sportsBody,
   },
   {
     category: 'Canadian Network Disk',
-    content: {
-      gridHeader: lotteryHeader,
-      gridBody: fishingBody,
-    },
+    content: fishingBody,
   },
   {
     category: 'Canadian Onchboard 996',
-    content: {
-      gridHeader: lotteryHeader,
-      gridBody: fishingBody,
-    },
+    content: fishingBody,
   },
   {
     category: 'Canada Full Ads VIP Room',
-    content: {
-      gridHeader: lotteryHeader,
-      gridBody: fishingBody,
-    },
+    content: fishingBody,
   },
   {
     category: 'Canada 2.8',
-    content: {
-      gridHeader: gridHeader,
-      gridBody: fishingBody,
-    },
+    content: fishingBody,
   },
 ];
 export const returnRatioContent: RatioTableContent[] = [
   {
     category: 'Video',
-    content: {
-      gridHeader: gridHeader,
-      gridBody: videoBody,
-    },
+    content: videoBody,
   },
   {
     category: 'Lottery ticket',
-    content: {
-      gridHeader: gridHeader,
-      gridBody: videoBody,
-    },
   },
   {
     category: 'Poker',
-    content: {
-      gridHeader: gridHeader,
-      gridBody: pokerBody,
-    },
+    content: pokerBody,
   },
   {
     category: 'Electronic',
-    content: {
-      gridHeader: gridHeader,
-      gridBody: electronicBody,
-    },
+    content: electronicBody,
   },
   {
     category: 'Sports',
-    content: {
-      gridHeader: gridHeader,
-      gridBody: sportsBody,
-    },
+    content: sportsBody,
   },
   {
     category: 'Fishing',
-    content: {
-      gridHeader: gridHeader,
-      gridBody: fishingBody,
-    },
+    content: fishingBody,
   },
 ];

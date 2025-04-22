@@ -4,6 +4,7 @@ import { TableRatio } from '@/pages/profile/more-services/game-management/return
 
 const RatioTable = (props: TableRatio) => {
   const { gridHeader, gridBody } = props;
+
   return (
     <div className="grid grid-cols-4 rounded-lg border-2 border-b-2 border-black bg-[#F7FBFF]">
       {gridHeader.map((data, index) => (

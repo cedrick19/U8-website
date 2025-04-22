@@ -1,9 +1,6 @@
-interface GameContents {
-  [key: string]: string | number;
-}
 export interface GridBody {
   gamePlatform: string;
-  gameContents: GameContents[];
+  gameContents: Record<string, string | number>[];
 }
 
 export interface TableRatio {
@@ -13,5 +10,5 @@ export interface TableRatio {
 
 export interface RatioTableContent {
   category: string;
-  content: TableRatio;
+  content?: GridBody[];
 }
