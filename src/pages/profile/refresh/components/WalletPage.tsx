@@ -1,6 +1,7 @@
+import { useState } from 'react';
 import { Block, Button, Card, CardContent, Input } from 'framework7-react';
-import Question from '@/assets/image/icons/question.svg';
 import { cn } from '@/globals/utils';
+import CustomPopUp from '../../component/CustomPopUp'; // Adjust path as needed
 
 const infoItems = [
   { label: 'Wallet Balance', value: '0.00' },
@@ -10,6 +11,8 @@ const infoItems = [
 ];
 
 export const WalletPage = () => {
+  const [popupOpen, setPopupOpen] = useState(false);
+
   return (
     <>
       <Card className={cn('mx-auto my-3 max-w-md rounded-xl bg-white shadow-md')}>
@@ -19,7 +22,12 @@ export const WalletPage = () => {
               'mr-4 flex h-12 w-12 items-center justify-center rounded-lg bg-primary-gradient',
             )}
           >
-            <i className={cn('material-icons text-[24px] text-white')}>add</i>
+            <i
+              className={cn('material-icons text-[24px] text-white')}
+              onClick={() => setPopupOpen(true)}
+            >
+              add
+            </i>
           </div>
           <div className="flex-1">
             <h3 className="text-base font-bold text-gray-900">No virtual currency address</h3>
@@ -62,7 +70,7 @@ export const WalletPage = () => {
               <span className={cn('flex items-center font-semibold text-purple-900')}>
                 {label}
                 {label === 'Frozen Amount' && (
-                  <img src={Question} alt="info" className={cn('ml-1 h-4 w-4')} />
+                  <span className="material-icons ml-1 text-[16px] text-gray-500">help</span>
                 )}
               </span>
               <span className="font-bold">{value}</span>
@@ -84,6 +92,44 @@ export const WalletPage = () => {
       >
         Immediately
       </Button>
+
+      {/* Custom PopUp */}
+      <CustomPopUp
+        title="Switch Collection Address"
+        open={popupOpen}
+        clAction={() => setPopupOpen(false)}
+        opAction={() => {
+          console.log('Add New Wallet Clicked');
+          setPopupOpen(false);
+        }}
+      >
+        <Block className="flex-col space-y-8">
+          <div className="flex flex-col items-center space-y-2 text-center">
+            <p className="text-sm text-red-600">
+              <span className="material-icons relative -top-[-2px] mr-1 text-[18px] text-red-500">
+                warning
+              </span>
+              <span className="ml-1">Only 5 virtual coin wallets can be added</span>
+            </p>
+            <p className="text-lg font-semibold">0/5</p>
+          </div>
+          <div className="space-y-5">
+            <Button
+              large
+              outline
+              className="text-gradient border-2 border-purple-800 font-bold normal-case"
+            >
+              Management
+            </Button>
+            <Button
+              large
+              className="w-full whitespace-normal break-words bg-purple-800 px-4 py-3 text-center text-[13px] font-medium normal-case leading-snug text-white"
+            >
+              Add New Virtual Coin Wallet Address
+            </Button>
+          </div>
+        </Block>
+      </CustomPopUp>
     </>
   );
 };

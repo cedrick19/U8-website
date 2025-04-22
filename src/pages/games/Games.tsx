@@ -1,4 +1,4 @@
-import { Block, f7, Icon, Page } from 'framework7-react';
+import { Block, f7, Icon, Link, Page } from 'framework7-react';
 
 import HomeNavbar from '@/components/MobileNavbar/HomeNavbar';
 
@@ -10,7 +10,15 @@ const Games = () => {
     return (
       <>
         <p className="text-xl font-extrabold">0.00</p>
-        <Icon material="notifications" size={35} className="text-gradient" />
+        <Link
+          id="notifications"
+          href="/notifications/"
+          onClick={() => {
+            document.getElementById('notifications')?.blur();
+          }}
+        >
+          <Icon material="notifications" size={35} className="text-gradient" />
+        </Link>
       </>
     );
   };

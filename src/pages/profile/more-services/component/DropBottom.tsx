@@ -14,6 +14,7 @@ interface DropBottomProps {
   activeOption: Record<string, string>;
   setActiveOption: (value: Record<string, string>) => void;
   spanTwo?: string[];
+  className?: string;
 }
 
 const DropdownButton = ({ label, popupId }: { label: string; popupId: string }) => (
@@ -62,9 +63,10 @@ export const DropBottom = ({
   activeOption,
   setActiveOption,
   spanTwo = [],
+  className,
 }: DropBottomProps) => {
   return (
-    <div className="flex flex-row gap-2">
+    <div className={cn('flex flex-row gap-2 px-2 pt-5', className)}>
       {popUpConfig.map((popUpButton, ids) => (
         <DropdownButton
           key={ids}

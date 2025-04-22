@@ -4,10 +4,13 @@ import { useState } from 'react';
 import ProfileNav from '@/pages/profile/component/ProfileNav';
 import CustomPopUp from '@/pages/profile/component/CustomPopUp';
 import { clickNavigate } from '@/globals/utils';
+import { useAuth } from '@/hooks/useAuth';
 
 const Settings = () => {
   const [loginOpen, setLoginOpen] = useState(false);
   const [cacheOpen, setCacheOpen] = useState(false);
+  const { logout } = useAuth();
+
   return (
     <Page name="Settings" className="relative">
       <div className="absolute h-[40%] w-full rounded-br-full bg-gradient-to-br from-[#381E7B]/20 via-transparent to-transparent backdrop:blur-3xl" />
@@ -52,6 +55,10 @@ const Settings = () => {
         clText="Cancel"
         clAction={() => setLoginOpen(false)}
         open={loginOpen}
+        opAction={() => {
+          setLoginOpen(false);
+          logout();
+        }}
       >
         <p className="m-auto w-36">Are you sure you want to logout?</p>
       </CustomPopUp>
