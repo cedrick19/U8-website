@@ -23,6 +23,7 @@ import FundManagement from '@/pages/profile/more-services/fund-management';
 import Refresh from '@/pages/profile/my-wallet/refresh';
 import RechargeTutorial from '@/pages/profile/more-services/recharge-tutorial';
 import GameManage from '@/pages/profile/more-services/game-management';
+import ReturnRatioDetails from '@/pages/profile/more-services/game-management/return-ratio-details/ReturnRatioDetails';
 
 const gameRoutes = [
   {
@@ -133,6 +134,18 @@ const profileRoutes = [
         name: 'My Wallet',
         component: MyWallet,
         routes: [{ path: 'a-key/', name: 'A key', component: AKey }],
+      },
+      {
+        path: 'game-management/',
+        name: 'Game Management',
+        component: MyWallet,
+        routes: [
+          {
+            path: 'return-ratio-details/',
+            name: 'Return Ratio Details',
+            component: ReturnRatioDetails,
+          },
+        ],
       },
     ],
   },

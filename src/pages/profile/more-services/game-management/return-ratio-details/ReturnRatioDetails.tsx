@@ -1,0 +1,63 @@
+import { DropBottom } from '@/pages/profile/component';
+import ProfileNav from '@/pages/profile/component/ProfileNav';
+import { Card, Page } from 'framework7-react';
+import {
+  gridHeader,
+  lotteryContent,
+  lotteryHeader,
+  lotteryTicketCategory,
+  returnRatioCategory,
+  returnRatioContent,
+} from './utils';
+import { useState } from 'react';
+import RatioTable from './component/RatioTable';
+import { GridBody } from './type';
+
+const ReturnRatioDetails = () => {
+  const [activeOption, setActiveOption] = useState<Record<string, string>>({
+    ratioOption: 'Video',
+  });
+  const [activeLotteryOption, setActiveLotteryOption] = useState<Record<string, string>>({
+    lotteryOption: 'Canada 5.0',
+  });
+  return (
+    <Page name="Return Ratio Details">
+      <div className="absolute h-[40%] w-full rounded-br-full bg-gradient-to-br from-[#381E7B]/20 via-transparent to-transparent backdrop:blur-3xl" />
+      <ProfileNav title="Return Ratio Details" />
+      <Card className="flex-col space-y-5 bg-white p-4 shadow-md">
+        <DropBottom
+          popUpConfig={returnRatioCategory}
+          activeOption={activeOption}
+          setActiveOption={setActiveOption}
+        />
+        {activeOption.ratioOption === 'Lottery ticket' && (
+          <DropBottom
+            popUpConfig={lotteryTicketCategory}
+            activeOption={activeLotteryOption}
+            setActiveOption={setActiveLotteryOption}
+          />
+        )}
+        {activeOption.ratioOption === 'Lottery ticket' &&
+          lotteryContent.map(({ category, content }, index) => {
+            return (
+              activeLotteryOption.lotteryOption === category && (
+                <RatioTable
+                  key={index}
+                  gridBody={content as GridBody[]}
+                  gridHeader={lotteryHeader}
+                />
+              )
+            );
+          })}
+        {returnRatioContent.map(({ category, content }, index) => {
+          return (
+            activeOption.ratioOption === category &&
+            content && <RatioTable key={index} gridBody={content} gridHeader={gridHeader} />
+          );
+        })}
+      </Card>
+    </Page>
+  );
+};
+
+export default ReturnRatioDetails;
