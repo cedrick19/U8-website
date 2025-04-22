@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Block, Button, Card, CardContent, Input } from 'framework7-react';
 import { cn } from '@/globals/utils';
-import CustomPopUp from '../../component/CustomPopUp';
+import CustomPopUp from '@/pages/profile/component/CustomPopUp';
 
 const infoItems = [
   { label: 'Wallet Balance', value: '0.00' },
@@ -92,8 +92,6 @@ export const WalletPage = () => {
       >
         Immediately
       </Button>
-
-      {/* Custom PopUp */}
       <CustomPopUp
         title="Switch Collection Address"
         open={popupOpen}

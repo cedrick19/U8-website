@@ -1,7 +1,7 @@
 import { Block, Page } from 'framework7-react';
 import ProfileNav from '@/pages/profile/component/ProfileNav';
 import { SegmentedTabs } from '@/components/SegmentedTabs';
-import { RefreshOptions } from '@/pages/profile/refresh/components/utils';
+import { RefreshOptions } from '@/pages/profile/my-wallet/refresh/components/utils';
 
 const Refresh = () => {
   return (
