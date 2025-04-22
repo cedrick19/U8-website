@@ -4,7 +4,6 @@ import { useState } from 'react';
 
 export interface SegmentButtons {
   tabName: string;
-  tabLink: string;
   component?: React.ReactNode;
 }
 
@@ -31,7 +30,7 @@ export const SegmentedTabs: React.FC<SegmentedTabsProps> = ({
         {tabArray.map((tab, ids) => (
           <Button
             key={ids}
-            tabLink={`#${tab.tabLink}`}
+            tabLink={`#${tab.tabName}`}
             round
             active={activeTab === ids}
             onClick={() => setActiveTab(ids)}
@@ -49,7 +48,7 @@ export const SegmentedTabs: React.FC<SegmentedTabsProps> = ({
       </Segmented>
       <Tabs>
         {tabArray.map((tab, ids) => (
-          <Tab key={ids} id={tab.tabLink} tabActive={activeTab === ids} className="pb-20">
+          <Tab key={ids} id={tab.tabName} tabActive={activeTab === ids} className="pb-20">
             {tab.component}
           </Tab>
         ))}

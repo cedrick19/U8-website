@@ -6,17 +6,14 @@ import { GameNote, RealTimeWater, TotalProfitLoss } from './tabs';
 const GameManageArray: SegmentButtons[] = [
   {
     tabName: 'Game Note',
-    tabLink: 'game-note',
     component: <GameNote />,
   },
   {
     tabName: 'Total Profit and Loss',
-    tabLink: 'profit-loss',
     component: <TotalProfitLoss />,
   },
   {
     tabName: 'Real-time Water Return',
-    tabLink: 'water-return',
     component: <RealTimeWater />,
   },
 ];

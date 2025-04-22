@@ -38,5 +38,19 @@
       "sizes": "512x512",
       "type": "image/png"
     }
+  ],
+  "screenshots": [
+    {
+      "src": "/icons/screenshot-desktop.png",
+      "sizes": "1920x1080",
+      "type": "image/png",
+      "form_factor": "wide"
+    },
+    {
+      "src": "/icons/screenshot-mobile.jpg",
+      "sizes": "1080x2340",
+      "type": "image/png",
+      "form_factor": "narrow"
+    }
   ]
 }
