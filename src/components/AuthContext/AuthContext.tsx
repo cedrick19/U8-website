@@ -2,7 +2,7 @@ import { AuthContext } from '@/hooks/useAuth';
 import { useState } from 'react';
 
 export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
-  const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false);
+  const [isLoggedIn, setIsLoggedIn] = useState<boolean>(true);
 
   const login = () => setIsLoggedIn(true);
   const logout = () => setIsLoggedIn(false);
