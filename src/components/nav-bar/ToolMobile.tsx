@@ -1,12 +1,22 @@
-import { Block, Link } from 'framework7-react';
+import { Block, f7, Link } from 'framework7-react';
 import { useState } from 'react';
 import { cn } from '@/globals/utils';
 import CoinActive from '@/assets/image/icons/coin-on.svg';
 import CoinInactive from '@/assets/image/icons/coin-off.svg';
 import { MobileNavItems } from './utils';
+import { useAuth } from '@/hooks/useAuth';
 
 export const ToolMobile = () => {
   const [activeTab, setActiveTab] = useState<number>(0);
+  const { isLoggedIn } = useAuth();
+
+  const handleNav = (ids: number) => {
+    if (!isLoggedIn) {
+      f7.loginScreen.open('#loginHere');
+    } else {
+      setActiveTab(ids);
+    }
+  };
   return (
     <>
       <Block className="absolute -bottom-9 z-10 flex h-24 w-full flex-row justify-between sm:h-40">
@@ -26,7 +36,7 @@ export const ToolMobile = () => {
         <Link
           className="absolute bottom-10 left-1/2 h-14 w-14 -translate-x-1/2 rounded-full bg-primary-gradient shadow-xl shadow-[#613EEA]/50 sm:h-28 sm:w-28 md:bottom-16"
           href="/recharge/"
-          onClick={() => setActiveTab(5)}
+          onClick={() => handleNav(5)}
         >
           <img src={activeTab === 5 ? CoinActive : CoinInactive} className="h-10 sm:h-20" />
         </Link>
@@ -35,7 +45,7 @@ export const ToolMobile = () => {
             key={ids}
             href={item.tabLink === 'home' ? '/' : `/${item.tabLink}/`}
             rippleColor="none"
-            onClick={() => setActiveTab(ids)}
+            onClick={() => handleNav(ids)}
             className={cn('flex flex-col pt-2', ids % 2 === 0 ? 'pl-6' : 'pr-6')}
           >
             <img

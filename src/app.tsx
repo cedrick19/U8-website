@@ -1,13 +1,14 @@
-import type React from "react";
-import { App, Page, View } from "framework7-react";
-import NavBar from "./components/nav-bar/Navigation";
-import appRoutes from "./ts/appRoutes";
-import { getDevice } from "framework7";
-import { ToolMobile } from "./components/nav-bar";
+import type React from 'react';
+import { App, Page, View } from 'framework7-react';
+import NavBar from './components/nav-bar/Navigation';
+import appRoutes from './ts/appRoutes';
+import { getDevice } from 'framework7';
+import { ToolMobile } from './components/nav-bar';
+import { AuthProvider } from './components/AuthContext';
 
 const appConfig = {
-  name: "u8",
-  theme: "auto",
+  name: 'u8',
+  theme: 'auto',
   routes: appRoutes,
 };
 
@@ -26,14 +27,7 @@ const MyApp: React.FC = () => {
   const renderMobile = () => {
     return (
       <>
-        <View
-          tab
-          main
-          url="/"
-          browserHistory
-          browserHistorySeparator=""
-          animate={false}
-        >
+        <View tab main url="/" browserHistory browserHistorySeparator="" animate={false}>
           <ToolMobile />
         </View>
       </>
@@ -41,11 +35,11 @@ const MyApp: React.FC = () => {
   };
 
   return (
-    <App {...appConfig}>
-      <Page pageContent={false}>
-        {!isMobile ? renderWeb() : renderMobile()}
-      </Page>
-    </App>
+    <AuthProvider>
+      <App {...appConfig}>
+        <Page pageContent={false}>{!isMobile ? renderWeb() : renderMobile()}</Page>
+      </App>
+    </AuthProvider>
   );
 };
 
