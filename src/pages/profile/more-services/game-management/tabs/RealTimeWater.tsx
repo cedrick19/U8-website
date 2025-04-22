@@ -2,6 +2,7 @@ import { Block, Button, CardContent, Icon } from 'framework7-react';
 import { useState } from 'react';
 import { DropBottom } from '@/pages/profile/more-services/component';
 import CustomPopUp from '@/pages/profile/component/CustomPopUp';
+import { clickNavigate } from '@/globals/utils';
 
 const dateSelection = [
   {
@@ -38,7 +39,10 @@ export const RealTimeWater = () => {
         <p className="text-3xl font-extrabold text-white">0</p>
       </CardContent>
 
-      <Button className="flex h-10 w-full flex-row items-center rounded-lg border-2 border-secondary bg-white normal-case">
+      <Button
+        className="flex h-10 w-full flex-row items-center rounded-lg border-2 border-secondary bg-white normal-case"
+        {...clickNavigate('return-ratio-details', 'return-ratio-details/')}
+      >
         <span className="text-secondary">Return Ratio Details</span>
         <Icon f7="chevron_right" icon="text-secondary" size={16} />
       </Button>

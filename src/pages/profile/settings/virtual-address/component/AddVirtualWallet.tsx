@@ -82,31 +82,33 @@ const AddVirtualWallet = () => {
         </Block>
       </Card>
       <Card raised className="mb-24 space-y-5 bg-white p-5 shadow-md shadow-[#d4caf9]">
-        <CustomInput
-          name="walletAddrAbbr"
-          label="Wallet Address Abbreviation"
-          labelClassName="text-gradient font-bold"
-          rightDecoration={undefined}
-          className="border-2"
-          placeholder="Name"
-        />
-        <CustomInput
-          name="virtualCurrAddr"
-          label="Virtual Currency Address"
-          labelClassName="text-gradient font-bold"
-          className="border-2"
-          placeholder="Enter your virtual currency address"
-        />
-        <CustomInput
-          type="password"
-          name="payPassword"
-          label="Pay Password"
-          labelClassName="text-gradient font-bold"
-          className="border-2"
-          placeholder="Enter your payment password"
-          rightDecoration={<Icon material="visibility_off" />}
-          autoComplete="******"
-        />
+        <form>
+          <CustomInput
+            name="walletAddrAbbr"
+            label="Wallet Address Abbreviation"
+            labelClassName="text-gradient font-bold"
+            rightDecoration={undefined}
+            className="border-2"
+            placeholder="Name"
+          />
+          <CustomInput
+            name="virtualCurrAddr"
+            label="Virtual Currency Address"
+            labelClassName="text-gradient font-bold"
+            className="border-2"
+            placeholder="Enter your virtual currency address"
+          />
+          <CustomInput
+            type="password"
+            name="payPassword"
+            label="Pay Password"
+            labelClassName="text-gradient font-bold"
+            className="border-2"
+            placeholder="Enter your payment password"
+            rightDecoration="visibility"
+            autoComplete="acbc123<>?"
+          />
+        </form>
       </Card>
     </Page>
   );
