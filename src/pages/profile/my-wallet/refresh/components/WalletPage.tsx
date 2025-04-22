@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Block, Button, Card, CardContent, Input } from 'framework7-react';
 import { cn } from '@/globals/utils';
-import CustomPopUp from '../../component/CustomPopUp'; // Adjust path as needed
+import CustomPopUp from '@/pages/profile/component/CustomPopUp';
 
 const infoItems = [
   { label: 'Wallet Balance', value: '0.00' },
@@ -78,10 +78,11 @@ export const WalletPage = () => {
           ))}
         </div>
 
-        <p className={cn('text-xs text-gray-600')}>
-          Contact for first presentation @U8hdkefu8 Official grid customer service and let the
-          customer service retain your aircraft number. The customer service will be checked twice
-          to ensure the safety of fund.
+        <p className="text-xs font-medium text-black">
+          Contact for first presentation
+          <span className="font-bold text-purple-900"> @U8hdkefu8 </span>
+          Official grid customer service and let the customer service retain your aircraft number.
+          The customer service will be checked twice to ensure the safety of fund.
         </p>
       </Block>
 
@@ -92,8 +93,6 @@ export const WalletPage = () => {
       >
         Immediately
       </Button>
-
-      {/* Custom PopUp */}
       <CustomPopUp
         title="Switch Collection Address"
         open={popupOpen}

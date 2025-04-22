@@ -20,7 +20,7 @@ import { NotifDetail } from '@/pages/notifications/components';
 import MyWallet from '@/pages/profile/my-wallet/MyWallet';
 import AKey from '@/pages/profile/my-wallet/a-key/AKey';
 import FundManagement from '@/pages/profile/more-services/fund-management';
-import Refresh from '@/pages/profile/refresh';
+import Refresh from '@/pages/profile/my-wallet/refresh';
 import RechargeTutorial from '@/pages/profile/more-services/recharge-tutorial';
 import GameManage from '@/pages/profile/more-services/game-management';
 import ReturnRatioDetails from '@/pages/profile/more-services/game-management/return-ratio-details/ReturnRatioDetails';

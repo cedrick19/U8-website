@@ -1,4 +1,4 @@
-import { Navbar, NavLeft, NavRight } from 'framework7-react';
+import { Link, Navbar, NavLeft, NavRight } from 'framework7-react';
 import Logo from '@/assets/image/logo.png';
 import Telegram from '@/assets/image/Telegram.png';
 
@@ -10,7 +10,14 @@ const HomeNavbar = ({ navRight }: HomeNavbarProps) => {
   return (
     <Navbar innerClassName="bg-gradient-to-tr from-secondary/0 via-secondary/0 to-secondary/20">
       <NavLeft className="pl-3">
-        <img src={Logo} alt="logo" className="h-5 w-20" />
+        <Link
+          href="/"
+          onClick={(e) => {
+            (e.currentTarget as HTMLAnchorElement).blur();
+          }}
+        >
+          <img src={Logo} alt="logo" className="h-5 w-20" />
+        </Link>
         <img src={Telegram} alt="Telegram Logo" className="w-25 h-10" />
       </NavLeft>
       {navRight && <NavRight className="gap-2 pr-2">{navRight}</NavRight>}
