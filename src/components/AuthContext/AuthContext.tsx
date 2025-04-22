@@ -1,26 +1,21 @@
-import { AuthContext } from "@/hooks/useAuth";
-import { useState } from "react";
+import { AuthContext } from '@/hooks/useAuth';
+import { useState } from 'react';
 
 export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
-  const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false);
-  const [activeTabId, setActiveTabId] = useState<string>("view-home");
+  const [isLoggedIn, setIsLoggedIn] = useState<boolean>(true);
 
   const login = () => setIsLoggedIn(true);
   const logout = () => setIsLoggedIn(false);
 
   return (
-    <AuthContext.Provider
+    <AuthContext
       value={{
-        isLoggedIn, 
-        login, 
-        logout, 
-        activeTabId, 
-        setActiveTabId 
+        isLoggedIn,
+        login,
+        logout,
       }}
     >
       {children}
-    </AuthContext.Provider>
+    </AuthContext>
   );
 };
-
-

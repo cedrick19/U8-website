@@ -1,4 +1,4 @@
-import { Page, Block, Icon } from 'framework7-react';
+import { Page, Block, Icon, Link } from 'framework7-react';
 import Layout from '@/layout/layout';
 import HomeNavbar from '@/components/MobileNavbar/HomeNavbar';
 import activitiesIcon from '@/assets/image/icons/activities.svg';
@@ -23,8 +23,16 @@ const ActivityPage = () => {
       <HomeNavbar
         navRight={
           <>
-            <p className="text-2xl font-bold">0.00</p>
-            <Icon material="notifications" size={30} className="text-[#4A226E]" />
+            <p className="text-xl font-extrabold">0.00</p>
+            <Link
+              id="notifications"
+              href="/notifications/"
+              onClick={() => {
+                document.getElementById('notifications')?.blur();
+              }}
+            >
+              <Icon material="notifications" size={35} className="text-gradient" />
+            </Link>
           </>
         }
       />

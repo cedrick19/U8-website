@@ -29,12 +29,14 @@ const ReturnRatioDetails = () => {
           popUpConfig={returnRatioCategory}
           activeOption={activeOption}
           setActiveOption={setActiveOption}
+          className="p-0"
         />
         {activeOption.ratioOption === 'Lottery ticket' && (
           <DropBottom
             popUpConfig={lotteryTicketCategory}
             activeOption={activeLotteryOption}
             setActiveOption={setActiveLotteryOption}
+            className="p-0"
           />
         )}
         {activeOption.ratioOption === 'Lottery ticket' &&

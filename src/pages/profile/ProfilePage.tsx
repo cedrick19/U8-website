@@ -49,9 +49,17 @@ const ProfilePage = () => {
       <HomeNavbar
         navRight={
           <>
-            <Icon material="notifications" size={30} className="text-[#4A226E]" />
+            <Link
+              id="notifications"
+              href="/notifications/"
+              onClick={() => {
+                document.getElementById('notifications')?.blur();
+              }}
+            >
+              <Icon material="notifications" size={35} className="text-gradient" />
+            </Link>
             <div onClick={() => f7.view.main.router.navigate('settings/')}>
-              <Icon material="settings" size={30} className="text-[#4A226E]" />
+              <Icon material="settings" size={30} className="text-gradient" />
             </div>
           </>
         }
