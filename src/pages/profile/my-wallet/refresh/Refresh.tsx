@@ -11,7 +11,7 @@ const Refresh = () => {
         title="Refresh"
         navRight={
           <Link
-            className="text-gradient text-base"
+            className="!text-purple-900"
             href="/profile/fund-management/"
             onClick={(e) => {
               (e.currentTarget as HTMLAnchorElement).blur();
