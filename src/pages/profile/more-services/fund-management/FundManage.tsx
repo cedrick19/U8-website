@@ -6,12 +6,10 @@ import ProfileNav from '@/pages/profile/component/ProfileNav';
 const FundManageArray: SegmentButtons[] = [
   {
     tabName: 'Funding Details',
-    tabLink: 'funding-details',
     component: <FundingDetails />,
   },
   {
     tabName: 'Transaction Record',
-    tabLink: 'transaction-record',
     component: <TransactionRecord />,
   },
 ];

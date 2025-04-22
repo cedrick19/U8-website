@@ -43,22 +43,18 @@ export const notifications: NotificationDataType[] = [
 export const notifComponentArray: SegmentButtons[] = [
   {
     tabName: 'All',
-    tabLink: 'all',
     component: <NotifComponent data={notifications} />,
   },
   {
     tabName: 'Newcomer Exclusive',
-    tabLink: 'newcomer',
     component: <NotifComponent data={notifications.filter((n) => n.type === 'newcomer')} />,
   },
   {
     tabName: 'System',
-    tabLink: 'system',
     component: <NotifComponent data={notifications.filter((n) => n.type === 'system')} />,
   },
   {
     tabName: 'Events',
-    tabLink: 'events',
     component: <NotifComponent data={notifications.filter((n) => n.type === 'events')} />,
   },
 ];
