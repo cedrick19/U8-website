@@ -1,5 +1,5 @@
 import { useAuth } from '@/hooks/useAuth';
-import { Block, Button, Checkbox, f7 } from 'framework7-react';
+import { Button, Checkbox, f7, List } from 'framework7-react';
 import { useState } from 'react';
 import Telegram from '@/assets/image/icons/telegram_logo.png';
 import { LoginField } from './LoginField';
@@ -36,28 +36,31 @@ export const RegisterTab = () => {
 
   const { login } = useAuth();
   return (
-    <Block className="flex flex-col gap-6">
-      {fieldList.map((field, ids) => (
-        <LoginField
-          key={ids}
-          inputHeader={field.inputHeader}
-          f7icon={field.f7icon}
-          inputType={field.inputType}
-          placeholder={field.placeholder}
-          value={field.value}
-          setValue={(val) =>
-            setUserData({ ...userData, [field.labelKey as keyof typeof userData]: val })
-          }
-        />
-      ))}
+    <>
+      <List form>
+        {fieldList.map((field, ids) => (
+          <LoginField
+            key={ids}
+            labelKey={field.labelKey}
+            inputHeader={field.inputHeader}
+            f7icon={field.f7icon}
+            inputType={field.inputType}
+            placeholder={field.placeholder}
+            value={field.value}
+            setValue={(val) =>
+              setUserData({ ...userData, [field.labelKey as keyof typeof userData]: val })
+            }
+          />
+        ))}
 
-      <Checkbox
-        checked={userData.agree}
-        className="flex w-full flex-row gap-2"
-        onChange={(e) => setUserData({ ...userData, agree: e.target.checked })}
-      >
-        <span className="text-gradient">{renderHighlightedText(privacyPolicy)}</span>
-      </Checkbox>
+        <Checkbox
+          checked={userData.agree}
+          className="flex w-full flex-row gap-2"
+          onChange={(e) => setUserData({ ...userData, agree: e.target.checked })}
+        >
+          <span className="text-gradient text-sm">{renderHighlightedText(privacyPolicy)}</span>
+        </Checkbox>
+      </List>
 
       <Button
         className="h-14 w-full rounded-2xl bg-primary-gradient py-4 normal-case text-white"
@@ -69,7 +72,7 @@ export const RegisterTab = () => {
         Register
       </Button>
 
-      <div>
+      <div className="pt-5">
         <div className="flex w-full flex-row items-center justify-center gap-4 pb-5">
           <div className="h-[0.5px] w-[25%] rounded-full border border-gray-300" />
           <span className="text-center text-gray-500">Or quick Log in with</span>
@@ -80,6 +83,6 @@ export const RegisterTab = () => {
           Telegram
         </Button>
       </div>
-    </Block>
+    </>
   );
 };
