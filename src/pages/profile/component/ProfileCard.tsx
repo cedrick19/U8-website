@@ -49,7 +49,7 @@ const ProfileCard = (props: ProfileCardProps) => {
               src={Refresh}
               alt="refresh"
               onClick={handleRefreshClick}
-              className={`h-5 w-5 cursor-pointer rounded-full bg-primary-gradient p-1 transition-transform duration-1000 ${
+              className={`h-5 w-5 cursor-pointer rounded-full bg-[#4C236D] p-1 transition-transform duration-1000 ${
                 isSpinning ? 'rotate-[1080deg]' : ''
               }`}
             />

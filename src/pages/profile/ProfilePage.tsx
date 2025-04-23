@@ -100,7 +100,7 @@ const ProfilePage = () => {
             <img
               src={CoinOff}
               alt="recharge"
-              className="h-5 w-5 cursor-pointer rounded-full bg-primary-gradient p-[2.4px]"
+              className="h-5 w-5 cursor-pointer rounded-full bg-[#4C236D] p-[2.4px]"
             />
             <p>Recharge</p>
           </Link>
@@ -114,7 +114,7 @@ const ProfilePage = () => {
                 f7.view.main.router.navigate('refresh/');
               }}
             >
-              <div className="h-5 w-5 cursor-pointer rounded-full bg-primary-gradient p-1">
+              <div className="h-5 w-5 cursor-pointer rounded-full bg-[#4C236D] p-1">
                 <img src={Refresh2} alt="refresh" className="h-full w-full" />
               </div>
               <p>Refresh</p>
