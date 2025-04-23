@@ -1,9 +1,11 @@
+import EditAccount from '@/assets/image/profile/settings/accnum_and_sec/edit.svg';
+import CopyAccount from '@/assets/image/profile/settings/accnum_and_sec/copy.svg';
 export const account = [
   {
     iconLeft: 'person',
     label: 'My Account',
     iconRightLabel: 'beluga.cat07',
-    iconRight: 'edit_square',
+    iconRight: <img src={CopyAccount} />,
     className: 'rounded-b-none',
     divider: true,
   },
@@ -11,7 +13,7 @@ export const account = [
     iconLeft: 'person',
     label: 'Nickname',
     iconRightLabel: 'beluga.cat',
-    iconRight: 'edit_square',
+    iconRight: <img src={EditAccount} />,
     className: 'rounded-t-none',
   },
 ];

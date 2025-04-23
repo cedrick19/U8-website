@@ -3,7 +3,7 @@ import ProfileNav from '@/pages/profile/component/ProfileNav';
 import CustomInput from '@/pages/profile/component/CustomInput';
 import CustomPopUp from '@/pages/profile/component/CustomPopUp';
 import { useState } from 'react';
-import Avatar from '@/assets/image/avatarIcon.png';
+import GoogleAuth from '@/assets/image/profile/settings/adv_sec/google_authenticator.svg';
 
 const AdvanceSecVerification = () => {
   const [open, setOpen] = useState({
@@ -49,7 +49,7 @@ const AdvanceSecVerification = () => {
         clAction={() => setOpen({ ...open, google: false })}
       >
         <Block className="flex-col space-y-8">
-          <img src={Avatar} className="bg mx-auto h-10 w-10" />
+          <img src={GoogleAuth} className="bg mx-auto h-10 w-10" />
           <p>
             You can get the verification code from Google Verifier App without relying on the
             mailbox verification code. This method is still available event if your phone is offline
@@ -110,7 +110,7 @@ const AdvanceSecVerification = () => {
         </div>
         <div className="space-y-1">
           <div className="flex space-x-2">
-            <img src={Avatar} className="h-[30px] w-[30px]" />
+            <img src={GoogleAuth} className="h-[30px] w-[30px]" />
             <span className="text-gradient text-lg font-bold">Google Verifier</span>
           </div>
           <CustomInput

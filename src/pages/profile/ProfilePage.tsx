@@ -1,10 +1,10 @@
 import { Page, Block, Card, CardContent, f7, Icon, Link } from 'framework7-react';
 import ProfileCard from './component/ProfileCard';
-import GamesManagement from '@/assets/image/icons/game_management.svg';
-import FundManagement from '@/assets/image/icons/fund_management.svg';
-import RechargeTutorial from '@/assets/image/icons/recharge_tutorial.svg';
-import Share from '@/assets/image/icons/share.svg';
-import ComingSoon from '@/assets/image/icons/coming_soon.svg';
+import GamesManagement from '@/assets/image/profile/more-services/game_management.svg';
+import FundManagement from '@/assets/image/profile/more-services/fund_management.svg';
+import RechargeTutorial from '@/assets/image/profile/more-services/recharge_tutorial.svg';
+import Share from '@/assets/image/profile/more-services/share.svg';
+import ComingSoon from '@/assets/image/profile/more-services/coming_soon.svg';
 import AvatarIcon from '@/assets/image/avatarIcon.png';
 import CoinOff from '@/assets/image/icons/coin-off.svg';
 import Refresh2 from '@/assets/image/icons/refresh_2.svg';
@@ -127,7 +127,7 @@ const ProfilePage = () => {
         refresh
         pCardTitle={
           <p>
-            Today's Income: <span className="text-[#3B1E7A]">April 7</span>
+            Today's Income: <span className="text-gradient">April 7</span>
           </p>
         }
       >
@@ -135,17 +135,17 @@ const ProfilePage = () => {
           <CardContent className="flex items-center justify-center gap-5 py-10">
             <Block className="">
               <p className="text-center text-2xl font-bold text-[#4A4A4A]">0 &gt;</p>
-              <p className="text-md text-center text-[#3B1E7A]">Nubmer of Statements</p>
+              <p className="text-md text-gradient text-center">Nubmer of Statements</p>
             </Block>
             <div className="h-16 border-[1px] border-slate-300" />
             <Block className="">
               <p className="text-center text-xl font-bold text-[#4A4A4A]">0.00 &gt;</p>
-              <p className="text-md text-center text-[#3B1E7A]">Total profit and loss</p>
+              <p className="text-md text-gradient text-center">Total profit and loss</p>
             </Block>
             <div className="h-16 border-[1px] border-slate-300" />
             <Block className="">
               <p className="text-center text-xl font-bold text-[#4A4A4A]">0.00 &gt;</p>
-              <p className="text-md text-center text-[#3B1E7A]">Real-time water return</p>
+              <p className="text-md text-gradient text-center">Real-time water return</p>
             </Block>
           </CardContent>
         </Card>
