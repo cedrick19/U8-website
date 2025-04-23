@@ -6,7 +6,7 @@ import ballIcon from '@/assets/image/icons/ball.svg';
 import videoIcon from '@/assets/image/icons/video.svg';
 import fishIcon from '@/assets/image/icons/fish.svg';
 import gameIcon from '@/assets/image/icons/electronic.svg';
-import newspaperIcon from '@/assets/image/icons/Newspaper.svg';
+import newspaperIcon from '@/assets/image/icons/newspaper.svg';
 
 const activities = [
   { id: 1, title: 'All Activities', icon: activitiesIcon },
