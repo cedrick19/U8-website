@@ -7,8 +7,8 @@ import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 
-import img1 from '@/assets/image/carousel1.jpg';
-import img2 from '@/assets/image/carousel2.jpg';
+import Carousel1 from '@/assets/image/carousel1.jpg';
+import Carousel2 from '@/assets/image/carousel2.jpg';
 
 const HomeCarousel = () => {
   const [isHovered, setIsHovered] = useState(false);
@@ -31,10 +31,10 @@ const HomeCarousel = () => {
         className="w-full sm:h-10 md:h-auto"
       >
         <SwiperSlide>
-          <img src={img1} alt="Promotional Banner 1" className="h-full w-full object-cover" />
+          <img src={Carousel1} alt="Promotional Banner 1" className="h-full w-full object-cover" />
         </SwiperSlide>
         <SwiperSlide>
-          <img src={img2} alt="Promotional Banner 2" className="h-full w-full object-cover" />
+          <img src={Carousel2} alt="Promotional Banner 2" className="h-full w-full object-cover" />
         </SwiperSlide>
       </Swiper>
 
