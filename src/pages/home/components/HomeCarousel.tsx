@@ -30,28 +30,25 @@ const HomeCarousel = () => {
         modules={[Navigation, Pagination, Autoplay]}
         className="w-full sm:h-10 md:h-auto"
       >
-        {[img1, img2].map((img, i) => (
-          <SwiperSlide key={i}>
-            <img
-              src={img}
-              alt={`Promotional Banner ${i + 1}`}
-              className="h-auto w-full sm:h-full"
-            />
-          </SwiperSlide>
-        ))}
+        <SwiperSlide>
+          <img src={img1} alt="Promotional Banner 1" className="h-full w-full object-cover" />
+        </SwiperSlide>
+        <SwiperSlide>
+          <img src={img2} alt="Promotional Banner 2" className="h-full w-full object-cover" />
+        </SwiperSlide>
       </Swiper>
 
       <div className="hidden md:block">
-        {['prev', 'next'].map((dir) => (
-          <Button
-            key={dir}
-            className={`swiper-button-${dir} absolute ${
-              dir === 'prev' ? 'left-4' : 'right-4'
-            } top-1/2 hidden bg-opacity-60 p-4 text-white transition-opacity duration-300 md:flex ${
-              isHovered ? 'opacity-100' : 'opacity-0'
-            }`}
-          />
-        ))}
+        <Button
+          className={`swiper-button-prev absolute left-4 top-1/2 hidden bg-opacity-60 p-4 text-white transition-opacity duration-300 md:flex ${
+            isHovered ? 'opacity-100' : 'opacity-0'
+          }`}
+        />
+        <Button
+          className={`swiper-button-next absolute right-4 top-1/2 hidden bg-opacity-60 p-4 text-white transition-opacity duration-300 md:flex ${
+            isHovered ? 'opacity-100' : 'opacity-0'
+          }`}
+        />
       </div>
     </div>
   );
