@@ -57,6 +57,8 @@ const HomePage = () => {
 
       {isSmallDevice && <HomeContent />}
       {isSmallDevice && <LoginModal />}
+
+      {/* test  */}
     </Page>
   );
 };
