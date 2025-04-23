@@ -1,14 +1,15 @@
 import { cn } from '@/globals/utils';
 import { Button, Icon } from 'framework7-react';
 import { ButtonProps } from 'framework7-react/components/button.js';
+import { ReactNode } from 'react';
 
 interface SettingItemProps extends ButtonProps {
-  iconLeft: string;
+  iconLeft: ReactNode;
   iconClassName?: string;
   label: string;
   iconRightLabel?: string;
   iconRightLabelClassName?: string;
-  iconRight?: string;
+  iconRight?: ReactNode;
   iconRightClassName?: string;
   divider?: boolean;
 }
@@ -30,19 +31,29 @@ const SettingItem = (props: SettingItemProps) => {
     <div>
       <Button className={cn('flex w-full items-center justify-between', className)} large {...rest}>
         <div className="flex items-center gap-3">
-          <Icon material={iconLeft} className={cn('text-gradient', iconClassName)} />
+          {typeof iconLeft === 'string' ? (
+            <Icon
+              material={iconLeft}
+              size={iconLeft === 'chevron_right' ? 30 : 25}
+              className={cn('text-[#4C236D]', iconClassName)}
+            />
+          ) : (
+            iconLeft
+          )}
           <p className="normal-case text-black">{label}</p>
         </div>
         <div className="flex items-center gap-3">
           {iconRightLabel && (
             <p className={cn(iconRightLabelClassName, 'normal-case')}>{iconRightLabel}</p>
           )}
-          {iconRight && (
+          {typeof iconRight === 'string' ? (
             <Icon
               material={iconRight}
               size={iconRight === 'chevron_right' ? 30 : 25}
               className={cn('text-gradient -mr-1', iconRightClassName)}
             />
+          ) : (
+            iconRight
           )}
         </div>
       </Button>
