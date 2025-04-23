@@ -27,7 +27,7 @@ const MyApp: React.FC = () => {
   const renderMobile = () => {
     return (
       <>
-        <View tab main url="/" browserHistory browserHistorySeparator="" animate={false}>
+        <View tab main url="/" browserHistory browserHistorySeparator="">
           <ToolMobile />
         </View>
       </>
