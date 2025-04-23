@@ -80,7 +80,7 @@ const MyWallet = () => {
         <SettingItem
           className="rounded-lg rounded-b-none"
           iconLeft="show_chart"
-          iconClassName="text-white bg-primary-gradient"
+          iconClassName="text-white bg-[#4C236D]"
           label="Funding Details"
           iconRight="chevron_right"
         />
