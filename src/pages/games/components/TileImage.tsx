@@ -8,7 +8,7 @@ export const TileImage = ({ image }: TileImageProps) => {
   return (
     <Card>
       <CardContent padding={false}>
-        <img src={image} alt={image} className="rounded-xl" />
+        <img loading="lazy" src={image} alt={image} className="rounded-xl" />
       </CardContent>
     </Card>
   );

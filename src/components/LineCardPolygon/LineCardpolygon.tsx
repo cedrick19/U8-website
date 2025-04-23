@@ -1,4 +1,4 @@
-const LineCardpolygon = () => {
+export const LineCardpolygon = () => {
   return (
     <div className="absolute left-0 top-0 h-[50px] w-full">
       <div
