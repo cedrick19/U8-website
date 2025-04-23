@@ -30,7 +30,7 @@ export const SegmentedTabs: React.FC<SegmentedTabsProps> = ({
         {tabArray.map((tab, ids) => (
           <Button
             key={ids}
-            tabLink={`#${tab.tabName}`}
+            tabLink={`#${tab.tabName.split(' ').join('-').toLowerCase()}`}
             round
             active={activeTab === ids}
             onClick={() => setActiveTab(ids)}
