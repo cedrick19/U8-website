@@ -1,4 +1,5 @@
 import React from 'react';
+import Announcement from '@/assets/image/announcement.svg';
 
 export default function MarqueeNotification() {
   const notificationData = [
@@ -33,7 +34,7 @@ export default function MarqueeNotification() {
   return (
     <div className="mx-5 flex overflow-hidden rounded-full bg-purple-900 p-1 md:container md:mx-auto">
       <div className="flex h-8 w-20 items-center justify-center">
-        <img src="/assets/image/announcement.svg" className="h-6 w-6" alt="announcement" />
+        <img src={Announcement} className="h-6 w-6" alt="announcement" />
       </div>
       <div className="relative flex w-full items-center overflow-hidden whitespace-nowrap rounded-r-full bg-white">
         <div className="flex animate-marquee whitespace-nowrap will-change-transform">
