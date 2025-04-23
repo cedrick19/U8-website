@@ -7,6 +7,9 @@ import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 
+import img1 from '@/assets/image/carousel1.jpg';
+import img2 from '@/assets/image/carousel2.jpg';
+
 const HomeCarousel = () => {
   const [isHovered, setIsHovered] = useState(false);
 
@@ -27,10 +30,10 @@ const HomeCarousel = () => {
         modules={[Navigation, Pagination, Autoplay]}
         className="w-full sm:h-10 md:h-auto"
       >
-        {['carousel1.jpg', 'carousel2.jpg'].map((img, i) => (
+        {[img1, img2].map((img, i) => (
           <SwiperSlide key={i}>
             <img
-              src={`/assets/image/${img}`}
+              src={img}
               alt={`Promotional Banner ${i + 1}`}
               className="h-auto w-full sm:h-full"
             />
