@@ -1,21 +1,14 @@
 import { useState, useCallback } from 'react';
-import { Button } from 'framework7-react';
-
-import profileImage from '@/assets/image/playeraccount.jpg';
-
+import { Button, Icon } from 'framework7-react';
+import profileImage from '@/assets/image/avatarIcon.png';
 import refreshImage from '@/assets/image/refresh.svg';
 import chatIcon from '@/assets/image/chat.svg';
 import customerServiceIcon from '@/assets/image/customer-service.svg';
-import EyeOn from '@/assets/image/eye-on.svg';
-import EyeOff from '@/assets/image/eye-off.svg';
+import { cn } from '@/globals/utils';
 
 const UserCard = () => {
   const [isEyeOn, setIsEyeOn] = useState(true);
   const [isSpinning, setIsSpinning] = useState(false);
-
-  const toggleEye = useCallback(() => {
-    setIsEyeOn((prev) => !prev);
-  }, []);
 
   const handleRefreshClick = useCallback(() => {
     setIsSpinning(true);
@@ -24,16 +17,16 @@ const UserCard = () => {
 
   return (
     <div className="flex w-full items-center justify-between p-3">
-      <div className="flex items-center">
+      <div className="flex flex-row items-center gap-2">
         <img
           src={profileImage}
           alt="Profile"
-          className="h-12 w-12 rounded-full border-2 border-gray-200"
+          className="h-12 w-12 rounded-full border-2 border-gray-200 bg-blue-500"
         />
-        <div className="ml-3">
-          <div className="flex items-center">
-            <span className="mr-2 text-gray-800">username</span>
 
+        <div className="flex flex-col">
+          <div className="flex flex-row items-center">
+            <span className="mr-2 text-gray-800">beluga.cat</span>
             <div
               className="flex h-5 w-[70px] items-center justify-center rounded-full text-center text-xs font-bold text-yellow-600"
               style={{
@@ -42,28 +35,31 @@ const UserCard = () => {
             >
               VIP 0
             </div>
-
-            <img
-              src={isEyeOn ? EyeOn : EyeOff}
-              className="ml-2 h-5 w-5 cursor-pointer"
-              alt="eye toggle"
-              onClick={toggleEye}
-            />
+            <Button onClick={() => setIsEyeOn(!isEyeOn)}>
+              <Icon f7={isEyeOn ? 'eye_fill' : 'eye_slash_fill'} size={20} className="text-black" />
+            </Button>
           </div>
-          <div className="flex items-center gap-2">
-            <span className="text-2xl font-bold">0.00</span>
-            <div className="flex h-6 w-6 items-center justify-center rounded-full bg-purple-900">
+
+          <div className="flex flex-row items-center gap-2">
+            <span className="text-2xl font-bold">{isEyeOn ? '****' : '0.00'}</span>
+            <Button
+              onClick={handleRefreshClick}
+              className="h-8 w-8 items-center justify-center rounded-full bg-primary-gradient"
+            >
               <img
                 src={refreshImage}
                 alt="refresh"
-                onClick={handleRefreshClick}
-                className={`h-3 w-3 cursor-pointer transition-transform duration-1000 ${isSpinning ? 'rotate-[1080deg]' : ''}`}
+                className={cn(
+                  'cursor-pointer transition-transform duration-1000',
+                  isSpinning && 'rotate-[1080deg]',
+                )}
               />
-            </div>
+            </Button>
           </div>
         </div>
       </div>
-      <div className="flex">
+
+      <div className="flex flex-row">
         {[chatIcon, customerServiceIcon].map((icon, i) => (
           <Button
             key={i}
