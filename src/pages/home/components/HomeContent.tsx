@@ -44,11 +44,10 @@ const HomeContent = () => {
               <LineCardPolygon />
               {card.fullWidth ? (
                 <div className="flex flex-row items-center justify-center p-4 text-center">
-                  <div className="flex-1">
-                    <h2 className="relative text-3xl font-extrabold text-purple-900">
-                      {card.title}
-                    </h2>
-                  </div>
+                  <h2 className="relative flex-1 text-3xl font-extrabold text-purple-900">
+                    {card.title}
+                  </h2>
+
                   <div className="flex-1">
                     <img
                       src={card.image}
