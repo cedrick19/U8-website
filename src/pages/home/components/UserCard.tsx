@@ -6,6 +6,8 @@ import profileImage from '@/assets/image/playeraccount.jpg';
 import refreshImage from '@/assets/image/refresh.svg';
 import chatIcon from '@/assets/image/chat.svg';
 import customerServiceIcon from '@/assets/image/customer-service.svg';
+import EyeOn from '@/assets/image/eye-on.svg';
+import EyeOff from '@/assets/image/eye-off.svg';
 
 const UserCard = () => {
   const [isEyeOn, setIsEyeOn] = useState(true);
@@ -42,7 +44,7 @@ const UserCard = () => {
             </div>
 
             <img
-              src={`/assets/image/${isEyeOn ? 'eye-on' : 'eye-off'}.svg`}
+              src={isEyeOn ? EyeOn : EyeOff}
               className="ml-2 h-5 w-5 cursor-pointer"
               alt="eye toggle"
               onClick={toggleEye}

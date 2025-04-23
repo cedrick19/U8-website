@@ -13,6 +13,7 @@ export const ToolMobile = () => {
   const handleNav = (ids: number) => {
     if (!isLoggedIn) {
       f7.loginScreen.open('#loginHere');
+      setActiveTab(ids);
     } else {
       setActiveTab(ids);
     }

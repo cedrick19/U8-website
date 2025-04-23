@@ -2,6 +2,8 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Pagination, Autoplay, Navigation } from 'swiper/modules';
 import { useState } from 'react';
 import { Button } from 'framework7-react';
+import Carousel1 from '@/assets/image/carousel1.jpg';
+import Carousel2 from '@/assets/image/carousel2.jpg';
 
 import 'swiper/css';
 import 'swiper/css/pagination';
@@ -27,10 +29,10 @@ const HomeCarousel = () => {
         modules={[Navigation, Pagination, Autoplay]}
         className="w-full sm:h-10 md:h-auto"
       >
-        {['carousel1.jpg', 'carousel2.jpg'].map((img, i) => (
+        {[Carousel1, Carousel2].map((img, i) => (
           <SwiperSlide key={i}>
             <img
-              src={`/assets/image/${img}`}
+              src={img}
               alt={`Promotional Banner ${i + 1}`}
               className="h-auto w-full sm:h-full"
             />
