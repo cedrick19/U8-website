@@ -8,6 +8,7 @@ import Carousel2 from '@/assets/image/carousel2.jpg';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
+import { cn } from '@/globals/utils';
 
 const HomeCarousel = () => {
   const [isHovered, setIsHovered] = useState(false);
@@ -44,11 +45,12 @@ const HomeCarousel = () => {
         {['prev', 'next'].map((dir) => (
           <Button
             key={dir}
-            className={`swiper-button-${dir} absolute ${
-              dir === 'prev' ? 'left-4' : 'right-4'
-            } top-1/2 hidden bg-opacity-60 p-4 text-white transition-opacity duration-300 md:flex ${
-              isHovered ? 'opacity-100' : 'opacity-0'
-            }`}
+            className={cn(
+              `swiper-button-${dir}`,
+              dir === 'prev' ? 'left-4' : 'right-4',
+              isHovered ? 'opacity-100' : 'opacity-0',
+              'absolute top-1/2 hidden bg-opacity-60 p-4 text-white transition-opacity duration-300 md:flex',
+            )}
           />
         ))}
       </div>
