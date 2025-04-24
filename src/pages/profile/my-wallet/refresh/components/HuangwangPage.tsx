@@ -23,9 +23,9 @@ export const HuangWangPage = () => {
                 'flex items-center overflow-hidden rounded-full border border-gray-300 p-1 pl-3',
               )}
             >
-              <button className="m-3 flex h-4 w-4 items-center justify-center rounded-full px-3">
+              <button className="m-3 flex h-4 w-4 items-center justify-center rounded-full px-5">
                 +63
-                <Icon f7="chevron_down" className="text-xs text-black" />
+                <Icon f7="chevron_down" size="15" color="black" />
               </button>
               <input
                 type="tel"
@@ -56,7 +56,7 @@ export const HuangWangPage = () => {
           )}
         >
           <div className="m-2 flex h-7 w-7 items-center justify-center rounded-full bg-purple-900 text-white">
-            <span className="text-lg font-semibold">$</span>
+            <span className="f7-icons text-lg font-semibold">money_dollar</span>
           </div>
           <Input type="tel" placeholder="Enter amount" className="flex-1 px-3 py-3 text-gray-700" />
           <Button

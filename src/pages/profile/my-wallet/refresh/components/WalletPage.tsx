@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Block, Button, Card, CardContent, Input } from 'framework7-react';
 import { cn } from '@/globals/utils';
 import CustomPopUp from '@/pages/profile/component/CustomPopUp';
-
+import 'framework7-icons/css/framework7-icons.css';
 const infoItems = [
   { label: 'Wallet Balance', value: '0.00' },
   { label: 'Handling Fee', value: '0.00' },
@@ -50,7 +50,7 @@ export const WalletPage = () => {
               'm-2 flex h-7 w-7 items-center justify-center rounded-full bg-purple-900 text-white',
             )}
           >
-            <span className="text-lg font-semibold">$</span>
+            <span className="f7-icons text-lg font-semibold">money_dollar</span>
           </div>
           <Input
             type="text"
