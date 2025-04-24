@@ -18,7 +18,7 @@ import Recharge from '@/pages/recharge/Recharge';
 import NotificationsPage from '@/pages/notifications';
 import { NotifDetail } from '@/pages/notifications/components';
 import SupportPage from '@/pages/support';
-import { SupportDetail } from '@/pages/support/components';
+
 import MyWallet from '@/pages/profile/my-wallet/MyWallet';
 import AKey from '@/pages/profile/my-wallet/a-key/AKey';
 import FundManagement from '@/pages/profile/more-services/fund-management';
@@ -185,13 +185,6 @@ export const webRoutes: Router.RouteParameters[] = [
         path: '/support/',
         name: 'Support',
         component: SupportPage,
-        routes: [
-          {
-            path: ':id',
-            name: 'SupportDetail',
-            component: SupportDetail,
-          },
-        ],
       },
       ...profileRoutes,
       ...gameRoutes,

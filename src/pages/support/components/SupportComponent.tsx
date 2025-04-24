@@ -1,40 +1,37 @@
-import { Block, Icon, Link } from 'framework7-react';
-import { SupportDataType } from '../utils';
+import TelegramIcon from '@/assets/image/telegram.svg';
+import MeiQiaIcon from '@/assets/image/customer_service1.svg';
+import { Button } from 'framework7-react';
 
-export const SupportComponent = ({ data }: { data: SupportDataType[] }) => {
-  return (
-    <>
-      {data.length !== 0 ? (
-        <>
-          {data.map((notif) => (
-            <Block key={notif.id} className="flex flex-col gap-6 rounded-3xl bg-white py-5">
-              <div className="flex flex-row justify-between">
-                <p className="text-gradient font-bold">{notif.title}</p>
-                <Link
-                  href={`/support/${notif.id}/`}
-                  className="text-gradient flex flex-row items-center"
-                  id={notif.id}
-                  onClick={() => {
-                    document.getElementById(notif.id.toString())?.blur();
-                  }}
-                >
-                  more
-                  <Icon f7="chevron_right" icon="text-gradient" size={10} />
-                </Link>
-              </div>
-              <p className="line-clamp-4 overflow-hidden text-ellipsis">{notif.content}</p>
-              <p className="text-xs text-gray-500">
-                {notif.date} {notif.time}
-              </p>
-            </Block>
-          ))}
-          <p className="justify-self-center text-gray-500">Full data loaded.</p>
-        </>
-      ) : (
-        <Block>
-          <p className="justify-self-center text-gray-500">No data.</p>
-        </Block>
-      )}
-    </>
-  );
+type SupportChannel = {
+  label: string;
+  handle: string;
+  icon: string;
 };
+
+const CHANNELS: SupportChannel[] = [
+  { label: 'telegram', handle: '@telegram', icon: TelegramIcon },
+  { label: 'meiQia', handle: 'Chinese', icon: MeiQiaIcon },
+];
+
+const SupportCard = ({ label, handle, icon }: SupportChannel) => (
+  <>
+    <p className="text-gradient font-bold">{label}</p>
+    <div className="flex items-center justify-between gap-6 rounded-lg bg-white px-5 py-5">
+      <div className="flex items-center space-x-2">
+        <img src={icon} alt={label} className="h-7 w-7" />
+        <p className="text-base">{handle}</p>
+      </div>
+      <Button className="h-9 rounded-lg bg-primary-gradient text-white">Chat&nbsp;Now</Button>
+    </div>
+  </>
+);
+
+const SupportComponent = () => (
+  <div className="space-y-1 pb-20">
+    {CHANNELS.map((c) => (
+      <SupportCard key={c.label} {...c} />
+    ))}
+  </div>
+);
+
+export default SupportComponent;
