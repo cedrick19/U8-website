@@ -23,9 +23,9 @@ export default function MarqueeNotification() {
             {part}
             {partIndex === 0 ? (
               <span className="text-green-500">{price}</span>
-            ) : partIndex === 1 ? (
+            ) : (
               <span className="text-blue-500">{game}</span>
-            ) : null}
+            )}
           </Fragment>
         ))}
       </span>

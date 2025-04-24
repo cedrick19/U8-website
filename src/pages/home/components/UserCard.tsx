@@ -16,7 +16,7 @@ const UserCard = () => {
   }, []);
 
   return (
-    <div className="flex w-full items-center justify-between p-3">
+    <div className="flex w-full items-center justify-between px-5 py-3">
       <div className="flex flex-row items-center gap-2">
         <img
           src={profileImage}
@@ -28,7 +28,7 @@ const UserCard = () => {
           <div className="flex flex-row items-center">
             <span className="mr-2 text-gray-800">beluga.cat</span>
             <div
-              className="flex h-5 w-[70px] items-center justify-center rounded-full text-center text-xs font-bold text-yellow-600"
+              className="flex h-5 w-16 items-center justify-center rounded-full text-center text-xs font-bold text-yellow-600"
               style={{
                 backgroundImage: 'linear-gradient(to right, #d9a901, #FFD700, #d9a901)',
               }}
@@ -41,20 +41,22 @@ const UserCard = () => {
           </div>
 
           <div className="flex flex-row items-center gap-2">
-            <span className="text-2xl font-bold">{isEyeOn ? '****' : '0.00'}</span>
-            <Button
-              onClick={handleRefreshClick}
-              className="h-8 w-8 items-center justify-center rounded-full bg-primary-gradient"
-            >
-              <img
-                src={refreshImage}
-                alt="refresh"
-                className={cn(
-                  'cursor-pointer transition-transform duration-1000',
-                  isSpinning && 'rotate-[1080deg]',
-                )}
-              />
-            </Button>
+            <span className="w-12 text-2xl font-bold">{isEyeOn ? '****' : '0.00'}</span>
+            <>
+              <button
+                onClick={handleRefreshClick}
+                className="h-6 w-6 items-center justify-center rounded-full bg-primary-gradient"
+              >
+                <img
+                  src={refreshImage}
+                  alt="refresh"
+                  className={cn(
+                    'cursor-pointer justify-self-center transition-transform duration-1000',
+                    isSpinning && 'rotate-[1080deg]',
+                  )}
+                />
+              </button>
+            </>
           </div>
         </div>
       </div>
