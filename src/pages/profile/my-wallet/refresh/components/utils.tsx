@@ -18,3 +18,17 @@ export const RefreshOptions = [
     component: <WalletPage />,
   },
 ];
+
+export const infoItems = [
+  { label: 'Wallet Balance', value: '0.00' },
+  { label: 'Handling Fee', value: '0.00' },
+  { label: 'Expected', value: '0.00' },
+  { label: 'Frozen Amount', value: '0.00' },
+];
+
+export const balanceSummary = [
+  { label: 'Wallet Balance', value: '0.00' },
+  { label: 'Handling Fee', value: '0.00' },
+  { label: 'Expected', value: '0.00' },
+  { label: 'Frozen Amount', value: '0.00' },
+];
