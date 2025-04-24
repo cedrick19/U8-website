@@ -1,10 +1,22 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Block, Button, f7, Icon, Link } from 'framework7-react';
 import Telegram from '@/assets/image/icons/telegram_logo.png';
 import { routes } from './utils';
 
 export const NavBar = () => {
   const [activeTab, setActiveTab] = useState<number>(0);
+
+  useEffect(() => {
+    const currentPath = f7?.views?.main?.router?.currentRoute?.path || '/';
+    const cleanedPath = currentPath.replace(/^\/|\/$/g, '');
+
+    const index = routes.findIndex((route) => {
+      const routePath = route.path.replace(/^\/|\/$/g, '');
+      return routePath === cleanedPath || (cleanedPath === '' && routePath === '');
+    });
+
+    if (index >= 0) setActiveTab(index);
+  }, []);
 
   return (
     <Block className="container mx-auto flex h-8 w-full items-center justify-between">

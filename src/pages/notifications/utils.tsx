@@ -34,7 +34,7 @@ export const notifications: NotificationDataType[] = [
     title: 'Tribute to sports members',
     type: 'system',
     content:
-      'Sports betting rules and account processing \nRisk control and misconduct: \n\nWhen the company makes sports betting, if the wind control system detects any suspicion of shipment, water or protocol ball, we reserve the right to take corresponding measures. This includes, but is not limited to, restricting betting activities, freezing accounts, and canceling related betting.',
+      'Sports betting rules and account processing \n\nRisk control and misconduct: \n\nWhen the company makes sports betting, if the wind control system detects any suspicion of shipment, water or protocol ball, we reserve the right to take corresponding measures. This includes, but is not limited to, restricting betting activities, freezing accounts, and canceling related betting.',
     date: '2024-11-16',
     time: '22:05:38',
   },
