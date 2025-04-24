@@ -43,23 +43,15 @@ export const videoBody: GridBody[] = [
   {
     gamePlatform: 'COG Video',
     gameContents: [
-      { waterReturnRatio: 0.5 },
-      { waterReturnRatio: 0.6 },
-      { waterReturnRatio: 0.7 },
-      { waterReturnRatio: 0.8 },
-      { waterReturnRatio: 0.9 },
-      { waterReturnRatio: 0.9 },
+      { backToTheWaterLadder: 'THE', totalNumberOfYards: 5000, waterReturnRatio: 0.5 },
+      { backToTheWaterLadder: 'E', totalNumberOfYards: 10000, waterReturnRatio: 0.4 },
     ],
   },
   {
     gamePlatform: 'Jinghe Video',
     gameContents: [
-      { waterReturnRatio: 0.5 },
-      { waterReturnRatio: 0.6 },
-      { waterReturnRatio: 0.7 },
-      { waterReturnRatio: 0.8 },
-      { waterReturnRatio: 0.9 },
-      { waterReturnRatio: 0.9 },
+      { backToTheWaterLadder: 'A', totalNumberOfYards: 20000, waterReturnRatio: 0.3 },
+      { backToTheWaterLadder: 'T', totalNumberOfYards: 40000, waterReturnRatio: 0.2 },
     ],
   },
 ];
@@ -67,58 +59,94 @@ export const pokerBody: GridBody[] = [
   {
     gamePlatform: 'SQP chessboard',
     gameContents: [
-      { waterReturnRatio: 0.5 },
-      { waterReturnRatio: 0.6 },
-      { waterReturnRatio: 0.7 },
-      { waterReturnRatio: 0.8 },
-      { waterReturnRatio: 0.9 },
-      { waterReturnRatio: 0.9 },
+      { backToTheWaterLadder: 'A', totalNumberOfYards: 20000, waterReturnRatio: 0.3 },
+      { backToTheWaterLadder: 'T', totalNumberOfYards: 40000, waterReturnRatio: 0.2 },
     ],
   },
 ];
 export const electronicBody: GridBody[] = [
   {
     gamePlatform: 'Fb ??',
-    gameContents: [{ waterReturnRatio: 0.75 }],
+    gameContents: [
+      { backToTheWaterLadder: 'A', totalNumberOfYards: 20000, waterReturnRatio: 0.3 },
+      { backToTheWaterLadder: 'T', totalNumberOfYards: 40000, waterReturnRatio: 0.2 },
+    ],
   },
   {
     gamePlatform: 'IM ??',
-    gameContents: [{ waterReturnRatio: 0.75 }],
+    gameContents: [
+      { backToTheWaterLadder: 'A', totalNumberOfYards: 20000, waterReturnRatio: 0.3 },
+      { backToTheWaterLadder: 'T', totalNumberOfYards: 40000, waterReturnRatio: 0.2 },
+    ],
   },
 ];
 export const sportsBody: GridBody[] = [
   {
     gamePlatform: 'PG ??',
-    gameContents: [{ waterReturnRatio: 0.75 }],
+    gameContents: [
+      { backToTheWaterLadder: 'A', totalNumberOfYards: 20000, waterReturnRatio: 0.3 },
+      { backToTheWaterLadder: 'T', totalNumberOfYards: 40000, waterReturnRatio: 0.2 },
+    ],
   },
   {
     gamePlatform: 'Pragmatic Play ??',
-    gameContents: [{ waterReturnRatio: 0.75 }],
+    gameContents: [
+      { backToTheWaterLadder: 'A', totalNumberOfYards: 20000, waterReturnRatio: 0.3 },
+      { backToTheWaterLadder: 'T', totalNumberOfYards: 40000, waterReturnRatio: 0.2 },
+    ],
   },
 ];
 export const fishingBody: GridBody[] = [
   {
     gamePlatform: 'Special code integration',
-    gameContents: [{ typeOfplay: 0.75 }],
+    gameContents: [
+      { backToTheWaterLadder: 'A', totalNumberOfYards: 20000, waterReturnRatio: 0.3 },
+      { backToTheWaterLadder: 'T', totalNumberOfYards: 40000, waterReturnRatio: 0.2 },
+    ],
   },
   {
     gamePlatform: 'JDB fishing ??',
-    gameContents: [{ waterReturnRatio: 0.75 }],
+    gameContents: [
+      { backToTheWaterLadder: 'A', totalNumberOfYards: 20000, waterReturnRatio: 0.3 },
+      { backToTheWaterLadder: 'T', totalNumberOfYards: 40000, waterReturnRatio: 0.2 },
+    ],
   },
 ];
 
 export const lotteryBody: GridBody[] = [
   {
     gamePlatform: 'Special code integration',
-    gameContents: [{ waterReturnRatio: 0.75 }],
+    gameContents: [
+      { typeOfSubPlay: 'Big and small', cumulativeNumberOfDecoding: '-', backwater: 2.6 },
+      { typeOfSubPlay: 'combination', cumulativeNumberOfDecoding: '-', backwater: 2.6 },
+      { typeOfSubPlay: 'Very small', cumulativeNumberOfDecoding: '-', backwater: 2.6 },
+    ],
   },
   {
     gamePlatform: 'Three bit',
-    gameContents: [{ waterReturnRatio: 0.75 }],
+    gameContents: [
+      { typeOfSubPlay: 'Race', cumulativeNumberOfDecoding: '-', backwater: 2.6 },
+      { typeOfSubPlay: 'Race', cumulativeNumberOfDecoding: '-', backwater: 2.6 },
+      { typeOfSubPlay: 'Race', cumulativeNumberOfDecoding: '-', backwater: 2.6 },
+    ],
   },
   {
     gamePlatform: '',
-    gameContents: [{ waterReturnRatio: 0.75 }],
+    gameContents: [
+      { typeOfSubPlay: '0', cumulativeNumberOfDecoding: '-', backwater: 0.4 },
+      { typeOfSubPlay: '27', cumulativeNumberOfDecoding: '-', backwater: 0.4 },
+      { typeOfSubPlay: '1', cumulativeNumberOfDecoding: '-', backwater: 0.4 },
+      { typeOfSubPlay: '26', cumulativeNumberOfDecoding: '-', backwater: 0.4 },
+      { typeOfSubPlay: '2', cumulativeNumberOfDecoding: '-', backwater: 0.4 },
+      { typeOfSubPlay: '25', cumulativeNumberOfDecoding: '-', backwater: 0.4 },
+      { typeOfSubPlay: '24', cumulativeNumberOfDecoding: '-', backwater: 0.4 },
+      { typeOfSubPlay: '3', cumulativeNumberOfDecoding: '-', backwater: 0.4 },
+      { typeOfSubPlay: '23', cumulativeNumberOfDecoding: '-', backwater: 0.4 },
+      { typeOfSubPlay: '4', cumulativeNumberOfDecoding: '-', backwater: 0.4 },
+      { typeOfSubPlay: '22', cumulativeNumberOfDecoding: '-', backwater: 0.4 },
+      { typeOfSubPlay: '5', cumulativeNumberOfDecoding: '-', backwater: 0.4 },
+      { typeOfSubPlay: '21', cumulativeNumberOfDecoding: '-', backwater: 0.4 },
+    ],
   },
 ];
 
@@ -129,35 +157,34 @@ export const lotteryContent: RatioTableContent[] = [
   },
   {
     category: 'Canada Baccarat',
-    content: videoBody,
   },
   {
     category: 'Hongkong Mark Six Lottery',
-    content: pokerBody,
+    content: lotteryBody,
   },
   {
     category: 'Canadian Beef',
-    content: electronicBody,
+    content: lotteryBody,
   },
   {
     category: 'Canada 4.2-4.6',
-    content: sportsBody,
+    content: lotteryBody,
   },
   {
     category: 'Canadian Network Disk',
-    content: fishingBody,
+    content: lotteryBody,
   },
   {
     category: 'Canadian Onchboard 996',
-    content: fishingBody,
+    content: lotteryBody,
   },
   {
     category: 'Canada Full Ads VIP Room',
-    content: fishingBody,
+    content: lotteryBody,
   },
   {
     category: 'Canada 2.8',
-    content: fishingBody,
+    content: lotteryBody,
   },
 ];
 export const returnRatioContent: RatioTableContent[] = [
@@ -167,6 +194,7 @@ export const returnRatioContent: RatioTableContent[] = [
   },
   {
     category: 'Lottery ticket',
+    content: pokerBody,
   },
   {
     category: 'Poker',

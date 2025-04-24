@@ -93,7 +93,7 @@ const AccountSecurity = () => {
       onClick: () => setOpenPopUp({ ...openPopUp, modPass: true }),
     },
     {
-      iconLeft: <img src={PayPassword} />,
+      iconLeft: <img alt="Payment" src={PayPassword} />,
       label: 'Pay password',
       iconRightLabel: 'Not set',
       iconRight: 'chevron_right',
@@ -103,7 +103,7 @@ const AccountSecurity = () => {
     },
     {
       id: 'vam-redirect',
-      iconLeft: <img src={VirtualAdd} />,
+      iconLeft: <img alt="Virtual Address" src={VirtualAdd} />,
       label: 'Virtual address management',
       iconRight: 'chevron_right',
       className: 'rounded-none',
