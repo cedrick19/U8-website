@@ -1,5 +1,4 @@
 import { useState, useCallback } from 'react';
-import { Button } from 'framework7-react';
 
 import profileImage from '@/assets/image/playeraccount.jpg';
 import refreshImage from '@/assets/image/refresh.svg';
@@ -66,12 +65,13 @@ const UserCard = () => {
       </div>
       <div className="flex">
         {[chatIcon, customerServiceIcon].map((icon, i) => (
-          <Button
+          <a
             key={i}
+            href={i === 0 ? '/chat' : '/support/'}
             className="mr-1 flex h-10 w-10 items-center justify-center rounded-full bg-purple-900 p-2 last:mr-0"
           >
-            <img src={icon} className="h-full w-full" />
-          </Button>
+            <img src={icon} className="h-full w-full" alt={i === 0 ? 'Chat' : 'Customer Service'} />
+          </a>
         ))}
       </div>
     </div>
