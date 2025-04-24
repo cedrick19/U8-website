@@ -6,6 +6,8 @@ import { useState } from 'react';
 import CustomPopUp from '@/pages/profile/component/CustomPopUp';
 import CustomInput from '@/pages/profile/component/CustomInput';
 import { clickNavigate } from '@/globals/utils';
+import PayPassword from '@/assets/image/profile/settings/accnum_and_sec/pay_pass.svg';
+import VirtualAdd from '@/assets/image/profile/settings/accnum_and_sec/virtual_add.svg';
 
 const AccountSecurity = () => {
   const [openPopUp, setOpenPopUp] = useState({
@@ -91,7 +93,7 @@ const AccountSecurity = () => {
       onClick: () => setOpenPopUp({ ...openPopUp, modPass: true }),
     },
     {
-      iconLeft: 'local_mall',
+      iconLeft: <img src={PayPassword} />,
       label: 'Pay password',
       iconRightLabel: 'Not set',
       iconRight: 'chevron_right',
@@ -101,7 +103,7 @@ const AccountSecurity = () => {
     },
     {
       id: 'vam-redirect',
-      iconLeft: 'book',
+      iconLeft: <img src={VirtualAdd} />,
       label: 'Virtual address management',
       iconRight: 'chevron_right',
       className: 'rounded-none',

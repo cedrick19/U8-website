@@ -5,6 +5,7 @@ import ProfileNav from '@/pages/profile/component/ProfileNav';
 import CustomPopUp from '@/pages/profile/component/CustomPopUp';
 import { clickNavigate } from '@/globals/utils';
 import { useAuth } from '@/hooks/useAuth';
+import ClearCache from '@/assets/image/profile/settings/clear_cache.svg';
 
 const Settings = () => {
   const [loginOpen, setLoginOpen] = useState(false);
@@ -26,7 +27,7 @@ const Settings = () => {
       </Block>
       <Block className="m-5 flex-col rounded-lg bg-white px-0 shadow-sm">
         <SettingItem
-          iconLeft="inventory"
+          iconLeft={<img src={ClearCache} />}
           label="Clear cache"
           iconRight="chevron_right"
           iconRightClassName="text-gradient"
