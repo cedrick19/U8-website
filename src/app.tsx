@@ -5,11 +5,13 @@ import appRoutes from './ts/appRoutes';
 import { getDevice } from 'framework7';
 import { ToolMobile } from './components/nav-bar';
 import { AuthProvider } from './components/AuthContext';
+import { store } from './ts/store';
 
 const appConfig = {
   name: 'u8',
   theme: 'auto',
   routes: appRoutes,
+  store: store,
 };
 
 const MyApp: React.FC = () => {

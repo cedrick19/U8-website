@@ -1,3 +1,2 @@
-export * from './AddVirtualWallet';
-export * from './DAM';
-export * from './USDT';
+export * from '../add-virtual-wallet/AddVirtualWallet';
+export * from './VirtualWallet';
