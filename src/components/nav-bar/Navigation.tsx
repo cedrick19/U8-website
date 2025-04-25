@@ -53,15 +53,20 @@ export const NavBar = () => {
         </Block>
       </Block>
 
-      <Link href="#" className="flex flex-col items-center no-underline" rippleColor="none">
-        <Icon f7={'arrow_down_circle'} className="text-gradient text-xl" />
-        <span className="text-xs text-gray-600">Download</span>
-      </Link>
-
-      <Link href="#" className="flex flex-col items-center no-underline" rippleColor="none">
-        <Icon f7={'bell'} className="text-gradient text-xl" />
-        <span className="text-xs text-gray-600">News</span>
-      </Link>
+      {['Download', 'News'].map((navItem, ids) => (
+        <Link
+          key={ids}
+          href="#"
+          className="flex flex-col items-center no-underline"
+          rippleColor="none"
+        >
+          <Icon
+            f7={navItem === 'Download' ? 'arrow_down_circle' : 'bell'}
+            className="text-gradient text-xl"
+          />
+          <span className="text-xs text-gray-600">{navItem}</span>
+        </Link>
+      ))}
 
       <Button
         rippleColor="none"

@@ -98,7 +98,11 @@ export const USDTPage = () => {
 
         <p>Scan the QR Code or use the following address to complete the deposit</p>
         <div className="flex flex-row items-center gap-3">
-          <img src={selectedImage} className="rounded-3xl border-8 border-[#EAE4F7]" />
+          <img
+            src={selectedImage}
+            alt={comboKey}
+            className="rounded-3xl border-8 border-[#EAE4F7]"
+          />
           <p>
             Minimum recharge amount: <span className="text-green-400">10.00 USDT</span>
           </p>

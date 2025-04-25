@@ -31,7 +31,7 @@ const HomePage = () => {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
   return (
-    <Page>
+    <Page className="pb-10">
       {isSmallDevice && (
         <HomeNavbar
           navRight={

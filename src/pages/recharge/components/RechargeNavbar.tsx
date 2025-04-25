@@ -7,7 +7,11 @@ export const RechargeNavbar = () => {
       <Link onClick={() => f7.views.main.router.back()}>
         <Icon material="chevron_left" size={35} className="text-gradient" />
       </Link>
-      <img src={Logo} className="text-gradient absolute left-1/2 h-7 -translate-x-1/2 font-bold" />
+      <img
+        src={Logo}
+        alt="U8.COM"
+        className="text-gradient absolute left-1/2 h-7 -translate-x-1/2 font-bold"
+      />
     </Navbar>
   );
 };
