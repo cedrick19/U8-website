@@ -1,22 +1,22 @@
-import { Fragment } from 'react/jsx-runtime';
 import Announcement from '@/assets/image/announcement.svg';
+import { Fragment } from 'react/jsx-runtime';
 
-export default function MarqueeNotification() {
-  const notificationData = [
-    {
-      message: 'Congratulations to the player c**** in Canada win {price} of game ',
-      game: 'Mahjong',
-      price: '40000Yuan',
-    },
-    {
-      message: 'Congratulations to the player B**** in Philippines win {price} of game ',
-      game: 'Lottery',
-      price: '50000Pesos',
-    },
-  ];
+const marqueeData = [
+  {
+    message: 'Congratulations to the player c**** in Canada win {price} of game ',
+    game: 'Mahjong',
+    price: '40000Yuan',
+  },
+  {
+    message: 'Congratulations to the player B**** in Philippines win {price} of game ',
+    game: 'Lottery',
+    price: '50000Pesos',
+  },
+];
 
+export const TextCarousel = () => {
   const renderMessages = () =>
-    notificationData.map(({ message, game, price }, index) => (
+    marqueeData.map(({ message, game, price }, index) => (
       <span key={index} className="mr-10">
         {message.split('{price}').map((part, partIndex) => (
           <Fragment key={partIndex}>
@@ -44,4 +44,6 @@ export default function MarqueeNotification() {
       </div>
     </div>
   );
-}
+};
+
+export default TextCarousel;

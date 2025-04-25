@@ -6,7 +6,7 @@ import chatIcon from '@/assets/image/chat.svg';
 import customerServiceIcon from '@/assets/image/customer-service.svg';
 import { cn } from '@/globals/utils';
 
-const UserCard = () => {
+export const UserCard = () => {
   const [isEyeOn, setIsEyeOn] = useState(true);
   const [isSpinning, setIsSpinning] = useState(false);
 

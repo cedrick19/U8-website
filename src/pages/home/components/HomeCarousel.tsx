@@ -10,7 +10,7 @@ import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 import { cn } from '@/globals/utils';
 
-const HomeCarousel = () => {
+export const HomeCarousel = () => {
   const [isHovered, setIsHovered] = useState(false);
 
   return (

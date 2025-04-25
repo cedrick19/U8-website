@@ -43,13 +43,20 @@ const CatHighlightCard = ({
         className={cn('relative flex p-4', spanTwo ? 'flex-row-reverse items-center' : 'flex-col')}
       >
         <img src={image} alt={title} className="h-32 w-full object-contain" />
-        <h2 className="text-center text-3xl font-extrabold text-purple-900">{title}</h2>
+        <h2
+          className={cn(
+            'text-center font-extrabold text-purple-900',
+            spanTwo ? 'text-lg font-black' : 'text-3xl',
+          )}
+        >
+          {title}
+        </h2>
       </div>
     </Card>
   );
 };
 
-const HomeContent = () => {
+export const HomeContent = () => {
   return (
     <div className="gap-4 px-4 pb-20">
       <div className="grid grid-cols-2 gap-4 pt-4">

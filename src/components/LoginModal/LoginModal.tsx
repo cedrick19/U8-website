@@ -33,3 +33,5 @@ export const LoginModal = () => {
     </LoginScreen>
   );
 };
+
+export default LoginModal;

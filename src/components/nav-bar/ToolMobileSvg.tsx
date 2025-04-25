@@ -13,3 +13,5 @@ export const ToolMobileSvg = ({ color = 'white' }: { color?: string }) => (
     />
   </svg>
 );
+
+export default ToolMobileSvg;
