@@ -157,6 +157,7 @@ export const lotteryContent: RatioTableContent[] = [
   },
   {
     category: 'Canada Baccarat',
+    content: lotteryBody,
   },
   {
     category: 'Hongkong Mark Six Lottery',
@@ -194,7 +195,6 @@ export const returnRatioContent: RatioTableContent[] = [
   },
   {
     category: 'Lottery ticket',
-    content: pokerBody,
   },
   {
     category: 'Poker',
