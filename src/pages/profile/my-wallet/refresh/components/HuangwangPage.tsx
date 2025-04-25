@@ -1,7 +1,6 @@
-import { useEffect, useRef } from 'react';
-import { List, Button, Block, Input } from 'framework7-react';
-import intlTelInput from 'intl-tel-input';
-import 'intl-tel-input/build/css/intlTelInput.css';
+import { Button, Block, Input } from 'framework7-react';
+import { cn } from '@/globals/utils';
+import { useState } from 'react';
 
 const balanceSummary = [
   { label: 'Wallet Balance', value: '0.00' },
@@ -11,24 +10,11 @@ const balanceSummary = [
 ];
 
 export const HuangWangPage = () => {
-  const telInputRef = useRef<HTMLInputElement | null>(null);
-  const itiRef = useRef<ReturnType<typeof intlTelInput> | null>(null);
+  const [phoneCode, setPhoneCode] = useState('+63');
 
-  useEffect(() => {
-    if (telInputRef.current && !itiRef.current) {
-      itiRef.current = intlTelInput(telInputRef.current, {
-        initialCountry: 'PH',
-        utilsScript: 'https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js',
-      });
-    }
-
-    return () => {
-      if (itiRef.current) {
-        itiRef.current.destroy();
-        itiRef.current = null;
-      }
-    };
-  }, []); // Empty dependency array ensures this runs only once
+  const handleSelectChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    setPhoneCode(event.target.value);
+  };
 
   return (
     <>
@@ -38,16 +24,15 @@ export const HuangWangPage = () => {
           <span className="material-icons mr-1 mt-1 text-[18px] text-gray-500">help</span>
         </div>
         <div className="flex flex-col gap-3">
-          <List className="m-0">
-            <div className="flex items-center overflow-hidden rounded-full border border-gray-300 p-1 pl-3">
-              <input
-                ref={telInputRef}
-                type="tel"
-                placeholder="Enter your mobile number"
-                className="flex-1 px-5 py-3 text-gray-700 outline-none"
-              />
-            </div>
-          </List>
+          <div className="flex h-12 items-center overflow-hidden rounded-full border border-gray-300 p-1 pl-3">
+            <select value={phoneCode} onChange={handleSelectChange} className="mr-3">
+              <option value="+63">+63 (Ph)</option>
+              <option value="+1">+1 (USA)</option>
+              <option value="+44">+44 (UK)</option>
+            </select>
+            <Input type="tel" placeholder="Enter phone number" className="" />
+          </div>
+
           <div className="flex items-start">
             <span className="material-icons relative -top-[1px] mr-1 text-[18px] text-red-500">
               warning
@@ -63,12 +48,18 @@ export const HuangWangPage = () => {
       <Block className="my-3 rounded-3xl bg-white p-5 shadow-sm">
         <h2 className="text-lg font-bold text-purple-900">Cash withdrawal</h2>
 
-        <div className="mb-4 flex items-center overflow-hidden rounded-full border border-gray-300">
+        <div
+          className={cn(
+            'mb-4 flex items-center overflow-hidden rounded-full border border-gray-300',
+          )}
+        >
           <div className="m-2 flex h-7 w-7 items-center justify-center rounded-full bg-purple-900 text-white">
-            <span className="f7-icons text-lg font-semibold">money_dollar</span>
+            <span className="text-lg font-semibold">$</span>
           </div>
           <Input type="tel" placeholder="Enter amount" className="flex-1 px-3 py-3 text-gray-700" />
-          <Button className="m-2 h-[35px] w-20 rounded-full bg-purple-900 px-4 py-2 text-white">
+          <Button
+            className={cn('m-2 h-[35px] w-20 rounded-full bg-purple-900 px-4 py-2 text-white')}
+          >
             Max
           </Button>
         </div>
@@ -76,7 +67,7 @@ export const HuangWangPage = () => {
         <div className="mb-4 rounded-lg bg-purple-50 p-3 text-sm text-black">
           {balanceSummary.map(({ label, value }) => (
             <div key={label} className="mb-1 flex items-center justify-between">
-              <span className="flex items-center font-semibold text-purple-800">
+              <span className="text-purple-900label flex items-center font-semibold text-purple-800">
                 {label}
                 {label === 'Frozen Amount' && (
                   <span className="material-icons ml-1 text-[16px] text-gray-500">help</span>
