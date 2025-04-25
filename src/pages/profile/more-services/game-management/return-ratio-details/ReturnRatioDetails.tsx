@@ -24,7 +24,7 @@ const ReturnRatioDetails = () => {
     <Page name="Return Ratio Details">
       <div className="absolute h-[40%] w-full rounded-br-full bg-gradient-to-br from-[#381E7B]/20 via-transparent to-transparent backdrop:blur-3xl" />
       <ProfileNav title="Return Ratio Details" />
-      <Card className="flex-col space-y-5 bg-white p-4 shadow-md">
+      <Card className="mb-24 flex-col space-y-5 bg-white p-4 shadow-md">
         <DropBottom
           popUpConfig={returnRatioCategory}
           activeOption={activeOption}
