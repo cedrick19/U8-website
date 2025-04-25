@@ -1,4 +1,3 @@
-import React from 'react';
 import Announcement from '@/assets/image/announcement.svg';
 
 export default function MarqueeNotification() {
@@ -19,14 +18,14 @@ export default function MarqueeNotification() {
     notificationData.map(({ message, game, price }, index) => (
       <span key={index} className="mr-10">
         {message.split('{price}').map((part, partIndex) => (
-          <React.Fragment key={partIndex}>
+          <span key={partIndex}>
             {part}
             {partIndex === 0 ? (
               <span className="text-green-500">{price}</span>
             ) : partIndex === 1 ? (
               <span className="text-blue-500">{game}</span>
             ) : null}
-          </React.Fragment>
+          </span>
         ))}
       </span>
     ));

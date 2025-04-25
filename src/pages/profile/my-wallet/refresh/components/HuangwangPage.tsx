@@ -1,4 +1,4 @@
-import { Button, Block, Input } from 'framework7-react';
+import { Button, Block, Input, Icon } from 'framework7-react';
 import { cn } from '@/globals/utils';
 import { useState } from 'react';
 
@@ -54,7 +54,7 @@ export const HuangWangPage = () => {
           )}
         >
           <div className="m-2 flex h-7 w-7 items-center justify-center rounded-full bg-purple-900 text-white">
-            <span className="text-lg font-semibold">$</span>
+            <Icon f7="money_dollar" size={30} />
           </div>
           <Input type="tel" placeholder="Enter amount" className="flex-1 px-3 py-3 text-gray-700" />
           <Button

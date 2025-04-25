@@ -21,7 +21,7 @@ const SupportCard = ({ label, handle, icon }: SupportChannel) => (
         <img src={icon} alt={label} className="h-7 w-7" />
         <p className="text-base">{handle}</p>
       </div>
-      <Button className="h-9 rounded-lg bg-primary-gradient text-white">Chat&nbsp;Now</Button>
+      <Button className="h-9 rounded-lg bg-primary-gradient text-white">Chat Now</Button>
     </div>
   </>
 );

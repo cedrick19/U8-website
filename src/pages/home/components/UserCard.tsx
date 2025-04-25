@@ -1,5 +1,4 @@
 import { useState } from 'react';
-
 import profileImage from '@/assets/image/playeraccount.jpg';
 import refreshImage from '@/assets/image/refresh.svg';
 import chatIcon from '@/assets/image/chat.svg';
@@ -7,16 +6,32 @@ import customerServiceIcon from '@/assets/image/customer-service.svg';
 import eyeOnIcon from '@/assets/image/eye-on.svg';
 import eyeOffIcon from '@/assets/image/eye-off.svg';
 
-const UserCard: React.FC = () => {
+const actions = [
+  {
+    href: 'https://t.me/SAMPLE',
+    icon: chatIcon,
+    label: 'Open Telegram channel',
+    external: true,
+  },
+  {
+    href: '/support/',
+    icon: customerServiceIcon,
+    label: 'Open customer support',
+    external: false,
+  },
+];
+
+const UserCard = () => {
   const [isEyeOn, setIsEyeOn] = useState(true);
   const [isSpinning, setIsSpinning] = useState(false);
 
-  const toggleEye = () => setIsEyeOn((p) => !p);
+  const toggleEye = () => setIsEyeOn(!isEyeOn);
 
   const handleRefreshClick = () => {
     setIsSpinning(true);
     setTimeout(() => setIsSpinning(false), 400);
   };
+
   return (
     <div className="flex w-full items-center justify-between p-3">
       <div className="flex items-center">
@@ -30,7 +45,7 @@ const UserCard: React.FC = () => {
             <span className="mr-2 text-gray-800">username</span>
 
             <span className="flex h-5 w-[70px] items-center justify-center rounded-full bg-gradient-to-r from-[#d9a901] via-[#FFD700] to-[#d9a901] text-center text-xs font-bold text-yellow-700">
-              VIP&nbsp;0
+              VIP 0
             </span>
 
             <img
@@ -60,23 +75,17 @@ const UserCard: React.FC = () => {
         </div>
       </div>
       <div className="flex gap-2">
-        <a
-          href="https://t.me/SAMPLE"
-          target="_blank"
-          rel="noopener"
-          aria-label="Open Telegram channel"
-          className="flex h-10 w-10 items-center justify-center rounded-full bg-purple-900 p-2"
-        >
-          <img src={chatIcon} className="h-full w-full" alt="" />
-        </a>
-
-        <a
-          href="/support/"
-          aria-label="Open customer support"
-          className="flex h-10 w-10 items-center justify-center rounded-full bg-purple-900 p-2"
-        >
-          <img src={customerServiceIcon} className="h-full w-full" alt="" />
-        </a>
+        {actions.map(({ href, icon, label, external }) => (
+          <a
+            key={label}
+            href={href}
+            {...(external ? { target: '_blank', rel: 'noopener' } : {})}
+            aria-label={label}
+            className="flex h-10 w-10 items-center justify-center rounded-full bg-purple-900 p-2"
+          >
+            <img src={icon} className="h-full w-full" alt="" />
+          </a>
+        ))}
       </div>
     </div>
   );

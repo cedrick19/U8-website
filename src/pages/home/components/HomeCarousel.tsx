@@ -10,6 +10,17 @@ import 'swiper/css/navigation';
 import Carousel1 from '@/assets/image/carousel1.jpg';
 import Carousel2 from '@/assets/image/carousel2.jpg';
 
+const carouselImages = [
+  {
+    src: Carousel1,
+    alt: 'Promotional Banner 1',
+  },
+  {
+    src: Carousel2,
+    alt: 'Promotional Banner 2',
+  },
+];
+
 const HomeCarousel = () => {
   const [isHovered, setIsHovered] = useState(false);
 
@@ -30,25 +41,22 @@ const HomeCarousel = () => {
         modules={[Navigation, Pagination, Autoplay]}
         className="w-full sm:h-10 md:h-auto"
       >
-        <SwiperSlide>
-          <img src={Carousel1} alt="Promotional Banner 1" className="h-full w-full object-cover" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src={Carousel2} alt="Promotional Banner 2" className="h-full w-full object-cover" />
-        </SwiperSlide>
+        {carouselImages.map((item, index) => (
+          <SwiperSlide key={index}>
+            <img src={item.src} alt={item.alt} className="h-full w-full object-cover" />
+          </SwiperSlide>
+        ))}
       </Swiper>
 
       <div className="hidden md:block">
-        <Button
-          className={`swiper-button-prev absolute left-4 top-1/2 hidden bg-opacity-60 p-4 text-white transition-opacity duration-300 md:flex ${
-            isHovered ? 'opacity-100' : 'opacity-0'
-          }`}
-        />
-        <Button
-          className={`swiper-button-next absolute right-4 top-1/2 hidden bg-opacity-60 p-4 text-white transition-opacity duration-300 md:flex ${
-            isHovered ? 'opacity-100' : 'opacity-0'
-          }`}
-        />
+        {['prev', 'next'].map((dir) => (
+          <Button
+            key={dir}
+            className={`swiper-button-${dir} absolute top-1/2 hidden bg-opacity-60 p-4 text-white transition-opacity duration-300 md:flex ${
+              dir === 'prev' ? 'left-4' : 'right-4'
+            } ${isHovered ? 'opacity-100' : 'opacity-0'}`}
+          />
+        ))}
       </div>
     </div>
   );
