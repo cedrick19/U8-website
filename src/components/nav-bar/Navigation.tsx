@@ -1,10 +1,22 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Block, Button, f7, Icon, Link } from 'framework7-react';
 import Telegram from '@/assets/image/icons/telegram_logo.png';
 import { routes } from './utils';
 
 export const NavBar = () => {
   const [activeTab, setActiveTab] = useState<number>(0);
+
+  useEffect(() => {
+    const currentPath = f7?.views?.main?.router?.currentRoute?.path || '/';
+    const cleanedPath = currentPath.replace(/^\/|\/$/g, '');
+
+    const index = routes.findIndex((route) => {
+      const routePath = route.path.replace(/^\/|\/$/g, '');
+      return routePath === cleanedPath || (cleanedPath === '' && routePath === '');
+    });
+
+    if (index >= 0) setActiveTab(index);
+  }, []);
 
   return (
     <Block className="container mx-auto flex h-8 w-full items-center justify-between">
@@ -41,15 +53,20 @@ export const NavBar = () => {
         </Block>
       </Block>
 
-      <Link href="#" className="flex flex-col items-center no-underline" rippleColor="none">
-        <Icon f7={'arrow_down_circle'} className="text-gradient text-xl" />
-        <span className="text-xs text-gray-600">Download</span>
-      </Link>
-
-      <Link href="#" className="flex flex-col items-center no-underline" rippleColor="none">
-        <Icon f7={'bell'} className="text-gradient text-xl" />
-        <span className="text-xs text-gray-600">News</span>
-      </Link>
+      {['Download', 'News'].map((navItem, ids) => (
+        <Link
+          key={ids}
+          href="#"
+          className="flex flex-col items-center no-underline"
+          rippleColor="none"
+        >
+          <Icon
+            f7={navItem === 'Download' ? 'arrow_down_circle' : 'bell'}
+            className="text-gradient text-xl"
+          />
+          <span className="text-xs text-gray-600">{navItem}</span>
+        </Link>
+      ))}
 
       <Button
         rippleColor="none"

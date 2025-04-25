@@ -2,17 +2,20 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Pagination, Autoplay, Navigation } from 'swiper/modules';
 import { useState } from 'react';
 import { Button } from 'framework7-react';
+import Carousel1 from '@/assets/image/carousel1.jpg';
+import Carousel2 from '@/assets/image/carousel2.jpg';
 
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
+import { cn } from '@/globals/utils';
 
-const HomeCarousel = () => {
+export const HomeCarousel = () => {
   const [isHovered, setIsHovered] = useState(false);
 
   return (
     <div
-      className="relative w-full pb-3"
+      className="relative"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
@@ -27,10 +30,10 @@ const HomeCarousel = () => {
         modules={[Navigation, Pagination, Autoplay]}
         className="w-full sm:h-10 md:h-auto"
       >
-        {['carousel1.jpg', 'carousel2.jpg'].map((img, i) => (
+        {[Carousel1, Carousel2].map((img, i) => (
           <SwiperSlide key={i}>
             <img
-              src={`/assets/image/${img}`}
+              src={img}
               alt={`Promotional Banner ${i + 1}`}
               className="h-auto w-full sm:h-full"
             />
@@ -42,11 +45,12 @@ const HomeCarousel = () => {
         {['prev', 'next'].map((dir) => (
           <Button
             key={dir}
-            className={`swiper-button-${dir} absolute ${
-              dir === 'prev' ? 'left-4' : 'right-4'
-            } top-1/2 hidden bg-opacity-60 p-4 text-white transition-opacity duration-300 md:flex ${
-              isHovered ? 'opacity-100' : 'opacity-0'
-            }`}
+            className={cn(
+              `swiper-button-${dir}`,
+              dir === 'prev' ? 'left-4' : 'right-4',
+              isHovered ? 'opacity-100' : 'opacity-0',
+              'absolute top-1/2 hidden bg-opacity-60 p-4 text-white transition-opacity duration-300 md:flex',
+            )}
           />
         ))}
       </div>

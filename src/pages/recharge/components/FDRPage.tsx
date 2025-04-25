@@ -30,7 +30,7 @@ export const FDRPage = () => {
               key={ids}
               className="flex h-20 w-28 flex-col rounded-3xl bg-primary-gradient normal-case"
             >
-              <img src={option.fdrImage} />
+              <img src={option.fdrImage} alt={option.fdrText} />
               <p className="text-white">{option.fdrText}</p>
             </Button>
           ))}

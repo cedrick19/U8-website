@@ -1,6 +1,5 @@
 import { cn } from '@/globals/utils';
-import { Block, Button, Icon } from 'framework7-react';
-import { Bottomsheet } from '@/pages/profile/more-services/component';
+import { Block, Button, Icon, Popup } from 'framework7-react';
 import { CustomCalendar } from './Calendar';
 
 interface PopUpType {
@@ -56,6 +55,16 @@ const DropdownSheet = ({
       </Button>
     ))}
   </Block>
+);
+
+const Bottomsheet = ({ id, children }: { id: string; children: React.ReactNode }) => (
+  <Popup
+    id={id}
+    className="!bottom-0 !top-auto mx-auto !h-auto w-full max-w-md rounded-t-3xl p-4 transition-all duration-300"
+    push
+  >
+    {children}
+  </Popup>
 );
 
 export const DropBottom = ({
