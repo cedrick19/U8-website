@@ -7,7 +7,7 @@ import '../assets/css/app.css';
 import '../i18n';
 import { createElement } from 'react';
 import MyApp from '@/app';
-import { serviceWorkerReg } from '@/ts/serviceWorkerReg';
+import { serviceWorkerReg } from '@/serviceWorkerReg';
 
 const F7init = () => {
   Framework7.use(Framework7React);
