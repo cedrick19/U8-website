@@ -42,7 +42,7 @@ export interface Category {
   name: string;
   image: string;
   color: string;
-  route?: string;
+  route: string;
   className?: string;
 }
 
@@ -82,3 +82,16 @@ export const navigateToRoute = (route: string) => {
     f7.view.main.router.navigate(route);
   }
 };
+
+export const notificationData = [
+  {
+    message: 'Congratulations to the player c**** in Canada win {price} of game ',
+    game: 'Mahjong',
+    price: '40000Yuan',
+  },
+  {
+    message: 'Congratulations to the player B**** in Philippines win {price} of game ',
+    game: 'Lottery',
+    price: '50000Pesos',
+  },
+];

@@ -6,7 +6,7 @@ type HomeNavbarProps = {
   navRight?: React.ReactNode;
 };
 
-const HomeNavbar = ({ navRight }: HomeNavbarProps) => {
+export const HomeNavbar = ({ navRight }: HomeNavbarProps) => {
   return (
     <Navbar innerClassName="bg-gradient-to-tr from-secondary/0 via-secondary/0 to-secondary/20">
       <NavLeft className="pl-3">

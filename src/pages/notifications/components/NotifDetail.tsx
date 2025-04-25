@@ -9,12 +9,12 @@ export const NotifDetail = ({ f7route }: { f7route: Router.Route }) => {
 
   const formatting = (content: string) => {
     return content.split('\n\n').map((para, ids) => (
-      <p key={ids} className="whitespace-pre-line">
+      <p key={ids}>
         {para.split('\n').map((part, idk) =>
           idk % 2 === 1 ? (
-            <strong key={idk} className="font-bold">
+            <span key={idk} className="font-bold">
               {part}
-            </strong>
+            </span>
           ) : (
             <span key={idk}>{part}</span>
           ),

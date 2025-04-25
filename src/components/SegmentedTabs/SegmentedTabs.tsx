@@ -56,3 +56,5 @@ export const SegmentedTabs: React.FC<SegmentedTabsProps> = ({
     </>
   );
 };
+
+export default SegmentedTabs;

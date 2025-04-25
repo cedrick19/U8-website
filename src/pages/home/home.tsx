@@ -1,14 +1,11 @@
 import { Page, Link } from 'framework7-react';
 import { useEffect, useMemo, useState } from 'react';
 import { getDevice } from 'framework7';
-import { LoginModal } from '@/components/LoginModal';
-
-import HomeNavbar from '@/components/MobileNavbar/HomeNavbar';
 import HomeCarousel from './components/HomeCarousel';
-import UserCard from './components/UserCard';
-import TextCarousel from './components/TextCarousel';
 import Bell from '@/assets/image/bell.svg';
-import HomeContent from '@/pages/home/components/HomeContent';
+import { HomeContent, TextCarousel, UserCard } from './components';
+import { LoginModal } from '@/components/LoginModal';
+import { HomeNavbar } from '@/components/MobileNavbar';
 
 const HomePage = () => {
   const [isTablet, setIsTablet] = useState(false);
@@ -31,7 +28,7 @@ const HomePage = () => {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
   return (
-    <Page>
+    <Page className="pb-10">
       {isSmallDevice && (
         <HomeNavbar
           navRight={
@@ -57,6 +54,8 @@ const HomePage = () => {
 
       {isSmallDevice && <HomeContent />}
       {isSmallDevice && <LoginModal />}
+
+      {/* test  */}
     </Page>
   );
 };

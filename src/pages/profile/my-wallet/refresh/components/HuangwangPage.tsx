@@ -1,94 +1,71 @@
-import { List, Icon, Button, Block, Input } from 'framework7-react';
-import { cn } from '@/globals/utils';
-
-const balanceSummary = [
-  { label: 'Wallet Balance', value: '0.00' },
-  { label: 'Handling Fee', value: '0.00' },
-  { label: 'Expected', value: '0.00' },
-  { label: 'Frozen Amount', value: '0.00' },
-];
+import { Icon, Button, Block, Input } from 'framework7-react';
+import { balanceSummary } from './utils';
 
 export const HuangWangPage = () => {
   return (
     <>
-      <Block className="my-3 rounded-3xl bg-white p-4 shadow-sm">
-        <div className="flex space-x-2">
-          <h2 className="text-base font-bold text-purple-900">Withdraw the HSBC account</h2>
-          <span className="material-icons mr-1 mt-1 text-[18px] text-gray-500">help</span>
+      <Block className="flex flex-col items-start gap-6 rounded-3xl bg-white py-5">
+        <div className="flex flex-row items-center gap-2">
+          <h2 className="text-gradient text-base font-bold">Withdraw the HSBC account</h2>
+          <Icon f7="question_circle_fill" icon="text-gray-500" size={18} />
         </div>
-        <div className="flex flex-col gap-3">
-          <List className="m-0">
-            <div
-              className={cn(
-                'flex items-center overflow-hidden rounded-full border border-gray-300 p-1 pl-3',
-              )}
-            >
-              <button className="m-3 flex h-4 w-4 items-center justify-center rounded-full px-3">
-                +63
-                <Icon f7="chevron_down" className="text-xs text-black" />
-              </button>
-              <input
-                type="tel"
-                placeholder="Enter your mobile number"
-                className="flex-1 px-5 py-3 text-gray-700 outline-none"
-              />
-            </div>
-          </List>
 
-          <div className="flex items-start">
-            <span className="material-icons relative -top-[1px] mr-1 text-[18px] text-red-500">
-              warning
-            </span>
-            <p className="text-sm text-red-500">
-              Please carefully check the HSBC account. The wrong account funds will not be
-              available.
-            </p>
+        <div className="flex h-12 w-full flex-row">
+          <div className="flex w-full flex-row items-center justify-between overflow-hidden truncate whitespace-nowrap rounded-full border border-gray-500 bg-white px-3">
+            <Button className="flex items-center rounded-full">
+              <span className="text-black">+63</span>
+              <Icon f7="chevron_down" className="text-xs text-black" />
+            </Button>
+            <Input type="number" className="w-full" min={0} />
           </div>
+        </div>
+
+        <div className="flex flex-row items-start">
+          <Icon f7="exclamationmark_triangle_fill" icon="text-red-500" size={16} />
+          <p className="text-sm text-red-500">
+            Please carefully check the HSBC account. The wrong account funds will not be available.
+          </p>
         </div>
       </Block>
 
-      <Block className="my-3 rounded-3xl bg-white p-5 shadow-sm">
-        <h2 className="text-lg font-bold text-purple-900">Cash withdrawal</h2>
+      <Block className="flex flex-col items-start gap-4 rounded-3xl bg-white py-5">
+        <p className="text-gradient text-lg font-bold">Cash withdrawal</p>
 
-        <div
-          className={cn(
-            'mb-4 flex items-center overflow-hidden rounded-full border border-gray-300',
-          )}
-        >
-          <div className="m-2 flex h-7 w-7 items-center justify-center rounded-full bg-purple-900 text-white">
-            <span className="text-lg font-semibold">$</span>
+        <div className="flex h-12 w-full flex-row">
+          <div className="flex w-full flex-row items-center justify-between overflow-hidden truncate whitespace-nowrap rounded-full border border-gray-500 bg-white px-3">
+            <div className="h-8 w-8 items-center justify-center rounded-full bg-primary-gradient">
+              <Icon f7="money_dollar" icon="text-white mt-0.5 ml-0.5" />
+            </div>
+            <Input type="number" className="w-2/4" min={0} />
+            <Button className="h-8 w-1/4 rounded-full bg-primary-gradient">
+              <span className="normal-case text-white">MAX</span>
+            </Button>
           </div>
-          <Input type="tel" placeholder="Enter amount" className="flex-1 px-3 py-3 text-gray-700" />
-          <Button
-            className={cn('m-2 h-[35px] w-20 rounded-full bg-purple-900 px-4 py-2 text-white')}
-          >
-            Max
-          </Button>
         </div>
 
-        <div className="mb-4 rounded-lg bg-purple-50 p-3 text-sm text-black">
+        <div className="w-full rounded-lg bg-purple-50 p-3 text-sm">
           {balanceSummary.map(({ label, value }) => (
-            <div key={label} className="mb-1 flex items-center justify-between">
-              <span className="text-purple-900label flex items-center font-semibold text-purple-800">
+            <div key={label} className="flex flex-row justify-between">
+              <span className="text-gradient flex items-center font-semibold">
                 {label}
                 {label === 'Frozen Amount' && (
                   <span className="material-icons ml-1 text-[16px] text-gray-500">help</span>
                 )}
               </span>
-              <span className="font-bold">{value}</span>
+              <span className="font-bold text-black">{value}</span>
             </div>
           ))}
         </div>
 
-        <p className="text-xs font-medium text-black">
+        <p className="font medium text-xs text-black">
           Contact for first presentation
-          <span className="font-bold text-purple-900"> @U8hdkefu8 </span>
+          <span className="text-gradient"> @U8hdkefu8 </span>
           Official grid customer service and let the customer service retain your aircraft number.
           The customer service will be checked twice to ensure the safety of fund.
         </p>
       </Block>
 
-      <Button className="h-14 w-full rounded-lg bg-purple-900 py-4 font-medium normal-case text-white">
+      <Button className="h-14 w-full rounded-lg bg-primary-gradient font-medium normal-case text-white">
         Immediately
       </Button>
     </>
