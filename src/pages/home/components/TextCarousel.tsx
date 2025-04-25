@@ -32,7 +32,7 @@ export const TextCarousel = () => {
     ));
 
   return (
-    <div className="mx-5 flex overflow-hidden rounded-full bg-purple-900 p-1 md:container md:mx-auto">
+    <div className="mx-5 flex overflow-hidden rounded-full bg-primary-gradient p-1 md:container md:mx-auto">
       <div className="flex h-8 w-20 items-center justify-center">
         <img src={Announcement} className="h-6 w-6" alt="announcement" />
       </div>

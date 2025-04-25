@@ -65,7 +65,7 @@ export const UserCard = () => {
         {[chatIcon, customerServiceIcon].map((icon, i) => (
           <Button
             key={i}
-            className="mr-1 flex h-10 w-10 items-center justify-center rounded-full bg-purple-900 p-2 last:mr-0"
+            className="mr-1 flex h-10 w-10 items-center justify-center rounded-full bg-primary-gradient p-2 last:mr-0"
           >
             <img src={icon} className="h-full w-full" />
           </Button>
