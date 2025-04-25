@@ -9,6 +9,7 @@ import AvatarIcon from '@/assets/image/avatarIcon.png';
 import CoinOff from '@/assets/image/icons/coin-off.svg';
 import Refresh2 from '@/assets/image/icons/refresh_2.svg';
 import HomeNavbar from '@/components/MobileNavbar/HomeNavbar';
+import Copy from '@/assets/image/profile/settings/accnum_and_sec/copy.svg';
 import { clickNavigate } from '@/globals/utils';
 
 export interface Services {
@@ -65,10 +66,18 @@ const ProfilePage = () => {
         }
       />
       <Block className="flex h-16 items-center">
-        <img slot="media" src={AvatarIcon} className="h-16 w-16 rounded-full bg-blue-500" />
+        <img
+          alt="Avatar"
+          slot="media"
+          src={AvatarIcon}
+          className="h-16 w-16 rounded-full bg-blue-500"
+        />
         <Block className="flex-col gap-1">
           <p className="text-lg">beluga.cat</p>
-          <p className="text-xs">Member Account: beluga.cat07</p>
+          <div className="flex items-center">
+            <p className="text-xs">Member Account: beluga.cat07</p>
+            <img src={Copy} className="h-4 w-4" />
+          </div>
         </Block>
       </Block>
       <ProfileCard
@@ -159,7 +168,7 @@ const ProfilePage = () => {
               className="flex-col justify-items-center"
               {...clickNavigate(`${data.id}`, `${data.id}/`)}
             >
-              <img src={data.icon} className="h-10 w-10" />
+              <img alt={data.label} src={data.icon} className="h-10 w-10" />
               <p className="text-center">{data.label}</p>
             </Link>
           ))}

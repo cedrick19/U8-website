@@ -11,7 +11,7 @@ import AccountSecurity from '@/pages/profile/settings/account-security';
 import AdvanceSecVerification from '@/pages/profile/settings/advance-security-verification/AdvanceSecVerification';
 import ProfilePage from '@/pages/profile/ProfilePage';
 import Settings from '@/pages/profile/settings/Settings';
-import AddVirtualWallet from '@/pages/profile/settings/virtual-address/component/AddVirtualWallet';
+import AddVirtualWallet from '@/pages/profile/settings/virtual-address/add-virtual-wallet/AddVirtualWallet';
 import VirtualAddManagement from '@/pages/profile/settings/virtual-address/VirtualAddManagement';
 import { Router } from 'framework7/types';
 import Recharge from '@/pages/recharge/Recharge';
