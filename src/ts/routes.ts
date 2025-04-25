@@ -130,12 +130,6 @@ const profileRoutes = [
         routes: [{ path: 'a-key/', name: 'A key', component: AKey }],
       },
       {
-        path: 'my-wallet/',
-        name: 'My Wallet',
-        component: MyWallet,
-        routes: [{ path: 'a-key/', name: 'A key', component: AKey }],
-      },
-      {
         path: 'game-management/',
         name: 'Game Management',
         component: MyWallet,
