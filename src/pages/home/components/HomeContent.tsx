@@ -44,10 +44,7 @@ const CatHighlightCard = ({
       >
         <img src={image} alt={title} className="h-32 w-full object-contain" />
         <h2
-          className={cn(
-            'text-center font-extrabold text-purple-900',
-            spanTwo ? 'text-lg font-black' : 'text-3xl',
-          )}
+          className={cn('text-center text-3xl font-extrabold text-purple-900', spanTwo && 'flex-1')}
         >
           {title}
         </h2>
