@@ -96,7 +96,7 @@ const ProfilePage = () => {
             </div>
 
             <div
-              className="flex w-full items-center justify-center"
+              className="mx-auto flex w-fit items-center justify-center"
               onClick={() => f7.view.main.router.navigate('my-wallet/')}
             >
               <p className="text-center text-2xl text-white">0.00</p>
