@@ -1,9 +1,9 @@
 module.exports = {
   globDirectory: 'www/',
-  globPatterns: ['**/*.{woff,woff2,js,css,png,jpg,jpeg,JPG,svg,SVG,html}'],
-
-  /* pass array of globs to exclude from caching */
+  globPatterns: ['**/*.{js,css,html,png,jpg,jpeg,svg,webp,avif,ico,woff,woff2,ttf}'],
   globIgnores: [],
   ignoreURLParametersMatching: [/^utm_/, /^fbclid$/],
   swDest: 'www/service-worker.js',
+  navigateFallback: '/index.html',
+  navigateFallbackDenylist: [/^\/_/, /\/[^\/]+.[^\/]+$/],
 };
