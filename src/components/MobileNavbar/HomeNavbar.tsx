@@ -1,6 +1,6 @@
 import { Link, Navbar, NavLeft, NavRight } from 'framework7-react';
-import Logo from '@/assets/image/logo.png';
-import Telegram from '@/assets/image/Telegram.png';
+import Logo from '@/assets/image/icons/logo.png';
+import Telegram from '@/assets/image/icons/Telegram.png';
 
 type HomeNavbarProps = {
   navRight?: React.ReactNode;

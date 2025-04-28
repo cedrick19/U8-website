@@ -1,7 +1,7 @@
 import { Block, Card } from 'framework7-react';
 import { CardProps } from 'framework7-react/components/card.js';
 import { ReactNode, useCallback, useState } from 'react';
-import Refresh from '@/assets/image/refresh.svg';
+import Refresh from '@/assets/image//svg/refresh.svg';
 
 interface ProfileCardProps {
   className?: string;

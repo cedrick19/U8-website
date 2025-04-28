@@ -5,7 +5,7 @@ import FundManagement from '@/assets/image/profile/more-services/fund_management
 import RechargeTutorial from '@/assets/image/profile/more-services/recharge_tutorial.svg';
 import Share from '@/assets/image/profile/more-services/share.svg';
 import ComingSoon from '@/assets/image/profile/more-services/coming_soon.svg';
-import AvatarIcon from '@/assets/image/avatarIcon.png';
+import AvatarIcon from '@/assets/image/icons/avatarIcon.png';
 import CoinOff from '@/assets/image/icons/coin-off.svg';
 import Refresh2 from '@/assets/image/icons/refresh_2.svg';
 import HomeNavbar from '@/components/MobileNavbar/HomeNavbar';
