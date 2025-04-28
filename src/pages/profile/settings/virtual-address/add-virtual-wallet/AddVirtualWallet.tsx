@@ -47,7 +47,7 @@ const AddVirtualWallet = () => {
               className="border-2 bg-white shadow-none"
               placeholder={data.placeholder}
               rightDecoration={index === 2 && 'visibility'}
-              autoComplete={index === 2 ? `${data.name}-${index}` : undefined}
+              autoComplete={index === 2 ? `pay)p4ssw0rd` : undefined}
             />
           ))}
         </Card>
