@@ -12,11 +12,28 @@ interface CustomInputProps extends InputType {
   name: string;
   value?: string;
   rightDecoration?: RightDecor;
+  leftDecoration?: ReactNode;
 }
 
 const CustomInput = (props: CustomInputProps) => {
   const [isVisible, setIsVisible] = useState(false);
-  const { name, value, label, labelClassName, className, rightDecoration, type, ...rest } = props;
+  const {
+    name,
+    value,
+    label,
+    labelClassName,
+    className,
+    rightDecoration,
+    leftDecoration,
+    type,
+    ...rest
+  } = props;
+
+  const renderLeftDecoration = () => {
+    if (leftDecoration) {
+      return <div className="p-2">{leftDecoration}</div>;
+    }
+  };
 
   const renderRightDecoration = () => {
     switch (rightDecoration) {
@@ -43,6 +60,7 @@ const CustomInput = (props: CustomInputProps) => {
         {label}
       </label>
       <div className={cn('flex items-center rounded-xl bg-[#E6E6E6] p-1 px-5', className)}>
+        {renderLeftDecoration()}
         <input
           id={name.toLowerCase()}
           type={rightDecoration === 'visibility' ? inputType : type}
