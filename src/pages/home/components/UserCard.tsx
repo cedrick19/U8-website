@@ -59,7 +59,7 @@ export const UserCard = () => {
             <>
               <button
                 onClick={handleRefreshClick}
-                className="flex h-6 w-6 items-center justify-center rounded-full bg-purple-900"
+                className="flex h-6 w-6 items-center justify-center rounded-full bg-primary-gradient"
               >
                 <img
                   src={refreshImage}
@@ -82,7 +82,7 @@ export const UserCard = () => {
             href={href}
             {...(external ? { target: '_blank', rel: 'noopener' } : {})}
             aria-label={label}
-            className="flex h-10 w-10 items-center justify-center rounded-full bg-purple-900 p-2"
+            className="flex h-10 w-10 items-center justify-center rounded-full bg-primary-gradient p-2"
           >
             <img src={icon} className="h-full w-full" alt={label} />
           </Button>
