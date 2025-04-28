@@ -5,6 +5,7 @@ import chatIcon from '@/assets/image/chat.svg';
 import customerServiceIcon from '@/assets/image/customer-service.svg';
 import eyeOnIcon from '@/assets/image/eye-on.svg';
 import eyeOffIcon from '@/assets/image/eye-off.svg';
+import { Button } from 'framework7-react';
 
 const actions = [
   {
@@ -76,7 +77,7 @@ export const UserCard = () => {
       </div>
       <div className="flex gap-2">
         {actions.map(({ href, icon, label, external }) => (
-          <a
+          <Button
             key={label}
             href={href}
             {...(external ? { target: '_blank', rel: 'noopener' } : {})}
@@ -84,7 +85,7 @@ export const UserCard = () => {
             className="flex h-10 w-10 items-center justify-center rounded-full bg-purple-900 p-2"
           >
             <img src={icon} className="h-full w-full" alt="" />
-          </a>
+          </Button>
         ))}
       </div>
     </div>
