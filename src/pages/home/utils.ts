@@ -1,11 +1,11 @@
 import { f7 } from 'framework7-react';
-import Video from '@/assets/image/mobilebody/live.png';
-import Lottery from '@/assets/image/mobilebody/lottery.svg';
-import Electronic from '@/assets/image/mobilebody/electronic.svg';
-import Sports from '@/assets/image/mobilebody/sports.png';
-import Fishing from '@/assets/image/mobilebody/fishing.png';
-import Poker from '@/assets/image/mobilebody/poker.png';
-import Chain from '@/assets/image/mobilebody/chain.png';
+import Video from '@/assets/image/home/live.png';
+import Lottery from '@/assets/image/home/lottery.svg';
+import Electronic from '@/assets/image/home/electronic.svg';
+import Sports from '@/assets/image/home/sports.png';
+import Fishing from '@/assets/image/home/fishing.png';
+import Poker from '@/assets/image/home/poker.png';
+import Chain from '@/assets/image/home/chain.png';
 
 export interface TopCard {
   id: string;
