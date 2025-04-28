@@ -11,6 +11,7 @@ import Refresh2 from '@/assets/image/icons/refresh_2.svg';
 import HomeNavbar from '@/components/MobileNavbar/HomeNavbar';
 import Copy from '@/assets/image/profile/settings/accnum_and_sec/copy.svg';
 import { clickNavigate } from '@/globals/utils';
+import { Fragment } from 'react';
 
 export interface Services {
   id?: string;
@@ -41,6 +42,21 @@ const services: Services[] = [
   {
     icon: ComingSoon,
     label: 'Coming Soon',
+  },
+];
+
+const income = [
+  {
+    value: 0,
+    label: 'Number of Statements',
+  },
+  {
+    value: 0,
+    label: 'Total profit and loss',
+  },
+  {
+    value: 0,
+    label: 'Real-time water return',
   },
 ];
 
@@ -96,7 +112,7 @@ const ProfilePage = () => {
             </div>
 
             <div
-              className="flex w-full items-center justify-center"
+              className="mx-auto flex w-fit items-center justify-center"
               onClick={() => f7.view.main.router.navigate('my-wallet/')}
             >
               <p className="text-center text-2xl text-white">0.00</p>
@@ -142,20 +158,19 @@ const ProfilePage = () => {
       >
         <Card className="z-10 border-2 border-white bg-[#ECE8F5] shadow-md shadow-[#d4caf9]" raised>
           <CardContent className="flex items-center justify-center gap-5 py-10">
-            <Block className="">
-              <p className="text-center text-2xl font-bold text-[#4A4A4A]">0 &gt;</p>
-              <p className="text-md text-gradient text-center">Nubmer of Statements</p>
-            </Block>
-            <div className="h-16 border-[1px] border-slate-300" />
-            <Block className="">
-              <p className="text-center text-xl font-bold text-[#4A4A4A]">0.00 &gt;</p>
-              <p className="text-md text-gradient text-center">Total profit and loss</p>
-            </Block>
-            <div className="h-16 border-[1px] border-slate-300" />
-            <Block className="">
-              <p className="text-center text-xl font-bold text-[#4A4A4A]">0.00 &gt;</p>
-              <p className="text-md text-gradient text-center">Real-time water return</p>
-            </Block>
+            {income.map(({ value, label }, index) => (
+              <Fragment key={index}>
+                <Block>
+                  <p className="text-center text-sm font-bold text-[#4A4A4A]">
+                    {value.toFixed(index === 0 ? 0 : 2)} <span>&gt;</span>
+                  </p>
+                  <p className="text-gradient text-center text-xs">{label}</p>
+                </Block>
+                {income.length - 1 !== index && (
+                  <div className="h-16 border-[1px] border-slate-300" />
+                )}
+              </Fragment>
+            ))}
           </CardContent>
         </Card>
       </ProfileCard>

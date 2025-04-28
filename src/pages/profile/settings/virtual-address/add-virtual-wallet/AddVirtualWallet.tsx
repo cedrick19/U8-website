@@ -3,7 +3,7 @@ import ProfileNav from '@/pages/profile/component/ProfileNav';
 import CustomInput from '@/pages/profile/component/CustomInput';
 import WalletTabs from '@/pages/profile/settings/virtual-address/component/WalletTabs';
 import { store } from '@/ts/store';
-import { currency, networkTabs } from './utils';
+import { currency, formInput, networkTabs } from './utils';
 
 const AddVirtualWallet = () => {
   const param = store.state.walletParams;
@@ -37,31 +37,19 @@ const AddVirtualWallet = () => {
       </Card>
       <form>
         <Card raised className="mb-24 space-y-5 bg-white p-5 shadow-md shadow-[#d4caf9]">
-          <CustomInput
-            name="walletAddrAbbr"
-            label="Wallet Address Abbreviation"
-            labelClassName="text-gradient font-bold"
-            rightDecoration={undefined}
-            className="border-2"
-            placeholder="Name"
-          />
-          <CustomInput
-            name="virtualCurrAddr"
-            label="Virtual Currency Address"
-            labelClassName="text-gradient font-bold"
-            className="border-2"
-            placeholder="Enter your virtual currency address"
-          />
-          <CustomInput
-            type="password"
-            name="payPassword"
-            label="Pay Password"
-            labelClassName="text-gradient font-bold"
-            className="border-2"
-            placeholder="Enter your payment password"
-            rightDecoration="visibility"
-            autoComplete="acbc123<>?"
-          />
+          {formInput.map((data, index) => (
+            <CustomInput
+              key={index}
+              type={index === 2 ? 'password' : 'text'}
+              name={data.name}
+              label={data.label}
+              labelClassName="text-gradient font-bold"
+              className="border-2 bg-white shadow-none"
+              placeholder={data.placeholder}
+              rightDecoration={index === 2 && 'visibility'}
+              autoComplete={index === 2 ? `pay)p4ssw0rd` : undefined}
+            />
+          ))}
         </Card>
       </form>
     </Page>
