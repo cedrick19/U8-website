@@ -18,8 +18,10 @@ export const LoginTab = () => {
           inputHeader="Username"
           inputType="text"
           f7icon="person"
+          autocomplete="username"
           placeholder="Your username"
           value={userData.username}
+          labelKey="username"
           setValue={(val) => setUserData({ ...userData, username: val })}
         />
 
@@ -27,8 +29,10 @@ export const LoginTab = () => {
           inputHeader="Password"
           inputType="password"
           f7icon="lock"
+          autocomplete="current-password"
           placeholder="Your password"
           value={userData.password}
+          labelKey="password"
           setValue={(val) => setUserData({ ...userData, password: val })}
         />
       </List>

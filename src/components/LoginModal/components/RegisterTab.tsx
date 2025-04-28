@@ -42,6 +42,7 @@ export const RegisterTab = () => {
           <LoginField
             key={ids}
             labelKey={field.labelKey}
+            autocomplete={field.autocomplete}
             inputHeader={field.inputHeader}
             f7icon={field.f7icon}
             inputType={field.inputType}
@@ -57,6 +58,7 @@ export const RegisterTab = () => {
           checked={userData.agree}
           className="flex w-full flex-row gap-2 pt-5"
           onChange={(e) => setUserData({ ...userData, agree: e.target.checked })}
+          name="checkers"
         >
           <span className="text-gradient text-sm">{renderHighlightedText(privacyPolicy)}</span>
         </Checkbox>
