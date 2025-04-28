@@ -4,7 +4,7 @@ interface SupportNavigation {
   title: string;
 }
 
-export const NotifNav = ({ title }: SupportNavigation) => {
+export const SupportNav = ({ title }: SupportNavigation) => {
   return (
     <Navbar innerClassName="relative" transparent>
       <Link onClick={() => f7.views.main.router.back()}>
