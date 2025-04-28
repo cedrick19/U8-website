@@ -31,3 +31,21 @@ export const networkTabs = [
     ),
   },
 ];
+
+export const formInput = [
+  {
+    name: 'walletAddrAbbr',
+    label: 'Wallet Address Abbreviation',
+    placeholder: 'Name',
+  },
+  {
+    name: 'virtualCurrAddr',
+    label: 'Virtual Currency Address',
+    placeholder: 'Enter your virtual currency address',
+  },
+  {
+    name: 'payPassword',
+    label: 'Pay Password',
+    placeholder: 'Enter your payment password',
+  },
+];

@@ -94,7 +94,7 @@ const AdvanceSecVerification = () => {
             label="Use mailboxes to protect your accounts and transactions."
             name="mailBind"
             value="Unbound"
-            className="justify-between py-3 text-red-500 shadow-md"
+            className="justify-between bg-white py-3 text-red-500 shadow-md"
             readOnly
             autoCapitalize="email bind"
             rightDecoration={
@@ -117,7 +117,7 @@ const AdvanceSecVerification = () => {
             label="Use mailboxes to protect your accounts and transactions."
             name="googleAuth"
             value="Unactivated"
-            className="justify-between py-3 text-red-500 shadow-md"
+            className="justify-between bg-white py-3 text-red-500 shadow-md"
             readOnly
             autoCapitalize="google bind"
             rightDecoration={

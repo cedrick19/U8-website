@@ -39,13 +39,14 @@ const CustomInput = (props: CustomInputProps) => {
 
   return (
     <div className="flex-col space-y-2">
-      <label htmlFor={name} className={cn('flex w-full', labelClassName)}>
+      <label htmlFor={name.toLowerCase()} className={cn('flex w-full', labelClassName)}>
         {label}
       </label>
-      <div className={cn('flex items-center rounded-xl bg-white p-1 px-5', className)}>
+      <div className={cn('flex items-center rounded-xl bg-[#E6E6E6] p-1 px-5', className)}>
         <input
+          id={name.toLowerCase()}
           type={rightDecoration === 'visibility' ? inputType : type}
-          className="h-10 w-full placeholder-[#808080]"
+          className="h-10 w-full bg-transparent placeholder-[#808080]"
           name={name}
           maxLength={12}
           value={value}

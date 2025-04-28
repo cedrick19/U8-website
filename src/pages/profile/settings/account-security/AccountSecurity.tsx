@@ -27,6 +27,7 @@ const AccountSecurity = () => {
       <CustomInput
         type="text"
         name="nickname"
+        className="shadow-inner"
         maxLength={12}
         value={inputVal}
         onChange={(e) => setInputVal(e.target.value)}
@@ -48,6 +49,7 @@ const AccountSecurity = () => {
           <Block key={index} className="space-y-1">
             <CustomInput
               type="password"
+              className="shadow-inner"
               autoComplete={`${index}1@aBc`}
               {...data}
               rightDecoration="visibility"
@@ -70,6 +72,7 @@ const AccountSecurity = () => {
           <Block key={index} className="space-y-1">
             <CustomInput
               type="password"
+              className="shadow-inner"
               autoComplete={`${index}1@aBc`}
               {...data}
               rightDecoration="visibility"
