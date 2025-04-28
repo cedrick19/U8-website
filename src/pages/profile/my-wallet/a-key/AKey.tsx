@@ -1,6 +1,7 @@
 import { Button, Card, CardContent, CardHeader, Page } from 'framework7-react';
 import ProfileNav from '../../component/ProfileNav';
 import { clickNavigate } from '@/globals/utils';
+import { Fragment } from 'react';
 
 const AKey = () => {
   const gameCatBal = [
@@ -55,13 +56,13 @@ const AKey = () => {
         </CardHeader>
         <CardContent className="space-y-3">
           {gameCatBal.map((data, index) => (
-            <>
-              <div className="grid grid-cols-5 gap-3" key={index}>
+            <Fragment key={index}>
+              <div className="grid grid-cols-5 gap-3">
                 <p className="col-span-3">{data.gameCategory}</p>
                 <p className="font-bold">{data.balance}</p>
               </div>
               {index != gameCatBal.length - 1 && <div className="w-full border-[1px]" />}
-            </>
+            </Fragment>
           ))}
         </CardContent>
       </Card>

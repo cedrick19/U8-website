@@ -18,7 +18,7 @@ const CustomPopUp = (props: PopupProps) => {
 
   return (
     <Popup
-      className={cn('absolute inset-0 m-auto h-fit w-[90%] rounded-3xl bg-[#D1D1D1]', className)}
+      className={cn('absolute inset-0 m-auto h-fit w-[90%] rounded-3xl bg-white', className)}
       opened={open}
       animate={false}
       onPopupClose={clAction}
