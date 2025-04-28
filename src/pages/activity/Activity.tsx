@@ -1,69 +1,18 @@
-import { Page, Block, Icon, Link } from 'framework7-react';
+import { Page, Block, Icon, Link, CardContent } from 'framework7-react';
 import Layout from '@/layout/layout';
 import HomeNavbar from '@/components/MobileNavbar/HomeNavbar';
-import activitiesIcon from '@/assets/image/activities/activities.svg';
-import ballIcon from '@/assets/image/activities/ball.svg';
-import videoIcon from '@/assets/image/activities/video.svg';
-import fishIcon from '@/assets/image/activities/fish.svg';
-import gameIcon from '@/assets/image/activities/electronic.svg';
-import newspaperIcon from '@/assets/image/activities/newspaper.svg';
-
-const activities = [
-  { id: 1, title: 'All Activities', icon: activitiesIcon },
-  { id: 2, title: 'Newcomer Activities', icon: newspaperIcon },
-  { id: 3, title: 'Electronic Activities', icon: gameIcon },
-  { id: 4, title: 'Fishing Activities', icon: fishIcon },
-  { id: 5, title: 'Video Activities', icon: videoIcon },
-  { id: 6, title: 'Sports Activities', icon: ballIcon },
-];
+import ActivityBg from '@/assets/image/svg/activity_card.svg';
+import { activities } from './utils';
 
 const ActivityCard = ({ icon, title }: { icon: string; title: string }) => {
   return (
     <>
-      <div className="relative h-[151px] w-full overflow-hidden rounded-lg bg-[#F5F3FC] shadow-sm">
-        <div className="absolute left-0 top-0 h-[50px] w-full">
-          <div
-            className="absolute left-0 top-0 h-full w-full bg-[#D5CEF3]"
-            style={{
-              clipPath: 'polygon(0 0, 100% 0, 100% 40%, 0 100%)',
-            }}
-          />
-          <div
-            className="absolute left-0 top-0 h-full w-full bg-[#C7BCEB]"
-            style={{
-              clipPath: 'polygon(0 0, 100% 0, 100% 20%, 0 70%)',
-            }}
-          />
-          <div
-            className="absolute left-0 top-0 h-full w-full bg-[#B3A7E3]"
-            style={{
-              clipPath: 'polygon(0 0, 100% 0, 100% 0%, 0 40%)',
-            }}
-          />
-        </div>
-
-        <div className="absolute bottom-0 h-[110px] w-full rounded-b-lg">
-          <div className="relative h-full w-full">
-            <div
-              className="absolute bottom-0 h-full w-full rounded-b-lg bg-[#D5CEF3]"
-              style={{ clipPath: 'circle(44% at 50% 110%)' }}
-            />
-            <div
-              className="absolute bottom-0 h-full w-full rounded-b-lg bg-[#B8ADE9]"
-              style={{ clipPath: 'circle(30% at 50% 110%)' }}
-            />
-            <div
-              className="absolute bottom-0 h-full w-full rounded-b-lg bg-[#A598E2]"
-              style={{ clipPath: 'circle(15% at 50% 110%)' }}
-            />
-          </div>
-        </div>
-        <div className="absolute flex h-full w-full flex-col items-center justify-center">
-          <div className="flex h-12 w-12 items-center justify-center">
-            <img src={icon} alt={title} className="h-[36px] max-h-full w-[36px] max-w-full" />
-          </div>
-          <p className="mt-2 text-center text-lg font-bold text-[#5D3B94]">{title}</p>
-        </div>
+      <div className="relative flex h-40 w-full overflow-hidden rounded-2xl shadow-sm">
+        <img src={ActivityBg} alt="activity" className="absolute h-full w-full object-cover" />
+        <CardContent className="flex flex-col items-center justify-center gap-2">
+          <img src={icon} alt={title} className="h-10 w-10 object-contain" />
+          <p className="text-gradient text-center text-2xl font-extrabold">{title}</p>
+        </CardContent>
       </div>
     </>
   );

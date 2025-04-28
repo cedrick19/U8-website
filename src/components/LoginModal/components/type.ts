@@ -9,6 +9,7 @@ export interface RegisterFormData {
 
 export interface LoginFieldType {
   labelKey?: string;
+  autocomplete: string;
   inputHeader: string;
   f7icon: string;
   inputType: 'text' | 'number' | 'password';

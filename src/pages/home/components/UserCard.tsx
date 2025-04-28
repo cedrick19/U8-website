@@ -1,4 +1,4 @@
-import { useState, useCallback } from 'react';
+import { useState } from 'react';
 import { Button, Icon } from 'framework7-react';
 import profileImage from '@/assets/image/icons/avatarIcon.png';
 import refreshImage from '@/assets/image/svg/refresh.svg';
@@ -10,10 +10,10 @@ export const UserCard = () => {
   const [isEyeOn, setIsEyeOn] = useState(true);
   const [isSpinning, setIsSpinning] = useState(false);
 
-  const handleRefreshClick = useCallback(() => {
+  const handleRefreshClick = () => {
     setIsSpinning(true);
     setTimeout(() => setIsSpinning(false), 400);
-  }, []);
+  };
 
   const actions = [
     {

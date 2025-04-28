@@ -3,6 +3,7 @@ import { LoginFieldType, RegisterFormData } from './type';
 export const FieldData = (userData: RegisterFormData): LoginFieldType[] => [
   {
     labelKey: 'username',
+    autocomplete: 'username',
     inputHeader: 'Username',
     f7icon: 'person',
     inputType: 'text',
@@ -11,6 +12,7 @@ export const FieldData = (userData: RegisterFormData): LoginFieldType[] => [
   },
   {
     labelKey: 'password',
+    autocomplete: 'new-password',
     inputHeader: 'Password',
     f7icon: 'lock',
     inputType: 'password',
@@ -19,6 +21,7 @@ export const FieldData = (userData: RegisterFormData): LoginFieldType[] => [
   },
   {
     labelKey: 'confirmPassword',
+    autocomplete: 'new-password',
     inputHeader: 'Confirm Password',
     f7icon: 'lock',
     inputType: 'password',
@@ -27,6 +30,7 @@ export const FieldData = (userData: RegisterFormData): LoginFieldType[] => [
   },
   {
     labelKey: 'tgCred',
+    autocomplete: 'tel',
     inputHeader: 'Telegram username or mobile number',
     f7icon: 'paperplane',
     inputType: 'text',
@@ -35,6 +39,7 @@ export const FieldData = (userData: RegisterFormData): LoginFieldType[] => [
   },
   {
     labelKey: 'inviteCode',
+    autocomplete: 'off',
     inputHeader: 'Invitation code',
     f7icon: 'envelope',
     inputType: 'text',
