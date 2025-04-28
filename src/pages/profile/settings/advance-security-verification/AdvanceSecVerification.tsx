@@ -20,12 +20,17 @@ const AdvanceSecVerification = () => {
         clText="Cancel"
       >
         <Block className="space-y-8">
-          <CustomInput name="mailbox" label="Mailbox" placeholder="Enter your mailbox" />
+          <CustomInput
+            className="shadow-inner"
+            name="mailbox"
+            label="Mailbox"
+            placeholder="Enter your mailbox"
+          />
           <CustomInput
             name="verificationCode"
             label="Verification Code"
             placeholder="Enter code"
-            className="py-0 pr-0"
+            className="py-0 pr-0 shadow-inner"
             rightDecoration={
               <Button
                 className="rounded-l-none rounded-r-xl bg-primary-gradient px-8"
