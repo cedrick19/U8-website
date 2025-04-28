@@ -24,6 +24,7 @@ import Refresh from '@/pages/profile/my-wallet/refresh';
 import RechargeTutorial from '@/pages/profile/more-services/recharge-tutorial';
 import GameManage from '@/pages/profile/more-services/game-management';
 import ReturnRatioDetails from '@/pages/profile/more-services/game-management/return-ratio-details/ReturnRatioDetails';
+import SupportPage from '@/pages/support';
 
 const gameRoutes = [
   {
@@ -172,6 +173,11 @@ export const webRoutes: Router.RouteParameters[] = [
             component: NotifDetail,
           },
         ],
+      },
+      {
+        path: '/support/',
+        name: 'Support',
+        component: SupportPage,
       },
       ...profileRoutes,
       ...gameRoutes,
