@@ -9,7 +9,7 @@ type SupportChannel = {
   icon: string;
 };
 
-const CHANNELS: SupportChannel[] = [
+const channels: SupportChannel[] = [
   { label: 'telegram', handle: '@telegram', icon: TelegramIcon },
   { label: 'meiQia', handle: 'Chinese', icon: MeiQiaIcon },
 ];
@@ -33,7 +33,7 @@ const SupportPage = () => {
       <SupportNav title="24H Customer Service" />
       <Block>
         <div className="space-y-1 pb-20">
-          {CHANNELS.map((c) => (
+          {channels.map((c) => (
             <SupportCard key={c.label} {...c} />
           ))}
         </div>
