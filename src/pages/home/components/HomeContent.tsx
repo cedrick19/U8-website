@@ -40,11 +40,18 @@ const CatHighlightCard = ({
     <Card className={cn('h-full', cardBaseClass)}>
       <LineCardPolygon />
       <div
-        className={cn('relative flex p-4', spanTwo ? 'flex-row-reverse items-center' : 'flex-col')}
+        className={cn('relative flex p-3', spanTwo ? 'flex-row-reverse items-center' : 'flex-col')}
       >
-        <img src={image} alt={title} className="h-32 w-full object-contain" />
+        <img
+          src={image}
+          alt={title}
+          className={cn('object-contain', spanTwo ? 'h-full' : 'h-36')}
+        />
         <h2
-          className={cn('text-gradient text-center text-3xl font-extrabold', spanTwo && 'flex-1')}
+          className={cn(
+            'text-gradient text-3xl font-extrabold',
+            spanTwo ? 'text-left' : 'text-center',
+          )}
         >
           {title}
         </h2>
