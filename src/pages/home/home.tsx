@@ -2,7 +2,7 @@ import { Page, Link } from 'framework7-react';
 import { useEffect, useMemo, useState } from 'react';
 import { getDevice } from 'framework7';
 import HomeCarousel from './components/HomeCarousel';
-import Bell from '@/assets/image/bell.svg';
+import Bell from '@/assets/image/svg/bell.svg';
 import { HomeContent, TextCarousel, UserCard } from './components';
 import { LoginModal } from '@/components/LoginModal';
 import { HomeNavbar } from '@/components/MobileNavbar';

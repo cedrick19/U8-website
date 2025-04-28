@@ -1,7 +1,7 @@
 import { Block, Page, Button } from 'framework7-react';
 import { SupportNav } from './components';
-import TelegramIcon from '@/assets/image/telegram.svg';
-import MeiQiaIcon from '@/assets/image/customer_service1.svg';
+import TelegramIcon from '@/assets/image/svg/telegram.svg';
+import MeiQiaIcon from '@/assets/image/svg/customer_service1.svg';
 
 type SupportChannel = {
   label: string;

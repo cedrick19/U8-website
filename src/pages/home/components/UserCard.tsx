@@ -1,9 +1,9 @@
 import { useState } from 'react';
 import { Button, Icon } from 'framework7-react';
-import profileImage from '@/assets/image/avatarIcon.png';
-import refreshImage from '@/assets/image/refresh.svg';
-import chatIcon from '@/assets/image/chat.svg';
-import customerServiceIcon from '@/assets/image/customer-service.svg';
+import profileImage from '@/assets/image/icons/avatarIcon.png';
+import refreshImage from '@/assets/image/svg/refresh.svg';
+import chatIcon from '@/assets/image/svg/chat.svg';
+import customerServiceIcon from '@/assets/image/svg/customer-service.svg';
 import { cn } from '@/globals/utils';
 
 export const UserCard = () => {

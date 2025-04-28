@@ -1,4 +1,4 @@
-import Announcement from '@/assets/image/announcement.svg';
+import Announcement from '@/assets/image/svg/announcement.svg';
 import { Fragment } from 'react/jsx-runtime';
 
 const marqueeData = [
