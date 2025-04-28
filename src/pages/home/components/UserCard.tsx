@@ -15,6 +15,20 @@ export const UserCard = () => {
     setTimeout(() => setIsSpinning(false), 400);
   }, []);
 
+  const actions = [
+    {
+      href: 'https://t.me/SAMPLE',
+      icon: chatIcon,
+      label: 'Open Telegram channel',
+      external: true,
+    },
+    {
+      href: '/support/',
+      icon: customerServiceIcon,
+      label: 'Open customer support',
+      external: false,
+    },
+  ];
   return (
     <div className="flex w-full items-center justify-between px-5 py-3">
       <div className="flex flex-row items-center gap-2">
@@ -45,7 +59,7 @@ export const UserCard = () => {
             <>
               <button
                 onClick={handleRefreshClick}
-                className="h-6 w-6 items-center justify-center rounded-full bg-primary-gradient"
+                className="flex h-6 w-6 items-center justify-center rounded-full bg-primary-gradient"
               >
                 <img
                   src={refreshImage}
@@ -61,13 +75,16 @@ export const UserCard = () => {
         </div>
       </div>
 
-      <div className="flex flex-row">
-        {[chatIcon, customerServiceIcon].map((icon, i) => (
+      <div className="flex gap-2">
+        {actions.map(({ href, icon, label, external }) => (
           <Button
-            key={i}
-            className="mr-1 flex h-10 w-10 items-center justify-center rounded-full bg-primary-gradient p-2 last:mr-0"
+            key={label}
+            href={href}
+            {...(external ? { target: '_blank', rel: 'noopener' } : {})}
+            aria-label={label}
+            className="flex h-10 w-10 items-center justify-center rounded-full bg-primary-gradient p-2"
           >
-            <img src={icon} className="h-full w-full" />
+            <img src={icon} className="h-full w-full" alt={label} />
           </Button>
         ))}
       </div>
