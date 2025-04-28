@@ -7,7 +7,7 @@ import videoIcon from '@/assets/image/icons/video.svg';
 import fishIcon from '@/assets/image/icons/fish.svg';
 import gameIcon from '@/assets/image/icons/electronic.svg';
 import newspaperIcon from '@/assets/image/icons/newspaper.svg';
-
+import LineCardPolygon from '@/components/LineCardPolygon/LineCardpolygon';
 const activities = [
   { id: 1, title: 'All Activities', icon: activitiesIcon },
   { id: 2, title: 'Newcomer Activities', icon: newspaperIcon },
@@ -42,27 +42,7 @@ const ActivityPage = () => {
             {activities.map((activity) => (
               <div key={activity.id} className="w-full">
                 <div className="relative h-[151px] w-full overflow-hidden rounded-lg bg-[#F5F3FC] shadow-sm">
-                  <div className="absolute left-0 top-0 h-[50px] w-full">
-                    <div
-                      className="absolute left-0 top-0 h-full w-full bg-[#D5CEF3]"
-                      style={{
-                        clipPath: 'polygon(0 0, 100% 0, 100% 40%, 0 100%)',
-                      }}
-                    />
-                    <div
-                      className="absolute left-0 top-0 h-full w-full bg-[#C7BCEB]"
-                      style={{
-                        clipPath: 'polygon(0 0, 100% 0, 100% 20%, 0 70%)',
-                      }}
-                    />
-                    <div
-                      className="absolute left-0 top-0 h-full w-full bg-[#B3A7E3]"
-                      style={{
-                        clipPath: 'polygon(0 0, 100% 0, 100% 0%, 0 40%)',
-                      }}
-                    />
-                  </div>
-
+                  <LineCardPolygon />
                   <div className="absolute bottom-0 h-[110px] w-full rounded-b-lg">
                     <div className="relative h-full w-full">
                       <div
