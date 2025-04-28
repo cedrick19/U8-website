@@ -4,6 +4,7 @@ import { LoginFieldProps } from './type';
 
 export const LoginField = ({
   labelKey,
+  autocomplete,
   inputHeader,
   f7icon,
   inputType,
@@ -25,8 +26,8 @@ export const LoginField = ({
         <Icon f7={f7icon} size={22} className="text-gradient" />
         <Input
           type={inputType === 'password' && togglePass ? 'text' : inputType}
-          autocomplete={`${labelKey}diveu`}
-          id={labelKey}
+          autocomplete={autocomplete}
+          name={labelKey}
           placeholder={placeholder}
           value={value}
           className="w-full"
