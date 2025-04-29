@@ -17,7 +17,7 @@ const CategoryCard = ({ name, image, route }: Category) => (
         <div className="h-[25px] rounded-xl bg-gradient-to-r from-[#A03D8C] to-[#4C2CCA] pb-[2px]">
           <div className="h-full w-full rounded-xl bg-white">
             <Button
-              className="h-[20px] w-full rounded-xl bg-primary-gradient px-0 text-xs font-bold normal-case text-white"
+              className="h-[20px] w-full rounded-xl bg-primary-gradient text-xs font-bold normal-case text-white"
               onClick={() => navigateToRoute(route)}
             >
               {name}
