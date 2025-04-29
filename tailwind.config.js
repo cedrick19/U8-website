@@ -10,7 +10,7 @@ module.exports = {
         },
       },
       animation: {
-        marquee: 'marquee 20s linear infinite',
+        marquee: 'marquee 10s linear infinite',
       },
       backgroundImage: {
         'primary-gradient': 'linear-gradient(to right, #A03D8C, #4C2CCA)',
