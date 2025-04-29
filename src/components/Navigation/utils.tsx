@@ -42,7 +42,7 @@ export const MobileNavItems = [
   },
 ];
 
-export const toolBarUrl = ['/', '/games/', '/activity/', '/profile/'];
+export const toolBarUrl = ['/', '/games/', '/activity/', '/profile/', '/recharge/'];
 
 export const routes = [
   { path: '/', name: 'Home' },
@@ -69,5 +69,9 @@ export const routes = [
   {
     path: '/games/fishing/',
     name: 'Fishing',
+  },
+  {
+    path: '/activity/',
+    name: 'Activities',
   },
 ];
