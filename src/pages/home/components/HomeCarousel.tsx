@@ -2,8 +2,8 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Pagination, Autoplay, Navigation } from 'swiper/modules';
 import { useState } from 'react';
 import { Button } from 'framework7-react';
-import Carousel1 from '@/assets/image/carousel1.jpg';
-import Carousel2 from '@/assets/image/carousel2.jpg';
+import Carousel1 from '@/assets/image/home/carousel1.jpg';
+import Carousel2 from '@/assets/image/home/carousel2.jpg';
 
 import 'swiper/css';
 import 'swiper/css/pagination';

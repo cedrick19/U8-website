@@ -2,7 +2,7 @@ import { Block, Button, Card, CardContent, Icon, Link, Page } from 'framework7-r
 import ProfileNav from '../component/ProfileNav';
 import ProfileCard from '../component/ProfileCard';
 import CoinOff from '@/assets/image/icons/coin-off.svg';
-import Refresh from '@/assets/image/refresh.svg';
+import Refresh from '@/assets/image/svg/refresh.svg';
 import SettingItem from '../component/SettingItem';
 import { clickNavigate } from '@/globals/utils';
 

@@ -5,7 +5,7 @@ import { RefreshOptions } from '@/pages/profile/my-wallet/refresh/components/uti
 
 const Refresh = () => {
   return (
-    <Page name="Refresh" className="relative">
+    <Page name="Refresh">
       <div className="absolute h-[40%] w-full rounded-br-full bg-gradient-to-br from-[#381E7B]/20 via-transparent to-transparent backdrop:blur-3xl" />
       <ProfileNav
         title="Refresh"
