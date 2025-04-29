@@ -27,9 +27,11 @@ export const ToolMobile = () => {
         setActiveUrl(foobar ? foobar : newRoute.url !== '/' ? previousRoute.url : '/');
       });
 
-      const currPath = f7.view.main.router.currentRoute?.url || '';
-      const urlMatch = toolBarUrl.find((item) => item !== '/' && currPath.includes(item));
-      setActiveUrl(urlMatch !== undefined ? urlMatch : '/');
+      f7.view.main.router.on('pageInit', (page) => {
+        const currPath = page.router.currentRoute.url;
+        const urlMatch = toolBarUrl.find((item) => item !== '/' && currPath.includes(item));
+        setActiveUrl(urlMatch !== undefined ? urlMatch : '/');
+      });
 
       return () => {
         f7.view.main.router.off('routeChange', (newRoute, previousRoute) => {
