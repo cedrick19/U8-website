@@ -14,6 +14,7 @@ interface ProfileActions {
 export const initialProfileState = {
   walletParams: 'usdt',
   gameActiveState: 0,
+  fundActiveState: 0,
 };
 
 export const profileStoreAction: ProfileActions = {
