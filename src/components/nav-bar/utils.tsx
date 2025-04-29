@@ -42,6 +42,8 @@ export const MobileNavItems = [
   },
 ];
 
+export const toolBarUrl = ['/', '/games/', '/activity/', '/profile/'];
+
 export const routes = [
   { path: '/', name: 'Home' },
   {
