@@ -23,7 +23,6 @@ export const ToolMobile = () => {
   useEffect(() => {
     f7ready(() =>
       f7.view.main.router.on('routeChange', (newRoute, previousRoute) => {
-        console.log('new url', newRoute.url);
         const foobar = toolBarUrl.find((item) => item === newRoute.url);
         setActiveUrl(foobar !== undefined ? newRoute.url : previousRoute.url);
       }),
