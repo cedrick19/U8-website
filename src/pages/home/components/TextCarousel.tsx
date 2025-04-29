@@ -3,12 +3,12 @@ import Announcement from '@/assets/image/svg/announcement.svg';
 const marqueeData = [
   {
     message: 'Congratulations to the player c**** in Canada win',
-    game: 'Mahjong',
+    game: 'Mahjong.',
     price: '40000 Yuan',
   },
   {
     message: 'Congratulations to the player B**** in Philippines win',
-    game: 'Lottery',
+    game: 'Lottery.',
     price: '50000 Pesos',
   },
 ];
@@ -21,7 +21,7 @@ export const TextCarousel = () => {
         <span className="mx-1 text-green-500">{price}</span>
         <span>of game</span>
         <span className="mx-1 text-blue-500">{game}</span>
-        {index !== marqueeData.length - 1 && <span className="mx-1"></span>}
+        {index !== marqueeData.length - 1 && <span></span>}
       </span>
     ));
 
