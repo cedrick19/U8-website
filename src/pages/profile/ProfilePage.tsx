@@ -12,6 +12,7 @@ import HomeNavbar from '@/components/MobileNavbar/HomeNavbar';
 import Copy from '@/assets/image/profile/settings/accnum_and_sec/copy.svg';
 import { clickNavigate } from '@/globals/utils';
 import { Fragment } from 'react';
+import { store } from '@/ts/store';
 
 export interface Services {
   id?: string;
@@ -49,18 +50,26 @@ const income = [
   {
     value: 0,
     label: 'Number of Statements',
+    activeTab: 0,
   },
   {
     value: 0,
     label: 'Total profit and loss',
+    activeTab: 1,
   },
   {
     value: 0,
     label: 'Real-time water return',
+    activeTab: 2,
   },
 ];
 
 const ProfilePage = () => {
+  const { dispatch } = store;
+  const handleNavigate = (activeTab: number, index: number) => {
+    dispatch('setGameActiveState', activeTab);
+    clickNavigate(`index-${index}`, 'game-management/').onClick();
+  };
   return (
     <Page name="profile">
       <HomeNavbar
@@ -157,15 +166,15 @@ const ProfilePage = () => {
         }
       >
         <Card className="z-10 border-2 border-white bg-[#ECE8F5] shadow-md shadow-[#d4caf9]" raised>
-          <CardContent className="flex items-center justify-center gap-5 py-10">
-            {income.map(({ value, label }, index) => (
+          <CardContent className="flex items-start justify-center gap-5 py-10">
+            {income.map(({ value, label, activeTab }, index) => (
               <Fragment key={index}>
-                <Block>
+                <div id={`index-${index}`} onClick={() => handleNavigate(activeTab, index)}>
                   <p className="text-center text-sm font-bold text-[#4A4A4A]">
                     {value.toFixed(index === 0 ? 0 : 2)} <span>&gt;</span>
                   </p>
                   <p className="text-gradient text-center text-xs">{label}</p>
-                </Block>
+                </div>
                 {income.length - 1 !== index && (
                   <div className="h-16 border-[1px] border-slate-300" />
                 )}
