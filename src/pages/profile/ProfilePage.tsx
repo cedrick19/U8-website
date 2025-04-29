@@ -169,7 +169,11 @@ const ProfilePage = () => {
           <CardContent className="flex items-start justify-center gap-5 py-10">
             {income.map(({ value, label, activeTab }, index) => (
               <Fragment key={index}>
-                <Link id={`index-${index}`} onClick={() => handleNavigate(activeTab, index)}>
+                <Link
+                  className="flex-col"
+                  id={`index-${index}`}
+                  onClick={() => handleNavigate(activeTab, index)}
+                >
                   <p className="text-center text-sm font-bold text-[#4A4A4A]">
                     {value.toFixed(index === 0 ? 0 : 2)} <span>&gt;</span>
                   </p>
