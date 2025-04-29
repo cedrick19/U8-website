@@ -1,6 +1,6 @@
 import { Page, Block, Icon, Link, CardContent } from 'framework7-react';
 import Layout from '@/layout/layout';
-import HomeNavbar from '@/components/MobileNavbar/HomeNavbar';
+import HomeNavbar from '@/components/mobile-navbar/HomeNavbar';
 import ActivityBg from '@/assets/image/svg/activity_card.svg';
 import { activities } from './utils';
 

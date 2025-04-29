@@ -1,9 +1,9 @@
 import type React from 'react';
 import { App, Page, View } from 'framework7-react';
-import NavBar from './components/Navigation/Navigation';
+import NavBar from './components/navigation/ToolDesktop';
 import appRoutes from './ts/appRoutes';
 import { getDevice } from 'framework7';
-import { ToolMobile } from './components/Navigation';
+import { ToolMobile } from './components/navigation';
 import { AuthProvider } from './components/AuthContext';
 import { store } from './ts/store';
 

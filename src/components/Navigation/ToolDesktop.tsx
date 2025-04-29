@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react';
 import { Block, Button, f7, f7ready, Icon, Link } from 'framework7-react';
 import Telegram from '@/assets/image/icons/telegram_logo.png';
-import { routes } from './utils';
 import { useAuth } from '@/hooks/useAuth';
+import { routes } from './utils';
 
-export const NavBar = () => {
+export const ToolDesktop = () => {
   const [activeUrl, setActiveUrl] = useState<string>('/');
   const { isLoggedIn } = useAuth();
 
@@ -100,4 +100,4 @@ export const NavBar = () => {
   );
 };
 
-export default NavBar;
+export default ToolDesktop;
