@@ -21,14 +21,21 @@ export const ToolMobile = () => {
   };
 
   useEffect(() => {
-    const currentPath = f7?.views?.main?.router?.currentRoute?.path || '/';
-    const cleanedPath = currentPath.replace(/^\/|\/$/g, '');
-    const index = MobileNavItems.findIndex(
-      (item) => item.tabLink === cleanedPath || (cleanedPath === '' && item.tabLink === 'home'),
-    );
+    const updateActiveTab = () => {
+      const currentPath = f7?.views?.main?.router?.currentRoute?.path || '/';
+      const cleanedPath = currentPath.replace(/^\/|\/$/g, '');
+      const index = MobileNavItems.findIndex(
+        (item) => item.tabLink === cleanedPath || (cleanedPath === '' && item.tabLink === 'home'),
+      );
 
-    if (index >= 0) setActiveTab(index);
-    if (cleanedPath === 'recharge') setActiveTab(5);
+      if (index >= 0) setActiveTab(index);
+      if (cleanedPath === 'recharge') setActiveTab(5);
+    };
+    updateActiveTab();
+    f7.views.main.router.on('routeChange', updateActiveTab);
+    return () => {
+      f7.views.main.router.off('routeChange', updateActiveTab);
+    };
   }, []);
 
   return (
