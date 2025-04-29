@@ -3,9 +3,9 @@ import { useEffect, useState } from 'react';
 import { cn } from '@/globals/utils';
 import CoinActive from '@/assets/image/icons/coin-on.svg';
 import CoinInactive from '@/assets/image/icons/coin-off.svg';
-import { MobileNavItems, toolBarUrl } from './utils';
 import { useAuth } from '@/hooks/useAuth';
-import { ToolMobileSvg } from './ToolMobileSvg';
+import SvgMobile from './SvgMobile';
+import { MobileNavItems, toolBarUrl } from './utils';
 
 export const ToolMobile = () => {
   const [activeUrl, setActiveUrl] = useState<string>('/');
@@ -21,18 +21,29 @@ export const ToolMobile = () => {
   };
 
   useEffect(() => {
-    f7ready(() =>
+    f7ready(() => {
       f7.view.main.router.on('routeChange', (newRoute, previousRoute) => {
         const foobar = toolBarUrl.find((item) => item === newRoute.url);
         setActiveUrl(foobar !== undefined ? newRoute.url : previousRoute.url);
-      }),
-    );
+      });
+
+      const currPath = f7.view.main.router.currentRoute?.url || '';
+      const urlMatch = toolBarUrl.find((item) => item === currPath);
+      setActiveUrl(urlMatch !== undefined ? currPath : '/');
+
+      return () => {
+        f7.view.main.router.off('routeChange', (newRoute, previousRoute) => {
+          const foobar = toolBarUrl.find((item) => item === newRoute.url);
+          setActiveUrl(foobar !== undefined ? newRoute.url : previousRoute.url);
+        });
+      };
+    });
   }, []);
 
   return (
     <>
       <Block className="absolute -bottom-9 z-10 flex h-24 w-full flex-row justify-between sm:h-40">
-        <ToolMobileSvg />
+        <SvgMobile />
         <Link
           className="absolute bottom-10 left-1/2 h-14 w-14 -translate-x-1/2 rounded-full bg-primary-gradient shadow-xl shadow-[#613EEA]/50 sm:h-28 sm:w-28 md:bottom-16"
           href="/recharge/"

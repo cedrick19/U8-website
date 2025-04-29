@@ -5,7 +5,7 @@ import HomeCarousel from './components/HomeCarousel';
 import Bell from '@/assets/image/svg/bell.svg';
 import { HomeContent, TextCarousel, UserCard } from './components';
 import { LoginModal } from '@/components/LoginModal';
-import { HomeNavbar } from '@/components/MobileNavbar';
+import { HomeNavbar } from '@/components/mobile-navbar';
 
 const HomePage = () => {
   const [isTablet, setIsTablet] = useState(false);

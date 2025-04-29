@@ -1,6 +1,6 @@
 import { Block, f7, Icon, Link, Page } from 'framework7-react';
 
-import HomeNavbar from '@/components/MobileNavbar/HomeNavbar';
+import HomeNavbar from '@/components/mobile-navbar/HomeNavbar';
 
 import { gameInfo } from './utils';
 import { TileMenu } from './components';
