@@ -83,6 +83,9 @@ export const UserCard = () => {
             {...(external ? { target: '_blank', rel: 'noopener' } : {})}
             aria-label={label}
             className="flex h-10 w-10 items-center justify-center rounded-full bg-primary-gradient p-2"
+            onClick={(e) => {
+              (e.currentTarget as HTMLAnchorElement).blur();
+            }}
           >
             <img src={icon} className="h-full w-full" alt={label} />
           </Button>
