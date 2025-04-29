@@ -1,18 +1,11 @@
+import { initialProfileState, profileStoreAction } from '@/store/profileStore';
 import { createStore } from 'framework7';
-
-interface WalletParams {
-  state: {
-    walletParams: string;
-  };
-}
 
 export const store = createStore({
   state: {
-    walletParams: 'usdt',
+    ...initialProfileState,
   },
   actions: {
-    setParams: ({ state }: WalletParams, params: string) => {
-      state.walletParams = params;
-    },
+    ...profileStoreAction,
   },
 });

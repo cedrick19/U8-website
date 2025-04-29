@@ -2,6 +2,7 @@ import { Block, Page } from 'framework7-react';
 import ProfileNav from '@/pages/profile/component/ProfileNav';
 import { SegmentButtons, SegmentedTabs } from '@/components/SegmentedTabs';
 import { GameNote, RealTimeWater, TotalProfitLoss } from './tabs';
+import { store } from '@/ts/store';
 
 const GameManageArray: SegmentButtons[] = [
   {
@@ -19,11 +20,12 @@ const GameManageArray: SegmentButtons[] = [
 ];
 
 const GameManage = () => {
+  const { state } = store;
   return (
     <Page name="Game Management">
       <ProfileNav title="Game Management" />
       <Block>
-        <SegmentedTabs tabArray={GameManageArray} />
+        <SegmentedTabs tabArray={GameManageArray} defaultActiveTabIndex={state.gameActiveState} />
       </Block>
     </Page>
   );
