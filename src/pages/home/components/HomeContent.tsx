@@ -14,7 +14,7 @@ const CategoryCard = ({ name, image, route }: Category) => (
         <img src={image} alt={name} className="h-full w-full object-contain" />
       </div>
       <div className="w-full pb-4">
-        <div className="h-[25px] rounded-xl bg-gradient-to-r from-[#A03D8C] to-[#4C2CCA] pb-[2px]">
+        <div className="h-[25px] rounded-xl bg-primary-gradient pb-[2px]">
           <div className="h-full w-full rounded-xl bg-white">
             <Button
               className="h-[20px] w-full rounded-xl bg-primary-gradient text-xs font-bold normal-case text-white"

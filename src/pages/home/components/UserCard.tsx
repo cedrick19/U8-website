@@ -30,7 +30,7 @@ export const UserCard = () => {
     },
   ];
   return (
-    <div className="flex w-full items-center justify-between px-5 py-3">
+    <div className="flex w-full items-center justify-between px-5">
       <div className="flex flex-row items-center gap-2">
         <img
           src={profileImage}

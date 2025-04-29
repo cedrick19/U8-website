@@ -7,9 +7,9 @@ const marqueeData = [
     price: '40000 Yuan',
   },
   {
-    message: 'Congratulations to the player c**** in Canada win',
-    game: 'Mahjong.',
-    price: '40000 Yuan',
+    message: 'Congratulations to the player c**** in Philippines win',
+    game: 'Lotto',
+    price: '40000 Pesos',
   },
 ];
 
