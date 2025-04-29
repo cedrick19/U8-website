@@ -1,4 +1,4 @@
-export const ToolMobileSvg = ({ color = 'white' }: { color?: string }) => (
+export const SvgMobile = ({ color = 'white' }: { color?: string }) => (
   <svg
     className="absolute left-0 z-0 h-full w-full shadow-secondary/30"
     viewBox="0 0 440 85"
@@ -14,4 +14,4 @@ export const ToolMobileSvg = ({ color = 'white' }: { color?: string }) => (
   </svg>
 );
 
-export default ToolMobileSvg;
+export default SvgMobile;

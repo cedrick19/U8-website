@@ -1,4 +1,4 @@
-import { cn } from '@/globals/utils';
+import { cn } from '@/utils/helper';
 import { Segmented, Link } from 'framework7-react';
 import CoinOn from '@/assets/image/icons/coin-on.svg';
 import { useState } from 'react';

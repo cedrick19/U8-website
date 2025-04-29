@@ -1,21 +1,40 @@
 import { useEffect, useState } from 'react';
-import { Block, Button, f7, Icon, Link } from 'framework7-react';
+import { Block, Button, f7, f7ready, Icon, Link } from 'framework7-react';
 import Telegram from '@/assets/image/icons/telegram_logo.png';
+import { useAuth } from '@/hooks/useAuth';
 import { routes } from './utils';
 
-export const NavBar = () => {
-  const [activeTab, setActiveTab] = useState<number>(0);
+export const ToolDesktop = () => {
+  const [activeUrl, setActiveUrl] = useState<string>('/');
+  const { isLoggedIn } = useAuth();
+
+  const handleNav = (url: string) => {
+    if (!isLoggedIn) {
+      f7.loginScreen.open('#loginHere');
+      setActiveUrl(url);
+    } else {
+      setActiveUrl(url);
+    }
+  };
 
   useEffect(() => {
-    const currentPath = f7?.views?.main?.router?.currentRoute?.path || '/';
-    const cleanedPath = currentPath.replace(/^\/|\/$/g, '');
+    f7ready(() => {
+      f7.view.main.router.on('routeChange', (newRoute, prevRoute) => {
+        const foobar = routes.find((route) => route.path === newRoute.url);
+        setActiveUrl(foobar !== undefined ? newRoute.url : prevRoute.url);
+      });
 
-    const index = routes.findIndex((route) => {
-      const routePath = route.path.replace(/^\/|\/$/g, '');
-      return routePath === cleanedPath || (cleanedPath === '' && routePath === '');
+      const currPath = f7.view.main.router.currentRoute?.url || '';
+      const urlMatch = routes.find((route) => route.path === currPath);
+      setActiveUrl(urlMatch !== undefined ? currPath : '/');
+
+      return () => {
+        f7.view.main.router.off('routeChange', (newRoute, previousRoute) => {
+          const foobar = routes.find((route) => route.path === newRoute.url);
+          setActiveUrl(foobar !== undefined ? newRoute.url : previousRoute.url);
+        });
+      };
     });
-
-    if (index >= 0) setActiveTab(index);
   }, []);
 
   return (
@@ -38,12 +57,14 @@ export const NavBar = () => {
               key={ids}
               href={route.path}
               rippleColor="none"
-              onClick={() => setActiveTab(ids)}
+              onClick={() => handleNav(route.path)}
               animate={false}
             >
               <span
                 className={
-                  activeTab === ids ? 'text-gradient font-black' : 'font-semibold text-inactive'
+                  activeUrl === route.path
+                    ? 'text-gradient font-black'
+                    : 'font-semibold text-inactive'
                 }
               >
                 {route?.name?.toUpperCase()}
@@ -79,4 +100,4 @@ export const NavBar = () => {
   );
 };
 
-export default NavBar;
+export default ToolDesktop;

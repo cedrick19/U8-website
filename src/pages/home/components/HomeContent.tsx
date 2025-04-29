@@ -1,7 +1,7 @@
 import { Card, CardContent, Button } from 'framework7-react';
 import { topCards, categories, navigateToRoute, TopCard, Category } from '@/pages/home/utils';
 import LineCardPolygon from '@/components/LineCardPolygon/LineCardpolygon';
-import { cn } from '@/globals/utils';
+import { cn } from '@/utils/helper';
 
 const cardBaseClass =
   'm-0 overflow-hidden rounded-xl border-2 border-white shadow-md bg-[#4C2CCA4D]/10';
@@ -40,11 +40,18 @@ const CatHighlightCard = ({
     <Card className={cn('h-full', cardBaseClass)}>
       <LineCardPolygon />
       <div
-        className={cn('relative flex p-4', spanTwo ? 'flex-row-reverse items-center' : 'flex-col')}
+        className={cn('relative flex p-3', spanTwo ? 'flex-row-reverse items-center' : 'flex-col')}
       >
-        <img src={image} alt={title} className="h-32 w-full object-contain" />
+        <img
+          src={image}
+          alt={title}
+          className={cn('object-contain', spanTwo ? 'h-full' : 'h-36')}
+        />
         <h2
-          className={cn('text-gradient text-center text-3xl font-extrabold', spanTwo && 'flex-1')}
+          className={cn(
+            'text-gradient text-3xl font-extrabold',
+            spanTwo ? 'text-left' : 'text-center',
+          )}
         >
           {title}
         </h2>

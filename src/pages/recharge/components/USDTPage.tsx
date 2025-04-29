@@ -1,4 +1,4 @@
-import { cn } from '@/globals/utils';
+import { cn } from '@/utils/helper';
 import { Block, Button, Icon } from 'framework7-react';
 import { useState } from 'react';
 import { paymentDetails, usdtWarmTips } from './utils';

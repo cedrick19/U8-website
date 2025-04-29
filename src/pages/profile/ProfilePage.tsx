@@ -8,9 +8,9 @@ import ComingSoon from '@/assets/image/profile/more-services/coming_soon.svg';
 import AvatarIcon from '@/assets/image/icons/avatarIcon.png';
 import CoinOff from '@/assets/image/icons/coin-off.svg';
 import Refresh2 from '@/assets/image/icons/refresh_2.svg';
-import HomeNavbar from '@/components/MobileNavbar/HomeNavbar';
+import HomeNavbar from '@/components/mobile-navbar/HomeNavbar';
 import Copy from '@/assets/image/profile/settings/accnum_and_sec/copy.svg';
-import { clickNavigate } from '@/globals/utils';
+import { clickNavigate } from '@/utils/helper';
 import { Fragment } from 'react';
 import { store } from '@/ts/store';
 

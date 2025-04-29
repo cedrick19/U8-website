@@ -1,5 +1,5 @@
 import { Fragment } from 'react';
-import { cn } from '@/globals/utils';
+import { cn } from '@/utils/helper';
 import {
   GameContent,
   GridBody,

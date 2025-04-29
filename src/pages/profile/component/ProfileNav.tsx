@@ -1,4 +1,4 @@
-import { cn } from '@/globals/utils';
+import { cn } from '@/utils/helper';
 import { Navbar, Link, f7, Icon, NavRight } from 'framework7-react';
 
 interface ProfileNavigation {
