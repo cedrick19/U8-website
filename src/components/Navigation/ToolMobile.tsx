@@ -23,18 +23,18 @@ export const ToolMobile = () => {
   useEffect(() => {
     f7ready(() => {
       f7.view.main.router.on('routeChange', (newRoute, previousRoute) => {
-        const foobar = toolBarUrl.find((item) => item === newRoute.url);
-        setActiveUrl(foobar !== undefined ? newRoute.url : previousRoute.url);
+        const foobar = toolBarUrl.find((item) => item !== '/' && newRoute.url.includes(item));
+        setActiveUrl(foobar ? foobar : newRoute.url !== '/' ? previousRoute.url : '/');
       });
 
       const currPath = f7.view.main.router.currentRoute?.url || '';
-      const urlMatch = toolBarUrl.find((item) => item === currPath);
-      setActiveUrl(urlMatch !== undefined ? currPath : '/');
+      const urlMatch = toolBarUrl.find((item) => item !== '/' && currPath.includes(item));
+      setActiveUrl(urlMatch !== undefined ? urlMatch : '/');
 
       return () => {
         f7.view.main.router.off('routeChange', (newRoute, previousRoute) => {
-          const foobar = toolBarUrl.find((item) => item === newRoute.url);
-          setActiveUrl(foobar !== undefined ? newRoute.url : previousRoute.url);
+          const foobar = toolBarUrl.find((item) => item !== '/' && newRoute.url.includes(item));
+          setActiveUrl(foobar ? foobar : newRoute.url !== '/' ? previousRoute.url : '/');
         });
       };
     });
