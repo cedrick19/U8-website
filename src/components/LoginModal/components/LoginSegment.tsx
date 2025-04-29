@@ -1,5 +1,5 @@
 import { SegmentButtons } from '@/components/SegmentedTabs';
-import { cn } from '@/globals/utils';
+import { cn } from '@/utils/helper';
 import { Button, Segmented, Tab, Tabs } from 'framework7-react';
 import { useState } from 'react';
 

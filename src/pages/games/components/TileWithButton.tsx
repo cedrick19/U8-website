@@ -1,4 +1,4 @@
-import { cn } from '@/globals/utils';
+import { cn } from '@/utils/helper';
 import { Block, Button, Card, CardContent } from 'framework7-react';
 
 export interface TileWithButtonProps {

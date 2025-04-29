@@ -4,7 +4,7 @@ import ProfileCard from '../component/ProfileCard';
 import CoinOff from '@/assets/image/icons/coin-off.svg';
 import Refresh from '@/assets/image/svg/refresh.svg';
 import SettingItem from '../component/SettingItem';
-import { clickNavigate } from '@/globals/utils';
+import { clickNavigate } from '@/utils/helper';
 
 const MyWallet = () => {
   return (

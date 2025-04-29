@@ -1,6 +1,6 @@
 import { Block, f7, f7ready, Link } from 'framework7-react';
 import { useEffect, useState } from 'react';
-import { cn } from '@/globals/utils';
+import { cn } from '@/utils/helper';
 import CoinActive from '@/assets/image/icons/coin-on.svg';
 import CoinInactive from '@/assets/image/icons/coin-off.svg';
 import { useAuth } from '@/hooks/useAuth';

@@ -5,7 +5,7 @@ import ProfileNav from '@/pages/profile/component/ProfileNav';
 import { useState } from 'react';
 import CustomPopUp from '@/pages/profile/component/CustomPopUp';
 import CustomInput from '@/pages/profile/component/CustomInput';
-import { clickNavigate } from '@/globals/utils';
+import { clickNavigate } from '@/utils/helper';
 import PayPassword from '@/assets/image/profile/settings/accnum_and_sec/pay_pass.svg';
 import VirtualAdd from '@/assets/image/profile/settings/accnum_and_sec/virtual_add.svg';
 

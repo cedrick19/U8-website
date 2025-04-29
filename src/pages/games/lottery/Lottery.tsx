@@ -2,7 +2,7 @@ import { Block, Button, Card, CardContent, CardFooter, Page } from 'framework7-r
 import { NavBar } from '../components';
 import { lotteryGames } from '../utils';
 import { getDevice } from 'framework7';
-import { cn } from '@/globals/utils';
+import { cn } from '@/utils/helper';
 
 interface ILottery {
   title: string;

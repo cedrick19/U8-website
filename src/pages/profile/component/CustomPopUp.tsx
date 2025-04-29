@@ -1,4 +1,4 @@
-import { cn } from '@/globals/utils';
+import { cn } from '@/utils/helper';
 import { Popup, Block, Button } from 'framework7-react';
 import { ReactNode } from 'react';
 
