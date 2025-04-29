@@ -4,4 +4,4 @@ export * from './LineCardPolygon';
 export * from './LoginModal';
 export * from './mobile-navbar';
 export * from './SegmentedTabs';
-export * from './navigation';
+export * from './nav-bar';
