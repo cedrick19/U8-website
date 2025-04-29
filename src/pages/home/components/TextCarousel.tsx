@@ -7,9 +7,9 @@ const marqueeData = [
     price: '40000 Yuan',
   },
   {
-    message: 'Congratulations to the player B**** in Philippines win',
-    game: 'Lottery.',
-    price: '50000 Pesos',
+    message: 'Congratulations to the player c**** in Canada win',
+    game: 'Mahjong.',
+    price: '40000 Yuan',
   },
 ];
 
@@ -31,8 +31,11 @@ export const TextCarousel = () => {
         <img src={Announcement} className="h-6 w-6" alt="announcement" />
       </div>
       <div className="relative flex w-full items-center overflow-hidden whitespace-nowrap rounded-r-full bg-white">
-        <div className="flex animate-marquee whitespace-nowrap will-change-transform">
-          <div className="flex">{renderMessages()}</div>
+        <div className="flex min-w-max animate-marquee whitespace-nowrap will-change-transform">
+          <div className="flex">
+            {renderMessages()}
+            {renderMessages()}
+          </div>
         </div>
       </div>
     </div>
