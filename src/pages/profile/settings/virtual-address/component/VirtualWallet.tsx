@@ -1,4 +1,4 @@
-import { clickNavigate } from '@/globals/utils';
+import { clickNavigate } from '@/utils/helper';
 import { store } from '@/ts/store';
 import { Block, Button, Icon } from 'framework7-react';
 

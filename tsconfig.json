@@ -15,6 +15,6 @@
     "noImplicitAny": true,
     "moduleResolution": "bundler"
   },
-  "include": ["src/**/*", "src/globals/assetImport.d.ts"],
+  "include": ["src/**/*", "src/utils/assetImport.d.ts"],
   "exclude": ["node_modules", "dist"]
 }

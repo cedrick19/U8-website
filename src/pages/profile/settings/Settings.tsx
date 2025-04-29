@@ -3,7 +3,7 @@ import SettingItem from '@/pages/profile/component/SettingItem';
 import { useState } from 'react';
 import ProfileNav from '@/pages/profile/component/ProfileNav';
 import CustomPopUp from '@/pages/profile/component/CustomPopUp';
-import { clickNavigate } from '@/globals/utils';
+import { clickNavigate } from '@/utils/helper';
 import { useAuth } from '@/hooks/useAuth';
 import ClearCache from '@/assets/image/profile/settings/clear_cache.svg';
 

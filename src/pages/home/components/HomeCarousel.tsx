@@ -8,7 +8,7 @@ import Carousel2 from '@/assets/image/home/carousel2.jpg';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
-import { cn } from '@/globals/utils';
+import { cn } from '@/utils/helper';
 
 export const HomeCarousel = () => {
   const [isHovered, setIsHovered] = useState(false);

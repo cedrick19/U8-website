@@ -1,7 +1,7 @@
 import { Card, CardContent, Button } from 'framework7-react';
 import { topCards, categories, navigateToRoute, TopCard, Category } from '@/pages/home/utils';
 import LineCardPolygon from '@/components/LineCardPolygon/LineCardpolygon';
-import { cn } from '@/globals/utils';
+import { cn } from '@/utils/helper';
 
 const cardBaseClass =
   'm-0 overflow-hidden rounded-xl border-2 border-white shadow-md bg-[#4C2CCA4D]/10';

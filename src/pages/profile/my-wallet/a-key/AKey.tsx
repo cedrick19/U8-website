@@ -1,6 +1,6 @@
 import { Button, Card, CardContent, CardHeader, Page } from 'framework7-react';
 import ProfileNav from '../../component/ProfileNav';
-import { clickNavigate } from '@/globals/utils';
+import { clickNavigate } from '@/utils/helper';
 import { Fragment } from 'react';
 
 const AKey = () => {

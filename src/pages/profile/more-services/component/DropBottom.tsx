@@ -1,4 +1,4 @@
-import { cn } from '@/globals/utils';
+import { cn } from '@/utils/helper';
 import { Block, Button, Icon, Popup } from 'framework7-react';
 import { CustomCalendar } from './Calendar';
 
