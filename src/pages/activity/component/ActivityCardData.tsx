@@ -2,15 +2,19 @@ import { Card, CardContent, CardHeader, Chip, Icon } from 'framework7-react';
 
 import AllActivity from '@/assets/image/activities/all-activity.png';
 
-export const ActivityCardData = () => {
+interface ActivityData {
+  category: string;
+}
+
+export const ActivityCardData = ({ category }: ActivityData) => {
   return (
-    <Card raised>
+    <Card raised className="rounded-xl">
       <CardContent padding={false} className="h-full rounded-xl bg-[#ECE8F5]">
         <div className="relative h-40 w-full overflow-hidden rounded-xl">
           <div className="flex justify-end">
             <Chip
-              text="Electronic"
-              className="w-36 justify-center rounded-br-none rounded-tl-none bg-primary-gradient text-white"
+              text={category}
+              className="w-36 justify-center rounded-lg rounded-br-none rounded-tl-none bg-primary-gradient font-bold text-white"
             />
           </div>
 
