@@ -12,13 +12,13 @@ type SupportChannel = {
 
 const channels: SupportChannel[] = [
   {
-    label: 'telegram',
+    label: 'Telegram',
     placeholder: '@t.me/sample',
     icon: TelegramIcon,
     link: 'https://facebook.com',
   },
   {
-    label: 'meiQia',
+    label: 'MeiQia',
     placeholder: '在线客服',
     icon: MeiQiaIcon,
     link: 'https://google.com',
