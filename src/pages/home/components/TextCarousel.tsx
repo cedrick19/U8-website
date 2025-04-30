@@ -2,11 +2,13 @@ import Announcement from '@/assets/image/svg/announcement.svg';
 
 const marqueeData = [
   {
+    id: '1',
     message: 'Congratulations to the player c**** in Canada win',
     game: 'Mahjong.',
     price: '40000 Yuan',
   },
   {
+    id: '2',
     message: 'Congratulations to the player c**** in Philippines win',
     game: 'Lotto',
     price: '40000 Pesos',
