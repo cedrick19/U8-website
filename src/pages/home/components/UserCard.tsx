@@ -20,13 +20,13 @@ export const UserCard = () => {
       id: 'chat',
       label: 'Open Telegram channel',
       icon: chatIcon,
-      onClick: () => window.open('https://t.me/SAMPLE'),
+      onClickEvent: () => window.open('https://t.me/SAMPLE'),
     },
     {
       id: 'support',
       label: 'Open customer support',
       icon: customerServiceIcon,
-      onClick: () => {
+      onClickEvent: () => {
         document.getElementById('support')?.blur();
         f7.view.main.router.navigate('support/');
       },
@@ -78,13 +78,13 @@ export const UserCard = () => {
       </div>
 
       <div className="flex gap-2">
-        {actions.map(({ id, label, icon, onClick }) => (
+        {actions.map(({ id, label, icon, onClickEvent }) => (
           <Button
             key={id}
             id={id}
             aria-label={label}
             className="flex h-10 w-10 items-center justify-center rounded-full bg-primary-gradient p-2"
-            onClick={onClick}
+            onClick={onClickEvent}
           >
             <img src={icon} className="h-full w-full" alt={label} />
           </Button>
