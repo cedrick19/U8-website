@@ -1,14 +1,17 @@
 import { Block, Page } from 'framework7-react';
-import { NavBar, TileWithButton } from '../components';
-import { sportsData } from '../utils';
 import { getDevice } from 'framework7';
+
+import { NavbarWithNotify } from '@/components';
+
+import { TileWithButton } from '../components';
+import { sportsData } from '../utils';
 
 const Sports = () => {
   const isMobile = getDevice().ios || getDevice().android;
 
   return (
     <Page name="Sports" className="bg-[#ECE8F5] pb-20">
-      <NavBar title="Sports" />
+      <NavbarWithNotify title="Sports" />
 
       {isMobile && (
         <Block className="m-0">

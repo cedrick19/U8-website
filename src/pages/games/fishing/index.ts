@@ -1,1 +1,1 @@
-export { default } from './fishing';
+export { default } from './Fishing';
