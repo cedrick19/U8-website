@@ -1,27 +1,66 @@
-import { Icon, Button, Block, Input } from 'framework7-react';
+import { useState } from 'react';
+import { Icon, Button, Block, Popover, List, ListItem } from 'framework7-react';
 import { balanceSummary } from './utils';
 
 export const HuangWangPage = () => {
+  const [popoverOpened, setPopoverOpened] = useState(false);
+  const [selectedCode, setSelectedCode] = useState('+63');
+
+  const countryCodes = [
+    { id: 1, code: '+1', country: 'USA' },
+    { id: 2, code: '+86', country: 'China' },
+    { id: 3, code: '+61', country: 'Australia' },
+    { id: 4, code: '+63', country: 'Philippines' },
+  ];
+
+  const handleSelect = (id: number) => {
+    const selectedCountry = countryCodes.find((country) => country.id === id);
+    if (selectedCountry) {
+      setSelectedCode(selectedCountry.code);
+      setPopoverOpened(false);
+    }
+  };
+
   return (
     <>
       <Block className="flex flex-col items-start gap-6 rounded-3xl bg-white py-5">
         <div className="flex flex-row items-center gap-2">
           <h2 className="text-gradient text-base font-bold">Withdraw the HSBC account</h2>
-          <Icon f7="question_circle_fill" icon="text-gray-500" size={18} />
+          <Icon f7="question_circle_fill" className="text-gray-500" size={18} />
         </div>
 
         <div className="flex h-12 w-full flex-row">
-          <div className="flex w-full flex-row items-center justify-between overflow-hidden truncate whitespace-nowrap rounded-full border border-gray-500 bg-white px-3">
-            <Button className="flex items-center rounded-full">
-              <span className="text-black">+63</span>
+          <div className="flex w-full flex-row items-center justify-between overflow-hidden rounded-full border border-gray-500 px-3">
+            <Button
+              id="country-code-button"
+              className="flex items-center rounded-full"
+              onClick={() => setPopoverOpened(true)}
+            >
+              <span className="text-black">{selectedCode}</span>
               <Icon f7="chevron_down" className="text-xs text-black" />
             </Button>
-            <Input type="number" className="w-full" min={0} />
+            <input type="number" id="phone-number" name="phone-number" className="w-full" min={0} />
+            <Button className="h-7 w-7">
+              <Icon f7="multiply_circle_fill" className="text-slate-500" />
+            </Button>
           </div>
         </div>
 
+        <Popover
+          opened={popoverOpened}
+          targetEl="#country-code-button"
+          verticalPosition="bottom"
+          onPopoverClosed={() => setPopoverOpened(false)}
+        >
+          <List>
+            {countryCodes.map(({ id, code, country }) => (
+              <ListItem key={id} title={`${country} (${code})`} onClick={() => handleSelect(id)} />
+            ))}
+          </List>
+        </Popover>
+
         <div className="flex flex-row items-start">
-          <Icon f7="exclamationmark_triangle_fill" icon="text-red-500" size={16} />
+          <Icon f7="exclamationmark_triangle_fill" className="text-red-500" size={16} />
           <p className="text-sm text-red-500">
             Please carefully check the HSBC account. The wrong account funds will not be available.
           </p>
@@ -34,9 +73,15 @@ export const HuangWangPage = () => {
         <div className="flex h-12 w-full flex-row">
           <div className="flex w-full flex-row items-center justify-between overflow-hidden truncate whitespace-nowrap rounded-full border border-gray-500 bg-white px-3">
             <div className="h-8 w-8 items-center justify-center rounded-full bg-primary-gradient">
-              <Icon f7="money_dollar" icon="text-white mt-0.5 ml-0.5" />
+              <Icon f7="money_dollar" className="ml-0.5 mt-0.5 text-white" />
             </div>
-            <Input type="number" className="w-2/4" min={0} />
+            <input
+              type="number"
+              id="withdrawal-amount"
+              name="withdrawal-amount"
+              className="w-2/4"
+              min={0}
+            />
             <Button className="h-8 w-1/4 rounded-full bg-primary-gradient">
               <span className="normal-case text-white">MAX</span>
             </Button>

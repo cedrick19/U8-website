@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Block, Button, Icon, Input } from 'framework7-react';
+import { Block, Button, Icon } from 'framework7-react';
 import CustomPopUp from '@/pages/profile/component/CustomPopUp';
 import { infoItems } from './utils';
 
@@ -31,7 +31,7 @@ export const WalletPage = () => {
             <div className="h-8 w-8 items-center justify-center rounded-full bg-primary-gradient">
               <Icon f7="money_dollar" icon="text-white mt-0.5 ml-0.5" />
             </div>
-            <Input type="number" className="w-2/4" min={0} />
+            <input type="number" className="w-2/4" min={0} />
             <Button className="h-8 w-1/4 rounded-full bg-primary-gradient">
               <span className="normal-case text-white">Max</span>
             </Button>
