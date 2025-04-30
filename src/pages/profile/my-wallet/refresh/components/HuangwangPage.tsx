@@ -1,17 +1,10 @@
 import { useState } from 'react';
 import { Icon, Button, Block, Popover, List, ListItem } from 'framework7-react';
-import { balanceSummary } from './utils';
+import { balanceSummary, countryCodes } from './utils';
 
 export const HuangWangPage = () => {
   const [popoverOpened, setPopoverOpened] = useState(false);
   const [selectedCode, setSelectedCode] = useState('+63');
-
-  const countryCodes = [
-    { id: 1, code: '+1', country: 'USA' },
-    { id: 2, code: '+86', country: 'China' },
-    { id: 3, code: '+61', country: 'Australia' },
-    { id: 4, code: '+63', country: 'Philippines' },
-  ];
 
   const handleSelect = (id: number) => {
     const selectedCountry = countryCodes.find((country) => country.id === id);
