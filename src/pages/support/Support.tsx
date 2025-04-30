@@ -5,24 +5,40 @@ import MeiQiaIcon from '@/assets/image/svg/customer_service1.svg';
 
 type SupportChannel = {
   label: string;
-  handle: string;
+  placeholder: string;
   icon: string;
+  link: string;
 };
 
 const channels: SupportChannel[] = [
-  { label: 'telegram', handle: '@telegram', icon: TelegramIcon },
-  { label: 'meiQia', handle: 'Chinese', icon: MeiQiaIcon },
+  {
+    label: 'Telegram',
+    placeholder: '@U8hdkefu8',
+    icon: TelegramIcon,
+    link: 'https://facebook.com',
+  },
+  {
+    label: 'MeiQia',
+    placeholder: '在客服',
+    icon: MeiQiaIcon,
+    link: 'https://google.com',
+  },
 ];
 
-const SupportCard = ({ label, handle, icon }: SupportChannel) => (
+const SupportCard = ({ label, placeholder, icon, link }: SupportChannel) => (
   <>
-    <p className="text-gradient font-bold">{label}</p>
-    <div className="flex items-center justify-between gap-6 rounded-lg bg-white px-5 py-5">
+    <span className="text-gradient font-bold">{label}</span>
+    <div className="flex items-center justify-between gap-6 rounded-lg border-2 bg-white p-3">
       <div className="flex items-center space-x-2">
-        <img src={icon} alt={label} className="h-7 w-7" />
-        <p className="text-base">{handle}</p>
+        <img src={icon} alt={label} className="h-5 w-5" />
+        <p className="text-sm font-semibold">{placeholder}</p>
       </div>
-      <Button className="h-9 rounded-lg bg-primary-gradient text-white">Chat Now</Button>
+      <Button
+        className="h-7 rounded-lg bg-primary-gradient normal-case text-white"
+        onClick={() => window.open(link)}
+      >
+        Chat Now
+      </Button>
     </div>
   </>
 );
