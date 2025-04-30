@@ -21,7 +21,7 @@ export const TextCarousel = () => {
         <span className="mx-1 text-green-500">{price}</span>
         <span>of game</span>
         <span className="mx-1 text-blue-500">{game}</span>
-        {index !== marqueeData.length - 1 && <span></span>}
+        {index !== marqueeData.length - 1}
       </span>
     ));
 

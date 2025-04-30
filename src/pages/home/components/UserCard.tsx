@@ -4,7 +4,7 @@ import profileImage from '@/assets/image/icons/avatarIcon.png';
 import refreshImage from '@/assets/image/svg/refresh.svg';
 import chatIcon from '@/assets/image/svg/chat.svg';
 import customerServiceIcon from '@/assets/image/svg/customer-service.svg';
-import { cn } from '@/utils/helper';
+import { cn, clickNavigate } from '@/utils/helper';
 
 export const UserCard = () => {
   const [isEyeOn, setIsEyeOn] = useState(true);
@@ -81,10 +81,9 @@ export const UserCard = () => {
         {actions.map(({ id, label, icon, onClickEvent }) => (
           <Button
             key={id}
-            id={id}
             aria-label={label}
             className="flex h-10 w-10 items-center justify-center rounded-full bg-primary-gradient p-2"
-            onClick={onClickEvent}
+            {...(id === 'support' ? clickNavigate(id, 'support/') : { onClick: onClickEvent })}
           >
             <img src={icon} className="h-full w-full" alt={label} />
           </Button>
