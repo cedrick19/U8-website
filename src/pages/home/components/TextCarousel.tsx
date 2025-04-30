@@ -31,7 +31,8 @@ export const TextCarousel = () => {
       </div>
       <div className="relative flex w-full items-center overflow-hidden rounded-r-full bg-white">
         <div className="flex min-w-max animate-marquee will-change-transform">
-          {[...renderMessages(), ...renderMessages()]}
+          {renderMessages()}
+          {renderMessages()}
         </div>
       </div>
     </div>
