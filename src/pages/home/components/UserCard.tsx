@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Button, Icon } from 'framework7-react';
+import { Button, f7, Icon } from 'framework7-react';
 import profileImage from '@/assets/image/icons/avatarIcon.png';
 import refreshImage from '@/assets/image/svg/refresh.svg';
 import chatIcon from '@/assets/image/svg/chat.svg';
@@ -17,18 +17,22 @@ export const UserCard = () => {
 
   const actions = [
     {
-      href: 'https://t.me/SAMPLE',
-      icon: chatIcon,
+      id: 'chat',
       label: 'Open Telegram channel',
-      external: true,
+      icon: chatIcon,
+      onClick: () => window.open('https://t.me/SAMPLE'),
     },
     {
-      href: '/support/',
-      icon: customerServiceIcon,
+      id: 'support',
       label: 'Open customer support',
-      external: false,
+      icon: customerServiceIcon,
+      onClick: () => {
+        document.getElementById('support')?.blur();
+        f7.view.main.router.navigate('support/');
+      },
     },
   ];
+
   return (
     <div className="flex w-full items-center justify-between px-5">
       <div className="flex flex-row items-center gap-2">
@@ -56,36 +60,31 @@ export const UserCard = () => {
 
           <div className="flex flex-row items-center gap-2">
             <span className="w-12 text-2xl font-bold">{isEyeOn ? '****' : '0.00'}</span>
-            <>
-              <button
-                onClick={handleRefreshClick}
-                className="flex h-6 w-6 items-center justify-center rounded-full bg-primary-gradient"
-              >
-                <img
-                  src={refreshImage}
-                  alt="refresh"
-                  className={cn(
-                    'cursor-pointer justify-self-center transition-transform duration-1000',
-                    isSpinning && 'rotate-[1080deg]',
-                  )}
-                />
-              </button>
-            </>
+            <button
+              onClick={handleRefreshClick}
+              className="flex h-6 w-6 items-center justify-center rounded-full bg-primary-gradient"
+            >
+              <img
+                src={refreshImage}
+                alt="refresh"
+                className={cn(
+                  'cursor-pointer justify-self-center transition-transform duration-1000',
+                  isSpinning && 'rotate-[1080deg]',
+                )}
+              />
+            </button>
           </div>
         </div>
       </div>
 
       <div className="flex gap-2">
-        {actions.map(({ href, icon, label, external }) => (
+        {actions.map(({ id, label, icon, onClick }) => (
           <Button
-            key={label}
-            href={href}
-            {...(external ? { target: '_blank', rel: 'noopener' } : {})}
+            key={id}
+            id={id}
             aria-label={label}
             className="flex h-10 w-10 items-center justify-center rounded-full bg-primary-gradient p-2"
-            onClick={(e) => {
-              (e.currentTarget as HTMLAnchorElement).blur();
-            }}
+            onClick={onClick}
           >
             <img src={icon} className="h-full w-full" alt={label} />
           </Button>

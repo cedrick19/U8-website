@@ -1,4 +1,4 @@
-import { Card, CardContent, Button } from 'framework7-react';
+import { Card, CardContent, Button, f7 } from 'framework7-react';
 import { topCards, categories, navigateToRoute, TopCard, Category } from '@/pages/home/utils';
 import LineCardPolygon from '@/components/LineCardPolygon/LineCardpolygon';
 import { cn } from '@/utils/helper';
@@ -17,10 +17,11 @@ const CategoryCard = ({ name, image, route }: Category) => (
         <div className="h-[25px] rounded-xl bg-primary-gradient pb-[2px]">
           <div className="h-full w-full rounded-xl bg-white">
             <Button
+              id={`btn-${route}`}
               className="h-[20px] w-full rounded-xl bg-primary-gradient text-xs font-bold normal-case text-white"
-              onClick={(e) => {
-                (e.currentTarget as HTMLButtonElement).blur();
-                navigateToRoute(route);
+              onClick={() => {
+                document.getElementById(`btn-${route}`)?.blur();
+                f7.view.main.router.navigate(route);
               }}
             >
               {name}
