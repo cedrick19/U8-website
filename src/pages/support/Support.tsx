@@ -27,7 +27,7 @@ const channels: SupportChannel[] = [
 
 const SupportCard = ({ label, placeholder, icon, link }: SupportChannel) => (
   <>
-    <p className="text-gradient font-bold">{label}</p>
+    <span className="text-gradient font-bold">{label}</span>
     <div className="flex items-center justify-between gap-6 rounded-lg border-2 bg-white p-3">
       <div className="flex items-center space-x-2">
         <img src={icon} alt={label} className="h-5 w-5" />
