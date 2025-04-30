@@ -1,7 +1,7 @@
-import { Card, CardContent, Button, f7 } from 'framework7-react';
-import { topCards, categories, navigateToRoute, TopCard, Category } from '@/pages/home/utils';
+import { Card, CardContent, Button } from 'framework7-react';
+import { topCards, categories, TopCard, Category } from '@/pages/home/utils';
 import LineCardPolygon from '@/components/LineCardPolygon/LineCardpolygon';
-import { cn } from '@/utils/helper';
+import { cn, clickNavigate } from '@/utils/helper';
 
 const cardBaseClass =
   'm-0 overflow-hidden rounded-xl border-2 border-white shadow-md bg-[#4C2CCA4D]/10';
@@ -17,12 +17,8 @@ const CategoryCard = ({ name, image, route }: Category) => (
         <div className="h-[25px] rounded-xl bg-primary-gradient pb-[2px]">
           <div className="h-full w-full rounded-xl bg-white">
             <Button
-              id={`btn-${route}`}
               className="h-[20px] w-full rounded-xl bg-primary-gradient text-xs font-bold normal-case text-white"
-              onClick={() => {
-                document.getElementById(`btn-${route}`)?.blur();
-                f7.view.main.router.navigate(route);
-              }}
+              {...clickNavigate(`btn-${route}`, route)}
             >
               {name}
             </Button>
@@ -74,7 +70,7 @@ export const HomeContent = () => {
           <div
             key={card.id}
             className={cn('cursor-pointer', card.fullWidth && 'col-span-2')}
-            onClick={() => navigateToRoute(card.route)}
+            {...clickNavigate(`card-${card.id}`, card.route)}
           >
             <CatHighlightCard image={card.image} title={card.title} spanTwo={card.fullWidth} />
           </div>
