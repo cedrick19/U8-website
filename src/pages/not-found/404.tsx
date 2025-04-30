@@ -5,7 +5,7 @@ const NotFoundPage = () => (
     <Block className="flex flex-col justify-center text-center">
       <span className="text-xl font-black">Woops!</span>
       <Link onClick={() => f7.views.main.router.back()}>
-        <p className="text-gradient">Go back.</p>
+        <p className="text-gradient">Go back. NOOBS</p>
       </Link>
     </Block>
   </Page>
