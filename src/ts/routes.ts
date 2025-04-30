@@ -25,6 +25,7 @@ import RechargeTutorial from '@/pages/profile/more-services/recharge-tutorial';
 import GameManage from '@/pages/profile/more-services/game-management';
 import ReturnRatioDetails from '@/pages/profile/more-services/game-management/return-ratio-details/ReturnRatioDetails';
 import SupportPage from '@/pages/support';
+import { ActivityDetails } from '@/pages/activity';
 
 const gameRoutes = [
   {
@@ -156,6 +157,12 @@ export const webRoutes: Router.RouteParameters[] = [
         path: '/activity/',
         name: 'Activity',
         component: ActivityPage,
+        routes: [
+          {
+            path: ':url',
+            component: ActivityDetails,
+          },
+        ],
       },
       {
         path: '/recharge/',
