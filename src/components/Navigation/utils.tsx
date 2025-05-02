@@ -6,6 +6,8 @@ import ActivityOn from '@/assets/image/icons/activity-on.svg';
 import ActivityOff from '@/assets/image/icons/activity-off.svg';
 import ProfileOn from '@/assets/image/icons/profile-on.svg';
 import ProfileOff from '@/assets/image/icons/profile-off.svg';
+import { f7 } from 'framework7-react';
+import { Dispatch, SetStateAction } from 'react';
 
 export const MobileNavItems = [
   {
@@ -75,3 +77,34 @@ export const routes = [
     name: 'Activities',
   },
 ];
+
+const handleNavSetting = (url?: string, prevUrl?: string) => {
+  const foobar = toolBarUrl.find((item) => item !== '/' && url?.includes(item));
+  const tabIndex = localStorage.getItem('activeTabIndex');
+  const currIndex = toolBarUrl.findIndex((item) => item === (foobar ?? prevUrl));
+  return {
+    foobar,
+    tabIndex,
+    currIndex,
+  };
+};
+
+export const handleToolbar = (setUrl: Dispatch<SetStateAction<string>>) => {
+  f7.view.main.router.on('routeChange', (newRoute, previousRoute) => {
+    const { foobar, tabIndex, currIndex } = handleNavSetting(newRoute.url, previousRoute.url);
+    localStorage.setItem('activeTabIndex', String(currIndex));
+    setUrl(foobar ? foobar : toolBarUrl[Number(tabIndex)]);
+  });
+
+  f7.view.main.router.on('pageInit', () => {
+    const { tabIndex } = handleNavSetting();
+    setUrl(toolBarUrl[Number(tabIndex)]);
+  });
+
+  return () => {
+    f7.view.main.router.off('routeChange', (newRoute, previousRoute) => {
+      const { foobar, tabIndex } = handleNavSetting(newRoute.url, previousRoute.url);
+      setUrl(foobar ? foobar : toolBarUrl[Number(tabIndex)]);
+    });
+  };
+};
