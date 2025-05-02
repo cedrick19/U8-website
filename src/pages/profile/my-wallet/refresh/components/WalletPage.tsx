@@ -4,7 +4,11 @@ import CustomPopUp from '@/pages/profile/component/CustomPopUp';
 import { infoItems } from './utils';
 import CustomInput from '@/pages/profile/component/CustomInput';
 
-export const WalletPage = () => {
+interface WalletPageProps {
+  currencyWallet: string;
+}
+
+export const WalletPage: React.FC<WalletPageProps> = ({ currencyWallet }) => {
   const [popupOpen, setPopupOpen] = useState(false);
   const [amount, setAmount] = useState('');
 
@@ -32,6 +36,7 @@ export const WalletPage = () => {
           <CustomInput
             name="amount"
             type="number"
+            id={`${currencyWallet}-amount`}
             value={amount}
             onChange={(e) => setAmount(e.target.value)}
             maxLength={12}

@@ -9,11 +9,11 @@ export const RefreshOptions: SegmentButtons[] = [
   },
   {
     tabName: 'USDT',
-    component: <WalletPage />,
+    component: <WalletPage currencyWallet="USDT" />,
   },
   {
     tabName: 'DAI',
-    component: <WalletPage />,
+    component: <WalletPage currencyWallet="DAI" />,
   },
 ];
 
