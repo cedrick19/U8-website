@@ -1,4 +1,4 @@
-import { Page, Block, Card, CardContent, f7, Icon, Link } from 'framework7-react';
+import { Page, Block, Card, CardContent, f7, Icon, Link, Button } from 'framework7-react';
 import ProfileCard from './component/ProfileCard';
 import GamesManagement from '@/assets/image/profile/more-services/game_management.svg';
 import FundManagement from '@/assets/image/profile/more-services/fund_management.svg';
@@ -11,8 +11,10 @@ import Refresh2 from '@/assets/image/icons/refresh_2.svg';
 import HomeNavbar from '@/components/mobile-navbar/HomeNavbar';
 import Copy from '@/assets/image/profile/settings/accnum_and_sec/copy.svg';
 import { clickNavigate } from '@/utils/helper';
-import { Fragment } from 'react';
+import { Fragment, useState } from 'react';
 import { store } from '@/ts/store';
+import CustomPopUp from './component/CustomPopUp';
+import ShareImg from '@/assets/image/profile/more-services/share.png';
 
 export interface Services {
   id?: string;
@@ -35,10 +37,6 @@ const services: Services[] = [
     id: 'recharge-tutorial',
     icon: RechargeTutorial,
     label: 'Recharge Tutorial',
-  },
-  {
-    icon: Share,
-    label: 'Share',
   },
   {
     icon: ComingSoon,
@@ -66,6 +64,9 @@ const income = [
 
 const ProfilePage = () => {
   const { dispatch } = store;
+  const [openShare, setOpenShare] = useState<boolean>(false);
+  const [copied, setCopied] = useState<boolean>(false);
+
   const handleNavigate = (activeTab: number, index: number) => {
     dispatch('setGameActiveState', activeTab);
     clickNavigate(`index-${index}`, 'game-management/').onClick();
@@ -191,17 +192,49 @@ const ProfilePage = () => {
       <ProfileCard pCardTitle="More Services" className="mb-24">
         <Block className="grid grid-cols-3 gap-5 px-10 py-5">
           {services.map((data, index) => (
-            <Link
-              key={index}
-              className="flex-col justify-items-center"
-              {...clickNavigate(`${data.id}`, `${data.id}/`)}
-            >
-              <img alt={data.label} src={data.icon} className="h-10 w-10" />
-              <p className="text-center">{data.label}</p>
-            </Link>
+            <Fragment key={index}>
+              <Link
+                className="flex-col justify-items-center"
+                {...clickNavigate(`${data.id}`, `${data.id}/`)}
+              >
+                <img alt={data.label} src={data.icon} className="h-10 w-10" />
+                <p className="text-center">{data.label}</p>
+              </Link>
+              {index === 2 && (
+                <Link onClick={() => setOpenShare(true)} className="flex-col justify-items-center">
+                  <img alt="Share" src={Share} className="h-10 w-10" />
+                  <p className="text-center">Share</p>
+                </Link>
+              )}
+            </Fragment>
           ))}
         </Block>
       </ProfileCard>
+
+      <CustomPopUp open={openShare} clAction={() => setOpenShare(false)} title="">
+        <img src={ShareImg} className="w-full justify-self-center rounded-2xl" />
+
+        <div className="flex w-full flex-row gap-2">
+          <Button
+            className="text-gradient h-14 w-full rounded-xl border border-secondary bg-inherit normal-case"
+            onClick={() => {
+              setCopied(true);
+              setTimeout(() => {
+                setCopied(false);
+                setOpenShare(false);
+              }, 1500);
+            }}
+          >
+            {copied ? 'Copied!' : 'Copy link'}
+          </Button>
+          <Button
+            className="h-14 w-full rounded-xl bg-primary-gradient normal-case text-white"
+            onClick={() => setOpenShare(false)}
+          >
+            Save
+          </Button>
+        </div>
+      </CustomPopUp>
     </Page>
   );
 };
