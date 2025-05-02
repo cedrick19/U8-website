@@ -40,6 +40,7 @@ export const WalletPage: React.FC<WalletPageProps> = ({ currencyWallet }) => {
             value={amount}
             onChange={(e) => setAmount(e.target.value)}
             maxLength={12}
+            placeholder="Enter Amount"
             className="flex rounded-full border border-gray-500 bg-white px-3 pl-0 pr-3"
             leftDecoration={
               <div className="h-8 w-8 items-center justify-center rounded-full bg-primary-gradient">
