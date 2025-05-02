@@ -47,7 +47,7 @@ export const MobileNavItems = [
 export const toolBarUrl = ['/', '/games/', '/activity/', '/profile/', '/recharge/'];
 
 export const routes = [
-  { path: '/', name: 'Home' },
+  { path: '/home/', name: 'Home' },
   {
     path: '/games/lottery/',
     name: 'Lottery',
@@ -81,7 +81,7 @@ export const routes = [
 const handleNavSetting = (url?: string, prevUrl?: string, urlMap: string[] = toolBarUrl) => {
   const foobar = urlMap.find((item) => item !== '/' && url?.includes(item));
   const tabIndex = localStorage.getItem('activeTabIndex');
-  const currIndex = urlMap.findIndex((item) => item === (foobar ?? prevUrl));
+  const currIndex = url !== '/' ? urlMap.findIndex((item) => item === (foobar ?? prevUrl)) : 0;
   return {
     foobar,
     tabIndex,
@@ -93,6 +93,7 @@ export const handleToolbar = (setUrl: Dispatch<SetStateAction<string>>) => {
   f7.view.main.router.on('routeChange', (newRoute, previousRoute) => {
     const { foobar, tabIndex, currIndex } = handleNavSetting(newRoute.url, previousRoute.url);
     localStorage.setItem('activeTabIndex', String(currIndex));
+    console.log(currIndex);
     setUrl(foobar ? foobar : toolBarUrl[Number(tabIndex)]);
   });
 
