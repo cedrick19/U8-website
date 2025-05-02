@@ -5,8 +5,31 @@ import CoinOff from '@/assets/image/icons/coin-off.svg';
 import Refresh from '@/assets/image/svg/refresh.svg';
 import SettingItem from '../component/SettingItem';
 import { clickNavigate } from '@/utils/helper';
+import { store } from '@/ts/store';
+import { Fragment } from 'react/jsx-runtime';
+
+const myWalletFundsArray = [
+  {
+    className: 'rounded-lg rounded-b-none',
+    iconLeft: 'show_chart',
+    iconClassname: 'text-white bg-[#4C236D]',
+    label: 'Funding Details',
+    activeTab: 0,
+  },
+  {
+    className: 'rounded-lg rounded-t-none',
+    iconLeft: 'text_snippet',
+    label: 'Transaction Record',
+    activeTab: 1,
+  },
+];
 
 const MyWallet = () => {
+  const { dispatch } = store;
+  const handleNavigate = (activeTab: number, index: number) => {
+    dispatch('setFundActiveState', activeTab);
+    clickNavigate(`index-${index}`, '/profile/fund-management/').onClick();
+  };
   return (
     <Page name="my wallet">
       <ProfileNav title="My Wallet" />
@@ -77,20 +100,17 @@ const MyWallet = () => {
       </ProfileCard>
 
       <Block className="m-5 rounded-lg bg-white px-0 shadow-md">
-        <SettingItem
-          className="rounded-lg rounded-b-none"
-          iconLeft="show_chart"
-          iconClassName="text-white bg-[#4C236D]"
-          label="Funding Details"
-          iconRight="chevron_right"
-        />
-        <div className="ml-4 mr-5 h-0 border-b-2 border-slate-100" />
-        <SettingItem
-          className="rounded-lg rounded-t-none"
-          iconLeft="text_snippet"
-          label="Transaction Record"
-          iconRight="chevron_right"
-        />
+        {myWalletFundsArray.map((item, index) => (
+          <Fragment key={index}>
+            <SettingItem
+              {...item}
+              id={`index-${index}`}
+              iconRight="chevron_right"
+              onClick={() => handleNavigate(item.activeTab, index)}
+            />
+            {index < 1 && <div className="ml-4 mr-5 h-0 border-b-2 border-slate-100" />}
+          </Fragment>
+        ))}
       </Block>
     </Page>
   );

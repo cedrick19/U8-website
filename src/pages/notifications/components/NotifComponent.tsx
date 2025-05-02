@@ -28,11 +28,11 @@ export const NotifComponent = ({ data }: { data: NotificationDataType[] }) => {
               </p>
             </Block>
           ))}
-          <p className="justify-self-center text-gray-500">Full data loaded.</p>
+          <p className="text-center text-gray-500">Full data loaded.</p>
         </>
       ) : (
         <Block>
-          <p className="justify-self-center text-gray-500">No data.</p>
+          <p className="text-center text-gray-500">No data.</p>
         </Block>
       )}
     </>
