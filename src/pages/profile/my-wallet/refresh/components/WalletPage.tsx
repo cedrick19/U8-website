@@ -2,9 +2,11 @@ import { useState } from 'react';
 import { Block, Button, Icon } from 'framework7-react';
 import CustomPopUp from '@/pages/profile/component/CustomPopUp';
 import { infoItems } from './utils';
+import CustomInput from '@/pages/profile/component/CustomInput';
 
 export const WalletPage = () => {
   const [popupOpen, setPopupOpen] = useState(false);
+  const [amount, setAmount] = useState('');
 
   return (
     <>
@@ -19,23 +21,32 @@ export const WalletPage = () => {
         <div>
           <p className="text-lg font-bold text-black">No virtual currency address</p>
           <p className="text-xs text-gray-600">Please add a virtual currency address.</p>
-          <p className="text-sm text-gray-500">•••• •••• •••• ••••</p>
+          <p className="text-sm text-gray-600">•••• •••• •••• ••••</p>
         </div>
       </Block>
 
       <Block className="flex flex-col items-start gap-4 rounded-3xl bg-white py-5">
         <p className="text-gradient text-lg font-bold">Cash withdrawal</p>
 
-        <div className="flex h-12 w-full flex-row">
-          <div className="flex w-full flex-row items-center justify-between overflow-hidden truncate whitespace-nowrap rounded-full border border-gray-500 bg-white px-3">
-            <div className="h-8 w-8 items-center justify-center rounded-full bg-primary-gradient">
-              <Icon f7="money_dollar" icon="text-white mt-0.5 ml-0.5" />
-            </div>
-            <input type="number" className="w-2/4" min={0} />
-            <Button className="h-8 w-1/4 rounded-full bg-primary-gradient">
-              <span className="normal-case text-white">Max</span>
-            </Button>
-          </div>
+        <div className="w-full">
+          <CustomInput
+            name="amount"
+            type="number"
+            value={amount}
+            onChange={(e) => setAmount(e.target.value)}
+            maxLength={12}
+            className="flex rounded-full border border-gray-500 bg-white px-3 pl-0 pr-3"
+            leftDecoration={
+              <div className="h-8 w-8 items-center justify-center rounded-full bg-primary-gradient">
+                <Icon f7="money_dollar" className="ml-0.5 mt-0.5 text-white" />
+              </div>
+            }
+            rightDecoration={
+              <Button className="h-8 w-1/4 rounded-full bg-primary-gradient">
+                <span className="normal-case text-white">MAX</span>
+              </Button>
+            }
+          />
         </div>
 
         <div className="w-full rounded-lg bg-purple-50 p-3 text-sm">

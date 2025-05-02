@@ -1,86 +1,119 @@
 import { useState } from 'react';
-import { Icon, Button, Block, Popover, List, ListItem } from 'framework7-react';
+import { Icon, Button, Block, Popup, List, ListItem, Page } from 'framework7-react';
 import { balanceSummary, countryCodes } from './utils';
+import CustomInput from '@/pages/profile/component/CustomInput';
+import { cn } from '@/utils/helper';
 
 export const HuangWangPage = () => {
-  const [popoverOpened, setPopoverOpened] = useState(false);
+  const [popupOpened, setPopupOpened] = useState(false);
   const [selectedCode, setSelectedCode] = useState('+63');
+  const [phoneNumber, setPhoneNumber] = useState('');
+  const [amount, setAmount] = useState('');
 
   const handleSelect = (id: number) => {
     const selectedCountry = countryCodes.find((country) => country.id === id);
     if (selectedCountry) {
       setSelectedCode(selectedCountry.code);
-      setPopoverOpened(false);
+      setPopupOpened(false);
     }
+  };
+
+  const handleClearInput = () => {
+    setPhoneNumber('');
+  };
+
+  const handleNumberFormat = (e: { target: { value: string } }) => {
+    const formatted = e.target.value
+      .replace(/\D/g, '')
+      .replace(/(\d{3})(\d{3})(\d{4})/, '$1 $2 $3');
+    setPhoneNumber(formatted);
   };
 
   return (
     <>
-      <Block className="flex flex-col items-start gap-6 rounded-3xl bg-white py-5">
+      <Block className="flex flex-col rounded-3xl bg-white py-5">
         <div className="flex flex-row items-center gap-2">
           <h2 className="text-gradient text-base font-bold">Withdraw the HSBC account</h2>
           <Icon f7="question_circle_fill" className="text-gray-500" size={18} />
         </div>
 
-        <div className="flex h-12 w-full flex-row">
-          <div className="flex w-full flex-row items-center justify-between overflow-hidden rounded-full border border-gray-500 px-3">
-            <Button
-              id="country-code-button"
-              className="flex items-center rounded-full"
-              onClick={() => setPopoverOpened(true)}
-            >
-              <span className="text-black">{selectedCode}</span>
-              <Icon f7="chevron_down" className="text-xs text-black" />
-            </Button>
-            <input type="number" id="phone-number" name="phone-number" className="w-full" min={0} />
-            <Button className="h-7 w-7">
-              <Icon f7="multiply_circle_fill" className="text-slate-500" />
-            </Button>
-          </div>
+        <div className="w-full">
+          <CustomInput
+            name="telephone"
+            type="tel"
+            value={phoneNumber}
+            onChange={handleNumberFormat}
+            className={cn(
+              'flex w-full flex-row items-center overflow-hidden rounded-full border-2 border-gray-500 bg-white px-3 pl-0 pr-3',
+            )}
+            leftDecoration={
+              <Button
+                id="country-code-button"
+                className="text-base"
+                onClick={() => setPopupOpened(true)}
+              >
+                <span className="text-black">{selectedCode}</span>
+                <Icon f7="chevron_down" className="text-xs font-bold text-black" />
+              </Button>
+            }
+            rightDecoration={
+              <Button className="h-7 w-7" onClick={handleClearInput}>
+                <Icon f7="multiply_circle_fill" className="text-slate-500" />
+              </Button>
+            }
+          />
         </div>
 
-        <Popover
-          opened={popoverOpened}
-          targetEl="#country-code-button"
-          verticalPosition="bottom"
-          onPopoverClosed={() => setPopoverOpened(false)}
+        <Popup
+          opened={popupOpened}
+          onPopupClosed={() => setPopupOpened(false)}
+          className="fixed !bottom-0 !top-auto mx-auto h-[50%] rounded-t-3xl"
         >
-          <List>
-            {countryCodes.map(({ id, code, country }) => (
-              <ListItem key={id} title={`${country} (${code})`} onClick={() => handleSelect(id)} />
-            ))}
-          </List>
-        </Popover>
-
-        <div className="flex flex-row items-start">
+          <Page>
+            <List>
+              {countryCodes.map(({ id, code, country }) => (
+                <ListItem
+                  key={id}
+                  title={`${country} (${code})`}
+                  onClick={() => handleSelect(id)}
+                />
+              ))}
+            </List>
+          </Page>
+        </Popup>
+        <div className="flex flex-row items-start pt-2">
           <Icon f7="exclamationmark_triangle_fill" className="text-red-500" size={16} />
           <p className="text-sm text-red-500">
             Please carefully check the HSBC account. The wrong account funds will not be available.
           </p>
         </div>
       </Block>
-
       <Block className="flex flex-col items-start gap-4 rounded-3xl bg-white py-5">
         <p className="text-gradient text-lg font-bold">Cash withdrawal</p>
-
-        <div className="flex h-12 w-full flex-row">
-          <div className="flex w-full flex-row items-center justify-between overflow-hidden truncate whitespace-nowrap rounded-full border border-gray-500 bg-white px-3">
-            <div className="h-8 w-8 items-center justify-center rounded-full bg-primary-gradient">
-              <Icon f7="money_dollar" className="ml-0.5 mt-0.5 text-white" />
-            </div>
-            <input
-              type="number"
-              id="withdrawal-amount"
-              name="withdrawal-amount"
-              className="w-2/4"
-              min={0}
-            />
-            <Button className="h-8 w-1/4 rounded-full bg-primary-gradient">
-              <span className="normal-case text-white">MAX</span>
-            </Button>
-          </div>
+        <div className="w-full">
+          <CustomInput
+            name="amount"
+            type="number"
+            value={amount}
+            onChange={(e) => setAmount(e.target.value)}
+            maxLength={12}
+            className={cn('flex rounded-full border-2 border-gray-500 bg-white px-3 pl-0 pr-3')}
+            leftDecoration={
+              <div
+                className={cn(
+                  'h-8 w-8 items-center justify-center rounded-full bg-primary-gradient',
+                )}
+              >
+                <Icon f7="money_dollar" className={cn('ml-0.5 mt-0.5 text-white')} />
+              </div>
+            }
+            rightDecoration={
+              <Button className={cn('h-8 w-1/4 rounded-full bg-primary-gradient')}>
+                <span className={cn('normal-case text-white')}>MAX</span>
+              </Button>
+            }
+          />
         </div>
-
         <div className="w-full rounded-lg bg-purple-50 p-3 text-sm">
           {balanceSummary.map(({ label, value }) => (
             <div key={label} className="flex flex-row justify-between">
@@ -94,7 +127,6 @@ export const HuangWangPage = () => {
             </div>
           ))}
         </div>
-
         <p className="font medium text-xs text-black">
           Contact for first presentation
           <span className="text-gradient"> @U8hdkefu8 </span>
@@ -102,7 +134,6 @@ export const HuangWangPage = () => {
           The customer service will be checked twice to ensure the safety of fund.
         </p>
       </Block>
-
       <Button className="h-14 w-full rounded-lg bg-primary-gradient font-medium normal-case text-white">
         Immediately
       </Button>
