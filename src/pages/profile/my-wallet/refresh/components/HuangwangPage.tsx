@@ -43,7 +43,7 @@ export const HuangWangPage = () => {
     }));
   };
 
-  const handleNumberFormat = (e: React.FormEvent<HTMLInputElement>) => {
+  const handleNumberFormat = (e: React.ChangeEvent<HTMLInputElement>) => {
     const input = e.currentTarget.value;
     const formatted = input.replace(/\D/g, '').replace(/(\d{3})(\d{3})(\d{4})/, '$1 $2 $3');
     setFormState((prevState) => ({
@@ -52,7 +52,7 @@ export const HuangWangPage = () => {
     }));
   };
 
-  const handleAmountChange = (e: React.FormEvent<HTMLInputElement>) => {
+  const handleAmountChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFormState((prevState) => ({
       ...prevState,
       amount: e.currentTarget.value,
