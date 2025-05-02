@@ -43,20 +43,19 @@ export const HuangWangPage = () => {
     }));
   };
 
-  const handleNumberFormat = (e: { target: { value: string } }) => {
-    const formatted = e.target.value
-      .replace(/\D/g, '')
-      .replace(/(\d{3})(\d{3})(\d{4})/, '$1 $2 $3');
+  const handleNumberFormat = (e: React.FormEvent<HTMLInputElement>) => {
+    const input = e.currentTarget.value;
+    const formatted = input.replace(/\D/g, '').replace(/(\d{3})(\d{3})(\d{4})/, '$1 $2 $3');
     setFormState((prevState) => ({
       ...prevState,
       phoneNumber: formatted,
     }));
   };
 
-  const handleAmountChange = (e: { target: { value: string } }) => {
+  const handleAmountChange = (e: React.FormEvent<HTMLInputElement>) => {
     setFormState((prevState) => ({
       ...prevState,
-      amount: e.target.value,
+      amount: e.currentTarget.value,
     }));
   };
 
@@ -155,7 +154,11 @@ export const HuangWangPage = () => {
               <span className="text-gradient flex items-center font-semibold">
                 {label}
                 {label === 'Frozen Amount' && (
-                  <span className="material-icons ml-1 text-[16px] text-gray-500">help</span>
+                  <Icon
+                    f7="question_circle_fill"
+                    size={16}
+                    className="material-icons ml-1 text-[16px] text-gray-500"
+                  />
                 )}
               </span>
               <span className="font-bold text-black">{value}</span>

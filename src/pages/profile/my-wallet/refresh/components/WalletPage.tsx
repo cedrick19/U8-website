@@ -4,11 +4,7 @@ import CustomPopUp from '@/pages/profile/component/CustomPopUp';
 import { infoItems } from './utils';
 import CustomInput from '@/pages/profile/component/CustomInput';
 
-interface WalletPageProps {
-  currencyWallet: string;
-}
-
-export const WalletPage: React.FC<WalletPageProps> = ({ currencyWallet }) => {
+export const WalletPage: React.FC<{ currencyWallet: string }> = ({ currencyWallet }) => {
   const [popupOpen, setPopupOpen] = useState(false);
   const [amount, setAmount] = useState('');
 
@@ -61,7 +57,11 @@ export const WalletPage: React.FC<WalletPageProps> = ({ currencyWallet }) => {
               <span className="text-gradient flex items-center font-semibold">
                 {label}
                 {label === 'Frozen Amount' && (
-                  <span className="material-icons ml-1 text-[16px] text-gray-500">help</span>
+                  <Icon
+                    f7="question_circle_fill"
+                    size={16}
+                    className="material-icons ml-1 text-[16px] text-gray-500"
+                  />
                 )}
               </span>
               <span className="font-bold text-black">{value}</span>
