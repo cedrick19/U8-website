@@ -47,7 +47,12 @@ export const RealTimeWater = () => {
         <Icon f7="chevron_right" icon="text-secondary" size={16} />
       </Button>
 
-      <CustomPopUp title="Total Water Rebound" className="bg-white" open={open}>
+      <CustomPopUp
+        title="Total Water Rebound"
+        className="bg-white"
+        open={open}
+        clAction={() => setOpen(false)}
+      >
         <p>Total water return data in current time query range.</p>
         <Button
           className="h-10 rounded-xl bg-primary-gradient normal-case text-white"

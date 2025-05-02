@@ -48,7 +48,12 @@ export const TotalProfitLoss = () => {
         </div>
       </div>
 
-      <CustomPopUp title="Total Profit and Loss" className="bg-white" open={open}>
+      <CustomPopUp
+        title="Total Profit and Loss"
+        className="bg-white"
+        open={open}
+        clAction={() => setOpen(false)}
+      >
         <p>
           Total profit and loss = game win-win + win-win adjustment + water return amount + water
           return adjustment + account adjustment + other income and expenditure items

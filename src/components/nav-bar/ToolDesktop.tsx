@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { Block, Button, f7, f7ready, Icon, Link } from 'framework7-react';
 import Telegram from '@/assets/image/icons/telegram_logo.png';
 import { useAuth } from '@/hooks/useAuth';
-import { routes } from './utils';
+import { handleToolbar, routes } from './utils';
 
 export const ToolDesktop = () => {
   const [activeUrl, setActiveUrl] = useState<string>('/');
@@ -19,21 +19,7 @@ export const ToolDesktop = () => {
 
   useEffect(() => {
     f7ready(() => {
-      f7.view.main.router.on('routeChange', (newRoute, prevRoute) => {
-        const foobar = routes.find((route) => route.path === newRoute.url);
-        setActiveUrl(foobar !== undefined ? newRoute.url : prevRoute.url);
-      });
-
-      const currPath = f7.view.main.router.currentRoute?.url || '';
-      const urlMatch = routes.find((route) => route.path === currPath);
-      setActiveUrl(urlMatch !== undefined ? currPath : '/');
-
-      return () => {
-        f7.view.main.router.off('routeChange', (newRoute, previousRoute) => {
-          const foobar = routes.find((route) => route.path === newRoute.url);
-          setActiveUrl(foobar !== undefined ? newRoute.url : previousRoute.url);
-        });
-      };
+      handleToolbar(setActiveUrl);
     });
   }, []);
 
