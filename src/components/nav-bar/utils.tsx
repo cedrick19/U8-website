@@ -8,6 +8,7 @@ import ProfileOn from '@/assets/image/icons/profile-on.svg';
 import ProfileOff from '@/assets/image/icons/profile-off.svg';
 import { f7 } from 'framework7-react';
 import { Dispatch, SetStateAction } from 'react';
+import { getDevice } from 'framework7';
 
 export const MobileNavItems = [
   {
@@ -45,6 +46,16 @@ export const MobileNavItems = [
 ];
 
 export const toolBarUrl = ['/', '/games/', '/activity/', '/profile/', '/recharge/'];
+export const deskNavUrl = [
+  '/',
+  '/games/lottery/',
+  '/games/sports/',
+  '/games/video/',
+  '/games/electronic/',
+  '/games/chess/',
+  '/games/fishing/',
+  '/activity/',
+];
 
 export const routes = [
   { path: '/', name: 'Home' },
@@ -78,10 +89,12 @@ export const routes = [
   },
 ];
 
-const handleNavSetting = (url?: string, prevUrl?: string, urlMap: string[] = toolBarUrl) => {
+const isMobile = getDevice().android || getDevice().ios ? toolBarUrl : deskNavUrl;
+
+const handleNavSetting = (urlMap: string[], url?: string, prevUrl?: string) => {
   const foobar = urlMap.find((item) => item !== '/' && url?.includes(item));
   const tabIndex = localStorage.getItem('activeTabIndex');
-  const currIndex = urlMap.findIndex((item) => item === (foobar ?? prevUrl));
+  const currIndex = url !== '/' ? urlMap.findIndex((item) => item === (foobar ?? prevUrl)) : 0;
   return {
     foobar,
     tabIndex,
@@ -91,20 +104,24 @@ const handleNavSetting = (url?: string, prevUrl?: string, urlMap: string[] = too
 
 export const handleToolbar = (setUrl: Dispatch<SetStateAction<string>>) => {
   f7.view.main.router.on('routeChange', (newRoute, previousRoute) => {
-    const { foobar, tabIndex, currIndex } = handleNavSetting(newRoute.url, previousRoute.url);
+    const { foobar, tabIndex, currIndex } = handleNavSetting(
+      isMobile,
+      newRoute.url,
+      previousRoute.url,
+    );
     localStorage.setItem('activeTabIndex', String(currIndex));
-    setUrl(foobar ? foobar : toolBarUrl[Number(tabIndex)]);
+    setUrl(foobar ? foobar : isMobile[Number(tabIndex)]);
   });
 
   f7.view.main.router.on('pageInit', () => {
-    const { tabIndex } = handleNavSetting();
-    setUrl(toolBarUrl[Number(tabIndex)]);
+    const { tabIndex } = handleNavSetting(isMobile);
+    setUrl(isMobile[Number(tabIndex)]);
   });
 
   return () => {
     f7.view.main.router.off('routeChange', (newRoute, previousRoute) => {
-      const { foobar, tabIndex } = handleNavSetting(newRoute.url, previousRoute.url);
-      setUrl(foobar ? foobar : toolBarUrl[Number(tabIndex)]);
+      const { foobar, tabIndex } = handleNavSetting(isMobile, newRoute.url, previousRoute.url);
+      setUrl(foobar ? foobar : isMobile[Number(tabIndex)]);
     });
   };
 };
