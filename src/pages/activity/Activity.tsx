@@ -1,24 +1,19 @@
-import { Page, Block, Icon, Link, CardContent } from 'framework7-react';
+import { Page, Block, Icon, Link } from 'framework7-react';
+
 import Layout from '@/layout/layout';
 import HomeNavbar from '@/components/mobile-navbar/HomeNavbar';
-import ActivityBg from '@/assets/image/svg/activity_card.svg';
-import { activities } from './utils';
+import { f7navigate } from '@/utils/helper';
 
-const ActivityCard = ({ icon, title }: { icon: string; title: string }) => {
-  return (
-    <>
-      <div className="relative flex h-40 w-full overflow-hidden rounded-2xl shadow-sm">
-        <img src={ActivityBg} alt="activity" className="absolute h-full w-full object-cover" />
-        <CardContent className="flex flex-col items-center justify-center gap-2">
-          <img src={icon} alt={title} className="h-10 w-10 object-contain" />
-          <p className="text-gradient text-center text-2xl font-extrabold">{title}</p>
-        </CardContent>
-      </div>
-    </>
-  );
-};
+import { activities } from './utils';
+import { ActivityCard } from './component';
 
 const ActivityPage = () => {
+  const handleNavigate = (key: string, path: string): void => {
+    const uniqueKey = key.split(' ').join('-').toLowerCase();
+
+    f7navigate(uniqueKey, `/activity${path}`);
+  };
+
   return (
     <Page name="activity">
       <HomeNavbar
@@ -37,11 +32,17 @@ const ActivityPage = () => {
           </>
         }
       />
+
       <Layout>
         <Block className="p-1">
           <div className="grid grid-cols-2 gap-4">
             {activities.map((activity) => (
-              <ActivityCard key={activity.id} icon={activity.icon} title={activity.title} />
+              <ActivityCard
+                key={activity.id}
+                icon={activity.icon}
+                title={activity.title}
+                navigate={() => handleNavigate(activity.title, activity.path)}
+              />
             ))}
           </div>
         </Block>

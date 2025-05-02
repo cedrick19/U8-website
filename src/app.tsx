@@ -1,11 +1,10 @@
 import type React from 'react';
 import { App, Page, View } from 'framework7-react';
-import NavBar from './components/navigation/ToolDesktop';
 import appRoutes from './ts/appRoutes';
 import { getDevice } from 'framework7';
-import { ToolMobile } from './components/navigation';
 import { AuthProvider } from './components/AuthContext';
 import { store } from './ts/store';
+import { ToolDesktop, ToolMobile } from './components';
 
 const appConfig = {
   name: 'u8',
@@ -20,7 +19,7 @@ const MyApp: React.FC = () => {
   const renderWeb = () => {
     return (
       <>
-        <NavBar />
+        <ToolDesktop />
         <View main tab url="/" browserHistory browserHistorySeparator="" />
       </>
     );
