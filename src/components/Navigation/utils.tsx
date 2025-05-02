@@ -78,10 +78,10 @@ export const routes = [
   },
 ];
 
-const handleNavSetting = (url?: string, prevUrl?: string) => {
-  const foobar = toolBarUrl.find((item) => item !== '/' && url?.includes(item));
+const handleNavSetting = (url?: string, prevUrl?: string, urlMap: string[] = toolBarUrl) => {
+  const foobar = urlMap.find((item) => item !== '/' && url?.includes(item));
   const tabIndex = localStorage.getItem('activeTabIndex');
-  const currIndex = toolBarUrl.findIndex((item) => item === (foobar ?? prevUrl));
+  const currIndex = urlMap.findIndex((item) => item === (foobar ?? prevUrl));
   return {
     foobar,
     tabIndex,
