@@ -15,3 +15,8 @@ export const clickNavigate = (id: string, url: string) => {
     },
   };
 };
+
+export const f7navigate = (id: string, url: string): void => {
+  document.getElementById(id)?.blur();
+  f7.view.main.router.navigate(url);
+};

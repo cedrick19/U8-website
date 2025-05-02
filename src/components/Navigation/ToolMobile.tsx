@@ -5,7 +5,7 @@ import CoinActive from '@/assets/image/icons/coin-on.svg';
 import CoinInactive from '@/assets/image/icons/coin-off.svg';
 import { useAuth } from '@/hooks/useAuth';
 import SvgMobile from './SvgMobile';
-import { MobileNavItems, toolBarUrl } from './utils';
+import { handleToolbar, MobileNavItems } from './utils';
 
 export const ToolMobile = () => {
   const [activeUrl, setActiveUrl] = useState<string>('/');
@@ -22,21 +22,7 @@ export const ToolMobile = () => {
 
   useEffect(() => {
     f7ready(() => {
-      f7.view.main.router.on('routeChange', (newRoute, previousRoute) => {
-        const foobar = toolBarUrl.find((item) => item === newRoute.url);
-        setActiveUrl(foobar !== undefined ? newRoute.url : previousRoute.url);
-      });
-
-      const currPath = f7.view.main.router.currentRoute?.url || '';
-      const urlMatch = toolBarUrl.find((item) => item === currPath);
-      setActiveUrl(urlMatch !== undefined ? currPath : '/');
-
-      return () => {
-        f7.view.main.router.off('routeChange', (newRoute, previousRoute) => {
-          const foobar = toolBarUrl.find((item) => item === newRoute.url);
-          setActiveUrl(foobar !== undefined ? newRoute.url : previousRoute.url);
-        });
-      };
+      handleToolbar(setActiveUrl);
     });
   }, []);
 

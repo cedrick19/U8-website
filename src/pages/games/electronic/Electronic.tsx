@@ -1,7 +1,10 @@
 import { Block, Page, Searchbar } from 'framework7-react';
-import { NavBar, TileImage } from '../components';
 import { getDevice } from 'framework7';
+
 import { SegmentedTabs } from '@/components/SegmentedTabs';
+import { NavbarWithNotify } from '@/components';
+
+import { TileImage } from '../components';
 
 const electronicGames = [
   {
@@ -31,7 +34,7 @@ const Electronic = () => {
 
   return (
     <Page name="electronic" className="h-full bg-[#ECE8F5]">
-      <NavBar title="Electronic" />
+      <NavbarWithNotify title="Electronic" />
 
       {isMobile && (
         <Block className="m-0 flex flex-col gap-5 pt-5">
