@@ -3,19 +3,7 @@ import { Icon, Button, Block, Popup, List, ListItem, Page } from 'framework7-rea
 import { balanceSummary, countryCodes } from './utils';
 import CustomInput from '@/pages/profile/component/CustomInput';
 import { cn } from '@/utils/helper';
-
-type FormState = {
-  popupOpened: boolean;
-  selectedCode: string;
-  phoneNumber: string;
-  amount: string;
-};
-
-type CountryCode = {
-  id: number;
-  code: string;
-  country: string;
-};
+import { CountryCode, FormState } from './types';
 
 export const HuangWangPage = () => {
   const [formState, setFormState] = useState<FormState>({
