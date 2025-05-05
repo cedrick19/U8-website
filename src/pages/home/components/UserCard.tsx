@@ -4,7 +4,7 @@ import profileImage from '@/assets/image/icons/avatarIcon.png';
 import refreshImage from '@/assets/image/svg/refresh.svg';
 import chatIcon from '@/assets/image/svg/chat.svg';
 import customerServiceIcon from '@/assets/image/svg/customer-service.svg';
-import { cn, clickNavigate } from '@/utils/helper';
+import { cn, f7navigate } from '@/utils/helper';
 
 export const UserCard = () => {
   const [isEyeOn, setIsEyeOn] = useState(true);
@@ -23,9 +23,10 @@ export const UserCard = () => {
       onClick: () => window.open('https://t.me/SAMPLE', '_blank'),
     },
     {
-      ...clickNavigate('support', 'support/'),
+      id: 'support',
       label: 'Open customer support',
       icon: customerServiceIcon,
+      onClick: () => f7navigate('support', 'support/'),
     },
   ];
 
