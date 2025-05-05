@@ -58,7 +58,7 @@ export const deskNavUrl = [
 ];
 
 export const routes = [
-  { path: '/home/', name: 'Home' },
+  { path: '/', name: 'Home' },
   {
     path: '/games/lottery/',
     name: 'Lottery',

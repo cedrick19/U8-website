@@ -3,7 +3,7 @@ import SettingItem from '@/pages/profile/component/SettingItem';
 import { useState } from 'react';
 import ProfileNav from '@/pages/profile/component/ProfileNav';
 import CustomPopUp from '@/pages/profile/component/CustomPopUp';
-import { clickNavigate } from '@/utils/helper';
+import { f7navigate } from '@/utils/helper';
 import { useAuth } from '@/hooks/useAuth';
 import ClearCache from '@/assets/image/profile/settings/clear_cache.svg';
 
@@ -18,11 +18,12 @@ const Settings = () => {
       <ProfileNav title="Settings" />
       <Block className="m-5 rounded-lg bg-white px-0 shadow-sm">
         <SettingItem
+          id="setting-redirect"
           iconLeft="manage_accounts"
           label="Account Security"
           iconRight="chevron_right"
           iconRightClassName="text-gradient"
-          {...clickNavigate('settings-redirect', 'account-security/')}
+          onClick={() => f7navigate('settings-redirect', 'account-security/')}
         />
       </Block>
       <Block className="m-5 flex-col rounded-lg bg-white px-0 shadow-sm">
