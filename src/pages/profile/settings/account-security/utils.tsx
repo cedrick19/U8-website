@@ -38,11 +38,13 @@ export const modPassPop = [
 
 export const payPass = [
   {
+    id: 'cur-pass',
     name: 'currentPassword',
     label: 'Current Password',
     placeholder: 'Enter current password',
   },
   {
+    id: 'new-pass',
     name: 'newPassword',
     label: 'New Password',
     placeholder: 'Enter new password',
