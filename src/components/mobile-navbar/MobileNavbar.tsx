@@ -52,7 +52,7 @@ export const MobileNavbar = ({ title, navRight, mode = 'home' }: MobileNavbarPro
         </p>
       )}
 
-      {mode !== 'notify' && navRight && <NavRight className="gap-2 pr-2">{navRight}</NavRight>}
+      {mode !== 'notify' && <NavRight className="gap-2 pr-2">{navRight}</NavRight>}
 
       {mode === 'notify' && (
         <>
