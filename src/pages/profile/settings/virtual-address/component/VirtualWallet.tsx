@@ -1,4 +1,4 @@
-import { clickNavigate } from '@/utils/helper';
+import { f7navigate } from '@/utils/helper';
 import { store } from '@/ts/store';
 import { Block, Button, Icon } from 'framework7-react';
 
@@ -28,7 +28,7 @@ const VirtualWallet = (props: Wallet) => {
           id={url}
           onClick={() => {
             dispatch('setParams', type);
-            clickNavigate(url, url).onClick();
+            f7navigate(url, url);
           }}
         >
           <Icon material="add" />

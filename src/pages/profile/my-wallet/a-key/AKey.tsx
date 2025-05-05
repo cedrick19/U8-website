@@ -1,6 +1,6 @@
 import { Button, Card, CardContent, CardHeader, Page } from 'framework7-react';
 import ProfileNav from '../../component/ProfileNav';
-import { clickNavigate } from '@/utils/helper';
+import { f7navigate } from '@/utils/helper';
 import { Fragment } from 'react';
 
 const AKey = () => {
@@ -38,9 +38,10 @@ const AKey = () => {
             </div>
             <Button
               fill
+              id="a-key"
               bgColor="white"
               className="px-6 py-0"
-              {...clickNavigate('a-key', 'a-key/')}
+              onClick={() => f7navigate('a-key', 'a-key/')}
               disabled
             >
               <p className="text-gradient font-bold">A Key</p>

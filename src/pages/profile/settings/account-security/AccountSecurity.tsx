@@ -5,7 +5,7 @@ import ProfileNav from '@/pages/profile/component/ProfileNav';
 import { useState } from 'react';
 import CustomPopUp from '@/pages/profile/component/CustomPopUp';
 import CustomInput from '@/pages/profile/component/CustomInput';
-import { clickNavigate } from '@/utils/helper';
+import { f7navigate } from '@/utils/helper';
 import PayPassword from '@/assets/image/profile/settings/accnum_and_sec/pay_pass.svg';
 import VirtualAdd from '@/assets/image/profile/settings/accnum_and_sec/virtual_add.svg';
 
@@ -111,7 +111,7 @@ const AccountSecurity = () => {
       iconRight: 'chevron_right',
       className: 'rounded-none',
       divider: true,
-      onClick: clickNavigate('vam-redirect', 'vam/').onClick,
+      onClick: () => f7navigate('vam-redirect', 'vam/'),
     },
     {
       id: 'asv-redirect',
@@ -119,7 +119,7 @@ const AccountSecurity = () => {
       label: 'Advanced security verification',
       iconRight: 'chevron_right',
       className: 'rounded-t-none',
-      onClick: clickNavigate('asv-redirect', 'asv/').onClick,
+      onClick: () => f7navigate('asv-redirect', 'asv/'),
     },
   ];
   return (

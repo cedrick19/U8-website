@@ -4,7 +4,7 @@ import ProfileCard from '../component/ProfileCard';
 import CoinOff from '@/assets/image/icons/coin-off.svg';
 import Refresh from '@/assets/image/svg/refresh.svg';
 import SettingItem from '../component/SettingItem';
-import { clickNavigate } from '@/utils/helper';
+import { f7navigate } from '@/utils/helper';
 import { store } from '@/ts/store';
 import { Fragment } from 'react/jsx-runtime';
 
@@ -28,7 +28,7 @@ const MyWallet = () => {
   const { dispatch } = store;
   const handleNavigate = (activeTab: number, index: number) => {
     dispatch('setFundActiveState', activeTab);
-    clickNavigate(`index-${index}`, '/profile/fund-management/').onClick();
+    f7navigate(`index-${index}`, '/profile/fund-management/');
   };
   return (
     <Page name="my wallet">
@@ -59,10 +59,11 @@ const MyWallet = () => {
               </div>
               <div className="h-8 border-[1px] border-slate-300" />
               <Button
+                id="a-key"
                 fill
                 bgColor="white"
                 className="px-6 py-0"
-                {...clickNavigate('a-key', 'a-key/')}
+                onClick={() => f7navigate('a-key', 'a-key/')}
               >
                 <p className="text-gradient font-bold">A Key</p>
               </Button>
@@ -90,9 +91,12 @@ const MyWallet = () => {
         </div>
         <Block className="pt-5">
           <Button
+            id="account-sec-redirect"
             className="rounded-2xl bg-primary-gradient normal-case text-white"
             large
-            {...clickNavigate('account-sec-redirect', '/profile/settings/account-security/')}
+            onClick={() =>
+              f7navigate('account-sec-redirect', '/profile/settings/account-security/')
+            }
           >
             Account Security Settings
           </Button>
