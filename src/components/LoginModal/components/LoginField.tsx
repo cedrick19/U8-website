@@ -1,4 +1,4 @@
-import { Button, Icon, Input } from 'framework7-react';
+import { Button, Icon } from 'framework7-react';
 import { useState } from 'react';
 import { LoginFieldProps } from './type';
 
@@ -24,9 +24,9 @@ export const LoginField = ({
       <span className="text-gradient text-sm">{inputHeader}</span>
       <div className="flex h-12 w-full flex-row items-center gap-2 overflow-hidden truncate whitespace-nowrap rounded-xl border border-gray-500 bg-white px-3">
         <Icon f7={f7icon} size={22} className="text-gradient" />
-        <Input
+        <input
           type={inputType === 'password' && togglePass ? 'text' : inputType}
-          autocomplete={autocomplete}
+          autoComplete={autocomplete}
           name={labelKey}
           placeholder={placeholder}
           value={value}

@@ -10,7 +10,7 @@ import CoinOff from '@/assets/image/icons/coin-off.svg';
 import Refresh2 from '@/assets/image/icons/refresh_2.svg';
 import HomeNavbar from '@/components/mobile-navbar/HomeNavbar';
 import Copy from '@/assets/image/profile/settings/accnum_and_sec/copy.svg';
-import { clickNavigate } from '@/utils/helper';
+import { f7navigate } from '@/utils/helper';
 import { Fragment, useState } from 'react';
 import { store } from '@/ts/store';
 import CustomPopUp from './component/CustomPopUp';
@@ -20,6 +20,11 @@ export interface Services {
   id?: string;
   icon: string;
   label: string;
+}
+
+interface CopySubLabel {
+  subLabel: string;
+  isCopied: boolean;
 }
 
 const services: Services[] = [
@@ -66,10 +71,24 @@ const ProfilePage = () => {
   const { dispatch } = store;
   const [openShare, setOpenShare] = useState<boolean>(false);
   const [copied, setCopied] = useState<boolean>(false);
+  const [subCopy, setSubCopy] = useState<CopySubLabel>({
+    subLabel: 'beluga.cat07',
+    isCopied: false,
+  });
 
   const handleNavigate = (activeTab: number, index: number) => {
     dispatch('setGameActiveState', activeTab);
-    clickNavigate(`index-${index}`, 'game-management/').onClick();
+    f7navigate(`index-${index}`, 'game-management/');
+  };
+  const handleCopy = async () => {
+    if (!subCopy.isCopied) {
+      await navigator.clipboard.writeText(subCopy.subLabel);
+      setSubCopy({ ...subCopy, isCopied: true });
+
+      setTimeout(() => {
+        setSubCopy({ ...subCopy, isCopied: false });
+      }, 10000);
+    }
   };
   return (
     <Page name="profile">
@@ -101,8 +120,12 @@ const ProfilePage = () => {
         <Block className="flex-col gap-1">
           <p className="text-lg">beluga.cat</p>
           <div className="flex items-center">
-            <p className="text-xs">Member Account: beluga.cat07</p>
-            <img src={Copy} className="h-4 w-4" />
+            <p className="text-xs">Member Account: {subCopy.subLabel}</p>
+            {subCopy.isCopied ? (
+              <Icon f7="checkmark" size={15} />
+            ) : (
+              <img src={Copy} onClick={handleCopy} className="h-4 w-4" />
+            )}
           </div>
         </Block>
       </Block>
@@ -144,10 +167,7 @@ const ProfilePage = () => {
             <Link
               className="flex items-center gap-2"
               id="refresh"
-              onClick={() => {
-                document.getElementById('refresh')?.blur();
-                f7.view.main.router.navigate('refresh/');
-              }}
+              onClick={() => f7navigate('refresh', 'refresh/')}
             >
               <div className="h-5 w-5 cursor-pointer rounded-full bg-primary-gradient p-1">
                 <img src={Refresh2} alt="refresh" className="h-full w-full" />
@@ -194,8 +214,9 @@ const ProfilePage = () => {
           {services.map((data, index) => (
             <Fragment key={index}>
               <Link
+                id={data.id}
                 className="flex-col justify-items-center"
-                {...clickNavigate(`${data.id}`, `${data.id}/`)}
+                onClick={() => f7navigate(`${data.id}`, `${data.id}/`)}
               >
                 <img alt={data.label} src={data.icon} className="h-10 w-10" />
                 <p className="text-center">{data.label}</p>

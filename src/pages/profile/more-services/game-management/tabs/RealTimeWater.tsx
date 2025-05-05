@@ -2,7 +2,7 @@ import { Block, Button, CardContent, Icon } from 'framework7-react';
 import { useState } from 'react';
 import { DropBottom } from '@/pages/profile/more-services/component';
 import CustomPopUp from '@/pages/profile/component/CustomPopUp';
-import { clickNavigate } from '@/utils/helper';
+import { f7navigate } from '@/utils/helper';
 
 const dateSelection = [
   {
@@ -40,8 +40,9 @@ export const RealTimeWater = () => {
       </CardContent>
 
       <Button
+        id="return-ratio-details"
         className="flex h-10 w-full flex-row items-center rounded-lg border-2 border-secondary bg-white normal-case"
-        {...clickNavigate('return-ratio-details', 'return-ratio-details/')}
+        onClick={() => f7navigate('return-ratio-details', 'return-ratio-details/')}
       >
         <span className="text-secondary">Return Ratio Details</span>
         <Icon f7="chevron_right" icon="text-secondary" size={16} />
