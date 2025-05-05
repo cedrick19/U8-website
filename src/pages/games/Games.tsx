@@ -1,6 +1,6 @@
 import { Block, f7, Icon, Link, Page } from 'framework7-react';
 
-import HomeNavbar from '@/components/mobile-navbar/HomeNavbar';
+import { MobileNavbar } from '@/components';
 
 import { gameInfo } from './utils';
 import { TileMenu } from './components';
@@ -25,7 +25,8 @@ const Games = () => {
 
   return (
     <Page name="games">
-      <HomeNavbar navRight={renderNavright()} />
+      <MobileNavbar navRight={renderNavright()} mode={'home'} />
+
       <Block className="pb-20">
         {gameInfo.map((game) => (
           <TileMenu

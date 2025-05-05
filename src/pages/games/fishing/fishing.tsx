@@ -1,6 +1,6 @@
 import { Block, Button, Page, Searchbar } from 'framework7-react';
 import { getDevice } from 'framework7';
-import { NavbarWithNotify } from '@/components';
+import { MobileNavbar } from '@/components';
 
 import { TileImage } from '../components';
 
@@ -9,7 +9,7 @@ const Fishing = () => {
 
   return (
     <Page name="fishing" className="h-full bg-[#ECE8F5] pb-20">
-      <NavbarWithNotify title="Fishing" />
+      <MobileNavbar mode="notify" title="Fishing" />
 
       {isMobile && (
         <Block className="m-0 pt-5">
