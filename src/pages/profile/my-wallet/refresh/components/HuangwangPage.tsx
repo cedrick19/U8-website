@@ -24,26 +24,12 @@ export const HuangWangPage = () => {
     }
   };
 
-  const handleClearInput = () => {
-    setFormState((prevState) => ({
-      ...prevState,
-      phoneNumber: '',
-    }));
-  };
-
   const handleNumberFormat = (e: React.ChangeEvent<HTMLInputElement>) => {
     const input = e.currentTarget.value;
     const formatted = input.replace(/\D/g, '').replace(/(\d{3})(\d{3})(\d{4})/, '$1 $2 $3');
     setFormState((prevState) => ({
       ...prevState,
       phoneNumber: formatted,
-    }));
-  };
-
-  const handleAmountChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setFormState((prevState) => ({
-      ...prevState,
-      amount: e.currentTarget.value,
     }));
   };
 
@@ -75,7 +61,15 @@ export const HuangWangPage = () => {
               </Button>
             }
             rightDecoration={
-              <Button className="h-7 w-7" onClick={handleClearInput}>
+              <Button
+                className="h-7 w-7"
+                onClick={() =>
+                  setFormState((prevState) => ({
+                    ...prevState,
+                    phoneNumber: '',
+                  }))
+                }
+              >
                 <Icon f7="multiply_circle_fill" className="text-slate-500" />
               </Button>
             }
@@ -114,8 +108,6 @@ export const HuangWangPage = () => {
           <CustomInput
             name="amount"
             type="number"
-            value={formState.amount}
-            onChange={handleAmountChange}
             placeholder="Enter Amount"
             maxLength={12}
             className={cn('flex rounded-full border-2 border-gray-500 bg-white px-3 pl-0 pr-3')}
@@ -156,7 +148,7 @@ export const HuangWangPage = () => {
 
         <p className="font medium text-xs text-black">
           Contact for first presentation
-          <span className="text-gradient"> @U8hdkefu8 </span>
+          <span className="text-gradient font-bold"> @U8hdkefu8 </span>
           Official grid customer service and let the customer service retain your aircraft number.
           The customer service will be checked twice to ensure the safety of fund.
         </p>
