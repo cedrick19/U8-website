@@ -2,7 +2,7 @@ import { Block, Button, Card, CardContent, CardFooter, Page } from 'framework7-r
 import { getDevice } from 'framework7';
 
 import { cn } from '@/utils/helper';
-import { NavbarWithNotify } from '@/components';
+import { MobileNavbar } from '@/components';
 
 import { lotteryGames } from '../utils';
 
@@ -39,7 +39,7 @@ const Lottery = () => {
   const isMobile = getDevice().android || getDevice().ios;
   return (
     <Page name="lottery" className={cn(isMobile && 'bg-[#ECE8F5]')}>
-      <NavbarWithNotify title="Lottery" />
+      <MobileNavbar mode="notify" title="Lottery" />
 
       {isMobile && (
         <Block className="m-0 h-full w-full p-8">

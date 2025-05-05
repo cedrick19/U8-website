@@ -1,7 +1,7 @@
 import { Block, Page } from 'framework7-react';
 import { getDevice } from 'framework7';
 
-import { NavbarWithNotify } from '@/components';
+import { MobileNavbar } from '@/components';
 
 import { TileWithButton } from '../components';
 import { sportsData } from '../utils';
@@ -11,7 +11,7 @@ const Sports = () => {
 
   return (
     <Page name="Sports" className="bg-[#ECE8F5] pb-20">
-      <NavbarWithNotify title="Sports" />
+      <MobileNavbar mode="notify" title="Sports" />
 
       {isMobile && (
         <Block className="m-0">

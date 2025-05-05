@@ -1,7 +1,7 @@
 import { Block, Page } from 'framework7-react';
 import { getDevice } from 'framework7';
 
-import { NavbarWithNotify } from '@/components';
+import { MobileNavbar } from '@/components';
 
 import MobileView from './MobileView';
 import { videoData } from './utils';
@@ -11,7 +11,7 @@ const VideoPage = () => {
 
   return (
     <Page name="video" className="bg-[#ECE8F5]">
-      <NavbarWithNotify title="Video" />
+      <MobileNavbar mode="notify" title="Video" />
 
       {isMobile && <MobileView videos={videoData} />}
 
