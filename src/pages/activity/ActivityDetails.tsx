@@ -1,7 +1,7 @@
 import { Router } from 'framework7/types';
 import { Block, Page } from 'framework7-react';
 
-import { NavbarWithNotify } from '@/components';
+import { MobileNavbar } from '@/components';
 import { ActivityCardData } from './component';
 
 export const ActivityDetails = ({ f7route }: { f7route: Router.Route }) => {
@@ -16,7 +16,7 @@ export const ActivityDetails = ({ f7route }: { f7route: Router.Route }) => {
 
   return (
     <Page name="activty-details">
-      <NavbarWithNotify title={capitalizeFirstLetter(renderCategoryTitle)} />
+      <MobileNavbar mode="notify" title={capitalizeFirstLetter(renderCategoryTitle)} />
 
       <Block className="mb-32">
         {[...Array(3)].map((_, index) => (

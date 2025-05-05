@@ -10,11 +10,11 @@ export const ActivityCardData = ({ category }: ActivityData) => {
   return (
     <Card raised className="rounded-xl">
       <CardContent padding={false} className="h-full rounded-xl bg-[#ECE8F5]">
-        <div className="relative h-40 w-full overflow-hidden rounded-xl">
+        <div className="relative h-48 w-full overflow-hidden rounded-xl">
           <div className="flex justify-end">
             <Chip
               text={category}
-              className="w-36 justify-center rounded-lg rounded-br-none rounded-tl-none bg-primary-gradient font-bold text-white"
+              className="h-19 w-36 justify-center rounded-lg rounded-br-none rounded-tl-none bg-primary-gradient font-bold text-white"
             />
           </div>
 
@@ -22,7 +22,7 @@ export const ActivityCardData = ({ category }: ActivityData) => {
             loading="lazy"
             src={AllActivity}
             alt={'title'}
-            className="absolute top-2 h-full w-auto"
+            className="absolute top-2 h-full w-auto px-1"
           />
         </div>
 

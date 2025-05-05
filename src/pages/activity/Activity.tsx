@@ -1,8 +1,9 @@
 import { Page, Block, Icon, Link } from 'framework7-react';
 
 import Layout from '@/layout/layout';
-import HomeNavbar from '@/components/mobile-navbar/HomeNavbar';
+
 import { f7navigate } from '@/utils/helper';
+import { MobileNavbar } from '@/components';
 
 import { activities } from './utils';
 import { ActivityCard } from './component';
@@ -16,7 +17,8 @@ const ActivityPage = () => {
 
   return (
     <Page name="activity">
-      <HomeNavbar
+      <MobileNavbar
+        mode="home"
         navRight={
           <>
             <p className="text-xl font-extrabold">0.00</p>
