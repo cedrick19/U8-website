@@ -55,7 +55,7 @@ export const UserCard = () => {
           </div>
 
           <div className="flex items-center gap-2">
-            <span className="text-2xl font-bold">{isEyeOn ? '****' : '0.00'}</span>
+            <span className="w-12 text-2xl font-bold">{isEyeOn ? '****' : '0.00'}</span>
             <button
               onClick={handleRefreshClick}
               className="flex h-6 w-6 items-center justify-center rounded-full bg-primary-gradient"
