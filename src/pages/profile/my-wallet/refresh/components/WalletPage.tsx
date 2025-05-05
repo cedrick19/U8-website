@@ -1,10 +1,12 @@
 import { useState } from 'react';
-import { Block, Button, Icon, Input } from 'framework7-react';
+import { Block, Button, Icon } from 'framework7-react';
 import CustomPopUp from '@/pages/profile/component/CustomPopUp';
 import { infoItems } from './utils';
+import CustomInput from '@/pages/profile/component/CustomInput';
 
-export const WalletPage = () => {
+export const WalletPage: React.FC<{ currencyWallet: string }> = ({ currencyWallet }) => {
   const [popupOpen, setPopupOpen] = useState(false);
+  const [amount, setAmount] = useState('');
 
   return (
     <>
@@ -19,23 +21,34 @@ export const WalletPage = () => {
         <div>
           <p className="text-lg font-bold text-black">No virtual currency address</p>
           <p className="text-xs text-gray-600">Please add a virtual currency address.</p>
-          <p className="text-sm text-gray-500">•••• •••• •••• ••••</p>
+          <p className="text-sm text-gray-600">•••• •••• •••• ••••</p>
         </div>
       </Block>
 
       <Block className="flex flex-col items-start gap-4 rounded-3xl bg-white py-5">
         <p className="text-gradient text-lg font-bold">Cash withdrawal</p>
 
-        <div className="flex h-12 w-full flex-row">
-          <div className="flex w-full flex-row items-center justify-between overflow-hidden truncate whitespace-nowrap rounded-full border border-gray-500 bg-white px-3">
-            <div className="h-8 w-8 items-center justify-center rounded-full bg-primary-gradient">
-              <Icon f7="money_dollar" icon="text-white mt-0.5 ml-0.5" />
-            </div>
-            <Input type="number" className="w-2/4" min={0} />
-            <Button className="h-8 w-1/4 rounded-full bg-primary-gradient">
-              <span className="normal-case text-white">Max</span>
-            </Button>
-          </div>
+        <div className="w-full">
+          <CustomInput
+            name="amount"
+            type="number"
+            id={`${currencyWallet}-amount`}
+            value={amount}
+            onChange={(e) => setAmount(e.target.value)}
+            maxLength={12}
+            placeholder="Enter Amount"
+            className="flex rounded-full border border-gray-500 bg-white px-3 pl-0 pr-3"
+            leftDecoration={
+              <div className="h-8 w-8 items-center justify-center rounded-full bg-primary-gradient">
+                <Icon f7="money_dollar" className="ml-0.5 mt-0.5 text-white" />
+              </div>
+            }
+            rightDecoration={
+              <Button className="h-8 w-1/4 rounded-full bg-primary-gradient">
+                <span className="normal-case text-white">MAX</span>
+              </Button>
+            }
+          />
         </div>
 
         <div className="w-full rounded-lg bg-purple-50 p-3 text-sm">
@@ -44,7 +57,11 @@ export const WalletPage = () => {
               <span className="text-gradient flex items-center font-semibold">
                 {label}
                 {label === 'Frozen Amount' && (
-                  <span className="material-icons ml-1 text-[16px] text-gray-500">help</span>
+                  <Icon
+                    f7="question_circle_fill"
+                    size={16}
+                    className="material-icons ml-1 text-[16px] text-gray-500"
+                  />
                 )}
               </span>
               <span className="font-bold text-black">{value}</span>
