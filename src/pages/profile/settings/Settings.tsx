@@ -18,7 +18,7 @@ const Settings = () => {
       <ProfileNav title="Settings" />
       <Block className="m-5 rounded-lg bg-white px-0 shadow-sm">
         <SettingItem
-          id="setting-redirect"
+          id="settings-redirect"
           iconLeft="manage_accounts"
           label="Account Security"
           iconRight="chevron_right"
