@@ -40,13 +40,6 @@ export const HuangWangPage = () => {
     }));
   };
 
-  const handleAmountChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setFormState((prevState) => ({
-      ...prevState,
-      amount: e.currentTarget.value,
-    }));
-  };
-
   return (
     <>
       <Block className="flex flex-col rounded-3xl bg-white py-5">
@@ -114,8 +107,6 @@ export const HuangWangPage = () => {
           <CustomInput
             name="amount"
             type="number"
-            value={formState.amount}
-            onChange={handleAmountChange}
             placeholder="Enter Amount"
             maxLength={12}
             className={cn('flex rounded-full border-2 border-gray-500 bg-white px-3 pl-0 pr-3')}
