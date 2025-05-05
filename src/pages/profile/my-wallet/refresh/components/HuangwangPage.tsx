@@ -47,13 +47,14 @@ export const HuangWangPage = () => {
             type="tel"
             value={formState.phoneNumber}
             onChange={handleNumberFormat}
+            placeholder="Enter your mobile number"
             className={cn(
               'flex w-full flex-row items-center overflow-hidden rounded-full border-2 border-gray-500 bg-white px-3 pl-0 pr-3',
             )}
             leftDecoration={
               <Button
                 id="country-code-button"
-                className="text-base"
+                className="pr-0 text-base"
                 onClick={() => setFormState((prevState) => ({ ...prevState, popupOpened: true }))}
               >
                 <span className="text-black">{formState.selectedCode}</span>
