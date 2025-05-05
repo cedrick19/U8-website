@@ -60,10 +60,10 @@ const AdvanceSecVerification = () => {
             mailbox verification code. This method is still available event if your phone is offline
           </p>
           <div className="space-y-5">
-            <Button large outline className="text-gradient border-2 border-primary">
+            <Button large outline className="text-gradient border-2 border-primary normal-case">
               Download Google Authenticator
             </Button>
-            <Button large className="bg-primary-gradient text-white">
+            <Button large className="bg-primary-gradient normal-case text-white">
               Enable Google Authenticator
             </Button>
           </div>
