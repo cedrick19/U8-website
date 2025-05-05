@@ -167,10 +167,7 @@ const ProfilePage = () => {
             <Link
               className="flex items-center gap-2"
               id="refresh"
-              onClick={() => {
-                document.getElementById('refresh')?.blur();
-                f7.view.main.router.navigate('refresh/');
-              }}
+              onClick={() => f7navigate('refresh', 'refresh/')}
             >
               <div className="h-5 w-5 cursor-pointer rounded-full bg-primary-gradient p-1">
                 <img src={Refresh2} alt="refresh" className="h-full w-full" />
