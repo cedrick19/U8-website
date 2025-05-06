@@ -1,6 +1,7 @@
 import { cn } from '@/utils/helper';
 import { Block, Button, Icon, Popup } from 'framework7-react';
 import { CustomCalendar } from './Calendar';
+import { ReactNode } from 'react';
 
 interface PopUpType {
   labelKey: string;
@@ -57,7 +58,7 @@ const DropdownSheet = ({
   </Block>
 );
 
-const Bottomsheet = ({ id, children }: { id: string; children: React.ReactNode }) => (
+const Bottomsheet = ({ id, children }: { id: string; children: ReactNode }) => (
   <Popup
     id={id}
     className="!bottom-0 !top-auto mx-auto !h-auto w-full max-w-md rounded-t-3xl p-4 transition-all duration-300"

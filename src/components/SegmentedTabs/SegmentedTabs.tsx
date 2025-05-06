@@ -1,11 +1,7 @@
 import { cn } from '@/utils/helper';
 import { Button, Segmented, Tab, Tabs } from 'framework7-react';
 import { useState } from 'react';
-
-export interface SegmentButtons {
-  tabName: string;
-  component?: React.ReactNode;
-}
+import { SegmentButtons } from './type';
 
 interface SegmentedTabsProps {
   tabArray: SegmentButtons[];

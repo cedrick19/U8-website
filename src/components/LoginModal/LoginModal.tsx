@@ -1,7 +1,7 @@
 import { Block, Button, f7, Icon, LoginScreen, Navbar, NavLeft, Page } from 'framework7-react';
 import { LoginSegment, LoginTab, RegisterTab } from './components';
-import { SegmentButtons } from '../SegmentedTabs';
 import Logo from '@/assets/image/svg/SVGAppLogo.svg';
+import { SegmentButtons } from '@/components/SegmentedTabs/type';
 
 const LoginArray: SegmentButtons[] = [
   {

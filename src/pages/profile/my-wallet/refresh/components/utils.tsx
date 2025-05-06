@@ -1,6 +1,6 @@
 import { WalletPage } from './WalletPage';
 import { HuangWangPage } from './HuangwangPage';
-import { SegmentButtons } from '@/components/SegmentedTabs';
+import { SegmentButtons } from '@/components/SegmentedTabs/type';
 
 export const RefreshOptions: SegmentButtons[] = [
   {

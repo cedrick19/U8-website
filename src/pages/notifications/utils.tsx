@@ -1,14 +1,6 @@
-import { SegmentButtons } from '@/components/SegmentedTabs';
+import { SegmentButtons } from '@/components/SegmentedTabs/type';
 import { NotifComponent } from './components';
-
-export interface NotificationDataType {
-  id: number;
-  title: string;
-  type: string;
-  content: string;
-  date?: string;
-  time?: string;
-}
+import { NotificationDataType } from './type';
 
 export const notifications: NotificationDataType[] = [
   {

@@ -161,11 +161,11 @@ body {
 }
 
 .calendar-week-header .calendar-week-day {
-  @apply uppercase;
+  @apply text-gradient font-semibold uppercase;
 }
 
 .calendar-day .calendar-day-number {
-  @apply font-normal;
+  @apply font-bold;
 }
 
 .calendar-day-prev,

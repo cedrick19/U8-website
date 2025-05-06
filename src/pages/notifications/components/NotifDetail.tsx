@@ -1,7 +1,7 @@
 import { Block, Page } from 'framework7-react';
 import { Router } from 'framework7/types';
 import { notifications } from '../utils';
-import { NotifNav } from './NotifNavbar';
+import { MobileNavbar } from '@/components';
 
 export const NotifDetail = ({ f7route }: { f7route: Router.Route }) => {
   const notifId = Number(f7route.params.id);
@@ -25,7 +25,7 @@ export const NotifDetail = ({ f7route }: { f7route: Router.Route }) => {
 
   return (
     <Page name="notif-detail">
-      <NotifNav title="Notification Details" />
+      <MobileNavbar mode="profile" title="Notification Details" />
       <Block>
         <Block className="flex flex-col gap-6 rounded-3xl bg-white py-5">
           {notif && (
