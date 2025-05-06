@@ -7,7 +7,7 @@ import CcTrc from '@/assets/image/qr/cc-tr.png';
 import CcErc from '@/assets/image/qr/cc-er.png';
 import WeChat from '@/assets/image/icons/WeChat.svg';
 import AliPay from '@/assets/image/icons/AliPay.svg';
-import { SegmentButtons } from '@/components/SegmentedTabs';
+import { SegmentButtons } from '@/components/SegmentedTabs/type';
 
 export const RechargeOptions: SegmentButtons[] = [
   {

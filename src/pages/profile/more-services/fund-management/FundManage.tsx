@@ -1,8 +1,9 @@
 import { Block, Page } from 'framework7-react';
-import { SegmentButtons, SegmentedTabs } from '@/components/SegmentedTabs';
+import { SegmentedTabs } from '@/components/SegmentedTabs';
 import { FundingDetails, TransactionRecord } from './tabs';
 import { store } from '@/ts/store';
 import { MobileNavbar } from '@/components';
+import { SegmentButtons } from '@/components/SegmentedTabs/type';
 
 const FundManageArray: SegmentButtons[] = [
   {
