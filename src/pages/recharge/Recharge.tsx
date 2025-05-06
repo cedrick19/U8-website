@@ -1,12 +1,12 @@
 import { SegmentedTabs } from '@/components/SegmentedTabs';
 import { Block, Page } from 'framework7-react';
 import { RechargeOptions } from './components/utils';
-import { RechargeNavbar } from './components';
+import { MobileNavbar } from '@/components';
 
 const Recharge = () => {
   return (
     <Page name="Recharge">
-      <RechargeNavbar />
+      <MobileNavbar mode="notify" />
       <Block>
         <SegmentedTabs tabArray={RechargeOptions} />
       </Block>

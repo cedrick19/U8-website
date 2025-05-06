@@ -1,12 +1,12 @@
 import { Block, Page } from 'framework7-react';
-import { NotifNav } from './components';
 import { SegmentedTabs } from '@/components/SegmentedTabs';
 import { notifComponentArray } from './utils';
+import { MobileNavbar } from '@/components';
 
 const NotificationsPage = () => {
   return (
     <Page name="Notifications">
-      <NotifNav title="Notification Center" />
+      <MobileNavbar mode="profile" title="Notification Center" />
       <Block>
         <SegmentedTabs tabArray={notifComponentArray} />
       </Block>

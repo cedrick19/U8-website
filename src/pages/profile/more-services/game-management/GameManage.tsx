@@ -1,8 +1,9 @@
 import { Block, Page } from 'framework7-react';
-import { SegmentButtons, SegmentedTabs } from '@/components/SegmentedTabs';
+import { SegmentedTabs } from '@/components/SegmentedTabs';
 import { GameNote, RealTimeWater, TotalProfitLoss } from './tabs';
 import { store } from '@/ts/store';
 import { MobileNavbar } from '@/components';
+import { SegmentButtons } from '@/components/SegmentedTabs/type';
 
 const GameManageArray: SegmentButtons[] = [
   {
