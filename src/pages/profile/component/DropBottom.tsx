@@ -1,6 +1,6 @@
 import { cn } from '@/utils/helper';
 import { Block, Button, Icon, Popup } from 'framework7-react';
-import { CustomCalendar } from './Calendar';
+import { CustomCalendar } from '../more-services/component/Calendar';
 
 interface PopUpType {
   labelKey: string;

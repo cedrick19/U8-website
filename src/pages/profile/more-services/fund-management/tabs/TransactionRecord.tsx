@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { TransactionPopup } from './utils';
-import { DropBottom } from '@/pages/profile/more-services/component';
+import { DropBottom } from '@/pages/profile/component';
 
 export const TransactionRecord = () => {
   const [activeOption, setActiveOption] = useState<Record<string, string>>({
