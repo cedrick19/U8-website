@@ -2,12 +2,14 @@ import Announcement from '@/assets/image/svg/announcement.svg';
 
 const marqueeData = [
   {
-    message: 'Congratulations to the player c**** in Canada win',
+    playerName: 'john89',
+    countryName: 'Canada',
     game: 'Mahjong.',
     price: '40000 Yuan',
   },
   {
-    message: 'Congratulations to the player c**** in Philippines win',
+    playerName: 'cedrick99',
+    countryName: 'Philippines',
     game: 'Lotto.',
     price: '40000 Pesos',
   },
@@ -15,9 +17,9 @@ const marqueeData = [
 
 export const TextCarousel = () => {
   const renderMessages = () =>
-    marqueeData.map(({ message, game, price }, index) => (
+    marqueeData.map(({ playerName, countryName, game, price }, index) => (
       <span key={index} className="flex">
-        <span>{message}</span>
+        <span>{`Congratulations to the player ${playerName} in ${countryName} win`}</span>
         <span className="mx-1 text-green-500">{price}</span>
         <span>of game</span>
         <span className="mx-1 text-blue-500">{game}</span>

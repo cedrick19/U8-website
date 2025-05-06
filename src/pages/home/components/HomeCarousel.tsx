@@ -4,20 +4,21 @@ import { useState } from 'react';
 import { Button } from 'framework7-react';
 import Carousel1 from '@/assets/image/home/carousel1.jpg';
 import Carousel2 from '@/assets/image/home/carousel2.jpg';
-
-import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 import { cn } from '@/utils/helper';
 
 export const HomeCarousel = () => {
-  const [isHovered, setIsHovered] = useState(false);
+  const [hovered, setHovered] = useState(false);
+  const carouselImages = [Carousel1, Carousel2];
+  const navButtonBaseClass =
+    'absolute top-1/2 hidden md:flex p-4  bg-opacity-60 transition-opacity ';
 
   return (
     <div
       className="relative"
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
     >
       <Swiper
         slidesPerView={1}
@@ -30,11 +31,11 @@ export const HomeCarousel = () => {
         modules={[Navigation, Pagination, Autoplay]}
         className="w-full sm:h-10 md:h-auto"
       >
-        {[Carousel1, Carousel2].map((img, i) => (
-          <SwiperSlide key={i}>
+        {carouselImages.map((image, index) => (
+          <SwiperSlide key={index}>
             <img
-              src={img}
-              alt={`Promotional Banner ${i + 1}`}
+              src={image}
+              alt={`Promotional Banner ${index + 1}`}
               className="h-auto w-full sm:h-full"
             />
           </SwiperSlide>
@@ -48,8 +49,8 @@ export const HomeCarousel = () => {
             className={cn(
               `swiper-button-${dir}`,
               dir === 'prev' ? 'left-4' : 'right-4',
-              isHovered ? 'opacity-100' : 'opacity-0',
-              'absolute top-1/2 hidden bg-opacity-60 p-4 text-white transition-opacity duration-300 md:flex',
+              hovered ? 'opacity-100' : 'opacity-0',
+              navButtonBaseClass,
             )}
           />
         ))}
