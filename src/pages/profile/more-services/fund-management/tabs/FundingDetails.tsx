@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { FundingPopUp } from './utils';
-import { DropBottom } from '@/pages/profile/more-services/component';
+import { DropBottom } from '@/pages/profile/component';
 
 export const FundingDetails = () => {
   const [activeOption, setActiveOption] = useState<Record<string, string>>({

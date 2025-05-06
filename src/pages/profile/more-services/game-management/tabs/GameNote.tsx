@@ -1,7 +1,7 @@
 import { Block, CardContent } from 'framework7-react';
 import { GameNotePopUp } from './utils';
 import { useState } from 'react';
-import { DropBottom } from '@/pages/profile/more-services/component';
+import { DropBottom } from '@/pages/profile/component';
 
 const stats = [
   { label: 'Bet', value: '0 \npens\n' },

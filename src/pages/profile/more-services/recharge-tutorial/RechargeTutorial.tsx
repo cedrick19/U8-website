@@ -1,16 +1,16 @@
 import { Page } from 'framework7-react';
-import ProfileNav from '@/pages/profile/component/ProfileNav';
 import LabelImgUSD from '@/assets/image/profile/more-services/recharge-tutorial/ustd-recharge/USDT_Recharge.png';
 import LabelImgWC from '@/assets/image/profile/more-services/recharge-tutorial/withdrawal-course/Withdrawal_Course.png';
 import LabelImgFD from '@/assets/image/profile/more-services/recharge-tutorial/financial-direct/Financia_Direct.png';
 import USTDRecharge from './sections/ustd-recharge';
 import WithdrawalCourse from './sections/withdrawal-course';
 import FinancialDirect from './sections/financial-direct';
+import { MobileNavbar } from '@/components';
 
 const RechargeTutorial = () => {
   return (
     <Page name="recharge-tutorial">
-      <ProfileNav title="Recharge Tutorial" />
+      <MobileNavbar mode="profile" title="Recharge Tutorial" />
       <div>
         <div className="mx-4 mb-3 mt-8">
           <span>
