@@ -22,17 +22,17 @@ const marqueeData: MarqueeMsgType[] = [
 export const TextCarousel = () => {
   const formatParagraph = (par: string, data: MarqueeMsgType, paraId: number) => (
     <span key={paraId}>
-      {par.split('\n').map((line, idx) => {
-        const trimmedParts = line.trim();
-        const isPrice = trimmedParts === data.price;
-        const isGame = trimmedParts === data.game;
-
-        return (
-          <span key={idx} className={cn(isPrice && 'text-green-500', isGame && 'text-blue-500')}>
-            {line}
-          </span>
-        );
-      })}
+      {par.split('\n').map((line, idx) => (
+        <span
+          key={idx}
+          className={cn(
+            line.trim() === data.price && 'text-green-500',
+            line.trim() === data.game && 'text-blue-500',
+          )}
+        >
+          {line}
+        </span>
+      ))}
     </span>
   );
 
