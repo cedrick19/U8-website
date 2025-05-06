@@ -1,5 +1,4 @@
 import { Block, Button, Card, CardContent, Icon, Link, Page } from 'framework7-react';
-import ProfileNav from '../component/ProfileNav';
 import ProfileCard from '../component/ProfileCard';
 import CoinOff from '@/assets/image/icons/coin-off.svg';
 import Refresh from '@/assets/image/svg/refresh.svg';
@@ -7,6 +6,7 @@ import SettingItem from '../component/SettingItem';
 import { f7navigate } from '@/utils/helper';
 import { store } from '@/ts/store';
 import { Fragment } from 'react/jsx-runtime';
+import { MobileNavbar } from '@/components';
 
 const myWalletFundsArray = [
   {
@@ -32,7 +32,7 @@ const MyWallet = () => {
   };
   return (
     <Page name="my wallet">
-      <ProfileNav title="My Wallet" />
+      <MobileNavbar mode="profile" title="My Wallet" />
       <ProfileCard>
         <Card
           className="z-10 border-2 border-white bg-primary-gradient shadow-md shadow-[#d4caf9]"

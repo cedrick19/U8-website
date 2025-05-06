@@ -1,11 +1,11 @@
 import { Block, Button, Page } from 'framework7-react';
 import SettingItem from '@/pages/profile/component/SettingItem';
 import { useState } from 'react';
-import ProfileNav from '@/pages/profile/component/ProfileNav';
 import CustomPopUp from '@/pages/profile/component/CustomPopUp';
 import { f7navigate } from '@/utils/helper';
 import { useAuth } from '@/hooks/useAuth';
 import ClearCache from '@/assets/image/profile/settings/clear_cache.svg';
+import { MobileNavbar } from '@/components';
 
 const Settings = () => {
   const [loginOpen, setLoginOpen] = useState(false);
@@ -15,7 +15,7 @@ const Settings = () => {
   return (
     <Page name="Settings" className="relative">
       <div className="absolute h-[40%] w-full rounded-br-full bg-gradient-to-br from-[#381E7B]/20 via-transparent to-transparent backdrop:blur-3xl" />
-      <ProfileNav title="Settings" />
+      <MobileNavbar mode="profile" title="Settings" />
       <Block className="m-5 rounded-lg bg-white px-0 shadow-sm">
         <SettingItem
           id="settings-redirect"

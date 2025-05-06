@@ -1,9 +1,9 @@
 import { Block, Button, Icon, Page } from 'framework7-react';
-import ProfileNav from '@/pages/profile/component/ProfileNav';
 import CustomInput from '@/pages/profile/component/CustomInput';
 import CustomPopUp from '@/pages/profile/component/CustomPopUp';
 import { useState } from 'react';
 import GoogleAuth from '@/assets/image/profile/settings/adv_sec/google_authenticator.svg';
+import { MobileNavbar } from '@/components';
 
 const AdvanceSecVerification = () => {
   const [open, setOpen] = useState({
@@ -74,7 +74,7 @@ const AdvanceSecVerification = () => {
 
   return (
     <Page name="advance security verification">
-      <ProfileNav title="Advance Security Verification" />
+      <MobileNavbar mode="profile" title="Advance Security Verification" />
       <div className="absolute h-[40%] w-full rounded-br-full bg-gradient-to-br from-[#381E7B]/20 via-transparent to-transparent backdrop:blur-3xl" />
       <Block className="flex-col space-y-5">
         <div className="space-y-2">

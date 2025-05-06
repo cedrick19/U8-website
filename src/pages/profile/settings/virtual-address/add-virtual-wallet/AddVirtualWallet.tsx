@@ -1,15 +1,15 @@
 import { Block, Card, Icon, Page, Tab, Tabs } from 'framework7-react';
-import ProfileNav from '@/pages/profile/component/ProfileNav';
 import CustomInput from '@/pages/profile/component/CustomInput';
 import WalletTabs from '@/pages/profile/settings/virtual-address/component/WalletTabs';
 import { store } from '@/ts/store';
 import { currency, formInput, networkTabs } from './utils';
+import { MobileNavbar } from '@/components';
 
 const AddVirtualWallet = () => {
   const param = store.state.walletParams;
   return (
     <Page>
-      <ProfileNav title="Add Wallet Address" />
+      <MobileNavbar mode="profile" title="Add Wallet Address" />
       <div className="absolute h-[40%] w-full rounded-br-full bg-gradient-to-br from-[#381E7B]/20 via-transparent to-transparent backdrop:blur-3xl" />
       <Block className="flex gap-1">
         <Icon material="warning" color="red" size={25} />

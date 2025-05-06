@@ -1,13 +1,13 @@
 import { Block, Page } from 'framework7-react';
 import SettingItem from '@/pages/profile/component/SettingItem';
 import { account, modPassPop, payPass } from './utils';
-import ProfileNav from '@/pages/profile/component/ProfileNav';
 import { useState } from 'react';
 import CustomPopUp from '@/pages/profile/component/CustomPopUp';
 import CustomInput from '@/pages/profile/component/CustomInput';
 import { f7navigate } from '@/utils/helper';
 import PayPassword from '@/assets/image/profile/settings/accnum_and_sec/pay_pass.svg';
 import VirtualAdd from '@/assets/image/profile/settings/accnum_and_sec/virtual_add.svg';
+import { MobileNavbar } from '@/components';
 
 const AccountSecurity = () => {
   const [openPopUp, setOpenPopUp] = useState({
@@ -125,7 +125,7 @@ const AccountSecurity = () => {
   return (
     <Page name="account-security">
       <div className="absolute h-[40%] w-full rounded-br-full bg-gradient-to-br from-[#381E7B]/20 via-transparent to-transparent backdrop:blur-3xl" />
-      <ProfileNav title="Account Security" />
+      <MobileNavbar mode="profile" title="Account Security" />
       <Block className="m-5 flex-col rounded-lg bg-white px-0 shadow-sm">
         {account.map((data, index) => (
           <SettingItem

@@ -1,7 +1,7 @@
 import { Button, Card, CardContent, CardHeader, Page } from 'framework7-react';
-import ProfileNav from '../../component/ProfileNav';
 import { f7navigate } from '@/utils/helper';
 import { Fragment } from 'react';
+import { MobileNavbar } from '@/components';
 
 const AKey = () => {
   const gameCatBal = [
@@ -21,7 +21,7 @@ const AKey = () => {
   return (
     <Page name="A key">
       <div className="absolute h-[40%] w-full rounded-br-full bg-gradient-to-br from-[#381E7B]/20 via-transparent to-transparent backdrop:blur-3xl" />
-      <ProfileNav title="A Key" />
+      <MobileNavbar mode="profile" title="A Key" />
       <Card
         className="z-10 border-2 border-white bg-primary-gradient shadow-md shadow-[#d4caf9]"
         raised

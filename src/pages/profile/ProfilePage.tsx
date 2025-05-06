@@ -8,13 +8,13 @@ import ComingSoon from '@/assets/image/profile/more-services/coming_soon.svg';
 import AvatarIcon from '@/assets/image/icons/avatarIcon.png';
 import CoinOff from '@/assets/image/icons/coin-off.svg';
 import Refresh2 from '@/assets/image/icons/refresh_2.svg';
-import HomeNavbar from '@/components/mobile-navbar/HomeNavbar';
 import Copy from '@/assets/image/profile/settings/accnum_and_sec/copy.svg';
 import { f7navigate } from '@/utils/helper';
 import { Fragment, useState } from 'react';
 import { store } from '@/ts/store';
 import CustomPopUp from './component/CustomPopUp';
 import ShareImg from '@/assets/image/profile/more-services/share.png';
+import { MobileNavbar } from '@/components';
 
 export interface Services {
   id?: string;
@@ -92,18 +92,13 @@ const ProfilePage = () => {
   };
   return (
     <Page name="profile">
-      <HomeNavbar
+      <MobileNavbar
+        mode="home"
         navRight={
           <>
-            <Link
-              id="notifications"
-              href="/notifications/"
-              onClick={() => {
-                document.getElementById('notifications')?.blur();
-              }}
-            >
+            <div id="notifications" onClick={() => f7navigate('notifications', '/notifications/')}>
               <Icon material="notifications" size={35} className="text-gradient" />
-            </Link>
+            </div>
             <div onClick={() => f7.view.main.router.navigate('settings/')}>
               <Icon material="settings" size={30} className="text-gradient" />
             </div>
