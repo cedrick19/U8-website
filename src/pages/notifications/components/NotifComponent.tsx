@@ -1,5 +1,5 @@
 import { Block, Icon, Link } from 'framework7-react';
-import { NotificationDataType } from '../type';
+import { NotificationDataType } from '@/pages/notifications/type';
 
 export const NotifComponent = ({ data }: { data: NotificationDataType[] }) => {
   return (
