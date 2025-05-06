@@ -1,5 +1,4 @@
 import { DropBottom } from '@/pages/profile/component';
-import ProfileNav from '@/pages/profile/component/ProfileNav';
 import { Card, Page } from 'framework7-react';
 import {
   gridHeader,
@@ -12,6 +11,7 @@ import {
 import { useState } from 'react';
 import RatioTable from './component/RatioTable';
 import { GridBody } from './type';
+import { MobileNavbar } from '@/components';
 
 const ReturnRatioDetails = () => {
   const [activeOption, setActiveOption] = useState<Record<string, string>>({
@@ -23,7 +23,7 @@ const ReturnRatioDetails = () => {
   return (
     <Page name="Return Ratio Details">
       <div className="absolute h-[40%] w-full rounded-br-full bg-gradient-to-br from-[#381E7B]/20 via-transparent to-transparent backdrop:blur-3xl" />
-      <ProfileNav title="Return Ratio Details" />
+      <MobileNavbar mode="profile" title="Return Ratio Details" />
       <Card className="mb-24 flex-col space-y-5 bg-white p-4 shadow-md">
         <DropBottom
           popUpConfig={returnRatioCategory}
