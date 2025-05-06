@@ -7,32 +7,45 @@ interface MarqueeMsgType {
   game: string;
   price: string;
 }
-const marqueeTemplate =
-  'Congratulations to the player {name} in {country} win \n{price}\n of game \n\n{game}\n\n.';
+
+const marqueeMsg =
+  'Congratulations to the player {name} in {country} win \n{price}\n of game \n\n{game}\n\n. ';
 const marqueeData: MarqueeMsgType[] = [
-  { name: 'K** J*-w**', country: 'Germany', game: 'Lotto', price: '40000 Yuan' },
+  {
+    name: 'K** J*-w**',
+    country: 'Germany',
+    game: 'Lotto',
+    price: '40000 Yuan',
+  },
 ];
 
 export const TextCarousel = () => {
-  const renderMessage = (template: string, data: MarqueeMsgType) =>
-    template
-      .replace(/{(name|country|game|price)}/g, (_, key) => data[key as keyof MarqueeMsgType])
-      .split('\n\n')
-      .map((para, i) => (
-        <span key={i}>
-          {para.split('\n').map((line, j) => (
-            <span
-              key={j}
-              className={cn(
-                line.trim() === data.price && 'text-green-500',
-                line.trim() === data.game && 'text-blue-500',
-              )}
-            >
-              {line}
-            </span>
-          ))}
+  const formatParagraph = (par: string, data: MarqueeMsgType, paraId: number) => (
+    <span key={paraId}>
+      {par.split('\n').map((line, idx) => (
+        <span
+          key={idx}
+          className={cn(
+            line.trim() === data.price && 'text-green-500',
+            line.trim() === data.game && 'text-blue-500',
+          )}
+        >
+          {line}
         </span>
-      ));
+      ))}
+    </span>
+  );
+
+  const renderMessages = (template: string, data: MarqueeMsgType) => {
+    const content = Object.entries(data).reduce(
+      (acc, [key, value]) => acc.replace(`{${key}}`, value),
+      template,
+    );
+    return content
+      .split('\n\n')
+      .map((paragraph, paraIds) => formatParagraph(paragraph, data, paraIds));
+  };
+
   return (
     <div className="flex rounded-full bg-primary-gradient p-1 md:container md:mx-auto">
       <div className="flex h-8 w-20 items-center justify-center">
@@ -40,8 +53,8 @@ export const TextCarousel = () => {
       </div>
       <div className="relative flex w-full items-center overflow-hidden rounded-r-full bg-white">
         <div className="absolute left-[100%] flex min-w-max animate-marquee will-change-transform">
-          {marqueeData.map((data, i) => (
-            <div key={i}>{renderMessage(marqueeTemplate, data)}</div>
+          {marqueeData.map((data, index) => (
+            <div key={index}>{renderMessages(marqueeMsg, data)}</div>
           ))}
         </div>
       </div>
