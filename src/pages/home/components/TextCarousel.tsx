@@ -7,51 +7,32 @@ interface MarqueeMsgType {
   game: string;
   price: string;
 }
-
 const marqueeTemplate =
   'Congratulations to the player {name} in {country} win \n{price}\n of game \n\n{game}\n\n.';
-
 const marqueeData: MarqueeMsgType[] = [
-  {
-    name: 'K** J*-w**',
-    country: 'Germany',
-    game: 'Lotto',
-    price: '40000 Yuan',
-  },
+  { name: 'K** J*-w**', country: 'Germany', game: 'Lotto', price: '40000 Yuan' },
 ];
 
 export const TextCarousel = () => {
-  const replacePlaceholders = (template: string, data: MarqueeMsgType) => {
-    let result = template;
-    Object.entries(data).forEach(([key, value]) => {
-      result = result.replaceAll(`{${key}}`, value);
-    });
-    return result;
-  };
-
-  const renderFormattedText = (text: string, data: MarqueeMsgType, index: number) => (
-    <span key={index}>
-      {text.split('\n').map((line, i) => {
-        const className = cn(
-          line.trim() === data.price && 'text-green-500',
-          line.trim() === data.game && 'text-blue-500',
-        );
-        return (
-          <span key={i} className={className}>
-            {line}
-          </span>
-        );
-      })}
-    </span>
-  );
-
-  const renderMessage = (template: string, data: MarqueeMsgType) => {
-    const filledTemplate = replacePlaceholders(template, data);
-    const paragraphs = filledTemplate.split('\n\n');
-
-    return paragraphs.map((para, i) => renderFormattedText(para, data, i));
-  };
-
+  const renderMessage = (template: string, data: MarqueeMsgType) =>
+    template
+      .replace(/{(name|country|game|price)}/g, (_, key) => data[key as keyof MarqueeMsgType])
+      .split('\n\n')
+      .map((para, i) => (
+        <span key={i}>
+          {para.split('\n').map((line, j) => (
+            <span
+              key={j}
+              className={cn(
+                line.trim() === data.price && 'text-green-500',
+                line.trim() === data.game && 'text-blue-500',
+              )}
+            >
+              {line}
+            </span>
+          ))}
+        </span>
+      ));
   return (
     <div className="flex rounded-full bg-primary-gradient p-1 md:container md:mx-auto">
       <div className="flex h-8 w-20 items-center justify-center">
