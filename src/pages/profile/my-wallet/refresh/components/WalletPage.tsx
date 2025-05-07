@@ -101,7 +101,14 @@ export const WalletPage: React.FC<{ tabName: string }> = ({ tabName }) => {
 
           <p className="text-lg font-semibold">0/5</p>
 
-          <Button className="text-gradient h-12 border-2 border-secondary font-bold normal-case">
+          <Button
+            className="text-gradient h-12 border-2 border-secondary font-bold normal-case"
+            onClick={() => {
+              setPopupOpen(false);
+              f7.views.main.router.navigate(`/profile/settings/account-security/vam/`);
+              dispatch('setParams', tabName);
+            }}
+          >
             Management
           </Button>
 

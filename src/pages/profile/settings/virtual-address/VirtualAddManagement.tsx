@@ -2,8 +2,10 @@ import { Block, Tab, Tabs } from 'framework7-react';
 import { VirtualWallet, WalletTabs } from './component';
 import { ProfileContainer } from '@/pages/profile/component';
 import { MobileNavbar } from '@/components';
+import { store } from '@/ts/store';
 
 const VirtualAddManagement = () => {
+  const param = store.state.walletParams;
   const virtualWallet = [
     {
       type: 'USDT',
@@ -18,7 +20,7 @@ const VirtualAddManagement = () => {
     <ProfileContainer name="virtual address management">
       <MobileNavbar mode="profile" title="Virtual Address Manager" />
       <Block className="h-12 w-full gap-5">
-        <WalletTabs tabs={virtualWallet} coins />
+        <WalletTabs tabs={virtualWallet} coins params={param} />
       </Block>
       <Tabs>
         {virtualWallet.map((wallet, index) => (
