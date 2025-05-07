@@ -2,7 +2,6 @@ import { Page } from 'framework7-react';
 import { useEffect, useState } from 'react';
 import { getDevice } from 'framework7';
 import HomeCarousel from './components/HomeCarousel';
-
 import { HomeContent, TextCarousel, UserCard } from './components';
 import { LoginModal } from '@/components/LoginModal';
 import { MobileNavbar } from '@/components/mobile-navbar';
@@ -16,7 +15,6 @@ const HomePage = () => {
     return device.ios || device.android;
   };
   const isSmallDevice = isMobile || isTablet;
-
   useEffect(() => {
     const handleResize = () => {
       const width = window.innerWidth;
@@ -49,7 +47,6 @@ const HomePage = () => {
         <TextCarousel />
         {isSmallDevice() && <UserCard />}
       </div>
-
       {isSmallDevice() && (
         <>
           <HomeContent />
