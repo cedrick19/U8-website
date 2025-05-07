@@ -1,11 +1,13 @@
 import { useState } from 'react';
-import { Block, Button, Icon } from 'framework7-react';
+import { Block, Button, f7, Icon } from 'framework7-react';
 import { CustomPopUp, CustomInput } from '@/pages/profile/component';
 import { infoItems } from './utils';
+import { store } from '@/ts/store';
 
-export const WalletPage: React.FC<{ currencyWallet: string }> = ({ currencyWallet }) => {
+export const WalletPage: React.FC<{ tabName: string }> = ({ tabName }) => {
   const [popupOpen, setPopupOpen] = useState(false);
   const [amount, setAmount] = useState('');
+  const { dispatch } = store;
 
   return (
     <>
@@ -31,7 +33,7 @@ export const WalletPage: React.FC<{ currencyWallet: string }> = ({ currencyWalle
           <CustomInput
             name="amount"
             type="number"
-            id={`${currencyWallet}-amount`}
+            id={`${tabName}-amount`}
             value={amount}
             onChange={(e) => setAmount(e.target.value)}
             maxLength={12}
@@ -103,7 +105,16 @@ export const WalletPage: React.FC<{ currencyWallet: string }> = ({ currencyWalle
             Management
           </Button>
 
-          <Button className="h-12 bg-primary-gradient text-center normal-case text-white">
+          <Button
+            className="h-12 bg-primary-gradient text-center normal-case text-white"
+            onClick={() => {
+              setPopupOpen(false);
+              f7.views.main.router.navigate(
+                `/profile/settings/account-security/vam/${tabName.toLowerCase()}/`,
+              );
+              dispatch('setParams', tabName);
+            }}
+          >
             Add New Virtual Coin Wallet Address
           </Button>
         </Block>
