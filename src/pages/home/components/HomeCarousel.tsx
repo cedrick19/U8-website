@@ -2,15 +2,15 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Pagination, Autoplay, Navigation } from 'swiper/modules';
 import { useState } from 'react';
 import { Button } from 'framework7-react';
-import Carousel1 from '@/assets/image/home/carousel1.jpg';
-import Carousel2 from '@/assets/image/home/carousel2.jpg';
+import HomeBanner1 from '@/assets/image/home/banner1.jpg';
+import HomeBanner2 from '@/assets/image/home/banner2.jpg';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 import { cn } from '@/utils/helper';
 
 export const HomeCarousel = () => {
   const [hovered, setHovered] = useState(false);
-  const carouselImages = [Carousel1, Carousel2];
+  const carouselImages = [HomeBanner1, HomeBanner2];
   const navButtonBaseClass =
     'absolute top-1/2 hidden md:flex p-4  bg-opacity-60 transition-opacity ';
 
