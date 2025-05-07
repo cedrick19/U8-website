@@ -1,12 +1,13 @@
-import { Page, Link } from 'framework7-react';
+import { Page } from 'framework7-react';
 import { useEffect, useState } from 'react';
 import { getDevice } from 'framework7';
 import HomeCarousel from './components/HomeCarousel';
-import Bell from '@/assets/image/svg/bell.svg';
+
 import { HomeContent, TextCarousel, UserCard } from './components';
 import { LoginModal } from '@/components/LoginModal';
-import { HomeNavbar } from '@/components/mobile-navbar';
+import { MobileNavbar } from '@/components/mobile-navbar';
 import { f7navigate } from '@/utils/helper';
+import Bell from '@/assets/image/svg/bell.svg';
 
 const HomePage = () => {
   const [isTablet, setIsTablet] = useState(false);
@@ -29,15 +30,17 @@ const HomePage = () => {
   return (
     <Page className="pb-10">
       {isSmallDevice() && (
-        <HomeNavbar
+        <MobileNavbar
+          mode="home"
           navRight={
-            <Link
-              id="notifications"
-              onClick={() => f7navigate('notifications', '/notifications/')}
-              className="p-0"
-            >
-              <img src={Bell} alt="Notifications" className="h-15 w-15" />
-            </Link>
+            <>
+              <div
+                id="notifications"
+                onClick={() => f7navigate('notifications', '/notifications/')}
+              >
+                <img src={Bell} alt="Notifications" className="h-15 w-15" />
+              </div>
+            </>
           }
         />
       )}
