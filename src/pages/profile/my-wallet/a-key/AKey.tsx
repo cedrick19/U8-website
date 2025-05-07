@@ -1,26 +1,16 @@
-import { Button, Card, CardContent, CardHeader, Page } from 'framework7-react';
-import { f7navigate } from '@/utils/helper';
 import { Fragment } from 'react';
+import { Button, Card, CardContent, CardHeader } from 'framework7-react';
+
+import { ProfileContainer } from '@/pages/profile/component';
+
 import { MobileNavbar } from '@/components';
+import { f7navigate } from '@/utils/helper';
+
+import { gameCatBal } from './utils';
 
 const AKey = () => {
-  const gameCatBal = [
-    {
-      gameCategory: 'COG Video',
-      balance: '0.00',
-    },
-    {
-      gameCategory: 'Jinghe Video',
-      balance: '0.00',
-    },
-    {
-      gameCategory: 'SQP Chessboard',
-      balance: '0.00',
-    },
-  ];
   return (
-    <Page name="A key">
-      <div className="absolute h-[40%] w-full rounded-br-full bg-gradient-to-br from-[#381E7B]/20 via-transparent to-transparent backdrop:blur-3xl" />
+    <ProfileContainer name="A key">
       <MobileNavbar mode="profile" title="A Key" />
       <Card
         className="z-10 border-2 border-white bg-primary-gradient shadow-md shadow-[#d4caf9]"
@@ -67,7 +57,7 @@ const AKey = () => {
           ))}
         </CardContent>
       </Card>
-    </Page>
+    </ProfileContainer>
   );
 };
 

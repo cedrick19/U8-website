@@ -1,5 +1,10 @@
-import { DropBottom } from '@/pages/profile/component';
+import { useState } from 'react';
 import { Card, Page } from 'framework7-react';
+
+import { DropBottom } from '@/pages/profile/component';
+
+import { MobileNavbar } from '@/components';
+
 import {
   gridHeader,
   lotteryContent,
@@ -8,10 +13,8 @@ import {
   returnRatioCategory,
   returnRatioContent,
 } from './utils';
-import { useState } from 'react';
 import RatioTable from './component/RatioTable';
 import { GridBody } from './type';
-import { MobileNavbar } from '@/components';
 
 const ReturnRatioDetails = () => {
   const [activeOption, setActiveOption] = useState<Record<string, string>>({

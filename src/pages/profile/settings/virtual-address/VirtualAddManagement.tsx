@@ -1,7 +1,8 @@
-import { Block, Page, Tab, Tabs } from 'framework7-react';
-import VirtualWallet from './component/VirtualWallet';
-import WalletTabs from './component/WalletTabs';
+import { Block, Tab, Tabs } from 'framework7-react';
+import { VirtualWallet, WalletTabs } from './component';
+import { ProfileContainer } from '@/pages/profile/component';
 import { MobileNavbar } from '@/components';
+
 const VirtualAddManagement = () => {
   const virtualWallet = [
     {
@@ -14,8 +15,7 @@ const VirtualAddManagement = () => {
     },
   ];
   return (
-    <Page name="virtual address management">
-      <div className="absolute h-[40%] w-full rounded-br-full bg-gradient-to-br from-[#381E7B]/20 via-transparent to-transparent backdrop:blur-3xl" />
+    <ProfileContainer name="virtual address management">
       <MobileNavbar mode="profile" title="Virtual Address Manager" />
       <Block className="h-12 w-full gap-5">
         <WalletTabs tabs={virtualWallet} coins />
@@ -27,7 +27,7 @@ const VirtualAddManagement = () => {
           </Tab>
         ))}
       </Tabs>
-    </Page>
+    </ProfileContainer>
   );
 };
 

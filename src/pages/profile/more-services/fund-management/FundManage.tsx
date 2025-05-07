@@ -1,9 +1,13 @@
-import { Block, Page } from 'framework7-react';
+import { Block } from 'framework7-react';
+
+import { ProfileContainer } from '@/pages/profile/component';
 import { SegmentedTabs } from '@/components/SegmentedTabs';
-import { FundingDetails, TransactionRecord } from './tabs';
-import { store } from '@/ts/store';
-import { MobileNavbar } from '@/components';
 import { SegmentButtons } from '@/components/SegmentedTabs/type';
+
+import { MobileNavbar } from '@/components';
+import { store } from '@/ts/store';
+
+import { FundingDetails, TransactionRecord } from './tabs';
 
 const FundManageArray: SegmentButtons[] = [
   {
@@ -19,12 +23,12 @@ const FundManageArray: SegmentButtons[] = [
 const FundManagement = () => {
   const { state } = store;
   return (
-    <Page name="Fund Management">
+    <ProfileContainer name="Fund Management">
       <MobileNavbar mode="profile" title="Fund Management" />
       <Block>
         <SegmentedTabs tabArray={FundManageArray} defaultActiveTabIndex={state.fundActiveState} />
       </Block>
-    </Page>
+    </ProfileContainer>
   );
 };
 

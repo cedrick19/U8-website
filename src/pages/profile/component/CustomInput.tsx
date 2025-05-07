@@ -78,5 +78,3 @@ export const CustomInput = (props: CustomInputProps) => {
     </>
   );
 };
-
-export default CustomInput;

@@ -1,28 +1,41 @@
-import { f7navigate } from '@/utils/helper';
-import { Block, Card, CardContent, Icon, Link, f7 } from 'framework7-react';
+import { Fragment, useState } from 'react';
+import { Block, Card, CardContent, Link, f7 } from 'framework7-react';
+
 import CoinOff from '@/assets/image/icons/coin-off.svg';
 import Refresh2 from '@/assets/image/icons/refresh_2.svg';
-import { Fragment } from 'react';
+import { f7navigate } from '@/utils/helper';
 
 const Wallet = () => {
+  const [isVisibile, setIsVisibile] = useState<boolean>(false);
+  const bal = 0;
   const renderWalletCard = () => {
     return (
-      <Card
-        className="z-10 border-2 border-white bg-primary-gradient shadow-md shadow-[#d4caf9]"
-        raised
-      >
+      <Card className="border-2 border-white bg-primary-gradient shadow-md shadow-[#d4caf9]" raised>
         <CardContent className="py-5">
-          <div className="flex w-full items-center justify-center gap-2">
-            <p className="text-md text-center text-white">Wallet Balance</p>
-            <Icon material="visibility_on" color="white" size={20} />
+          <div className="flex w-full items-center gap-2">
+            <p className="text-md w-full text-center text-white">Wallet Balance</p>
+            <Link
+              iconMaterial={isVisibile ? 'visibility' : 'visibility_off'}
+              color="white"
+              iconSize={20}
+              rippleColor="none"
+              className="absolute left-[66%] !h-[15px] overflow-hidden"
+              onClick={() => setIsVisibile((prev) => !prev)}
+            />
           </div>
 
-          <div
-            className="mx-auto flex w-fit items-center justify-center"
-            onClick={() => f7.view.main.router.navigate('my-wallet/')}
-          >
-            <p className="text-center text-2xl text-white">0.00</p>
-            <Icon material="chevron_right" color="white" size={30} />
+          <div className="flex w-full items-center justify-center">
+            <p className="text-2xl text-white">
+              {isVisibile ? bal.toFixed(2) : bal.toFixed(2).replace(/\d/g, '*')}
+            </p>
+            <Link
+              iconMaterial="chevron_right"
+              color="white"
+              iconSize={30}
+              rippleColor="none"
+              className="absolute left-[57%] !h-[20px] !w-[20px] overflow-hidden"
+              onClick={() => f7.view.main.router.navigate('my-wallet/')}
+            />
           </div>
         </CardContent>
       </Card>

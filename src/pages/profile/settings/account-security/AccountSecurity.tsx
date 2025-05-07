@@ -1,13 +1,14 @@
-import { Block, Page } from 'framework7-react';
-import SettingItem from '@/pages/profile/component/SettingItem';
-import { account, modPassPop, payPass } from './utils';
 import { useState } from 'react';
-import CustomPopUp from '@/pages/profile/component/CustomPopUp';
-import CustomInput from '@/pages/profile/component/CustomInput';
-import { f7navigate } from '@/utils/helper';
+import { Block } from 'framework7-react';
+
+import { SettingItem, CustomPopUp, ProfileContainer, CustomInput } from '@/pages/profile/component';
+
+import { MobileNavbar } from '@/components';
 import PayPassword from '@/assets/image/profile/settings/accnum_and_sec/pay_pass.svg';
 import VirtualAdd from '@/assets/image/profile/settings/accnum_and_sec/virtual_add.svg';
-import { MobileNavbar } from '@/components';
+import { f7navigate } from '@/utils/helper';
+
+import { account, modPassPop, payPass } from './utils';
 
 const AccountSecurity = () => {
   const [openPopUp, setOpenPopUp] = useState({
@@ -123,8 +124,7 @@ const AccountSecurity = () => {
     },
   ];
   return (
-    <Page name="account-security">
-      <div className="absolute h-[40%] w-full rounded-br-full bg-gradient-to-br from-[#381E7B]/20 via-transparent to-transparent backdrop:blur-3xl" />
+    <ProfileContainer name="account-security">
       <MobileNavbar mode="profile" title="Account Security" />
       <Block className="m-5 flex-col rounded-lg bg-white px-0 shadow-sm">
         {account.map((data, index) => (
@@ -150,7 +150,7 @@ const AccountSecurity = () => {
       {renderNickName()}
       {renderModPass()}
       {renderPayPass()}
-    </Page>
+    </ProfileContainer>
   );
 };
 

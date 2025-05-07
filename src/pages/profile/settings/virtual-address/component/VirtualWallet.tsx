@@ -9,7 +9,7 @@ interface Wallet {
   };
 }
 
-const VirtualWallet = (props: Wallet) => {
+export const VirtualWallet = (props: Wallet) => {
   const { dispatch } = store;
   const {
     wallet: { type, url },
@@ -38,5 +38,3 @@ const VirtualWallet = (props: Wallet) => {
     </Block>
   );
 };
-
-export default VirtualWallet;

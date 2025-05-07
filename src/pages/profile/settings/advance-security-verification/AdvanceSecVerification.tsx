@@ -1,9 +1,10 @@
-import { Block, Button, Icon, Page } from 'framework7-react';
-import CustomInput from '@/pages/profile/component/CustomInput';
-import CustomPopUp from '@/pages/profile/component/CustomPopUp';
 import { useState } from 'react';
-import GoogleAuth from '@/assets/image/profile/settings/adv_sec/google_authenticator.svg';
+import { Block, Button, Icon } from 'framework7-react';
+
+import { ProfileContainer, CustomPopUp, CustomInput } from '@/pages/profile/component';
+
 import { MobileNavbar } from '@/components';
+import GoogleAuth from '@/assets/image/profile/settings/adv_sec/google_authenticator.svg';
 
 const AdvanceSecVerification = () => {
   const [open, setOpen] = useState({
@@ -73,9 +74,8 @@ const AdvanceSecVerification = () => {
   };
 
   return (
-    <Page name="advance security verification">
+    <ProfileContainer name="advance security verification">
       <MobileNavbar mode="profile" title="Advance Security Verification" />
-      <div className="absolute h-[40%] w-full rounded-br-full bg-gradient-to-br from-[#381E7B]/20 via-transparent to-transparent backdrop:blur-3xl" />
       <Block className="flex-col space-y-5">
         <div className="space-y-2">
           <div className="space-x-2">
@@ -139,7 +139,7 @@ const AdvanceSecVerification = () => {
       </Block>
       {renderMailPop()}
       {renderGooglePop()}
-    </Page>
+    </ProfileContainer>
   );
 };
 
