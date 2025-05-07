@@ -6,14 +6,7 @@ import Sports from '@/assets/image/home/sports.png';
 import Fishing from '@/assets/image/home/fishing.png';
 import Poker from '@/assets/image/home/poker.png';
 import Chain from '@/assets/image/home/chain.png';
-
-export interface TopCard {
-  id: string;
-  title: string;
-  image: string;
-  route: string;
-  fullWidth?: boolean;
-}
+import { Category, TopCard } from './components/type';
 
 export const topCards: TopCard[] = [
   {
@@ -36,15 +29,6 @@ export const topCards: TopCard[] = [
     fullWidth: true,
   },
 ];
-
-export interface Category {
-  id: number;
-  name: string;
-  image: string;
-  color: string;
-  route: string;
-  className?: string;
-}
 
 export const categories: Category[] = [
   {
