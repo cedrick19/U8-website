@@ -3,7 +3,7 @@ import { Icon, Button, Block, Popup, List, ListItem, Page } from 'framework7-rea
 import { balanceSummary, countryCodes } from './utils';
 import CustomInput from '@/pages/profile/component/CustomInput';
 import { cn } from '@/utils/helper';
-import { CountryCode, FormState } from './types';
+import { CountryCode, FormState } from './type';
 
 export const HuangWangPage = () => {
   const [formState, setFormState] = useState<FormState>({

@@ -6,7 +6,7 @@ import Sports from '@/assets/image/home/sports.png';
 import Fishing from '@/assets/image/home/fishing.png';
 import Poker from '@/assets/image/home/poker.png';
 import Chain from '@/assets/image/home/chain.png';
-import { Category, TopCard } from './type';
+import { Category, TopCard } from './components/type';
 
 export const topCards: TopCard[] = [
   {
