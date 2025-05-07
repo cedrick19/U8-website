@@ -15,7 +15,7 @@ interface CustomInputProps extends InputType {
   leftDecoration?: ReactNode;
 }
 
-const CustomInput = (props: CustomInputProps) => {
+export const CustomInput = (props: CustomInputProps) => {
   const [isVisible, setIsVisible] = useState(false);
   const {
     name,
@@ -55,10 +55,13 @@ const CustomInput = (props: CustomInputProps) => {
   } else inputType = 'password';
 
   return (
-    <div className="flex-col space-y-2">
-      <label htmlFor={name.toLowerCase()} className={cn('flex w-full', labelClassName)}>
-        {label}
-      </label>
+    <>
+      {label && (
+        <label htmlFor={name.toLowerCase()} className={cn('flex w-full', labelClassName)}>
+          {label}
+        </label>
+      )}
+
       <div className={cn('flex items-center rounded-xl bg-[#E6E6E6] p-1 px-5', className)}>
         {renderLeftDecoration()}
         <input
@@ -72,8 +75,6 @@ const CustomInput = (props: CustomInputProps) => {
         />
         {renderRightDecoration()}
       </div>
-    </div>
+    </>
   );
 };
-
-export default CustomInput;

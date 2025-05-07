@@ -1,10 +1,13 @@
-import { f7navigate } from '@/utils/helper';
-import { Block, Button, Link } from 'framework7-react';
 import { Fragment, useState } from 'react';
+
+import { Block, Button, Link } from 'framework7-react';
+
 import { services } from '@/pages/profile/utils';
-import CustomPopUp from '@/pages/profile/component/CustomPopUp';
+import { CustomPopUp } from '@/pages/profile/component/';
+
 import ShareImg from '@/assets/image/profile/more-services/share.png';
 import Share from '@/assets/image/profile/more-services/share.svg';
+import { f7navigate } from '@/utils/helper';
 
 const MoreServices = () => {
   const [copied, setCopied] = useState<boolean>(false);

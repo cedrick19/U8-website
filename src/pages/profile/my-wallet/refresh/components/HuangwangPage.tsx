@@ -1,9 +1,12 @@
+import { CountryCode, FormState } from './type';
+
 import { useState } from 'react';
 import { Icon, Button, Block, Popup, List, ListItem, Page } from 'framework7-react';
-import { balanceSummary, countryCodes } from './utils';
-import CustomInput from '@/pages/profile/component/CustomInput';
+
 import { cn } from '@/utils/helper';
-import { CountryCode, FormState } from './type';
+import { CustomInput } from '@/pages/profile/component';
+
+import { balanceSummary, countryCodes } from './utils';
 
 export const HuangWangPage = () => {
   const [formState, setFormState] = useState<FormState>({
@@ -33,49 +36,70 @@ export const HuangWangPage = () => {
     }));
   };
 
+  const renderHsbcRight = () => {
+    return (
+      <Button
+        className="h-7 w-7"
+        onClick={() =>
+          setFormState((prevState) => ({
+            ...prevState,
+            phoneNumber: '',
+          }))
+        }
+      >
+        <Icon f7="multiply_circle_fill" className="text-slate-500" />
+      </Button>
+    );
+  };
+
+  const renderHsbcLeft = () => {
+    return (
+      <Button
+        className="pr-0 text-base"
+        onClick={() => setFormState({ ...formState, popupOpened: true })}
+      >
+        <span className="text-black">{formState.selectedCode}</span>
+        <Icon f7="chevron_down" className="text-xs font-bold text-black" />
+      </Button>
+    );
+  };
+
+  const renderCashLeft = () => {
+    return (
+      <div
+        className={cn('flex h-8 w-8 items-center justify-center rounded-full bg-primary-gradient')}
+      >
+        <Icon f7="money_dollar" className={cn('text-white')} />
+      </div>
+    );
+  };
+
+  const renderCashRight = () => {
+    return (
+      <Button className={cn('h-8 w-1/4 rounded-full bg-primary-gradient normal-case text-white')}>
+        MAX
+      </Button>
+    );
+  };
+
   return (
     <>
-      <Block className="flex flex-col rounded-3xl bg-white py-5">
-        <div className="flex flex-row items-center gap-2">
+      <Block className="space-y-3 rounded-3xl bg-white py-5">
+        <div className="flex items-center gap-2">
           <h2 className="text-gradient text-base font-bold">Withdraw the HSBC account</h2>
           <Icon f7="question_circle_fill" className="text-gray-500" size={18} />
         </div>
 
-        <div className="w-full">
-          <CustomInput
-            name="telephone"
-            type="tel"
-            value={formState.phoneNumber}
-            onChange={handleNumberFormat}
-            placeholder="Enter your mobile number"
-            className={cn(
-              'flex w-full flex-row items-center overflow-hidden rounded-full border-2 border-gray-500 bg-white px-3 pl-0 pr-3',
-            )}
-            leftDecoration={
-              <Button
-                id="country-code-button"
-                className="pr-0 text-base"
-                onClick={() => setFormState((prevState) => ({ ...prevState, popupOpened: true }))}
-              >
-                <span className="text-black">{formState.selectedCode}</span>
-                <Icon f7="chevron_down" className="text-xs font-bold text-black" />
-              </Button>
-            }
-            rightDecoration={
-              <Button
-                className="h-7 w-7"
-                onClick={() =>
-                  setFormState((prevState) => ({
-                    ...prevState,
-                    phoneNumber: '',
-                  }))
-                }
-              >
-                <Icon f7="multiply_circle_fill" className="text-slate-500" />
-              </Button>
-            }
-          />
-        </div>
+        <CustomInput
+          name="telephone"
+          type="tel"
+          value={formState.phoneNumber}
+          onChange={handleNumberFormat}
+          placeholder="Enter your mobile number"
+          className={cn('rounded-full border-2 border-gray-500 bg-white px-3 pl-0 pr-3')}
+          leftDecoration={renderHsbcLeft()}
+          rightDecoration={renderHsbcRight()}
+        />
 
         <Popup
           opened={formState.popupOpened}
@@ -95,39 +119,27 @@ export const HuangWangPage = () => {
           </Page>
         </Popup>
 
-        <div className="flex flex-row items-start pt-2">
+        <div className="flex items-baseline gap-1 pt-2">
           <Icon f7="exclamationmark_triangle_fill" className="text-red-500" size={16} />
+
           <p className="text-sm text-red-500">
             Please carefully check the HSBC account. The wrong account funds will not be available.
           </p>
         </div>
       </Block>
 
-      <Block className="flex flex-col items-start gap-4 rounded-3xl bg-white py-5">
+      <Block className="space-y-3 rounded-3xl bg-white py-5">
         <p className="text-gradient text-lg font-bold">Cash withdrawal</p>
-        <div className="w-full">
-          <CustomInput
-            name="amount"
-            type="number"
-            placeholder="Enter Amount"
-            maxLength={12}
-            className={cn('flex rounded-full border-2 border-gray-500 bg-white px-3 pl-0 pr-3')}
-            leftDecoration={
-              <div
-                className={cn(
-                  'h-8 w-8 items-center justify-center rounded-full bg-primary-gradient',
-                )}
-              >
-                <Icon f7="money_dollar" className={cn('ml-0.5 mt-0.5 text-white')} />
-              </div>
-            }
-            rightDecoration={
-              <Button className={cn('h-8 w-1/4 rounded-full bg-primary-gradient')}>
-                <span className={cn('normal-case text-white')}>MAX</span>
-              </Button>
-            }
-          />
-        </div>
+
+        <CustomInput
+          name="amount"
+          type="number"
+          placeholder="Enter Amount"
+          maxLength={12}
+          className={cn('rounded-full border-2 border-gray-500 bg-white px-3 pl-0 pr-3')}
+          leftDecoration={renderCashLeft()}
+          rightDecoration={renderCashRight()}
+        />
 
         <div className="w-full rounded-lg bg-purple-50 p-3 text-sm">
           {balanceSummary.map(({ label, value }) => (
@@ -138,7 +150,7 @@ export const HuangWangPage = () => {
                   <Icon
                     f7="question_circle_fill"
                     size={16}
-                    className="material-icons ml-1 text-[16px] text-gray-500"
+                    className="ml-1 text-[16px] text-gray-500"
                   />
                 )}
               </span>

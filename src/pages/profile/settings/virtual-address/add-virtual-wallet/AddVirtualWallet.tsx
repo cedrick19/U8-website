@@ -1,9 +1,10 @@
 import { Block, Card, Icon, Page, Tab, Tabs } from 'framework7-react';
-import CustomInput from '@/pages/profile/component/CustomInput';
-import WalletTabs from '@/pages/profile/settings/virtual-address/component/WalletTabs';
+import { CustomInput } from '@/pages/profile/component';
+import { WalletTabs } from '@/pages/profile/settings/virtual-address/component';
+
+import { MobileNavbar } from '@/components';
 import { store } from '@/ts/store';
 import { currency, formInput, networkTabs } from './utils';
-import { MobileNavbar } from '@/components';
 
 const AddVirtualWallet = () => {
   const param = store.state.walletParams;

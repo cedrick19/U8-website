@@ -2,6 +2,7 @@ import { Block, Card } from 'framework7-react';
 import { CardProps } from 'framework7-react/components/card.js';
 import { ReactNode, useCallback, useState } from 'react';
 import Refresh from '@/assets/image//svg/refresh.svg';
+import { cn } from '@/utils/helper';
 
 interface ProfileCardProps {
   className?: string;
@@ -11,7 +12,7 @@ interface ProfileCardProps {
   refresh?: boolean;
 }
 
-const ProfileCard = (props: ProfileCardProps) => {
+export const ProfileCard = (props: ProfileCardProps) => {
   const { className, children, pCardStyle, pCardTitle, refresh = false } = props;
 
   const [isSpinning, setIsSpinning] = useState(false);
@@ -19,12 +20,9 @@ const ProfileCard = (props: ProfileCardProps) => {
     setIsSpinning(true);
     setTimeout(() => setIsSpinning(false), 400);
   }, []);
-  return (
-    <Card
-      className={`${className} relative min-h-[105px] border-2 border-white bg-[#ECE8F5] py-5 shadow-md shadow-[#d4caf9]`}
-      raised
-      {...pCardStyle}
-    >
+
+  const renderDesign = () => {
+    return (
       <div className="absolute top-0 h-[110px] w-full rounded-t-lg">
         <div className="relative h-full w-full">
           <div
@@ -41,25 +39,40 @@ const ProfileCard = (props: ProfileCardProps) => {
           />
         </div>
       </div>
+    );
+  };
+
+  const renderRefreshHeader = () => {
+    return (
+      <div className="flex items-center gap-2">
+        <img
+          src={Refresh}
+          alt="refresh"
+          onClick={handleRefreshClick}
+          className={cn(
+            'h-5 w-5 cursor-pointer rounded-full bg-primary-gradient p-1 transition-transform duration-1000',
+            isSpinning ? 'rotate-[1080deg]' : '',
+          )}
+        />
+        <p className="font-extrabold">Refresh</p>
+      </div>
+    );
+  };
+  return (
+    <Card
+      className={cn(
+        'relative min-h-[105px] border-2 border-white bg-[#ECE8F5] py-5 shadow-md shadow-[#d4caf9]',
+        className,
+      )}
+      raised
+      {...pCardStyle}
+    >
+      {renderDesign()}
       <Block className="z-10 flex w-full justify-between">
         {pCardTitle && <div className="font-extrabold">{pCardTitle}</div>}
-        {refresh && (
-          <div className="flex items-center gap-2">
-            <img
-              src={Refresh}
-              alt="refresh"
-              onClick={handleRefreshClick}
-              className={`h-5 w-5 cursor-pointer rounded-full bg-primary-gradient p-1 transition-transform duration-1000 ${
-                isSpinning ? 'rotate-[1080deg]' : ''
-              }`}
-            />
-            <p className="font-extrabold">Refresh</p>
-          </div>
-        )}
+        {refresh && renderRefreshHeader()}
       </Block>
       {children}
     </Card>
   );
 };
-
-export default ProfileCard;

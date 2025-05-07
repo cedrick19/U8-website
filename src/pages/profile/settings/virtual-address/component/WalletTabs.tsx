@@ -14,7 +14,7 @@ interface WalletTab<Data> {
   params?: string;
 }
 
-const WalletTabs = ({ tabs, className, coins = false, params }: WalletTab<Wallet[]>) => {
+export const WalletTabs = ({ tabs, className, coins = false, params }: WalletTab<Wallet[]>) => {
   const [active, setActive] = useState(params?.toLowerCase() ?? tabs[0].type.toLowerCase());
   const renderTabLabel = (label: string) => {
     return (
@@ -53,5 +53,3 @@ const WalletTabs = ({ tabs, className, coins = false, params }: WalletTab<Wallet
     </Segmented>
   );
 };
-
-export default WalletTabs;

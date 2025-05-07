@@ -4,6 +4,7 @@ import { cn } from '@/utils/helper';
 
 import Logo from '@/assets/image/icons/logo.png';
 import Telegram from '@/assets/image/icons/Telegram.png';
+import { getDevice } from 'framework7';
 
 type NavbarMode = 'home' | 'profile' | 'notify';
 
@@ -18,57 +19,61 @@ const handleBack = (): void => {
 };
 
 export const MobileNavbar = ({ title, navRight, mode = 'home' }: MobileNavbarProps) => {
+  const isMobile = getDevice().android || getDevice().ios;
+
   return (
-    <Navbar
-      innerClassName={cn(
-        'bg-white w-full relative',
-        mode === 'home' && 'bg-gradient-to-tr from-secondary/0 via-secondary/0 to-secondary/20',
-      )}
-    >
-      <NavLeft>
-        {mode === 'home' ? (
-          <>
-            <Link
-              href="/"
-              onClick={(e) => {
-                (e.currentTarget as HTMLAnchorElement).blur();
-              }}
-            >
-              <img src={Logo} alt="logo" className="h-5 w-20" />
-            </Link>
-            <img src={Telegram} alt="Telegram Logo" className="w-25 h-10" />
-          </>
-        ) : (
-          <Link onClick={handleBack}>
-            <Icon material="chevron_left" size={35} className="text-gradient" />
-            {mode === 'notify' && <p className="text-gradient text-lg font-extrabold">{title}</p>}
-          </Link>
+    isMobile && (
+      <Navbar
+        innerClassName={cn(
+          'bg-white w-full relative',
+          mode === 'home' && 'bg-gradient-to-tr from-secondary/0 via-secondary/0 to-secondary/20',
         )}
-      </NavLeft>
+      >
+        <NavLeft>
+          {mode === 'home' ? (
+            <>
+              <Link
+                href="/"
+                onClick={(e) => {
+                  (e.currentTarget as HTMLAnchorElement).blur();
+                }}
+              >
+                <img src={Logo} alt="logo" className="h-5 w-20" />
+              </Link>
+              <img src={Telegram} alt="Telegram Logo" className="w-25 h-10" />
+            </>
+          ) : (
+            <Link onClick={handleBack}>
+              <Icon material="chevron_left" size={35} className="text-gradient" />
+              {mode === 'notify' && <p className="text-gradient text-lg font-extrabold">{title}</p>}
+            </Link>
+          )}
+        </NavLeft>
 
-      {mode === 'profile' && (
-        <p className={cn('text-gradient absolute w-[95%] text-center text-xl font-bold')}>
-          {title}
-        </p>
-      )}
+        {mode === 'profile' && (
+          <p className={cn('text-gradient absolute w-[95%] text-center text-xl font-bold')}>
+            {title}
+          </p>
+        )}
 
-      {mode !== 'notify' && <NavRight className="gap-2 pr-2">{navRight}</NavRight>}
+        {mode !== 'notify' && <NavRight className="gap-2 pr-2">{navRight}</NavRight>}
 
-      {mode === 'notify' && (
-        <>
-          <img
-            src={Logo}
-            alt="logo"
-            className="text-gradient absolute left-1/2 h-5 -translate-x-1/2"
-          />
+        {mode === 'notify' && (
+          <>
+            <img
+              src={Logo}
+              alt="logo"
+              className="text-gradient absolute left-1/2 h-5 -translate-x-1/2"
+            />
 
-          <NavRight>
-            <p className="text-xl font-extrabold">0.00</p>
-            <Icon material="notifications" size={35} className="text-gradient" />
-          </NavRight>
-        </>
-      )}
-    </Navbar>
+            <NavRight>
+              <p className="text-xl font-extrabold">0.00</p>
+              <Icon material="notifications" size={35} className="text-gradient" />
+            </NavRight>
+          </>
+        )}
+      </Navbar>
+    )
   );
 };
 

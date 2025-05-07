@@ -13,7 +13,7 @@ interface PopupProps {
   className?: string;
 }
 
-const CustomPopUp = (props: PopupProps) => {
+export const CustomPopUp = (props: PopupProps) => {
   const { title, opText, opAction, clAction, clText, open, children, className } = props;
 
   return (
@@ -44,5 +44,3 @@ const CustomPopUp = (props: PopupProps) => {
     </Popup>
   );
 };
-
-export default CustomPopUp;

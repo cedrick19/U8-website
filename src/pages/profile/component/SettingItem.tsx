@@ -14,7 +14,7 @@ interface SettingItemProps extends ButtonProps {
   divider?: boolean;
 }
 
-const SettingItem = (props: SettingItemProps) => {
+export const SettingItem = (props: SettingItemProps) => {
   const {
     iconLeft,
     iconClassName,
@@ -61,5 +61,3 @@ const SettingItem = (props: SettingItemProps) => {
     </div>
   );
 };
-
-export default SettingItem;

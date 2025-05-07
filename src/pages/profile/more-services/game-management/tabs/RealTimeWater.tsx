@@ -1,7 +1,6 @@
 import { Block, Button, CardContent, Icon } from 'framework7-react';
 import { useState } from 'react';
-import { DropBottom } from '@/pages/profile/component';
-import CustomPopUp from '@/pages/profile/component/CustomPopUp';
+import { DropBottom, CustomPopUp } from '@/pages/profile/component';
 import { f7navigate } from '@/utils/helper';
 
 const dateSelection = [

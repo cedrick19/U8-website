@@ -1,11 +1,12 @@
+import { useState } from 'react';
 import { Page, Block, f7, Icon } from 'framework7-react';
-import ProfileCard from './component/ProfileCard';
-import AvatarIcon from '@/assets/image/icons/avatarIcon.png';
 
+import AvatarIcon from '@/assets/image/icons/avatarIcon.png';
+import { MobileNavbar } from '@/components';
 import Copy from '@/assets/image/profile/settings/accnum_and_sec/copy.svg';
 import { f7navigate } from '@/utils/helper';
-import { useState } from 'react';
-import { MobileNavbar } from '@/components';
+
+import { ProfileCard } from './component/';
 import { CopySubLabel } from './type';
 import { profileCardList } from './utils';
 
@@ -61,7 +62,7 @@ const ProfilePage = () => {
           </Block>
         </Block>
         {profileCardList.map(({ profileCard, title }, index) => (
-          <ProfileCard key={index} refresh={index === 2} pCardTitle={title}>
+          <ProfileCard key={index} refresh={index !== 2} pCardTitle={title}>
             {profileCard}
           </ProfileCard>
         ))}
