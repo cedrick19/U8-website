@@ -1,5 +1,5 @@
 import { Link } from 'framework7-react';
-import WalletTabs from '@/pages/profile/settings/virtual-address/component/WalletTabs';
+import { WalletTabs } from '@/pages/profile/settings/virtual-address/component';
 
 export const currency = [
   {

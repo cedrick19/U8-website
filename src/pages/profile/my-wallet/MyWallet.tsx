@@ -1,28 +1,15 @@
-import { Block, Button, Card, CardContent, Icon, Link, Page } from 'framework7-react';
-import ProfileCard from '../component/ProfileCard';
+import { Fragment } from 'react';
+import { Block, Button, Card, CardContent, Icon, Link } from 'framework7-react';
+
+import { ProfileContainer, ProfileCard, SettingItem } from '@/pages/profile/component';
 import CoinOff from '@/assets/image/icons/coin-off.svg';
 import Refresh from '@/assets/image/svg/refresh.svg';
-import SettingItem from '../component/SettingItem';
+
+import { MobileNavbar } from '@/components';
 import { f7navigate } from '@/utils/helper';
 import { store } from '@/ts/store';
-import { Fragment } from 'react/jsx-runtime';
-import { MobileNavbar } from '@/components';
 
-const myWalletFundsArray = [
-  {
-    className: 'rounded-lg rounded-b-none',
-    iconLeft: 'show_chart',
-    iconClassname: 'text-white bg-[#4C236D]',
-    label: 'Funding Details',
-    activeTab: 0,
-  },
-  {
-    className: 'rounded-lg rounded-t-none',
-    iconLeft: 'text_snippet',
-    label: 'Transaction Record',
-    activeTab: 1,
-  },
-];
+import { myWalletFundsArray } from './utils';
 
 const MyWallet = () => {
   const { dispatch } = store;
@@ -31,7 +18,7 @@ const MyWallet = () => {
     f7navigate(`index-${index}`, '/profile/fund-management/');
   };
   return (
-    <Page name="my wallet">
+    <ProfileContainer name="my wallet">
       <MobileNavbar mode="profile" title="My Wallet" />
       <ProfileCard>
         <Card
@@ -116,7 +103,7 @@ const MyWallet = () => {
           </Fragment>
         ))}
       </Block>
-    </Page>
+    </ProfileContainer>
   );
 };
 

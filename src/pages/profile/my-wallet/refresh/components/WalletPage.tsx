@@ -1,8 +1,7 @@
 import { useState } from 'react';
 import { Block, Button, Icon } from 'framework7-react';
-import CustomPopUp from '@/pages/profile/component/CustomPopUp';
+import { CustomPopUp, CustomInput } from '@/pages/profile/component';
 import { infoItems } from './utils';
-import CustomInput from '@/pages/profile/component/CustomInput';
 
 export const WalletPage: React.FC<{ currencyWallet: string }> = ({ currencyWallet }) => {
   const [popupOpen, setPopupOpen] = useState(false);
