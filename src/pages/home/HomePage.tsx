@@ -1,8 +1,7 @@
 import { Page } from 'framework7-react';
 import { useEffect, useState } from 'react';
 import { getDevice } from 'framework7';
-import HomeCarousel from './components/HomeCarousel';
-import { HomeContent, TextCarousel, UserCard } from './components';
+import { HomeContent, TextCarousel, UserCard, HomeCarousel } from './components';
 import { LoginModal } from '@/components/LoginModal';
 import { MobileNavbar } from '@/components/mobile-navbar';
 import { f7navigate } from '@/utils/helper';
