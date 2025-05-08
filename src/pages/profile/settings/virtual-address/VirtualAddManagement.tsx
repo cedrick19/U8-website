@@ -6,6 +6,7 @@ import { store } from '@/ts/store';
 
 const VirtualAddManagement = () => {
   const param = store.state.walletParams;
+
   const virtualWallet = [
     {
       type: 'USDT',
@@ -24,7 +25,11 @@ const VirtualAddManagement = () => {
       </Block>
       <Tabs>
         {virtualWallet.map((wallet, index) => (
-          <Tab tabActive={index === 0} id={wallet.type.toLowerCase()} key={index}>
+          <Tab
+            tabActive={param.toUpperCase() === wallet.type}
+            id={wallet.type.toLowerCase()}
+            key={index}
+          >
             <VirtualWallet wallet={wallet} />
           </Tab>
         ))}
