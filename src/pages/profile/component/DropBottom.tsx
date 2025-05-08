@@ -19,7 +19,7 @@ interface DropBottomProps {
 
 const DropdownButton = ({ label, popupId }: { label: string; popupId: string }) => (
   <Button
-    className="text-gradient h-9 max-w-full justify-between whitespace-nowrap rounded-full border border-secondary px-4 normal-case"
+    className="text-gradient h-9 max-w-full justify-between whitespace-pre-wrap rounded-full border border-secondary px-4 normal-case leading-tight"
     rippleColor="none"
     popupOpen={`#${popupId}`}
   >
@@ -76,7 +76,7 @@ export const DropBottom = ({
   className,
 }: DropBottomProps) => {
   return (
-    <div className={cn('flex flex-row gap-2 px-2 pt-5', className)}>
+    <div className={cn('flex w-full flex-wrap gap-2 px-2 pt-5', className)}>
       {popUpConfig.map((popUpButton, ids) => (
         <DropdownButton
           key={ids}
