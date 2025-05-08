@@ -1,6 +1,6 @@
 import { Navbar, Link, f7, Icon, NavRight, NavLeft } from 'framework7-react';
 
-import { cn } from '@/utils/helper';
+import { cn, f7navigate } from '@/utils/helper';
 
 import Logo from '@/assets/image/icons/logo.png';
 import Telegram from '@/assets/image/icons/Telegram.png';
@@ -68,7 +68,14 @@ export const MobileNavbar = ({ title, navRight, mode = 'home' }: MobileNavbarPro
 
             <NavRight>
               <p className="text-xl font-extrabold">0.00</p>
-              <Icon material="notifications" size={35} className="text-gradient" />
+              <Link
+                id="notifications"
+                href="/notifications/"
+                onClick={() => f7navigate('notifications', '/notifications/')}
+                iconMaterial="notifications"
+                iconSize={35}
+                icon="text-gradient"
+              />
             </NavRight>
           </>
         )}

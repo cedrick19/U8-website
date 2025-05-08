@@ -1,4 +1,3 @@
-import type React from 'react';
 import { App, Page, View } from 'framework7-react';
 import appRoutes from './ts/appRoutes';
 import { getDevice } from 'framework7';

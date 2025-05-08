@@ -57,7 +57,7 @@ export const RegisterTab = () => {
         <Checkbox
           rippleColor="none"
           checked={userData.agree}
-          className="flex w-full flex-row gap-2 pt-5"
+          className="no-ripple flex w-full flex-row gap-2 pt-5"
           onChange={(e) => setUserData({ ...userData, agree: e.target.checked })}
           name="checkers"
         >
