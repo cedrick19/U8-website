@@ -1,7 +1,7 @@
 export interface NotificationDataType {
   id: number;
   title: string;
-  type: string;
+  type?: 'newcomer' | 'system' | 'events';
   content: string;
   date?: string;
   time?: string;
