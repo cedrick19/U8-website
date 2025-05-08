@@ -1,8 +1,9 @@
 import { useState } from 'react';
-import { Block, Button, f7, Icon } from 'framework7-react';
+import { Block, Button, Icon } from 'framework7-react';
 import { CustomPopUp, CustomInput } from '@/pages/profile/component';
 import { infoItems } from './utils';
 import { store } from '@/ts/store';
+import { f7navigate } from '@/utils/helper';
 
 export const WalletPage: React.FC<{ tabName: string }> = ({ tabName }) => {
   const [popupOpen, setPopupOpen] = useState(false);
@@ -102,10 +103,11 @@ export const WalletPage: React.FC<{ tabName: string }> = ({ tabName }) => {
           <p className="text-lg font-semibold">0/5</p>
 
           <Button
+            id="management-btn"
             className="text-gradient h-12 border-2 border-secondary font-bold normal-case"
             onClick={() => {
               setPopupOpen(false);
-              f7.views.main.router.navigate(`/profile/settings/account-security/vam/`);
+              f7navigate('management-btn', `/profile/settings/account-security/vam/`);
               dispatch('setParams', tabName);
             }}
           >
@@ -113,10 +115,12 @@ export const WalletPage: React.FC<{ tabName: string }> = ({ tabName }) => {
           </Button>
 
           <Button
+            id="add-virtual-coin-btn"
             className="h-12 bg-primary-gradient text-center normal-case text-white"
             onClick={() => {
               setPopupOpen(false);
-              f7.views.main.router.navigate(
+              f7navigate(
+                'add-virtual-coin-btn',
                 `/profile/settings/account-security/vam/${tabName.toLowerCase()}/`,
               );
               dispatch('setParams', tabName);
