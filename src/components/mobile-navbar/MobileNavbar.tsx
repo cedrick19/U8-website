@@ -69,7 +69,6 @@ export const MobileNavbar = ({ title, navRight, mode = 'home' }: MobileNavbarPro
             <NavRight>
               <p className="text-xl font-extrabold">0.00</p>
               <Link
-                id="notifications"
                 onClick={() => f7navigate('notifications', '/notifications/')}
                 iconMaterial="notifications"
                 iconSize={35}
