@@ -30,7 +30,6 @@ export const NotifComponent = ({ data }: { data: NotificationDataType[] }) => {
                 <Link
                   href={`/notifications/${notif.id}/`}
                   className="text-gradient flex flex-row items-center"
-                  id={notif.id}
                   onClick={() => f7navigate(notif.id.toString(), `/notifications/${notif.id}/`)}
                 >
                   more
