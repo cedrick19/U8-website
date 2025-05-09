@@ -2,10 +2,13 @@ import { useState } from 'react';
 import { Block, Button, Icon } from 'framework7-react';
 import { CustomPopUp, CustomInput } from '@/pages/profile/component';
 import { infoItems } from './utils';
+import { store } from '@/ts/store';
+import { f7navigate } from '@/utils/helper';
 
-export const WalletPage: React.FC<{ currencyWallet: string }> = ({ currencyWallet }) => {
+export const WalletPage: React.FC<{ tabName: string }> = ({ tabName }) => {
   const [popupOpen, setPopupOpen] = useState(false);
   const [amount, setAmount] = useState('');
+  const { dispatch } = store;
 
   return (
     <>
@@ -31,7 +34,7 @@ export const WalletPage: React.FC<{ currencyWallet: string }> = ({ currencyWalle
           <CustomInput
             name="amount"
             type="number"
-            id={`${currencyWallet}-amount`}
+            id={`${tabName}-amount`}
             value={amount}
             onChange={(e) => setAmount(e.target.value)}
             maxLength={12}
@@ -99,11 +102,28 @@ export const WalletPage: React.FC<{ currencyWallet: string }> = ({ currencyWalle
 
           <p className="text-lg font-semibold">0/5</p>
 
-          <Button className="text-gradient h-12 border-2 border-secondary font-bold normal-case">
+          <Button
+            className="text-gradient h-12 border-2 border-secondary font-bold normal-case"
+            onClick={() => {
+              setPopupOpen(false);
+              f7navigate('management-btn', '/profile/settings/account-security/vam/');
+              dispatch('setParams', tabName);
+            }}
+          >
             Management
           </Button>
 
-          <Button className="h-12 bg-primary-gradient text-center normal-case text-white">
+          <Button
+            className="h-12 bg-primary-gradient text-center normal-case text-white"
+            onClick={() => {
+              setPopupOpen(false);
+              f7navigate(
+                'add-virtual-coin-btn',
+                `/profile/settings/account-security/vam/${tabName.toLowerCase()}/`,
+              );
+              dispatch('setParams', tabName);
+            }}
+          >
             Add New Virtual Coin Wallet Address
           </Button>
         </Block>

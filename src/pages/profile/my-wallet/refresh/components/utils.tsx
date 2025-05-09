@@ -9,19 +9,19 @@ export const RefreshOptions: SegmentButtons[] = [
   },
   {
     tabName: 'USDT',
-    component: <WalletPage currencyWallet="USDT" />,
+    component: <WalletPage tabName="USDT" />,
   },
   {
-    tabName: 'DAI',
-    component: <WalletPage currencyWallet="DAI" />,
+    tabName: 'DAM',
+    component: <WalletPage tabName="DAM" />,
   },
 ];
 
 export const countryCodes = [
   { id: 1, code: '+1', country: 'USA' },
-  { id: 2, code: '+86', country: 'China' },
-  { id: 3, code: '+61', country: 'Australia' },
-  { id: 4, code: '+63', country: 'Philippines' },
+  { id: 2, code: '+86', country: 'CHN' },
+  { id: 3, code: '+61', country: 'AUS' },
+  { id: 4, code: '+63', country: 'PH' },
 ];
 
 export const infoItems = [
