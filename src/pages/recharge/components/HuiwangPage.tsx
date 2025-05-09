@@ -44,6 +44,7 @@ export const HuiwangPage = () => {
         <div className="flex h-16 w-full flex-row py-2">
           <Input
             type="number"
+            name="usdtRecharge"
             value={amount}
             className="flex w-full flex-row items-center justify-between overflow-hidden truncate whitespace-nowrap rounded-full border border-gray-500 bg-white px-3"
             placeholder="Please enter the amount"
