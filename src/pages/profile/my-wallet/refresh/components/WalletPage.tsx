@@ -103,7 +103,6 @@ export const WalletPage: React.FC<{ tabName: string }> = ({ tabName }) => {
           <p className="text-lg font-semibold">0/5</p>
 
           <Button
-            id="management-btn"
             className="text-gradient h-12 border-2 border-secondary font-bold normal-case"
             onClick={() => {
               setPopupOpen(false);
@@ -115,7 +114,6 @@ export const WalletPage: React.FC<{ tabName: string }> = ({ tabName }) => {
           </Button>
 
           <Button
-            id="add-virtual-coin-btn"
             className="h-12 bg-primary-gradient text-center normal-case text-white"
             onClick={() => {
               setPopupOpen(false);
