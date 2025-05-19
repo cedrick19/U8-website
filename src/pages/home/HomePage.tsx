@@ -8,13 +8,18 @@ import useIsSmallDevice from './components/useIsSmallDevice';
 
 const HomePage = () => {
   const isSmallDevice = useIsSmallDevice();
+
+  const NotificationButton = () => {
+    f7navigate('notifications', '/notifications/');
+  };
+
   return (
     <Page className="pb-10">
       {isSmallDevice && (
         <MobileNavbar
           mode="home"
           navRight={
-            <div id="notifications" onClick={() => f7navigate('notifications', '/notifications/')}>
+            <div id="notifications" onClick={NotificationButton}>
               <img src={Bell} alt="Notifications" className="h-15 w-15" />
             </div>
           }
