@@ -1,52 +1,31 @@
 import { Page } from 'framework7-react';
-import { useEffect, useState } from 'react';
-import { getDevice } from 'framework7';
 import { HomeContent, TextCarousel, UserCard, HomeCarousel } from './components';
 import { LoginModal } from '@/components/LoginModal';
 import { MobileNavbar } from '@/components/mobile-navbar';
 import { f7navigate } from '@/utils/helper';
 import Bell from '@/assets/image/svg/bell.svg';
+import useIsSmallDevice from './components/useIsSmallDevice';
 
 const HomePage = () => {
-  const [isTablet, setIsTablet] = useState(false);
-  const isMobile = () => {
-    const device = getDevice();
-    return device.ios || device.android;
-  };
-  const isSmallDevice = isMobile || isTablet;
-  useEffect(() => {
-    const handleResize = () => {
-      const width = window.innerWidth;
-      setIsTablet(width >= 600 && width <= 1024);
-    };
-    handleResize();
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
-
+  const isSmallDevice = useIsSmallDevice();
   return (
     <Page className="pb-10">
-      {isSmallDevice() && (
+      {isSmallDevice && (
         <MobileNavbar
           mode="home"
           navRight={
-            <>
-              <div
-                id="notifications"
-                onClick={() => f7navigate('notifications', '/notifications/')}
-              >
-                <img src={Bell} alt="Notifications" className="h-15 w-15" />
-              </div>
-            </>
+            <div id="notifications" onClick={() => f7navigate('notifications', '/notifications/')}>
+              <img src={Bell} alt="Notifications" className="h-15 w-15" />
+            </div>
           }
         />
       )}
       <HomeCarousel />
-      <div className="space-y-5 rounded-b-[2rem] border-b-2 border-t-0 border-violet-300 p-2 pt-3 shadow-xl shadow-[#8b5cf64d] lg:border-0 lg:shadow-none">
+      <div className="space-y-5 rounded-b-[2rem] border-t-0 p-2 pt-3 shadow-xl shadow-[#8b5cf64d] lg:border-0 lg:shadow-none">
         <TextCarousel />
-        {isSmallDevice() && <UserCard />}
+        {isSmallDevice && <UserCard />}
       </div>
-      {isSmallDevice() && (
+      {isSmallDevice && (
         <>
           <HomeContent />
           <LoginModal />

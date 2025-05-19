@@ -18,13 +18,11 @@ export const UserCard = () => {
   const actions = [
     {
       id: 'chat',
-      label: 'Open Telegram channel',
       icon: chatIcon,
       onClick: () => window.open('https://t.me/SAMPLE', '_blank'),
     },
     {
       id: 'support',
-      label: 'Open customer support',
       icon: customerServiceIcon,
       onClick: () => f7navigate('support', 'support/'),
     },
@@ -50,7 +48,7 @@ export const UserCard = () => {
             >
               VIP 0
             </div>
-            <Button onClick={() => setIsEyeOn(!isEyeOn)} className="ml-1">
+            <Button onClick={() => setIsEyeOn(!isEyeOn)}>
               <Icon f7={isEyeOn ? 'eye_fill' : 'eye_slash_fill'} size={20} className="text-black" />
             </Button>
           </div>
@@ -75,16 +73,15 @@ export const UserCard = () => {
         </div>
       </div>
 
-      <div className="flex gap-2">
-        {actions.map(({ id, label, icon, onClick }) => (
+      <div className="flex gap-2 pb-5">
+        {actions.map(({ id, icon, onClick }) => (
           <Button
             key={id}
             id={id}
-            aria-label={label}
-            className="flex h-10 w-10 items-center justify-center rounded-full bg-primary-gradient p-2"
+            className="flex h-9 w-9 items-center justify-center rounded-full bg-primary-gradient p-2"
             onClick={onClick}
           >
-            <img src={icon} className="h-full w-full" alt={label} />
+            <img src={icon} className="h-full w-full" />
           </Button>
         ))}
       </div>
