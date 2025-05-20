@@ -8,13 +8,13 @@ const cardBaseClass =
   'm-0 overflow-hidden rounded-xl border-2 border-white shadow-md bg-[#4C2CCA4D]/10';
 
 const CategoryCard = ({ name, image, route }: Category) => (
-  <Card className={cn('m-0 h-24 p-1 pt-2', cardBaseClass)}>
+  <Card className={cn('h-24 p-1 pt-2', cardBaseClass)}>
     <LineCardPolygon />
-    <CardContent className="flex flex-col items-center justify-between p-0">
-      <div className="h-15 flex w-12 items-center justify-center p-0">
-        <img src={image} alt={name} className="h-full w-full object-contain" />
+    <CardContent className="flex flex-col items-center p-0">
+      <div className="h-15 w-12">
+        <img src={image} alt={name} />
       </div>
-      <div className="w-full pb-4">
+      <div className="w-full">
         <div className="h-[25px] rounded-xl bg-primary-gradient pb-[2px]">
           <div className="h-full w-full rounded-xl bg-white">
             <Button
@@ -46,11 +46,7 @@ const CatHighlightCard = ({
       <div
         className={cn('relative flex p-3', spanTwo ? 'flex-row-reverse items-center' : 'flex-col')}
       >
-        <img
-          src={image}
-          alt={title}
-          className={cn('object-contain', spanTwo ? 'h-full' : 'h-36')}
-        />
+        <img src={image} alt={title} className={cn(spanTwo ? 'h-full' : 'h-36')} />
         <h2
           className={cn(
             'text-gradient text-3xl font-extrabold',
@@ -71,7 +67,7 @@ export const HomeContent = () => {
         {topCards.map((card: TopCard) => (
           <div
             key={card.id}
-            className={cn('cursor-pointer', card.fullWidth && 'col-span-2')}
+            className={cn(card.fullWidth && 'col-span-2')}
             onClick={() => f7navigate(`card-${card.id}`, card.route)}
           >
             <CatHighlightCard image={card.image} title={card.title} spanTwo={card.fullWidth} />
