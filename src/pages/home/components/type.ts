@@ -14,3 +14,10 @@ export interface TopCard {
   route: string;
   fullWidth?: boolean;
 }
+
+export type UserInfoProps = {
+  isEyeOn: boolean;
+  toggleEye: () => void;
+  isSpinning: boolean;
+  RefreshClick: () => void;
+};
