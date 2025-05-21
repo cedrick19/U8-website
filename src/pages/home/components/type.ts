@@ -1,18 +1,10 @@
-export interface Category {
-  id: number;
-  name: string;
-  image: string;
-  color: string;
-  route: string;
-  className?: string;
-}
-
-export interface TopCard {
-  id: string;
+export interface GameInfoTypes {
   title: string;
-  image: string;
+  imageHome: string;
   route: string;
+  spanTwo?: boolean;
   fullWidth?: boolean;
+  isCategory?: boolean;
 }
 
 export type UserInfoProps = {

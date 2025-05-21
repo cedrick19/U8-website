@@ -1,1 +1,1 @@
-export * from './LineCardpolygon';
+export * from './LineCardPolygon';

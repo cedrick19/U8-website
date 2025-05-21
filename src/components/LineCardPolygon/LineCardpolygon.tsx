@@ -1,4 +1,4 @@
-export const LineCardpolygon = () => {
+export const LineCardPolygon = () => {
   return (
     <div className="absolute left-0 top-0 h-[50px] w-full">
       <div
@@ -23,4 +23,4 @@ export const LineCardpolygon = () => {
   );
 };
 
-export default LineCardpolygon;
+export default LineCardPolygon;

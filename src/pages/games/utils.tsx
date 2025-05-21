@@ -7,14 +7,22 @@ import sports from '@/assets/image/games/sports.png';
 import fishing from '@/assets/image/games/fishing.png';
 import poker from '@/assets/image/games/poker.png';
 
+import lotteryHome from '@/assets/image/home/lottery.svg';
+import videoHome from '@/assets/image/home/live.png';
+import electronicHome from '@/assets/image/home/electronic.svg';
+import sportsHome from '@/assets/image/home/sports.png';
+import fishingHome from '@/assets/image/home/fishing.png';
+import pokerHome from '@/assets/image/home/poker.png';
+
 import sports1 from '@/assets/image/games/sports/sport-1.png';
 import sports2 from '@/assets/image/games/sports/sport-2.png';
 import sports3 from '@/assets/image/games/sports/sport-3.png';
 
 export const gameInfo = [
   {
-    title: 'LOTTERY',
+    title: 'LOTTERY TICKET',
     image: lottery,
+    imageHome: lotteryHome,
     description:
       'There are all kinds of authentic colors, providing various popular lottery tickets',
     route: '/games/lottery/',
@@ -22,32 +30,41 @@ export const gameInfo = [
   {
     title: 'LIVE VIDEO',
     image: video,
+    imageHome: videoHome,
     description: 'Exotic Beauty Dutch Officer Immersive Experience Online Real-Man Interaction.',
     route: '/games/video/',
   },
   {
-    title: 'ELECTRONIC',
+    title: 'ELECTRONIC GAMES',
     image: electronic,
+    imageHome: electronicHome,
     description: 'Million Prize. Pool. Touch.',
     route: '/games/electronic/',
+    fullWidth: true,
   },
   {
     title: 'SPORTS',
     image: sports,
+    imageHome: sportsHome,
     description: 'Numerous exciting options, offering a variety of popular sports betting tickets.',
     route: '/games/sports/',
+    isCategory: true,
   },
   {
     title: 'FISHING',
     image: fishing,
+    imageHome: fishingHome,
     description: 'Explore fishing games, casting your line to catch various fish species.',
     route: '/games/fishing/',
+    isCategory: true,
   },
   {
     title: 'POKER',
     image: poker,
-    description: 'Dive into the thrilling world of poker, where starategy meets chance.',
+    imageHome: pokerHome,
+    description: 'Dive into the thrilling world of poker, where strategy meets chance.',
     route: '/games/poker/',
+    isCategory: true,
   },
 ];
 

@@ -1,4 +1,4 @@
-import LineCardpolygon from '@/components/LineCardPolygon/LineCardpolygon';
+import LineCardPolygon from '@/components/LineCardPolygon/LineCardPolygon';
 import { Card, CardContent } from 'framework7-react';
 
 interface ITileMenu {
@@ -16,7 +16,7 @@ export const TileMenu = ({ title, image, description, onNavigate }: ITileMenu) =
         className="h-full rounded-xl border-b-4 border-t-4 border-b-white border-t-white bg-[#4C2CCA4D]/10"
       >
         <div onClick={onNavigate} className="relative h-32 w-full overflow-hidden rounded-xl p-5">
-          <LineCardpolygon />
+          <LineCardPolygon />
           <img
             loading="lazy"
             src={image}
