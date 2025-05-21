@@ -26,6 +26,7 @@ export const gameInfo = [
     description:
       'There are all kinds of authentic colors, providing various popular lottery tickets',
     route: '/games/lottery/',
+    layer: '1',
   },
   {
     title: 'LIVE VIDEO',
@@ -33,6 +34,7 @@ export const gameInfo = [
     imageHome: videoHome,
     description: 'Exotic Beauty Dutch Officer Immersive Experience Online Real-Man Interaction.',
     route: '/games/video/',
+    layer: '1',
   },
   {
     title: 'ELECTRONIC GAMES',
@@ -41,6 +43,7 @@ export const gameInfo = [
     description: 'Million Prize. Pool. Touch.',
     route: '/games/electronic/',
     fullWidth: true,
+    layer: '1',
   },
   {
     title: 'SPORTS',
@@ -48,7 +51,7 @@ export const gameInfo = [
     imageHome: sportsHome,
     description: 'Numerous exciting options, offering a variety of popular sports betting tickets.',
     route: '/games/sports/',
-    isCategory: true,
+    layer: '2',
   },
   {
     title: 'FISHING',
@@ -56,7 +59,7 @@ export const gameInfo = [
     imageHome: fishingHome,
     description: 'Explore fishing games, casting your line to catch various fish species.',
     route: '/games/fishing/',
-    isCategory: true,
+    layer: '2',
   },
   {
     title: 'POKER',
@@ -64,7 +67,7 @@ export const gameInfo = [
     imageHome: pokerHome,
     description: 'Dive into the thrilling world of poker, where strategy meets chance.',
     route: '/games/poker/',
-    isCategory: true,
+    layer: '2',
   },
 ];
 

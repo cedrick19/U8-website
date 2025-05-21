@@ -51,28 +51,29 @@ const CategoryCard = ({ imageHome, title, route }: GameInfoTypes) => (
 );
 
 export const HomeContent = () => {
-  const highlightCards = gameInfo.filter((card) => !card.isCategory);
-  const categoryCards = gameInfo.filter((card) => card.isCategory);
-
   return (
     <div className="gap-4 px-4 pb-20">
       <div className="grid grid-cols-2 gap-4 pt-4">
-        {highlightCards.map((card) => (
-          <div
-            className={cn(card.fullWidth && 'col-span-2')}
-            key={card.title}
-            onClick={() => f7navigate(`btn-${card.route}`, card.route)}
-          >
-            <CatHighlightCard {...card} spanTwo={card.fullWidth} />
-          </div>
-        ))}
+        {gameInfo
+          .filter((card) => card.layer.toString() === '1')
+          .map((card) => (
+            <div
+              className={cn(card.fullWidth && 'col-span-2')}
+              key={card.title}
+              onClick={() => f7navigate(`btn-${card.route}`, card.route)}
+            >
+              <CatHighlightCard {...card} spanTwo={card.fullWidth} />
+            </div>
+          ))}
       </div>
       <div className="grid grid-cols-3 gap-2 pt-4">
-        {categoryCards.map((card) => (
-          <div key={card.title} onClick={() => f7navigate(`btn-${card.route}`, card.route)}>
-            <CategoryCard {...card} />
-          </div>
-        ))}
+        {gameInfo
+          .filter((card) => card.layer.toString() === '2')
+          .map((card) => (
+            <div key={card.title} onClick={() => f7navigate(`btn-${card.route}`, card.route)}>
+              <CategoryCard {...card} />
+            </div>
+          ))}
       </div>
     </div>
   );
