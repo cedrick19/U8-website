@@ -56,9 +56,9 @@ const HuangWangWithdrawal = () => {
 
         <p className="font medium text-xs text-black">
           Contact for first presentation
-          <span className="text-gradient font-bold">@U8hdkefu8</span>
-          Official grid customer service and let the customer service retain your aircraft number.
-          The customer service will be checked twice to ensure the safety of fund.
+          <span className="text-gradient font-bold"> @U8hdkefu8 </span> Official grid customer
+          service and let the customer service retain your aircraft number. The customer service
+          will be checked twice to ensure the safety of fund.{' '}
         </p>
       </Block>
 
