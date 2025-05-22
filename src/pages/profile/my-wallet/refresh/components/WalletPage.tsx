@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import VirtualCurrency from './WalletPageComponents/VirtualCurrency';
-import CashWithdrawal from './WalletPageComponents/CashWithrawal';
+import CashWithdrawal from './WalletPageComponents/WalletWithdrawal';
 import WalletPopup from './WalletPageComponents/WalletPopup';
 
 export const WalletPage: React.FC<{ tabName: string }> = ({ tabName }) => {
