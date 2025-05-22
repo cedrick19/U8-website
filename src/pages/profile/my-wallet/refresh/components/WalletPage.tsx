@@ -9,7 +9,7 @@ export const WalletPage: React.FC<{ tabName: string }> = ({ tabName }) => {
   return (
     <>
       <VirtualCurrency onAddClick={() => setPopupOpen(true)} />
-      <CashWithdrawal />
+      <CashWithdrawal tabName={tabName} />
       <WalletPopup tabName={tabName} open={popupOpen} setOpen={setPopupOpen} />
     </>
   );

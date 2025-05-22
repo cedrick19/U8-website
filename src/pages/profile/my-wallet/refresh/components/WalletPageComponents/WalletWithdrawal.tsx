@@ -3,7 +3,7 @@ import { cn } from '@/utils/helper';
 import { Block, Icon, Button } from 'framework7-react';
 import { balanceSummary, walletTexts } from '../utils';
 
-const CashWithdrawal: React.FC = () => {
+const CashWithdrawal: React.FC<{ tabName: string }> = ({ tabName }) => {
   const renderCashLeft = () => (
     <div
       className={cn('flex h-8 w-8 items-center justify-center rounded-full bg-primary-gradient')}
@@ -26,6 +26,7 @@ const CashWithdrawal: React.FC = () => {
         <CustomInput
           name="amount"
           type="number"
+          id={`${tabName}-amount`}
           placeholder="Enter Amount"
           maxLength={12}
           className={cn('rounded-full border-2 border-gray-500 bg-white px-3 pl-0 pr-3')}
