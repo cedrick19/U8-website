@@ -55,7 +55,7 @@ export const HomeContent = () => {
     <div className="gap-4 px-4 pb-20">
       <div className="grid grid-cols-2 gap-4 pt-4">
         {gameInfo
-          .filter((card) => card.layer.toString() === '1')
+          .filter((card) => card.layer === 1)
           .map((card) => (
             <div
               className={cn(card.fullWidth && 'col-span-2')}
@@ -68,7 +68,7 @@ export const HomeContent = () => {
       </div>
       <div className="grid grid-cols-3 gap-2 pt-4">
         {gameInfo
-          .filter((card) => card.layer.toString() === '2')
+          .filter((card) => card.layer === 2)
           .map((card) => (
             <div key={card.title} onClick={() => f7navigate(`btn-${card.route}`, card.route)}>
               <CategoryCard {...card} />

@@ -2,6 +2,7 @@ import { Block, Link, Page } from 'framework7-react';
 import { SegmentedTabs } from '@/components/SegmentedTabs';
 import { RefreshOptions } from '@/pages/profile/my-wallet/refresh/components/utils';
 import { MobileNavbar } from '@/components';
+import { f7navigate } from '@/utils/helper';
 
 const Refresh = () => {
   return (
@@ -12,10 +13,8 @@ const Refresh = () => {
         title="Refresh"
         navRight={
           <Link
-            href="/profile/fund-management/"
-            onClick={(e) => {
-              (e.currentTarget as HTMLAnchorElement).blur();
-            }}
+            id="fund-management-button"
+            onClick={() => f7navigate('fund-management-button', '/profile/fund-management/')}
           >
             <span className="text-purple-900">Refill Record</span>
           </Link>
