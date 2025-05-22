@@ -17,12 +17,10 @@ const CashWithdrawal: React.FC<{ tabName: string }> = ({ tabName }) => {
       MAX
     </Button>
   );
-
   return (
     <>
       <Block className="space-y-3 rounded-3xl bg-white py-5">
         <p className="text-gradient text-lg font-bold">Cash withdrawal</p>
-
         <CustomInput
           name="amount"
           type="number"
@@ -33,25 +31,17 @@ const CashWithdrawal: React.FC<{ tabName: string }> = ({ tabName }) => {
           leftDecoration={renderCashLeft()}
           rightDecoration={renderMaxRight()}
         />
-
         <div className="w-full rounded-lg bg-purple-50 p-3 text-sm">
-          {balanceSummary.map(({ label, value }) => (
+          {balanceSummary.map(({ label, value, icon }) => (
             <div key={label} className="flex flex-row justify-between">
               <span className="text-gradient flex items-center font-semibold">
                 {label}
-                {label === 'Frozen Amount' && (
-                  <Icon
-                    f7="question_circle_fill"
-                    size={16}
-                    className="ml-1 text-[16px] text-gray-500"
-                  />
-                )}
+                {icon && icon}
               </span>
               <span className="font-bold text-black">{value}</span>
             </div>
           ))}
         </div>
-
         <p className="font medium text-xs text-black">
           Contact for first presentation
           <span className="text-gradient font-bold"> @U8hdkefu8 </span> Official grid customer
