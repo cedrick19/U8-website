@@ -47,7 +47,7 @@ export const WithdrawAccount = () => {
     </Button>
   );
 
-  const rendernumberLeft = () => (
+  const renderNumberLeft = () => (
     <Button
       className="pr-0 text-base"
       onClick={() => setFormState({ ...formState, popupOpened: true })}
@@ -70,7 +70,7 @@ export const WithdrawAccount = () => {
         onChange={handleNumberFormat}
         placeholder="Enter your mobile number"
         className={cn('rounded-full border-2 border-gray-500 bg-white px-3 pl-0 pr-3')}
-        leftDecoration={rendernumberLeft()}
+        leftDecoration={renderNumberLeft()}
         rightDecoration={renderHsbcRight()}
       />
 
