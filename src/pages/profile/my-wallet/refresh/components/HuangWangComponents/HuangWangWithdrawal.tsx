@@ -1,7 +1,6 @@
 import { CustomInput } from '@/pages/profile/component';
 import { cn } from '@/utils/helper';
 import { Block, Icon, Button } from 'framework7-react';
-
 import { balanceSummary, walletTexts } from '../utils';
 
 const HuangWangWithdrawal = () => {

@@ -1,8 +1,7 @@
-import { Block, Button, Icon } from 'framework7-react';
 import { CustomInput } from '@/pages/profile/component';
-
 import { cn } from '@/utils/helper';
-import { walletTexts, balanceSummary } from '../utils';
+import { Block, Icon, Button } from 'framework7-react';
+import { balanceSummary, walletTexts } from '../utils';
 
 const CashWithdrawal: React.FC = () => {
   const renderCashLeft = () => (
@@ -22,7 +21,7 @@ const CashWithdrawal: React.FC = () => {
   return (
     <>
       <Block className="space-y-3 rounded-3xl bg-white py-5">
-        <p className="text-gradient text-lg font-bold">Cash withdrawal</p>
+        <p className="text-gradient text-lg font-bold">{walletTexts.cashWithdrawalTitle}</p>
 
         <CustomInput
           name="amount"

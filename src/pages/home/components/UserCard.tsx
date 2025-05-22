@@ -1,5 +1,5 @@
 import { SupportButtons } from '@/pages/home/components/UserCardComponents/SupportButtons';
-import { UserInfo } from '@/pages/home/components/UserCardComponents/Userinfo';
+import { UserInfo } from './UserCardComponents/Userinfo';
 
 export const UserCard: React.FC = () => {
   return (

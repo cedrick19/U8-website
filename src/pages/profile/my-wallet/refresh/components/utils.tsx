@@ -24,15 +24,8 @@ export const countryCodes = [
   { id: 4, code: '+63', country: 'PH' },
 ];
 
-export const infoItems = [
-  { label: 'Wallet Balance', value: '0.00' },
-  { label: 'Handling Fee', value: '0.00' },
-  { label: 'Expected', value: '0.00' },
-  { label: 'Frozen Amount', value: '0.00' },
-];
-
 export const balanceSummary = [
-  { label: 'Wallet Balance', value: '0.00' },
+  { label: 'Wallet Balance', value: '11.00' },
   { label: 'Handling Fee', value: '0.00' },
   { label: 'Expected', value: '0.00' },
   { label: 'Frozen Amount', value: '0.00' },
