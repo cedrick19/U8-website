@@ -2,7 +2,6 @@ import { Block, Button, Icon } from 'framework7-react';
 import { CustomPopUp } from '@/pages/profile/component';
 import { f7navigate } from '@/utils/helper';
 import { store } from '@/ts/store';
-import { walletTexts } from '../utils';
 
 interface WalletPopupProps {
   tabName: string;
@@ -15,7 +14,7 @@ const WalletPopup: React.FC<WalletPopupProps> = ({ tabName, open, setOpen }) => 
 
   return (
     <CustomPopUp
-      title={walletTexts.popup.title}
+      title="Switch Collection Address"
       open={open}
       clAction={() => setOpen(false)}
       opAction={() => {
@@ -26,9 +25,11 @@ const WalletPopup: React.FC<WalletPopupProps> = ({ tabName, open, setOpen }) => 
       <Block className="flex flex-col gap-2">
         <div className="items-center">
           <Icon f7="exclamationmark_triangle_fill" icon="text-red-500" size={16} />
-          <span className="ml-1 text-sm text-red-600">{walletTexts.popup.walletLimitInfo}</span>
+          <span className="ml-1 text-sm text-red-600">
+            Only 5 virtual coin wallets can be added
+          </span>
         </div>
-        <p className="text-lg font-semibold">{walletTexts.popup.walletCount}</p>
+        <p className="text-lg font-semibold">0/5</p>
         <Button
           className="text-gradient h-12 border-2 border-secondary font-bold normal-case"
           onClick={() => {
@@ -37,7 +38,7 @@ const WalletPopup: React.FC<WalletPopupProps> = ({ tabName, open, setOpen }) => 
             dispatch('setParams', tabName);
           }}
         >
-          {walletTexts.popup.managementBtn}
+          Management
         </Button>
 
         <Button
@@ -51,7 +52,7 @@ const WalletPopup: React.FC<WalletPopupProps> = ({ tabName, open, setOpen }) => 
             dispatch('setParams', tabName);
           }}
         >
-          {walletTexts.popup.addNewWalletBtn}
+          Add New Virtual Coin Wallet Address
         </Button>
       </Block>
     </CustomPopUp>
