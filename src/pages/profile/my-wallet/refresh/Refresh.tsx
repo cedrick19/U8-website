@@ -1,6 +1,6 @@
 import { Block, Link, Page } from 'framework7-react';
 import { SegmentedTabs } from '@/components/SegmentedTabs';
-import { RefreshOptions } from '@/pages/profile/my-wallet/refresh/components/utils';
+import { RefreshOptions } from '@/pages/profile/my-wallet/refresh/utils';
 import { MobileNavbar } from '@/components';
 import { f7navigate } from '@/utils/helper';
 

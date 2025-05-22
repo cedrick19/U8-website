@@ -1,8 +1,7 @@
-import { Icon } from 'framework7-react';
-import { HuangWangPage } from './HuangWangPage';
 import { WalletPage } from './WalletPage';
-
+import { HuangWangPage } from './HuangwangPage';
 import { SegmentButtons } from '@/components/SegmentedTabs/type';
+import { Icon } from 'framework7-react';
 
 export const RefreshOptions: SegmentButtons[] = [
   {
@@ -26,6 +25,13 @@ export const countryCodes = [
   { id: 4, code: '+63', country: 'PH' },
 ];
 
+export const infoItems = [
+  { label: 'Wallet Balance', value: '0.00' },
+  { label: 'Handling Fee', value: '0.00' },
+  { label: 'Expected', value: '0.00' },
+  { label: 'Frozen Amount', value: '0.00' },
+];
+
 export const balanceSummary = [
   { label: 'Wallet Balance', value: '0.00' },
   { label: 'Handling Fee', value: '0.00' },
@@ -35,10 +41,4 @@ export const balanceSummary = [
     value: '0.00',
     icon: <Icon f7="question_circle_fill" size={16} className="ml-1 text-[16px] text-gray-500" />,
   },
-];
-
-export const VirtualCurrencyText = [
-  { text: 'No virtual currency address', className: 'text-lg font-bold' },
-  { text: 'Please add a virtual currency address.', className: 'text-xs text-gray-600' },
-  { text: '•••• •••• •••• ••', className: 'text-sm text-gray-600' },
 ];

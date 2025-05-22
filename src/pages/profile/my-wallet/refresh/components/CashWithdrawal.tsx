@@ -4,13 +4,9 @@ import { Block, Icon, Button } from 'framework7-react';
 import { balanceSummary } from '../utils';
 
 const CashWithdrawal: React.FC<{ tabName: string }> = ({ tabName }) => {
-  const renderCashLeft = () => (
-    <div
-      className={cn('flex h-8 w-8 items-center justify-center rounded-full bg-primary-gradient')}
-    >
-      <Icon f7="money_dollar" className="text-white" />
-    </div>
-  );
+  const button = () => {
+    console.log(tabName);
+  };
 
   const renderMaxRight = () => (
     <Button className="h-8 w-1/4 rounded-full bg-primary-gradient normal-case text-white">
@@ -28,7 +24,9 @@ const CashWithdrawal: React.FC<{ tabName: string }> = ({ tabName }) => {
           placeholder="Enter Amount"
           maxLength={12}
           className={cn('rounded-full border-2 border-gray-500 bg-white px-3 pl-0 pr-3')}
-          leftDecoration={renderCashLeft()}
+          leftDecoration={
+            <Icon f7="money_dollar" className="rounded-full bg-primary-gradient text-white" />
+          }
           rightDecoration={renderMaxRight()}
         />
         <div className="w-full rounded-lg bg-purple-50 p-3 text-sm">
@@ -50,7 +48,10 @@ const CashWithdrawal: React.FC<{ tabName: string }> = ({ tabName }) => {
         </p>
       </Block>
 
-      <Button className="h-14 w-full rounded-lg bg-primary-gradient font-medium normal-case text-white">
+      <Button
+        onClick={() => button()}
+        className="h-14 w-full rounded-lg bg-primary-gradient font-medium normal-case text-white"
+      >
         Immediately
       </Button>
     </>
