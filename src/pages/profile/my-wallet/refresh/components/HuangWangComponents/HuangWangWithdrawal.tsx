@@ -2,7 +2,7 @@ import { CustomInput } from '@/pages/profile/component';
 import { cn } from '@/utils/helper';
 import { Block, Icon, Button } from 'framework7-react';
 
-import { balanceSummary } from '../utils';
+import { balanceSummary, walletTexts } from '../utils';
 
 const HuangWangWithdrawal = () => {
   const renderCashLeft = () => {
@@ -17,7 +17,7 @@ const HuangWangWithdrawal = () => {
   const renderMaxRight = () => {
     return (
       <Button className={cn('h-8 w-1/4 rounded-full bg-primary-gradient normal-case text-white')}>
-        MAX
+        {walletTexts.maxButtonLabel}
       </Button>
     );
   };
@@ -25,7 +25,7 @@ const HuangWangWithdrawal = () => {
   return (
     <div>
       <Block className="space-y-3 rounded-3xl bg-white py-5">
-        <p className="text-gradient text-lg font-bold">Cash withdrawal</p>
+        <p className="text-gradient text-lg font-bold">{walletTexts.cashWithdrawalTitle}</p>
 
         <CustomInput
           name="amount"
@@ -56,15 +56,14 @@ const HuangWangWithdrawal = () => {
         </div>
 
         <p className="font medium text-xs text-black">
-          Contact for first presentation
-          <span className="text-gradient font-bold"> @U8hdkefu8 </span>
-          Official grid customer service and let the customer service retain your aircraft number.
-          The customer service will be checked twice to ensure the safety of fund.
+          {walletTexts.contactInfo.message}
+          <span className="text-gradient font-bold"> {walletTexts.contactInfo.handle} </span>
+          {walletTexts.contactInfo.details}
         </p>
       </Block>
 
       <Button className="h-14 w-full rounded-lg bg-primary-gradient font-medium normal-case text-white">
-        Immediately
+        {walletTexts.submitButton}
       </Button>
     </div>
   );

@@ -63,7 +63,6 @@ export const WithdrawAccount = () => {
         <h2 className="text-gradient text-base font-bold">Withdraw the HSBC account</h2>
         <Icon f7="question_circle_fill" className="text-gray-500" size={18} />
       </div>
-
       <CustomInput
         name="telephone"
         type="tel"
