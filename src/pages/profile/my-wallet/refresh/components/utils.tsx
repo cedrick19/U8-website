@@ -26,8 +26,14 @@ export const countryCodes = [
 ];
 
 export const balanceSummary = [
-  { label: 'Wallet Balance', value: '11.00' },
+  { label: 'Wallet Balance', value: '0.00' },
   { label: 'Handling Fee', value: '0.00' },
   { label: 'Expected', value: '0.00' },
   { label: 'Frozen Amount', value: '0.00' },
+];
+
+export const VirtualCurrencyText = [
+  { text: 'No virtual currency address', className: 'text-lg font-bold text-black' },
+  { text: 'Please add a virtual currency address.', className: 'text-xs text-gray-600' },
+  { text: '•••• •••• •••• ••', className: 'text-sm text-gray-600' },
 ];

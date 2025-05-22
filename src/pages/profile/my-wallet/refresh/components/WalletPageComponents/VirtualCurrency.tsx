@@ -1,5 +1,6 @@
 import { FC } from 'react';
 import { Block, Button, Icon } from 'framework7-react';
+import { VirtualCurrencyText } from '../utils';
 
 interface VirtualCurrencyProps {
   onAddClick: () => void;
@@ -16,9 +17,11 @@ const VirtualCurrency: FC<VirtualCurrencyProps> = ({ onAddClick }) => {
       </Button>
 
       <div>
-        <p className="text-lg font-bold text-black">No virtual currency address</p>
-        <p className="text-xs text-gray-600">Please add a virtual currency address.</p>
-        <p className="text-sm text-gray-600">•••• •••• •••• ••••</p>
+        {VirtualCurrencyText.map(({ text, className }, index) => (
+          <p key={index} className={className}>
+            {text}
+          </p>
+        ))}
       </div>
     </Block>
   );
