@@ -7,7 +7,6 @@ import { f7navigate } from '@/utils/helper';
 const Refresh = () => {
   return (
     <Page name="Refresh">
-      <div className="absolute h-[40%] w-full rounded-br-full bg-gradient-to-br from-[#381E7B]/20 via-transparent to-transparent backdrop:blur-3xl" />
       <MobileNavbar
         mode="profile"
         title="Refresh"

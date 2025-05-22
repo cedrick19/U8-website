@@ -1,5 +1,6 @@
+import { HuangWangPage } from './HuangWangPage';
 import { WalletPage } from './WalletPage';
-import { HuangWangPage } from './HuangwangPage';
+
 import { SegmentButtons } from '@/components/SegmentedTabs/type';
 
 export const RefreshOptions: SegmentButtons[] = [
@@ -50,6 +51,12 @@ export const walletTexts = {
     handle: '@U8hdkefu8',
     details:
       'Official grid customer service and let the customer service retain your aircraft number. The customer service will be checked twice to ensure the safety of fund.',
+  },
+
+  withdrawAccounts: {
+    message: 'Withdraw the HSBC account',
+    warning:
+      'Please carefully check the HSBC account. The wrong account funds will not be available.',
   },
 
   submitButton: 'Immediately',

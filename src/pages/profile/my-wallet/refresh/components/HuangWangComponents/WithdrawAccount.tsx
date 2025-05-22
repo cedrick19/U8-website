@@ -3,7 +3,7 @@ import { Block, Icon, Popup, Page, List, ListItem, Button } from 'framework7-rea
 import { cn } from '@/utils/helper';
 import { CustomInput } from '@/pages/profile/component';
 import { FormState, CountryCode } from '../type';
-import { countryCodes } from '../utils';
+import { countryCodes, walletTexts } from '../utils';
 
 export const WithdrawAccount = () => {
   const [formState, setFormState] = useState<FormState>({
@@ -60,7 +60,9 @@ export const WithdrawAccount = () => {
   return (
     <Block className="space-y-3 rounded-3xl bg-white py-5">
       <div className="flex items-center gap-2">
-        <h2 className="text-gradient text-base font-bold">Withdraw the HSBC account</h2>
+        <h2 className="text-gradient text-base font-bold">
+          {walletTexts.withdrawAccounts.message}
+        </h2>
         <Icon f7="question_circle_fill" className="text-gray-500" size={18} />
       </div>
       <CustomInput
@@ -90,9 +92,7 @@ export const WithdrawAccount = () => {
 
       <div className="flex items-baseline gap-1 pt-2">
         <Icon f7="exclamationmark_triangle_fill" className="text-red-500" size={16} />
-        <p className="text-sm text-red-500">
-          Please carefully check the HSBC account. The wrong account funds will not be available.
-        </p>
+        <p className="text-sm text-red-500">{walletTexts.withdrawAccounts.warning}</p>
       </div>
     </Block>
   );

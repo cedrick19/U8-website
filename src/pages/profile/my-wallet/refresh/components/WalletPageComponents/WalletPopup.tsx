@@ -28,9 +28,7 @@ const WalletPopup: React.FC<WalletPopupProps> = ({ tabName, open, setOpen }) => 
           <Icon f7="exclamationmark_triangle_fill" icon="text-red-500" size={16} />
           <span className="ml-1 text-sm text-red-600">{walletTexts.popup.walletLimitInfo}</span>
         </div>
-
         <p className="text-lg font-semibold">{walletTexts.popup.walletCount}</p>
-
         <Button
           className="text-gradient h-12 border-2 border-secondary font-bold normal-case"
           onClick={() => {
