@@ -4,10 +4,10 @@ import { Block, Icon, Button } from 'framework7-react';
 import { balanceSummary } from '../utils';
 
 const CashWithdrawal: React.FC<{ tabName: string }> = ({ tabName }) => {
+  const UpperCase = tabName.toUpperCase();
   const button = () => {
-    console.log(tabName);
+    console.log(UpperCase);
   };
-
   const renderMaxRight = () => (
     <Button className="h-8 w-1/4 rounded-full bg-primary-gradient normal-case text-white">
       MAX
@@ -47,7 +47,6 @@ const CashWithdrawal: React.FC<{ tabName: string }> = ({ tabName }) => {
           will be checked twice to ensure the safety of fund.{' '}
         </p>
       </Block>
-
       <Button
         onClick={() => button()}
         className="h-14 w-full rounded-lg bg-primary-gradient font-medium normal-case text-white"
